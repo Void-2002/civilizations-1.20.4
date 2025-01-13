@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_limestone": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "civilizations:limestone"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:smooth_limestone_from_smelting_limestone"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_limestone",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:smooth_limestone_from_smelting_limestone"
+    ]
+  },
+  "sends_telemetry_event": false
+}

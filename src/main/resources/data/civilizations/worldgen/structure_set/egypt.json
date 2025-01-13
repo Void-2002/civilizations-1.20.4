@@ -1,0 +1,17 @@
+{
+  "structures": [
+    {
+      "structure": "civilizations:egypt",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 1347156874,
+
+    "spacing": 150,
+
+    "separation": 100,
+
+    "type": "minecraft:random_spread"
+  }
+}

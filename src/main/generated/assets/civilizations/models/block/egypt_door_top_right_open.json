@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_top_right_open",
+  "textures": {
+    "bottom": "civilizations:block/egypt_door_bottom",
+    "top": "civilizations:block/egypt_door_top"
+  }
+}
