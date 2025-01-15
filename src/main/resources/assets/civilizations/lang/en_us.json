@@ -6,5 +6,7 @@
   "block.civilizations.sandstone_pillar": "Sandstone Pillar",
   "block.civilizations.sandstone_bricks": "Sandstone Bricks",
   "block.civilizations.egypt_door": "Egyptian door",
-  "tooltip.civilizations.egypt_key": "Used to open the door to Khufu's Tomb"
+  "item.civilizations.coin_egypt": "Egyptian gold stater",
+  "tooltip.civilizations.egypt_key": "Used to open the door to Khufu's Tomb",
+  "itemgroup.civilizations": "Civilizations Mod"
 }

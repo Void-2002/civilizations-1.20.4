@@ -40,7 +40,9 @@ public class Key_egypt extends Item {
                 r = ActionResult.SUCCESS;
             }
         }else{
-            context.getPlayer().playSound(SoundEvents.BLOCK_IRON_DOOR_OPEN,1.0F,1.0F);
+            if(context.getPlayer()!=null){
+                context.getPlayer().playSound(SoundEvents.BLOCK_IRON_DOOR_OPEN,1.0F,1.0F);
+            }
         }
         return r;
     }

@@ -1,6 +1,7 @@
 package net._void.civilizations;
 
 import net._void.civilizations.block.ModBlocks;
+import net._void.civilizations.item.ModItemGroups;
 import net._void.civilizations.item.ModItems;
 import net.fabricmc.api.ModInitializer;
 
@@ -14,6 +15,7 @@ public class Civilizations implements ModInitializer {
 	@Override
 	public void onInitialize() {
 
+		ModItemGroups.registerItemGroups();
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
 	}

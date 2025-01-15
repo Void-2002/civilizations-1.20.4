@@ -27,5 +27,6 @@ public class ModModelProvider extends FabricModelProvider {
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
         itemModelGenerator.register(ModItems.KEY_EGYPT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.COIN_EGYPT, Models.GENERATED);
     }
 }
