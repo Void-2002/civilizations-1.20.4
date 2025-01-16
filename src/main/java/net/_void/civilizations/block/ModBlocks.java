@@ -13,8 +13,8 @@ import net.minecraft.util.Identifier;
 
 public class ModBlocks {
 
-    public static final Block SANDSTONE_PILLAR = registerBlock("sandstone_pillar", new Block(FabricBlockSettings.copyOf(Blocks.SANDSTONE)));
-    public static final Block SANDSTONE_BRICKS = registerBlock("sandstone_bricks", new Block(FabricBlockSettings.copyOf(Blocks.SANDSTONE)));
+    public static final Block LIMESTONE_PILLAR = registerBlock("limestone_pillar", new Block(FabricBlockSettings.copyOf(Blocks.SANDSTONE)));
+    public static final Block LIMESTONE_BRICKS = registerBlock("limestone_bricks", new Block(FabricBlockSettings.copyOf(Blocks.SANDSTONE)));
     public static final Block LIMESTONE = registerBlock("limestone", new Block(FabricBlockSettings.copyOf(Blocks.SANDSTONE).strength(2.0F)));
     public static final Block SMOOTH_LIMESTONE = registerBlock("smooth_limestone", new Block(FabricBlockSettings.copyOf(Blocks.SANDSTONE).strength(4.0F)));
     public static final Block ROUGH_LIMESTONE = registerBlock("rough_limestone", new Block(FabricBlockSettings.copyOf(Blocks.SANDSTONE).strength(-1.0F, 3600000.0F)));

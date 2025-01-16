@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "civilizations:block/sandstone_pillar"
+    "all": "civilizations:block/limestone_pillar"
   }
 }

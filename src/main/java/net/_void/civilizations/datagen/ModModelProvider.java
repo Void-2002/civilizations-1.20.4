@@ -18,8 +18,8 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.LIMESTONE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SMOOTH_LIMESTONE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ROUGH_LIMESTONE);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SANDSTONE_BRICKS);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SANDSTONE_PILLAR);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.LIMESTONE_BRICKS);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.LIMESTONE_PILLAR);
         blockStateModelGenerator.registerDoor(ModBlocks.EGYPT_DOOR);
 
     }
@@ -28,5 +28,7 @@ public class ModModelProvider extends FabricModelProvider {
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
         itemModelGenerator.register(ModItems.KEY_EGYPT, Models.GENERATED);
         itemModelGenerator.register(ModItems.COIN_EGYPT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.BLANK_PAPYRUS, Models.GENERATED);
+        itemModelGenerator.register(ModItems.PAPYRUS, Models.GENERATED);
     }
 }

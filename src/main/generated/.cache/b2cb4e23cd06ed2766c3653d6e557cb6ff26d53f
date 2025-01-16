@@ -1,2 +1,4 @@
-// 1.20.1	2025-01-15T20:28:24.9457668	Civilizations/Tags for minecraft:block
+// 1.20.1	2025-01-16T11:56:05.3877105	Civilizations/Tags for minecraft:block
+ae41eef06d315e5b02335e745b17d6982c0a7010 data\minecraft\tags\blocks\mineable\pickaxe.json
 f631ef18dad85dd1b876965737614f6e3b30c4e6 data\civilizations\tags\blocks\egypt_key_door.json
+347f18e71f7d5d8f7a227a9293244521279611a5 data\minecraft\tags\blocks\needs_iron_tool.json

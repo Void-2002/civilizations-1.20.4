@@ -21,9 +21,11 @@ public class ModItemGroups {
                         entries.add(ModBlocks.SMOOTH_LIMESTONE);
                         entries.add(ModBlocks.LIMESTONE);
                         entries.add(ModBlocks.ROUGH_LIMESTONE);
-                        entries.add(ModBlocks.SANDSTONE_BRICKS);
-                        entries.add(ModBlocks.SANDSTONE_PILLAR);
+                        entries.add(ModBlocks.LIMESTONE_BRICKS);
+                        entries.add(ModBlocks.LIMESTONE_PILLAR);
                         entries.add(ModBlocks.EGYPT_DOOR);
+                        entries.add(ModItems.BLANK_PAPYRUS);
+                        entries.add(ModItems.PAPYRUS);
 
 
 

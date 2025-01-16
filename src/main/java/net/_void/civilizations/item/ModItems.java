@@ -16,9 +16,13 @@ public class ModItems {
 
     public static final Item KEY_EGYPT = registerItem("key_egypt",new Key_egypt(new FabricItemSettings()));
     public static final Item COIN_EGYPT = registerItem("coin_egypt", new Item(new FabricItemSettings()));
+    public static final Item BLANK_PAPYRUS = registerItem("blank_papyrus", new Item(new FabricItemSettings()));
+    public static final Item PAPYRUS = registerItem("papyrus", new Item(new FabricItemSettings()));
 
     private static void addItemsToIngredientTabItemGroup(FabricItemGroupEntries entries){
         entries.add(COIN_EGYPT);
+        entries.add(BLANK_PAPYRUS);
+        entries.add(PAPYRUS);
     }
 
     private static void addItemsToToolTabItemGroup(FabricItemGroupEntries entries){
@@ -29,8 +33,8 @@ public class ModItems {
         entries.add(ModBlocks.SMOOTH_LIMESTONE);
         entries.add(ModBlocks.LIMESTONE);
         entries.add(ModBlocks.ROUGH_LIMESTONE);
-        entries.add(ModBlocks.SANDSTONE_BRICKS);
-        entries.add(ModBlocks.SANDSTONE_PILLAR);
+        entries.add(ModBlocks.LIMESTONE_BRICKS);
+        entries.add(ModBlocks.LIMESTONE_PILLAR);
     }
 
     private static void addItemsToRedstoneTabItemGroup(FabricItemGroupEntries entries){

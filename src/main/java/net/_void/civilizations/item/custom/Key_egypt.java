@@ -46,10 +46,4 @@ public class Key_egypt extends Item {
         }
         return r;
     }
-
-    @Override
-    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(Text.translatable("tooltip.civilizations.egypt_key"));
-        super.appendTooltip(stack, world, tooltip, context);
-    }
 }

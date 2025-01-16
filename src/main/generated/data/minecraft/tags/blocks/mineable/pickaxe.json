@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "civilizations:smooth_limestone",
+    "civilizations:limestone",
+    "civilizations:limestone_bricks",
+    "civilizations:limestone_pillar"
+  ]
+}

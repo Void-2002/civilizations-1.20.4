@@ -3,10 +3,11 @@
   "block.civilizations.limestone": "Limestone",
   "block.civilizations.smooth_limestone": "Smooth Limestone",
   "block.civilizations.rough_limestone": "Rough Limestone",
-  "block.civilizations.sandstone_pillar": "Sandstone Pillar",
-  "block.civilizations.sandstone_bricks": "Sandstone Bricks",
+  "block.civilizations.limestone_pillar": "Limestone Pillar",
+  "block.civilizations.limestone_bricks": "Limestone Bricks",
   "block.civilizations.egypt_door": "Egyptian door",
   "item.civilizations.coin_egypt": "Egyptian gold stater",
-  "tooltip.civilizations.egypt_key": "Used to open the door to Khufu's Tomb",
+  "item.civilizations.blank_papyrus": "Blank Papyrus",
+  "item.civilizations.papyrus": "Papyrus",
   "itemgroup.civilizations": "Civilizations Mod"
 }
