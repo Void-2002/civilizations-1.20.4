@@ -9,5 +9,6 @@
   "item.civilizations.coin_egypt": "Egyptian gold stater",
   "item.civilizations.blank_papyrus": "Blank Papyrus",
   "item.civilizations.papyrus": "Papyrus",
-  "itemgroup.civilizations": "Civilizations Mod"
+  "itemgroup.civilizations": "Civilizations Mod",
+  "entity.civilizations.egypt_civilian": "Egyptian"
 }
