@@ -24,6 +24,14 @@ public class EgyptCivilianRenderer extends MobEntityRenderer<EgyptCivilianEntity
                         new Identifier(Civilizations.MOD_ID, "textures/entity/egypt_civilian_3.png"));
                 map.put(EgyptCivilianVariant.CIVILIAN4,
                         new Identifier(Civilizations.MOD_ID, "textures/entity/egypt_civilian_4.png"));
+                map.put(EgyptCivilianVariant.CIVILIAN5,
+                        new Identifier(Civilizations.MOD_ID, "textures/entity/egypt_civilian_5.png"));
+                map.put(EgyptCivilianVariant.CIVILIAN6,
+                        new Identifier(Civilizations.MOD_ID, "textures/entity/egypt_civilian_6.png"));
+                map.put(EgyptCivilianVariant.CIVILIAN7,
+                        new Identifier(Civilizations.MOD_ID, "textures/entity/egypt_civilian_7.png"));
+                map.put(EgyptCivilianVariant.CIVILIAN8,
+                        new Identifier(Civilizations.MOD_ID, "textures/entity/egypt_civilian_8.png"));
             });
 
     public EgyptCivilianRenderer(EntityRendererFactory.Context context) {
