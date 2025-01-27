@@ -26,7 +26,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.EGYPT_DOOR);
                         entries.add(ModItems.BLANK_PAPYRUS);
                         entries.add(ModItems.PAPYRUS);
-
+                        entries.add(ModBlocks.TRADING_STATION);
 
 
 

@@ -1,11 +1,13 @@
 package net._void.civilizations;
 
 import net._void.civilizations.block.ModBlocks;
+import net._void.civilizations.block.entity.ModBlockEntities;
 import net._void.civilizations.entity.ModEntities;
 import net._void.civilizations.entity.client.EgyptCivilianModel;
 import net._void.civilizations.entity.custom.EgyptCivilianEntity;
 import net._void.civilizations.item.ModItemGroups;
 import net._void.civilizations.item.ModItems;
+import net._void.civilizations.screen.ModScreenHandlers;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
@@ -22,6 +24,8 @@ public class Civilizations implements ModInitializer {
 		ModItemGroups.registerItemGroups();
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
+		ModBlockEntities.registerBlockEntities();
+		ModScreenHandlers.registerScreenHandlers();
 		FabricDefaultAttributeRegistry.register(ModEntities.EGYPT_CIVILIAN, EgyptCivilianEntity.createCivilianAttributes());
 	}
 }

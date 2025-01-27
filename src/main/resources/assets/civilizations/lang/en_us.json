@@ -10,5 +10,6 @@
   "item.civilizations.blank_papyrus": "Blank Papyrus",
   "item.civilizations.papyrus": "Papyrus",
   "itemgroup.civilizations": "Civilizations Mod",
-  "entity.civilizations.egypt_civilian": "Egyptian"
+  "entity.civilizations.egypt_civilian": "Egyptian",
+  "block.civilizations.trading_station": "Trading Station"
 }

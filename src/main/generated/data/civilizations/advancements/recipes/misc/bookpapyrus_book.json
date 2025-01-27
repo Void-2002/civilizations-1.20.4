@@ -34,9 +34,9 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_blank_papyrus",
-      "has_leather",
-      "has_the_recipe"
+      "has_leather"
     ]
   ],
   "rewards": {

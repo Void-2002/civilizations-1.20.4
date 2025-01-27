@@ -41,6 +41,10 @@ public class ModItems {
         entries.add(ModBlocks.EGYPT_DOOR);
     }
 
+    private static void addItemsToFunctionalTabItemGroup(FabricItemGroupEntries entries){
+        entries.add(ModBlocks.TRADING_STATION);
+    }
+
     private static Item registerItem(String name, Item item){
         return Registry.register(Registries.ITEM, new Identifier(Civilizations.MOD_ID,name),item);
     }
@@ -52,5 +56,6 @@ public class ModItems {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(ModItems::addItemsToToolTabItemGroup);
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(ModItems::addItemsToBuildTabItemGroup);
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.REDSTONE).register(ModItems::addItemsToRedstoneTabItemGroup);
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(ModItems::addItemsToFunctionalTabItemGroup);
     }
 }
