@@ -13,6 +13,7 @@ import net.minecraft.util.Identifier;
 
 public class TradingStationScreen extends HandledScreen<TradingStationScreenHandler>{
     private static final Identifier TEXTURE = new Identifier(Civilizations.MOD_ID, "textures/gui/trade_menu.png");
+    public static int TRADE = 1;
 
     public TradingStationScreen(TradingStationScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
@@ -24,26 +25,25 @@ public class TradingStationScreen extends HandledScreen<TradingStationScreenHand
         titleY = 1000;
         playerInventoryTitleY = 1000;
 
-
         ButtonWidget button1 = ButtonWidget.builder(Text.literal(""), button -> {
-                    System.out.println("You clicked button1!");  //handler.setTrade(1)
+                    TRADE=1;
                 })
-                .dimensions(232+6, 97+14, 39, 23)
+                .dimensions(238, 111, 39, 23)
                 .build();
         ButtonWidget button2 = ButtonWidget.builder(Text.literal(""), button -> {
-                    System.out.println("You clicked button2!");  //handler.setTrade(2)
+                    TRADE=2;
                 })
-                .dimensions(232+45, 97+14, 39, 23)
+                .dimensions(277, 111, 39, 23)
                 .build();
         ButtonWidget button3 = ButtonWidget.builder(Text.literal(""), button -> {
-                    System.out.println("You clicked button3!");
+                    TRADE=3;
                 })
-                .dimensions(232+6, 97+37, 39, 23)
+                .dimensions(238, 134, 39, 23)
                 .build();
         ButtonWidget button4 = ButtonWidget.builder(Text.literal(""), button -> {
-                    System.out.println("You clicked button4!");
+                    TRADE=4;
                 })
-                .dimensions(232+45, 97+37, 39, 23)
+                .dimensions(277, 134, 39, 23)
                 .build();
 
         addDrawableChild(button1);
@@ -68,13 +68,8 @@ public class TradingStationScreen extends HandledScreen<TradingStationScreenHand
         context.drawText(this.textRenderer, "Quests", x + 115, y + 24 - this.textRenderer.fontHeight - 10, 0x373737, false);
 
         renderReputationBar(context, x, y);
-        //renderIcons(context, x, y);
-    }
-
-    private void renderProgressArrow(DrawContext context, int x, int y) {
-        if(handler.isCrafting()) {
-            context.drawTexture(TEXTURE, x + 85, y + 30, 176, 0, 8, handler.getScaledProgress());
-        }
+        //renderTrades(context, x, y);
+        //renderQuests(context, x, y);
     }
 
     private void renderReputationBar(DrawContext context, int x, int y) {
@@ -87,6 +82,19 @@ public class TradingStationScreen extends HandledScreen<TradingStationScreenHand
         Identifier texture = new Identifier("minecraft", "textures/item/diamond.png");
         // texture, x, y, u, v, width, height, textureWidth, textureHeight
         context.drawTexture(texture, 150, 150, 0, 0, 16, 16, 16, 16);
+    }
+
+    private void renderIcon(DrawContext context){
+        Identifier texture = new Identifier("minecraft", "textures/block/hay_block_side.png");
+        context.drawTexture(texture, 180, 113, 0, 0, 16, 16, 16, 16);
+    }
+
+    private void renderTrades(DrawContext context, int x, int y){
+        renderIcon(context);
+    }
+
+    private void renderQuests(DrawContext context, int x, int y){
+        int reputation = handler.getReputation();
     }
 
     @Override

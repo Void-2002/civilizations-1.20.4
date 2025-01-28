@@ -1,6 +1,8 @@
 package net._void.civilizations.block.entity;
 
+import net._void.civilizations.item.ModItems;
 import net._void.civilizations.screen.TradingStationScreenHandler;
+import net._void.civilizations.screen.TradingStationScreen;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
@@ -22,6 +24,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
+import static net._void.civilizations.screen.TradingStationScreen.TRADE;
+
 public class TradingStationBlockEntity extends BlockEntity implements ExtendedScreenHandlerFactory, ImplementedInventory {
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(4, ItemStack.EMPTY);
 
@@ -31,8 +35,6 @@ public class TradingStationBlockEntity extends BlockEntity implements ExtendedSc
     private static final int QUEST_OUTPUT = 3;
 
     protected final PropertyDelegate propertyDelegate;
-    private int progress = 0;
-    private int maxProgress = 72;
     private int reputation = 0;
 
     public TradingStationBlockEntity(BlockPos pos, BlockState state) {
@@ -41,9 +43,7 @@ public class TradingStationBlockEntity extends BlockEntity implements ExtendedSc
             @Override
             public int get(int index) {
                 return switch (index) {
-                    case 0 -> TradingStationBlockEntity.this.progress;
-                    case 1 -> TradingStationBlockEntity.this.maxProgress;
-                    case 2 -> TradingStationBlockEntity.this.reputation;
+                    case 0 -> TradingStationBlockEntity.this.reputation;
                     default -> 0;
                 };
             }
@@ -51,15 +51,13 @@ public class TradingStationBlockEntity extends BlockEntity implements ExtendedSc
             @Override
             public void set(int index, int value) {
                 switch (index) {
-                    case 0 -> TradingStationBlockEntity.this.progress = value;
-                    case 1 -> TradingStationBlockEntity.this.maxProgress = value;
-                    case 2 -> TradingStationBlockEntity.this.reputation = value;
+                    case 0 -> TradingStationBlockEntity.this.reputation = value;
                 }
             }
 
             @Override
             public int size() {
-                return 3;
+                return 1;
             }
         };
     }
@@ -83,7 +81,6 @@ public class TradingStationBlockEntity extends BlockEntity implements ExtendedSc
     protected void writeNbt(NbtCompound nbt) {
         super.writeNbt(nbt);
         Inventories.writeNbt(nbt, inventory);
-        nbt.putInt("trading_station.progress", progress);
         nbt.putInt("trading_station.reputation", reputation);
     }
 
@@ -91,7 +88,6 @@ public class TradingStationBlockEntity extends BlockEntity implements ExtendedSc
     public void readNbt(NbtCompound nbt) {
         super.readNbt(nbt);
         Inventories.readNbt(nbt, inventory);
-        progress = nbt.getInt("trading_station.progress");
         reputation = nbt.getInt("trading_station.reputation");
     }
 
@@ -106,59 +102,83 @@ public class TradingStationBlockEntity extends BlockEntity implements ExtendedSc
             return;
         }
 
-        if(isOutputSlotEmptyOrReceivable()) {
-            if(this.hasRecipe()) {
-                this.increaseCraftProgress();
-                markDirty(world, pos, state);
+        // Place trade offers
 
-                if(hasCraftingFinished()) {
-                    this.craftItem();
-                    this.resetProgress();
-                }
-            } else {
-                this.resetProgress();
-            }
-        } else {
-            this.resetProgress();
-            markDirty(world, pos, state);
+        if(TRADE==1 && isRightItemForTrade(TRADE)) tradeResult(TRADE, world, pos, state);
+        else if(TRADE==2 && isRightItemForTrade(TRADE)) tradeResult(TRADE, world, pos, state);
+        else if(TRADE==3 && isRightItemForTrade(TRADE)) tradeResult(TRADE, world, pos, state);
+        else if(TRADE==4 && isRightItemForTrade(TRADE)) tradeResult(TRADE, world, pos, state);
+        else tradeResult(-1, world, pos, state);
+
+        // Place quest offers
+
+        if(reputation==0 && isRightItemForQuest(0)) questResult(0, world, pos, state);
+        else if(reputation==10 && isRightItemForQuest(10)) questResult(10, world, pos, state);
+        else if(reputation==20 && isRightItemForQuest(20)) questResult(20, world, pos, state);
+        else if(reputation==30 && isRightItemForQuest(30)) questResult(30, world, pos, state);
+        else if(reputation==40 && isRightItemForQuest(40)) questResult(40, world, pos, state);
+        else if(reputation==50 && isRightItemForQuest(50)) questResult(50, world, pos, state);
+        else if(reputation==60 && isRightItemForQuest(60)) questResult(60, world, pos, state);
+        else if(reputation==70 && isRightItemForQuest(70)) questResult(70, world, pos, state);
+        else if(reputation==80 && isRightItemForQuest(80)) questResult(80, world, pos, state);
+        else if(reputation==90 && isRightItemForQuest(90)) questResult(90, world, pos, state);
+        else questResult(-1, world, pos, state);
+
+    }
+
+    private boolean isRightItemForTrade(int trade){
+        boolean bl = false;
+        switch(trade){
+            case 1 -> bl = getStack(TRADE_INPUT).getItem() == Items.HAY_BLOCK;
+            case 2 -> bl = getStack(TRADE_INPUT).getItem() == Items.HAY_BLOCK;
+            case 3 -> bl = getStack(TRADE_INPUT).getItem() == ModItems.COIN_EGYPT;
+            case 4 -> bl = getStack(TRADE_INPUT).getItem() == ModItems.COIN_EGYPT;
         }
+        return bl;
     }
 
-    private void resetProgress() {
-        this.progress = 0;
+    private void tradeResult(int trade, World world, BlockPos pos, BlockState state){
+        switch(trade){
+            case 1 -> this.setStack(TRADE_OUTPUT, new ItemStack(ModItems.COIN_EGYPT,1));
+            case 2 -> this.setStack(TRADE_OUTPUT, new ItemStack(ModItems.COIN_EGYPT,1));
+            case 3 -> this.setStack(TRADE_OUTPUT, new ItemStack(ModItems.BLANK_PAPYRUS,1));
+            case 4 -> this.setStack(TRADE_OUTPUT, new ItemStack(Items.GOLD_NUGGET,3));
+            case -1 -> this.setStack(TRADE_OUTPUT, ItemStack.EMPTY);
+        }
+        markDirty(world, pos, state);
     }
 
-    private void craftItem() {
-        this.removeStack(TRADE_INPUT, 1);
-        ItemStack result = new ItemStack(Items.IRON_INGOT);
-
-        this.setStack(TRADE_OUTPUT, new ItemStack(result.getItem(), getStack(TRADE_OUTPUT).getCount() + result.getCount()));
+    private boolean isRightItemForQuest(int reputation){
+        boolean bl = false;
+        switch(reputation){
+            case 0 -> bl = getStack(QUEST_INPUT).getItem() == Items.HAY_BLOCK && getStack(QUEST_INPUT).getCount() >= 10;
+            case 10 -> bl = getStack(QUEST_INPUT).getItem() == Items.HAY_BLOCK;
+            case 20 -> bl = getStack(QUEST_INPUT).getItem() == ModItems.COIN_EGYPT;
+            case 30 -> bl = getStack(QUEST_INPUT).getItem() == ModItems.COIN_EGYPT;
+            case 40 -> bl = getStack(QUEST_INPUT).getItem() == ModItems.COIN_EGYPT;
+            case 50 -> bl = getStack(QUEST_INPUT).getItem() == ModItems.COIN_EGYPT;
+            case 60 -> bl = getStack(QUEST_INPUT).getItem() == ModItems.COIN_EGYPT;
+            case 70 -> bl = getStack(QUEST_INPUT).getItem() == ModItems.COIN_EGYPT;
+            case 80 -> bl = getStack(QUEST_INPUT).getItem() == ModItems.COIN_EGYPT;
+            case 90 -> bl = getStack(QUEST_INPUT).getItem() == ModItems.COIN_EGYPT && getStack(QUEST_INPUT).getCount() >= 20;
+        }
+        return bl;
     }
 
-    private boolean hasCraftingFinished() {
-        return progress >= maxProgress;
-    }
-
-    private void increaseCraftProgress() {
-        progress++;
-    }
-
-    private boolean hasRecipe() {
-        ItemStack result = new ItemStack(Items.IRON_INGOT);
-        boolean hasInput = getStack(TRADE_INPUT).getItem() == Items.RAW_IRON;
-
-        return hasInput && canInsertAmountIntoOutputSlot(result) && canInsertItemIntoOutputSlot(result.getItem());
-    }
-
-    private boolean canInsertItemIntoOutputSlot(Item item) {
-        return this.getStack(TRADE_OUTPUT).getItem() == item || this.getStack(TRADE_OUTPUT).isEmpty();
-    }
-
-    private boolean canInsertAmountIntoOutputSlot(ItemStack result) {
-        return this.getStack(TRADE_OUTPUT).getCount() + result.getCount() <= getStack(TRADE_OUTPUT).getMaxCount();
-    }
-
-    private boolean isOutputSlotEmptyOrReceivable() {
-        return this.getStack(TRADE_OUTPUT).isEmpty() || this.getStack(TRADE_OUTPUT).getCount() < this.getStack(TRADE_OUTPUT).getMaxCount();
+    private void questResult(int reputation, World world, BlockPos pos, BlockState state){
+        switch(reputation){
+            case 0 -> this.setStack(QUEST_OUTPUT, new ItemStack(ModItems.COIN_EGYPT,10));
+            case 10 -> this.setStack(QUEST_OUTPUT, new ItemStack(ModItems.COIN_EGYPT,15));
+            case 20 -> this.setStack(QUEST_OUTPUT, new ItemStack(ModItems.COIN_EGYPT,20));
+            case 30 -> this.setStack(QUEST_OUTPUT, new ItemStack(ModItems.COIN_EGYPT,25));
+            case 40 -> this.setStack(QUEST_OUTPUT, new ItemStack(ModItems.COIN_EGYPT,30));
+            case 50 -> this.setStack(QUEST_OUTPUT, new ItemStack(ModItems.COIN_EGYPT,35));
+            case 60 -> this.setStack(QUEST_OUTPUT, new ItemStack(ModItems.COIN_EGYPT,40));
+            case 70 -> this.setStack(QUEST_OUTPUT, new ItemStack(ModItems.COIN_EGYPT,45));
+            case 80 -> this.setStack(QUEST_OUTPUT, new ItemStack(ModItems.COIN_EGYPT,50));
+            case 90 -> this.setStack(QUEST_OUTPUT, new ItemStack(ModItems.KEY_EGYPT,1));
+            case -1 -> this.setStack(QUEST_OUTPUT, ItemStack.EMPTY);
+        }
+        markDirty(world, pos, state);
     }
 }

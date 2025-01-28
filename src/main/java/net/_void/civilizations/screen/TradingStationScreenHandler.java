@@ -11,6 +11,7 @@ import net.minecraft.screen.ArrayPropertyDelegate;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.Slot;
+import net.minecraft.screen.slot.SlotActionType;
 
 public class TradingStationScreenHandler extends ScreenHandler {
     private final Inventory inventory;
@@ -19,7 +20,7 @@ public class TradingStationScreenHandler extends ScreenHandler {
 
     public TradingStationScreenHandler(int syncId, PlayerInventory inventory, PacketByteBuf buf) {
         this(syncId, inventory, inventory.player.getWorld().getBlockEntity(buf.readBlockPos()),
-                new ArrayPropertyDelegate(3));
+                new ArrayPropertyDelegate(1));
     }
 
     public TradingStationScreenHandler(int syncId, PlayerInventory playerInventory,
@@ -32,9 +33,27 @@ public class TradingStationScreenHandler extends ScreenHandler {
         this.blockEntity = ((TradingStationBlockEntity) blockEntity);
 
         this.addSlot(new Slot(inventory, 0, 10, 64));
-        this.addSlot(new Slot(inventory, 1, 64,  64));
+        this.addSlot(new Slot(inventory, 1, 64,  64){
+            public boolean canInsert(ItemStack stack) {
+                return false;
+            }
+            @Override
+            public void onTakeItem(PlayerEntity player, ItemStack stack) {
+                super.onTakeItem(player, stack);
+                transaction(0, "trade");
+            }
+        });
         this.addSlot(new Slot(inventory, 2, 97, 64));
-        this.addSlot(new Slot(inventory, 3, 151, 64));
+        this.addSlot(new Slot(inventory, 3, 151, 64){
+            public boolean canInsert(ItemStack stack) {
+                return false;
+            }
+            @Override
+            public void onTakeItem(PlayerEntity player, ItemStack stack) {
+                super.onTakeItem(player, stack);
+                transaction(2, "quest");
+            }
+        });
 
 
         addPlayerInventory(playerInventory);
@@ -44,29 +63,42 @@ public class TradingStationScreenHandler extends ScreenHandler {
     }
 
     public int getReputation(){
-        return propertyDelegate.get(2);
+        return propertyDelegate.get(0);
     }
 
-    public void setTrade(int button){
-        //propertyDelegate.set(4,button);
+    public void setReputation(int value){
+        propertyDelegate.set(0,value);
     }
 
-    public boolean isCrafting() {
-        return propertyDelegate.get(0) > 0;
-    }
-
-    public int getScaledProgress() {
-        int progress = this.propertyDelegate.get(0);
-        int maxProgress = this.propertyDelegate.get(1);  // Max Progress
-        int progressArrowSize = 26; // This is the width in pixels of your arrow
-
-        return maxProgress != 0 && progress != 0 ? progress * progressArrowSize / maxProgress : 0;
+    public void transaction(int paymentIndex, String type){
+        if (type == "trade") getSlot(paymentIndex).getStack().setCount(getSlot(paymentIndex).getStack().getCount()-1);
+        if (type == "quest"){
+            int paymentAmount = 0;
+            switch(getReputation()){
+                case 0 -> paymentAmount = 10;
+                case 10 -> paymentAmount = 1;
+                case 20 -> paymentAmount = 1;
+                case 30 -> paymentAmount = 1;
+                case 40 -> paymentAmount = 1;
+                case 50 -> paymentAmount = 1;
+                case 60 -> paymentAmount = 1;
+                case 70 -> paymentAmount = 1;
+                case 80 -> paymentAmount = 1;
+                case 90 -> paymentAmount = 20;
+            }
+            getSlot(paymentIndex).getStack().setCount(getSlot(paymentIndex).getStack().getCount() - paymentAmount);
+            setReputation(getReputation()+10);
+        }
     }
 
     @Override
     public ItemStack quickMove(PlayerEntity player, int invSlot) {
         ItemStack newStack = ItemStack.EMPTY;
         Slot slot = this.slots.get(invSlot);
+
+        if(invSlot == 1) transaction(0, "trade");
+        if(invSlot == 3) transaction(2, "quest");
+
         if (slot != null && slot.hasStack()) {
             ItemStack originalStack = slot.getStack();
             newStack = originalStack.copy();
