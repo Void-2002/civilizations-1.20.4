@@ -58,7 +58,8 @@ public class EgyptNpcEntity extends AnimalEntity {
         return MobEntity.createMobAttributes().
                 add(EntityAttributes.GENERIC_MAX_HEALTH,100).
                 add(EntityAttributes.GENERIC_ARMOR,5).
-                add(EntityAttributes.GENERIC_FOLLOW_RANGE,20);
+                add(EntityAttributes.GENERIC_FOLLOW_RANGE,20).
+                add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE,0.5);
     }
 
     @Override

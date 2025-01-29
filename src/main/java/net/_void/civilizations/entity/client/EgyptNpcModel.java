@@ -49,6 +49,7 @@ public class EgyptNpcModel<T extends EgyptNpcEntity> extends SinglePartEntityMod
         this.getPart().traverse().forEach(ModelPart::resetTransform);
         this.setHeadAngles(netHeadYaw, headPitch);
 
+        this.animateMovement(ModAnimations.EGYPT_CIVILIAN_MOVE, limbSwing, limbSwingAmount, 1f, 1f);
         this.updateAnimation(entity.idleAnimationState, ModAnimations.EGYPT_CIVILIAN_IDLE, ageInTicks, 1f);
     }
 
