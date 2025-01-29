@@ -50,8 +50,7 @@ public class EgyptNpcEntity extends AnimalEntity {
 
     @Override
     protected void initGoals() {
-        this.goalSelector.add(0, new SwimGoal(this));
-        this.goalSelector.add(1, new LookAtEntityGoal(this, PlayerEntity.class, 5));
+        this.goalSelector.add(0, new LookAtEntityGoal(this, PlayerEntity.class, 5));
     }
 
     public static DefaultAttributeContainer.Builder createNpcAttributes(){

@@ -13,6 +13,10 @@ public class ModBlockEntities {
             Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(Civilizations.MOD_ID, "trading_station_be"),
                     FabricBlockEntityTypeBuilder.create(TradingStationBlockEntity::new,
                             ModBlocks.TRADING_STATION).build());
+    public static final BlockEntityType<TombstoneBlockEntity> TOMBSTONE_BLOCK_ENTITY =
+            Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(Civilizations.MOD_ID, "tombstone_be"),
+                    FabricBlockEntityTypeBuilder.create(TombstoneBlockEntity::new,
+                            ModBlocks.TOMBSTONE).build());
 
     public static void registerBlockEntities() {
         Civilizations.LOGGER.info("Registering Block Entities for " + Civilizations.MOD_ID);

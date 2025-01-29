@@ -9,6 +9,7 @@ import net._void.civilizations.entity.client.EgyptCivilianRenderer;
 import net._void.civilizations.entity.client.EgyptNpcRenderer;
 import net._void.civilizations.screen.ModScreenHandlers;
 import net._void.civilizations.screen.TradingStationScreen;
+import net._void.civilizations.screen.TombstoneScreen;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
@@ -29,5 +30,7 @@ public class CivilizationsClient implements ClientModInitializer {
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.EGYPT_NPC, EgyptNpcModel::getTexturedModelData);
 
         HandledScreens.register(ModScreenHandlers.TRADING_STATION_SCREEN_HANDLER, TradingStationScreen::new);
+        HandledScreens.register(ModScreenHandlers.TOMBSTONE_SCREEN_HANDLER, TombstoneScreen::new);
+
     }
 }

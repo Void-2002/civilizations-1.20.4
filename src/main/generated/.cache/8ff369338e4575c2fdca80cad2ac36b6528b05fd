@@ -1,5 +1,6 @@
-// 1.20.2	2025-01-26T20:32:57.2885918	Civilizations/Model Definitions
+// 1.20.4	2025-01-29T18:11:28.2890912	Civilizations/Model Definitions
 d015c4ec59541605067fa7fd446e9b7b65d76fc3 assets\civilizations\models\item\limestone_pillar.json
+4d0265298db6dc9bae11f47de7edb078bdbd828a assets\civilizations\blockstates\tombstone.json
 7b380db4aef5ec71ba24b61cc533921fb9a32e9f assets\civilizations\blockstates\rough_limestone.json
 a5f2e47c6cbfa367f8f4ea2b55c5c1187762584d assets\civilizations\models\block\egypt_door_top_left_open.json
 c7c21f02804da82bb5244b101e70590fe284e033 assets\civilizations\models\block\smooth_limestone.json
@@ -7,6 +8,7 @@ d6032576b796bef84ce6a969bb4c9accc6451c90 assets\civilizations\models\block\limes
 5ab9f5060bdd4e16d7b2607d42d636b75c3c49d7 assets\civilizations\models\block\limestone.json
 ba69d4decb0cefacc11ff4523934eec8b189c1c7 assets\civilizations\models\block\egypt_door_bottom_left_open.json
 ceecd00e5f411c083b66a76d1a7fe49c219bce98 assets\civilizations\models\block\limestone_pillar.json
+7b64c7df9a64da4df9581a57a2c31d2ec980e36e assets\civilizations\models\item\tombstone.json
 6b5143099673f5c246b4fca4f5795d18e9fddfb5 assets\civilizations\models\block\rough_limestone.json
 d072f38548585430b5f8fef34f3435ac20bc9ba9 assets\civilizations\models\block\egypt_door_bottom_right.json
 ba1c9d7ace753104550ff1492bef3908aceb16d3 assets\civilizations\models\block\egypt_door_bottom_left.json
@@ -21,8 +23,8 @@ abf698cd5cb9b9f3a9fbdde513b0162c20d94065 assets\civilizations\models\item\blank_
 77b34bf1732d75638a5f6bb1268ce13a2705c7c8 assets\civilizations\models\block\egypt_door_top_left.json
 43e435a66ca1955f150b0ce26b4836955b3d0005 assets\civilizations\models\item\coin_egypt.json
 fe9a3c576dbfc31083dc861ba8eef8b5ad5b6baf assets\civilizations\models\item\key_egypt.json
-a4f74a520135d4159274d105af73860676dac0c4 assets\civilizations\models\block\egypt_door_bottom_right_open.json
 94ef06c0894ee7c1c8e4804cffeb5b574cd49962 assets\civilizations\models\item\trading_station.json
+a4f74a520135d4159274d105af73860676dac0c4 assets\civilizations\models\block\egypt_door_bottom_right_open.json
 f5fa5f925fc4eb2c4e3bbd458c2adc1c2fa4b56a assets\civilizations\models\item\papyrus.json
 e97ffcb7f449fe967264c802ba6a3b14ffe3b685 assets\civilizations\models\item\egypt_door.json
 3e3eb0fa83f701e09e79878fed614cd5f2b989ad assets\civilizations\blockstates\limestone_pillar.json

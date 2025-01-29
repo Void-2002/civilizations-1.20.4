@@ -1,6 +1,7 @@
 package net._void.civilizations.block;
 
 import net._void.civilizations.Civilizations;
+import net._void.civilizations.block.custom.TombstoneBlock;
 import net._void.civilizations.block.custom.TradingStationBlock;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -22,7 +23,9 @@ public class ModBlocks {
     public static final Block EGYPT_DOOR = registerBlock("egypt_door", new DoorBlock(BlockSetType.IRON, FabricBlockSettings.copyOf(Blocks.IRON_DOOR).strength(-1.0F).instrument(Instrument.BASEDRUM)));
 
     public static final Block TRADING_STATION = registerBlock("trading_station",
-            new TradingStationBlock(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK).nonOpaque()));
+            new TradingStationBlock(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK).nonOpaque().strength(-1.0F, 3600000.0F)));
+    public static final Block TOMBSTONE = registerBlock("tombstone",
+            new TombstoneBlock(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK).nonOpaque()));
 
     private static Block registerBlock(String name, Block block){
         registerBlockItem(name,block);

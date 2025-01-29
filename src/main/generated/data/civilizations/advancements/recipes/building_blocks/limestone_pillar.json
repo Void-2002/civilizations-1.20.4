@@ -30,6 +30,5 @@
     "recipes": [
       "civilizations:limestone_pillar"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

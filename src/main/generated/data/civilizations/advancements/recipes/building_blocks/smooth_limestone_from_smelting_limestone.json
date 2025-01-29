@@ -30,6 +30,5 @@
     "recipes": [
       "minecraft:smooth_limestone_from_smelting_limestone"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

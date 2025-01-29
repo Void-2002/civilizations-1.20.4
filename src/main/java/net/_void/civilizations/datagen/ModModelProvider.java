@@ -23,6 +23,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerDoor(ModBlocks.EGYPT_DOOR);
 
         blockStateModelGenerator.registerSimpleState(ModBlocks.TRADING_STATION);
+        blockStateModelGenerator.registerSimpleState(ModBlocks.TOMBSTONE);
     }
 
     @Override

@@ -15,5 +15,6 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.LIMESTONE);
         addDrop(ModBlocks.LIMESTONE_PILLAR);
         addDrop(ModBlocks.LIMESTONE_BRICKS);
+        addDrop(ModBlocks.TOMBSTONE);
     }
 }

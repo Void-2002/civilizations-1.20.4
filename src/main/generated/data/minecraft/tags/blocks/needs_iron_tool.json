@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "civilizations:smooth_limestone",
-    "civilizations:limestone"
+    "civilizations:limestone",
+    "civilizations:tombstone"
   ]
 }

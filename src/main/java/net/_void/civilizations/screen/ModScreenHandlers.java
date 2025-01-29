@@ -12,6 +12,10 @@ public class ModScreenHandlers {
             Registry.register(Registries.SCREEN_HANDLER, new Identifier(Civilizations.MOD_ID, "trading_station"),
                     new ExtendedScreenHandlerType<>(TradingStationScreenHandler::new));
 
+    public static final ScreenHandlerType<TombstoneScreenHandler> TOMBSTONE_SCREEN_HANDLER =
+            Registry.register(Registries.SCREEN_HANDLER, new Identifier(Civilizations.MOD_ID, "tombstone"),
+                    new ExtendedScreenHandlerType<>(TombstoneScreenHandler::new));
+
     public static void registerScreenHandlers() {
         Civilizations.LOGGER.info("Registering Screen Handlers for " + Civilizations.MOD_ID);
     }

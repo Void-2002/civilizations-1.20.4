@@ -24,10 +24,12 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider{
                 add(ModBlocks.SMOOTH_LIMESTONE).
                 add(ModBlocks.LIMESTONE).
                 add(ModBlocks.LIMESTONE_BRICKS).
-                add(ModBlocks.LIMESTONE_PILLAR);
+                add(ModBlocks.LIMESTONE_PILLAR).
+                add(ModBlocks.TOMBSTONE);
 
         getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL).
                 add(ModBlocks.SMOOTH_LIMESTONE).
-                add(ModBlocks.LIMESTONE);
+                add(ModBlocks.LIMESTONE).
+                add(ModBlocks.TOMBSTONE);
     }
 }
