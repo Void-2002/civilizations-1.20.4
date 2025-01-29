@@ -41,7 +41,11 @@ public class Key_egypt extends Item {
             }
         }else{
             if(context.getPlayer()!=null){
-                context.getPlayer().playSound(SoundEvents.BLOCK_IRON_DOOR_OPEN,1.0F,1.0F);
+                BlockPos positionClicked = context.getBlockPos();
+                BlockState state = context.getWorld().getBlockState(positionClicked);
+                if(state.isIn(ModTags.Blocks.EGYPT_KEY_DOOR)){
+                    context.getPlayer().playSound(SoundEvents.BLOCK_IRON_DOOR_OPEN,1.0F,1.0F);
+                }
             }
         }
         return r;

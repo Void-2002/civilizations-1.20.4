@@ -2,10 +2,13 @@ package net._void.civilizations.screen;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import net._void.civilizations.Civilizations;
+import net._void.civilizations.util.CustomWidget;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.gui.tooltip.Tooltip;
 import net.minecraft.client.gui.widget.ButtonWidget;
+import net.minecraft.client.gui.widget.ClickableWidget;
+import net.minecraft.client.gui.widget.PressableWidget;
 import net.minecraft.client.render.GameRenderer;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.text.Text;
@@ -13,6 +16,10 @@ import net.minecraft.util.Identifier;
 
 public class TradingStationScreen extends HandledScreen<TradingStationScreenHandler>{
     private static final Identifier TEXTURE = new Identifier(Civilizations.MOD_ID, "textures/gui/trade_menu.png");
+    private static final Identifier haybale = new Identifier("minecraft", "textures/block/hay_block_side.png");
+    private static final Identifier coin = new Identifier(Civilizations.MOD_ID, "textures/item/coin_egypt.png");
+    private static final Identifier papyrus = new Identifier(Civilizations.MOD_ID, "textures/item/blank_papyrus.png");
+    private static final Identifier gold_nugget = new Identifier("minecraft", "textures/item/gold_nugget.png");
     public static int TRADE = 1;
 
     public TradingStationScreen(TradingStationScreenHandler handler, PlayerInventory inventory, Text title) {
@@ -25,11 +32,46 @@ public class TradingStationScreen extends HandledScreen<TradingStationScreenHand
         titleY = 1000;
         playerInventoryTitleY = 1000;
 
+        CustomWidget customWidget1 = new CustomWidget(238, 111, 39, 23){
+            @Override
+            public boolean mouseClicked(double mouseX, double mouseY, int button) {
+                TRADE=1;
+                return super.mouseClicked(mouseX, mouseY, button);
+            }
+        };
+        CustomWidget customWidget2 = new CustomWidget(277, 111, 39, 23){
+            @Override
+            public boolean mouseClicked(double mouseX, double mouseY, int button) {
+                TRADE=2;
+                return super.mouseClicked(mouseX, mouseY, button);
+            }
+        };
+        CustomWidget customWidget3 = new CustomWidget(238, 134, 39, 23){
+            @Override
+            public boolean mouseClicked(double mouseX, double mouseY, int button) {
+                TRADE=3;
+                return super.mouseClicked(mouseX, mouseY, button);
+            }
+        };
+        CustomWidget customWidget4 = new CustomWidget(277, 134, 39, 23){
+            @Override
+            public boolean mouseClicked(double mouseX, double mouseY, int button) {
+                TRADE=4;
+                return super.mouseClicked(mouseX, mouseY, button);
+            }
+        };
+        addDrawableChild(customWidget1);
+        addDrawableChild(customWidget2);
+        addDrawableChild(customWidget3);
+        addDrawableChild(customWidget4);
+
+        /*
+
         ButtonWidget button1 = ButtonWidget.builder(Text.literal(""), button -> {
                     TRADE=1;
                 })
                 .dimensions(238, 111, 39, 23)
-                .build();
+               .build();
         ButtonWidget button2 = ButtonWidget.builder(Text.literal(""), button -> {
                     TRADE=2;
                 })
@@ -51,6 +93,8 @@ public class TradingStationScreen extends HandledScreen<TradingStationScreenHand
         addDrawableChild(button3);
         addDrawableChild(button4);
 
+
+         */
     }
 
     @Override
@@ -68,7 +112,7 @@ public class TradingStationScreen extends HandledScreen<TradingStationScreenHand
         context.drawText(this.textRenderer, "Quests", x + 115, y + 24 - this.textRenderer.fontHeight - 10, 0x373737, false);
 
         renderReputationBar(context, x, y);
-        //renderTrades(context, x, y);
+        renderTrades(context);
         //renderQuests(context, x, y);
     }
 
@@ -78,19 +122,15 @@ public class TradingStationScreen extends HandledScreen<TradingStationScreenHand
         context.drawTexture(TEXTURE, x + 91 + reputation * 8, y + 14, 176 + reputation * 8, 5, 1 - reputation * 8, 5);
     }
 
-    private void renderIcons(DrawContext context, int x, int y){
-        Identifier texture = new Identifier("minecraft", "textures/item/diamond.png");
-        // texture, x, y, u, v, width, height, textureWidth, textureHeight
-        context.drawTexture(texture, 150, 150, 0, 0, 16, 16, 16, 16);
-    }
-
-    private void renderIcon(DrawContext context){
-        Identifier texture = new Identifier("minecraft", "textures/block/hay_block_side.png");
-        context.drawTexture(texture, 180, 113, 0, 0, 16, 16, 16, 16);
-    }
-
-    private void renderTrades(DrawContext context, int x, int y){
-        renderIcon(context);
+    private void renderTrades(DrawContext context){
+        context.drawTexture(haybale, 241, 114, 0, 0, 16, 16, 16, 16);
+        context.drawTexture(coin, 258, 114, 0, 0, 16, 16, 16, 16);
+        //context.drawTexture(texture, 280, 114, 0, 0, 16, 16, 16, 16);
+        context.drawTexture(coin, 297, 114, 0, 0, 16, 16, 16, 16);
+        context.drawTexture(coin, 241, 137, 0, 0, 16, 16, 16, 16);
+        context.drawTexture(papyrus, 258, 137, 0, 0, 16, 16, 16, 16);
+        context.drawTexture(coin, 280, 137, 0, 0, 16, 16, 16, 16);
+        context.drawTexture(gold_nugget, 297, 137, 0, 0, 16, 16, 16, 16);
     }
 
     private void renderQuests(DrawContext context, int x, int y){
