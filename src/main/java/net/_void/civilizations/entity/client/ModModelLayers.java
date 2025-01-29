@@ -7,4 +7,6 @@ import net.minecraft.util.Identifier;
 public class ModModelLayers {
     public static final EntityModelLayer EGYPT_CIVILIAN =
             new EntityModelLayer(new Identifier(Civilizations.MOD_ID,"egypt_civilian"),"main");
+    public static final EntityModelLayer EGYPT_NPC =
+            new EntityModelLayer(new Identifier(Civilizations.MOD_ID,"egypt_npc"),"main");
 }

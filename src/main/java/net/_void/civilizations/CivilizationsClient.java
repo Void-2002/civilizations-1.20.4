@@ -3,8 +3,10 @@ package net._void.civilizations;
 import net._void.civilizations.block.ModBlocks;
 import net._void.civilizations.entity.ModEntities;
 import net._void.civilizations.entity.client.EgyptCivilianModel;
+import net._void.civilizations.entity.client.EgyptNpcModel;
 import net._void.civilizations.entity.client.ModModelLayers;
 import net._void.civilizations.entity.client.EgyptCivilianRenderer;
+import net._void.civilizations.entity.client.EgyptNpcRenderer;
 import net._void.civilizations.screen.ModScreenHandlers;
 import net._void.civilizations.screen.TradingStationScreen;
 import net.fabricmc.api.ClientModInitializer;
@@ -22,6 +24,9 @@ public class CivilizationsClient implements ClientModInitializer {
 
         EntityRendererRegistry.register(ModEntities.EGYPT_CIVILIAN, EgyptCivilianRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.EGYPT_CIVILIAN, EgyptCivilianModel::getTexturedModelData);
+
+        EntityRendererRegistry.register(ModEntities.EGYPT_NPC, EgyptNpcRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.EGYPT_NPC, EgyptNpcModel::getTexturedModelData);
 
         HandledScreens.register(ModScreenHandlers.TRADING_STATION_SCREEN_HANDLER, TradingStationScreen::new);
     }
