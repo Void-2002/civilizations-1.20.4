@@ -20,7 +20,6 @@ public class Civilizations implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-
 		ModItemGroups.registerItemGroups();
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();

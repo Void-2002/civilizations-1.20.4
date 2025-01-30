@@ -17,6 +17,7 @@ import net.minecraft.util.Identifier;
 public class TradingStationScreen extends HandledScreen<TradingStationScreenHandler>{
     private static final Identifier TEXTURE = new Identifier(Civilizations.MOD_ID, "textures/gui/trade_menu.png");
     private static final Identifier haybale = new Identifier("minecraft", "textures/block/hay_block_side.png");
+    private static final Identifier clay = new Identifier("minecraft", "textures/block/clay.png");
     private static final Identifier coin = new Identifier(Civilizations.MOD_ID, "textures/item/coin_egypt.png");
     private static final Identifier papyrus = new Identifier(Civilizations.MOD_ID, "textures/item/blank_papyrus.png");
     private static final Identifier gold_nugget = new Identifier("minecraft", "textures/item/gold_nugget.png");
@@ -34,67 +35,21 @@ public class TradingStationScreen extends HandledScreen<TradingStationScreenHand
 
         CustomWidget customWidget1 = new CustomWidget(238, 111, 39, 23){
             @Override
-            public boolean mouseClicked(double mouseX, double mouseY, int button) {
-                TRADE=1;
-                return super.mouseClicked(mouseX, mouseY, button);
+            protected boolean clicked(double mouseX, double mouseY) {
+                if (mouseX >= 238 && mouseX <= 238+39 && mouseY >= 111 && mouseY <= 111 + 23) TRADE = 1;
+                if (mouseX >= 277 && mouseX <= 277+39 && mouseY >= 111 && mouseY <= 111 + 23) TRADE = 2;
+                if (mouseX >= 238 && mouseX <= 238+39 && mouseY >= 134 && mouseY <= 134 + 23) TRADE = 3;
+                if (mouseX >= 277 && mouseX <= 277+39 && mouseY >= 134 && mouseY <= 134 + 23) TRADE = 4;
+                return super.clicked(mouseX, mouseY);
             }
         };
-        CustomWidget customWidget2 = new CustomWidget(277, 111, 39, 23){
-            @Override
-            public boolean mouseClicked(double mouseX, double mouseY, int button) {
-                TRADE=2;
-                return super.mouseClicked(mouseX, mouseY, button);
-            }
-        };
-        CustomWidget customWidget3 = new CustomWidget(238, 134, 39, 23){
-            @Override
-            public boolean mouseClicked(double mouseX, double mouseY, int button) {
-                TRADE=3;
-                return super.mouseClicked(mouseX, mouseY, button);
-            }
-        };
-        CustomWidget customWidget4 = new CustomWidget(277, 134, 39, 23){
-            @Override
-            public boolean mouseClicked(double mouseX, double mouseY, int button) {
-                TRADE=4;
-                return super.mouseClicked(mouseX, mouseY, button);
-            }
-        };
+        CustomWidget customWidget2 = new CustomWidget(277, 111, 39, 23){};
+        CustomWidget customWidget3 = new CustomWidget(238, 134, 39, 23){};
+        CustomWidget customWidget4 = new CustomWidget(277, 134, 39, 23){};
         addDrawableChild(customWidget1);
         addDrawableChild(customWidget2);
         addDrawableChild(customWidget3);
         addDrawableChild(customWidget4);
-
-        /*
-
-        ButtonWidget button1 = ButtonWidget.builder(Text.literal(""), button -> {
-                    TRADE=1;
-                })
-                .dimensions(238, 111, 39, 23)
-               .build();
-        ButtonWidget button2 = ButtonWidget.builder(Text.literal(""), button -> {
-                    TRADE=2;
-                })
-                .dimensions(277, 111, 39, 23)
-                .build();
-        ButtonWidget button3 = ButtonWidget.builder(Text.literal(""), button -> {
-                    TRADE=3;
-                })
-                .dimensions(238, 134, 39, 23)
-                .build();
-        ButtonWidget button4 = ButtonWidget.builder(Text.literal(""), button -> {
-                    TRADE=4;
-                })
-                .dimensions(277, 134, 39, 23)
-                .build();
-
-        addDrawableChild(button1);
-        addDrawableChild(button2);
-        addDrawableChild(button3);
-        addDrawableChild(button4);
-
-
-         */
     }
 
     @Override
@@ -125,7 +80,7 @@ public class TradingStationScreen extends HandledScreen<TradingStationScreenHand
     private void renderTrades(DrawContext context){
         context.drawTexture(haybale, 241, 114, 0, 0, 16, 16, 16, 16);
         context.drawTexture(coin, 258, 114, 0, 0, 16, 16, 16, 16);
-        //context.drawTexture(texture, 280, 114, 0, 0, 16, 16, 16, 16);
+        context.drawTexture(clay, 280, 114, 0, 0, 16, 16, 16, 16);
         context.drawTexture(coin, 297, 114, 0, 0, 16, 16, 16, 16);
         context.drawTexture(coin, 241, 137, 0, 0, 16, 16, 16, 16);
         context.drawTexture(papyrus, 258, 137, 0, 0, 16, 16, 16, 16);

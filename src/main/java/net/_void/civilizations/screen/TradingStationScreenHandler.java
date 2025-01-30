@@ -84,7 +84,7 @@ public class TradingStationScreenHandler extends ScreenHandler {
                 case 60 -> paymentAmount = 1;
                 case 70 -> paymentAmount = 1;
                 case 80 -> paymentAmount = 1;
-                case 90 -> paymentAmount = 20;
+                case 90 -> paymentAmount = 40;
             }
             getSlot(paymentIndex).getStack().setCount(getSlot(paymentIndex).getStack().getCount() - paymentAmount);
             setReputation(getReputation()+10);
@@ -96,8 +96,8 @@ public class TradingStationScreenHandler extends ScreenHandler {
         ItemStack newStack = ItemStack.EMPTY;
         Slot slot = this.slots.get(invSlot);
 
-        if(invSlot == 1) transaction(0, "trade");
-        if(invSlot == 3) transaction(2, "quest");
+        if(invSlot == 1 && getSlot(1).hasStack()) transaction(0, "trade");
+        if(invSlot == 3 && getSlot(3).hasStack()) transaction(2, "quest");
 
         if (slot != null && slot.hasStack()) {
             ItemStack originalStack = slot.getStack();

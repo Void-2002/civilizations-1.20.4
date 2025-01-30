@@ -130,7 +130,7 @@ public class TradingStationBlockEntity extends BlockEntity implements ExtendedSc
         boolean bl = false;
         switch(trade){
             case 1 -> bl = getStack(TRADE_INPUT).getItem() == Items.HAY_BLOCK;
-            case 2 -> bl = getStack(TRADE_INPUT).getItem() == Items.HAY_BLOCK;
+            case 2 -> bl = getStack(TRADE_INPUT).getItem() == Items.CLAY;
             case 3 -> bl = getStack(TRADE_INPUT).getItem() == ModItems.COIN_EGYPT;
             case 4 -> bl = getStack(TRADE_INPUT).getItem() == ModItems.COIN_EGYPT;
         }
@@ -160,7 +160,7 @@ public class TradingStationBlockEntity extends BlockEntity implements ExtendedSc
             case 60 -> bl = getStack(QUEST_INPUT).getItem() == ModItems.COIN_EGYPT;
             case 70 -> bl = getStack(QUEST_INPUT).getItem() == ModItems.COIN_EGYPT;
             case 80 -> bl = getStack(QUEST_INPUT).getItem() == ModItems.COIN_EGYPT;
-            case 90 -> bl = getStack(QUEST_INPUT).getItem() == ModItems.COIN_EGYPT && getStack(QUEST_INPUT).getCount() >= 20;
+            case 90 -> bl = getStack(QUEST_INPUT).getItem() == ModItems.COIN_EGYPT && getStack(QUEST_INPUT).getCount() >= 40;
         }
         return bl;
     }
