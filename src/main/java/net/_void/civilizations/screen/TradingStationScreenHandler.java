@@ -84,8 +84,8 @@ public class TradingStationScreenHandler extends ScreenHandler {
                 case 60 -> paymentAmount = 1;
                 case 70 -> paymentAmount = 1;
                 case 80 -> paymentAmount = 1;
-                case 90 -> paymentAmount = 40;
             }
+            if(getReputation() >= 90) paymentAmount = 40;
             getSlot(paymentIndex).getStack().setCount(getSlot(paymentIndex).getStack().getCount() - paymentAmount);
             setReputation(getReputation()+10);
         }

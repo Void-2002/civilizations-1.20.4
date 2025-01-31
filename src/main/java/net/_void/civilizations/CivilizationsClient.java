@@ -2,11 +2,7 @@ package net._void.civilizations;
 
 import net._void.civilizations.block.ModBlocks;
 import net._void.civilizations.entity.ModEntities;
-import net._void.civilizations.entity.client.EgyptCivilianModel;
-import net._void.civilizations.entity.client.EgyptNpcModel;
-import net._void.civilizations.entity.client.ModModelLayers;
-import net._void.civilizations.entity.client.EgyptCivilianRenderer;
-import net._void.civilizations.entity.client.EgyptNpcRenderer;
+import net._void.civilizations.entity.client.*;
 import net._void.civilizations.screen.ModScreenHandlers;
 import net._void.civilizations.screen.TradingStationScreen;
 import net._void.civilizations.screen.TombstoneScreen;
@@ -28,6 +24,9 @@ public class CivilizationsClient implements ClientModInitializer {
 
         EntityRendererRegistry.register(ModEntities.EGYPT_NPC, EgyptNpcRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.EGYPT_NPC, EgyptNpcModel::getTexturedModelData);
+
+        EntityRendererRegistry.register(ModEntities.EGYPT_BOSS, EgyptBossRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.EGYPT_BOSS, EgyptBossModel::getTexturedModelData);
 
         HandledScreens.register(ModScreenHandlers.TRADING_STATION_SCREEN_HANDLER, TradingStationScreen::new);
         HandledScreens.register(ModScreenHandlers.TOMBSTONE_SCREEN_HANDLER, TombstoneScreen::new);

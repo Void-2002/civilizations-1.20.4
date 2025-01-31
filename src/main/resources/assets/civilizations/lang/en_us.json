@@ -11,6 +11,8 @@
   "item.civilizations.papyrus": "Papyrus",
   "itemgroup.civilizations": "Civilizations Mod",
   "entity.civilizations.egypt_civilian": "Egyptian",
+  "entity.civilizations.egypt_npc": "Egyptian",
+  "entity.civilizations.egypt_boss": "Pharaoh Khufu",
   "block.civilizations.trading_station": "Trading Station",
   "block.civilizations.tombstone": "Tombstone"
 }

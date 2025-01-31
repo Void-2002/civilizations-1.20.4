@@ -121,7 +121,7 @@ public class TradingStationBlockEntity extends BlockEntity implements ExtendedSc
         else if(reputation==60 && isRightItemForQuest(60)) questResult(60, world, pos, state);
         else if(reputation==70 && isRightItemForQuest(70)) questResult(70, world, pos, state);
         else if(reputation==80 && isRightItemForQuest(80)) questResult(80, world, pos, state);
-        else if(reputation==90 && isRightItemForQuest(90)) questResult(90, world, pos, state);
+        else if(reputation>=90 && isRightItemForQuest(90)) questResult(90, world, pos, state);
         else questResult(-1, world, pos, state);
 
     }
