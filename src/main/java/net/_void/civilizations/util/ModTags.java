@@ -9,8 +9,8 @@ import net.minecraft.util.Identifier;
 
 public class ModTags {
     public static class Blocks{
-        public static final TagKey<Block> EGYPT_KEY_DOOR =
-                createTag("egypt_key_door");
+        public static final TagKey<Block> EGYPT_KEY_OPENABLE =
+                createTag("egypt_key_openable");
         private static TagKey<Block> createTag(String name){
             return TagKey.of(RegistryKeys.BLOCK, new Identifier(Civilizations.MOD_ID,name));
         }

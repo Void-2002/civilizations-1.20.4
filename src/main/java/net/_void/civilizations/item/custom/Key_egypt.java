@@ -32,7 +32,7 @@ public class Key_egypt extends Item {
         if(!context.getWorld().isClient()){
             BlockPos positionClicked = context.getBlockPos();
             BlockState state = context.getWorld().getBlockState(positionClicked);
-            if(state.isIn(ModTags.Blocks.EGYPT_KEY_DOOR)){
+            if(state.isIn(ModTags.Blocks.EGYPT_KEY_OPENABLE)){
                 Block block = state.getBlock();
                 DoorBlock door = (DoorBlock) block;
                 door.setOpen(context.getPlayer(), context.getWorld(),state,positionClicked, !door.isOpen(state));
@@ -43,7 +43,7 @@ public class Key_egypt extends Item {
             if(context.getPlayer()!=null){
                 BlockPos positionClicked = context.getBlockPos();
                 BlockState state = context.getWorld().getBlockState(positionClicked);
-                if(state.isIn(ModTags.Blocks.EGYPT_KEY_DOOR)){
+                if(state.isIn(ModTags.Blocks.EGYPT_KEY_OPENABLE)){
                     context.getPlayer().playSound(SoundEvents.BLOCK_IRON_DOOR_OPEN,1.0F,1.0F);
                 }
             }

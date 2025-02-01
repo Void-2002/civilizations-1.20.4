@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "civilizations:egypt_door",
+    "civilizations:coffin_top",
+    "civilizations:coffin_bottom"
+  ]
+}

@@ -24,6 +24,8 @@ public class ModModelProvider extends FabricModelProvider {
 
         blockStateModelGenerator.registerSimpleState(ModBlocks.TRADING_STATION);
         blockStateModelGenerator.registerSimpleState(ModBlocks.TOMBSTONE);
+        blockStateModelGenerator.registerSimpleState(ModBlocks.COFFIN_TOP);
+        blockStateModelGenerator.registerSimpleState(ModBlocks.COFFIN_BOTTOM);
     }
 
     @Override

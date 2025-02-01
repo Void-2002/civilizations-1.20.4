@@ -16,9 +16,10 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider{
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup arg) {
-        getOrCreateTagBuilder(ModTags.Blocks.EGYPT_KEY_DOOR).
-                add(ModBlocks.EGYPT_DOOR);
-                //.forceAddTag();
+        getOrCreateTagBuilder(ModTags.Blocks.EGYPT_KEY_OPENABLE).
+                add(ModBlocks.EGYPT_DOOR).
+                add(ModBlocks.COFFIN_TOP).
+                add(ModBlocks.COFFIN_BOTTOM);
 
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).
                 add(ModBlocks.SMOOTH_LIMESTONE).
