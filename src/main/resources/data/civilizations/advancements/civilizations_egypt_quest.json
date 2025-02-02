@@ -1,0 +1,36 @@
+{
+  "parent": "civilizations:civilizations_egypt_trade",
+  "display": {
+    "icon": {
+      "item": "civilizations:egypt_key"
+    },
+    "title": {
+      "translate": "advancements.civilizations_egypt_quest.title"
+    },
+    "description": {
+      "translate": "advancements.civilizations_egypt_quest.description"
+    },
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "egypt_key": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "civilizations:egypt_key"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "egypt_key"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

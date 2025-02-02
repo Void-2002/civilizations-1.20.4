@@ -1,0 +1,36 @@
+{
+  "parent": "civilizations:civilizations_egypt_find",
+  "display": {
+    "icon": {
+      "item": "civilizations:egypt_coin"
+    },
+    "title": {
+      "translate": "advancements.civilizations_egypt_trade.title"
+    },
+    "description": {
+      "translate": "advancements.civilizations_egypt_trade.description"
+    },
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "egypt_coin": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "civilizations:egypt_coin"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "egypt_coin"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

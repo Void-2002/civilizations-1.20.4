@@ -14,19 +14,19 @@ import net.minecraft.util.Identifier;
 
 public class ModItems {
 
-    public static final Item KEY_EGYPT = registerItem("key_egypt",new Key_egypt(new FabricItemSettings()));
-    public static final Item COIN_EGYPT = registerItem("coin_egypt", new Item(new FabricItemSettings()));
+    public static final Item EGYPT_KEY = registerItem("egypt_key",new Key_egypt(new FabricItemSettings()));
+    public static final Item EGYPT_COIN = registerItem("egypt_coin", new Item(new FabricItemSettings()));
     public static final Item BLANK_PAPYRUS = registerItem("blank_papyrus", new Item(new FabricItemSettings()));
     public static final Item PAPYRUS = registerItem("papyrus", new Item(new FabricItemSettings()));
 
     private static void addItemsToIngredientTabItemGroup(FabricItemGroupEntries entries){
-        entries.add(COIN_EGYPT);
+        entries.add(EGYPT_COIN);
         entries.add(BLANK_PAPYRUS);
         entries.add(PAPYRUS);
     }
 
     private static void addItemsToToolTabItemGroup(FabricItemGroupEntries entries){
-        entries.add(KEY_EGYPT);
+        entries.add(EGYPT_KEY);
     }
 
     private static void addItemsToBuildTabItemGroup(FabricItemGroupEntries entries){

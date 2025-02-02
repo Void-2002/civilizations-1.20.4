@@ -1,0 +1,40 @@
+{
+  "parent": "civilizations:civilizations",
+  "display": {
+    "icon": {
+      "item": "civilizations:smooth_limestone"
+    },
+    "title": {
+      "translate": "advancements.civilizations_egypt_find.title"
+    },
+    "description": {
+      "translate": "advancements.civilizations_egypt_find.description"
+    },
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "in_egypt": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "civilizations:egypt"
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "in_egypt"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

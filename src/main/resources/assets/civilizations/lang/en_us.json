@@ -1,20 +1,35 @@
 {
-  "item.civilizations.key_egypt": "Egyptian Key",
+  "item.civilizations.egypt_key": "Egyptian Key",
   "block.civilizations.limestone": "Limestone",
   "block.civilizations.smooth_limestone": "Smooth Limestone",
   "block.civilizations.rough_limestone": "Rough Limestone",
   "block.civilizations.limestone_pillar": "Limestone Pillar",
   "block.civilizations.limestone_bricks": "Limestone Bricks",
   "block.civilizations.egypt_door": "Egyptian door",
-  "item.civilizations.coin_egypt": "Egyptian gold stater",
+  "item.civilizations.egypt_coin": "Egyptian gold stater",
   "item.civilizations.blank_papyrus": "Blank Papyrus",
   "item.civilizations.papyrus": "Papyrus",
-  "itemgroup.civilizations": "Civilizations Mod",
+  "itemgroup.civilizations": "Civilizations",
   "entity.civilizations.egypt_civilian": "Egyptian",
   "entity.civilizations.egypt_npc": "Egyptian",
   "entity.civilizations.egypt_boss": "Pharaoh Khufu",
   "block.civilizations.trading_station": "Trading Station",
   "block.civilizations.tombstone": "Tombstone",
   "block.civilizations.coffin_top": "Coffin Top",
-  "block.civilizations.coffin_bottom":"Coffin Bottom"
+  "block.civilizations.coffin_bottom": "Coffin Bottom",
+
+
+
+
+
+  "advancements.civilizations.title": "Civilizations",
+  "advancements.civilizations.description": "Welcome to Civilizations",
+  "advancements.civilizations_egypt_find.title": "Ancient Egypt",
+  "advancements.civilizations_egypt_find.description": "Discover the Ancient Egyptian Civilization",
+  "advancements.civilizations_egypt_trade.title": "",
+  "advancements.civilizations_egypt_trade.description": "",
+  "advancements.civilizations_egypt_quest.title": "",
+  "advancements.civilizations_egypt_quest.description": "",
+  "advancements.civilizations_egypt_boss.title": "",
+  "advancements.civilizations_egypt_boss.description": ""
 }

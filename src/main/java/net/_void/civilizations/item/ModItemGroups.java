@@ -14,10 +14,10 @@ public class ModItemGroups {
     public static final ItemGroup CIVILIZATIONS = Registry.register(Registries.ITEM_GROUP,
             new Identifier(Civilizations.MOD_ID, "civilizations"),
             FabricItemGroup.builder().displayName(Text.translatable("itemgroup.civilizations"))
-                    .icon(() -> new ItemStack(ModItems.COIN_EGYPT)).entries((displayContext, entries) -> {
+                    .icon(() -> new ItemStack(ModItems.EGYPT_COIN)).entries((displayContext, entries) -> {
 
-                        entries.add(ModItems.KEY_EGYPT);
-                        entries.add(ModItems.COIN_EGYPT);
+                        entries.add(ModItems.EGYPT_KEY);
+                        entries.add(ModItems.EGYPT_COIN);
                         entries.add(ModBlocks.SMOOTH_LIMESTONE);
                         entries.add(ModBlocks.LIMESTONE);
                         entries.add(ModBlocks.ROUGH_LIMESTONE);

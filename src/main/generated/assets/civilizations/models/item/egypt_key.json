@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "civilizations:item/coin_egypt"
+    "layer0": "civilizations:item/egypt_key"
   }
 }

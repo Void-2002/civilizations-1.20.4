@@ -18,7 +18,7 @@ public class TradingStationScreen extends HandledScreen<TradingStationScreenHand
     private static final Identifier TEXTURE = new Identifier(Civilizations.MOD_ID, "textures/gui/trade_menu.png");
     private static final Identifier haybale = new Identifier("minecraft", "textures/block/hay_block_side.png");
     private static final Identifier clay = new Identifier("minecraft", "textures/block/clay.png");
-    private static final Identifier coin = new Identifier(Civilizations.MOD_ID, "textures/item/coin_egypt.png");
+    private static final Identifier coin = new Identifier(Civilizations.MOD_ID, "textures/item/egypt_coin.png");
     private static final Identifier papyrus = new Identifier(Civilizations.MOD_ID, "textures/item/blank_papyrus.png");
     private static final Identifier gold_nugget = new Identifier("minecraft", "textures/item/gold_nugget.png");
     public static int TRADE = 1;

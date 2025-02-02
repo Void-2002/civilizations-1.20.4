@@ -3,17 +3,20 @@ package net._void.civilizations.entity.custom;
 import net._void.civilizations.entity.ModEntities;
 import net._void.civilizations.entity.ai.EgyptCivilianAttackGoal;
 import net.minecraft.entity.AnimationState;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityPose;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.LookAroundGoal;
 import net.minecraft.entity.ai.goal.LookAtEntityGoal;
 import net.minecraft.entity.ai.goal.SwimGoal;
 import net.minecraft.entity.ai.goal.WanderAroundGoal;
+import net.minecraft.entity.ai.pathing.PathNodeType;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.boss.BossBar;
 import net.minecraft.entity.boss.ServerBossBar;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.mob.AbstractSkeletonEntity;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.AnimalEntity;
@@ -116,5 +119,6 @@ public class EgyptBossEntity extends AnimalEntity {
     protected void mobTick() {
         super.mobTick();
         this.bossBar.setPercent(this.getHealth() / this.getMaxHealth());
+        //this.addStatusEffect();
     }
 }
