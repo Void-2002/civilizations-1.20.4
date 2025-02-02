@@ -28,6 +28,8 @@ public class ModItemGroups {
                         entries.add(ModItems.PAPYRUS);
                         entries.add(ModBlocks.TRADING_STATION);
                         entries.add(ModBlocks.TOMBSTONE);
+                        entries.add(ModBlocks.COFFIN_TOP);
+                        entries.add(ModBlocks.COFFIN_BOTTOM);
 
 
 

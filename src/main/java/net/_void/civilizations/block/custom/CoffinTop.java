@@ -7,7 +7,7 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 
 public class CoffinTop extends Block{
-    private static final VoxelShape SHAPE = Block.createCuboidShape(0, 0, 0, 16, 16, 16);
+    private static final VoxelShape SHAPE = Block.createCuboidShape(0, 0, 0, 16, 12, 16);
 
     public static final MapCodec<CoffinTop> CODEC = CoffinTop.createCodec(CoffinTop::new);
 

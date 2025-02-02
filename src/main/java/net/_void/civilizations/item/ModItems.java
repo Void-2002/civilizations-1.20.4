@@ -44,6 +44,8 @@ public class ModItems {
     private static void addItemsToFunctionalTabItemGroup(FabricItemGroupEntries entries){
         entries.add(ModBlocks.TRADING_STATION);
         entries.add(ModBlocks.TOMBSTONE);
+        entries.add(ModBlocks.COFFIN_TOP);
+        entries.add(ModBlocks.COFFIN_BOTTOM);
     }
 
     private static Item registerItem(String name, Item item){
