@@ -27,7 +27,7 @@ public class ModBlocks {
     public static final Block TRADING_STATION = registerBlock("trading_station",
             new TradingStationBlock(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK).nonOpaque().strength(-1.0F, 3600000.0F)));
     public static final Block TOMBSTONE = registerBlock("tombstone",
-            new TombstoneBlock(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK).nonOpaque()));
+            new TombstoneBlock(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK).nonOpaque().strength(4.0F, 3600000.0F)));
 
     public static final Block COFFIN_TOP = registerBlock("coffin_top", new CoffinTop(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK).nonOpaque().strength(-1.0F, 3600000.0F)));
     public static final Block COFFIN_BOTTOM = registerBlock("coffin_bottom", new CoffinBottom(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK).nonOpaque().strength(-1.0F, 3600000.0F)));
