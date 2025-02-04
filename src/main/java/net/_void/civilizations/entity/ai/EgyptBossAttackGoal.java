@@ -3,13 +3,16 @@ package net._void.civilizations.entity.ai;
 import net._void.civilizations.entity.custom.EgyptBossEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.MeleeAttackGoal;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.PathAwareEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.Hand;
 
 public class EgyptBossAttackGoal extends MeleeAttackGoal {
     private final EgyptBossEntity entity;
-    private int attackDelay = 40;
-    private int ticksUntilNextAttack = 40;
+    private int attackDelay = 60;
+    private int ticksUntilNextAttack = 60;
     private boolean shouldCountTillNextAttack = false;
 
     public EgyptBossAttackGoal(PathAwareEntity mob, double speed, boolean pauseWhenMobIdle) {
@@ -46,7 +49,7 @@ public class EgyptBossAttackGoal extends MeleeAttackGoal {
     }
 
     private boolean isEnemyWithinAttackDistance(LivingEntity pEnemy) {
-        return this.entity.distanceTo(pEnemy) <= 4f;
+        return this.entity.distanceTo(pEnemy) <= 5f;
     }
 
     protected void resetAttackCooldown() {

@@ -15,6 +15,7 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.boss.BossBar;
 import net.minecraft.entity.boss.ServerBossBar;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.damage.DamageTypes;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
@@ -48,6 +49,8 @@ public class EgyptBossEntity extends AnimalEntity {
 
     public EgyptBossEntity(EntityType<? extends AnimalEntity> entityType, World world) {
         super(entityType, world);
+        this.setPathfindingPenalty(PathNodeType.DAMAGE_FIRE, 0.0F);
+        this.setPathfindingPenalty(PathNodeType.DANGER_FIRE, 0.0F);
     }
 
     private void setupAnimationStates() {
@@ -98,16 +101,18 @@ public class EgyptBossEntity extends AnimalEntity {
         this.goalSelector.add(1, new EgyptBossShootGoal(this));
         this.goalSelector.add(1, new EgyptBossAttackGoal(this,1,true));
         this.goalSelector.add(2, new WanderAroundGoal(this,1));
-        this.targetSelector.add(1, new ActiveTargetGoal(this, PlayerEntity.class, false));
+        this.targetSelector.add(1, new RevengeGoal(this));
+        this.targetSelector.add(2, new ActiveTargetGoal(this, PlayerEntity.class, false));
     }
 
     public static DefaultAttributeContainer.Builder createBossAttributes(){
         return MobEntity.createMobAttributes().
                 add(EntityAttributes.GENERIC_MAX_HEALTH,1000).
                 add(EntityAttributes.GENERIC_ARMOR,5).
-                add(EntityAttributes.GENERIC_ATTACK_DAMAGE,10).
+                add(EntityAttributes.GENERIC_ATTACK_DAMAGE,4).
                 add(EntityAttributes.GENERIC_MOVEMENT_SPEED,0.3f).
                 add(EntityAttributes.GENERIC_FOLLOW_RANGE,100).
+                add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, 2).
                 add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE,0.5);
     }
 
@@ -155,12 +160,30 @@ public class EgyptBossEntity extends AnimalEntity {
     protected void mobTick() {
         super.mobTick();
         this.bossBar.setPercent(this.getHealth() / this.getMaxHealth());
-        this.addStatusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE));
+        if(!this.hasStatusEffect(StatusEffects.FIRE_RESISTANCE)) this.addStatusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE));
+        if(this.isOnFire()) this.setOnFire(false);
     }
 
     @Override
     protected void initDataTracker() {
         super.initDataTracker();
         this.dataTracker.startTracking(SHOOTING,false);
+    }
+
+    @Override
+    public boolean damage(DamageSource source, float amount) {
+        if(source.isOf(DamageTypes.EXPLOSION) ||
+           source.isOf(DamageTypes.PLAYER_EXPLOSION) ||
+           source.isOf(DamageTypes.UNATTRIBUTED_FIREBALL) ||
+           source.isOf(DamageTypes.FIREBALL) ||
+           source.isOf(DamageTypes.FALL)){
+            return false;
+        }
+        return super.damage(source, amount);
+    }
+
+    @Override
+    public void onDeath(DamageSource damageSource) {
+        super.onDeath(damageSource);
     }
 }

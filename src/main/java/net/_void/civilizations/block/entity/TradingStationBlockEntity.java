@@ -159,7 +159,7 @@ public class TradingStationBlockEntity extends BlockEntity implements ExtendedSc
             case 50 -> bl = getStack(QUEST_INPUT).getItem() == ModItems.EGYPT_COIN;
             case 60 -> bl = getStack(QUEST_INPUT).getItem() == ModItems.EGYPT_COIN;
             case 70 -> bl = getStack(QUEST_INPUT).getItem() == ModItems.EGYPT_COIN;
-            case 80 -> bl = getStack(QUEST_INPUT).getItem() == ModItems.EGYPT_COIN;
+            case 80 -> bl = getStack(QUEST_INPUT).getItem() == ModItems.EGYPT_COIN && getStack(QUEST_INPUT).getCount() >= 64;
             case 90 -> bl = getStack(QUEST_INPUT).getItem() == ModItems.EGYPT_COIN && getStack(QUEST_INPUT).getCount() >= 40;
         }
         return bl;
@@ -175,7 +175,7 @@ public class TradingStationBlockEntity extends BlockEntity implements ExtendedSc
             case 50 -> this.setStack(QUEST_OUTPUT, new ItemStack(ModItems.EGYPT_COIN,35));
             case 60 -> this.setStack(QUEST_OUTPUT, new ItemStack(ModItems.EGYPT_COIN,40));
             case 70 -> this.setStack(QUEST_OUTPUT, new ItemStack(ModItems.EGYPT_COIN,45));
-            case 80 -> this.setStack(QUEST_OUTPUT, new ItemStack(ModItems.EGYPT_COIN,50));
+            case 80 -> this.setStack(QUEST_OUTPUT, new ItemStack(Items.TOTEM_OF_UNDYING,1));
             case 90 -> this.setStack(QUEST_OUTPUT, new ItemStack(ModItems.EGYPT_KEY,1));
             case -1 -> this.setStack(QUEST_OUTPUT, ItemStack.EMPTY);
         }

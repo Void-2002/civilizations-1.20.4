@@ -104,6 +104,15 @@
     {
       "weight": 10,
       "element": {
+        "location": "civilizations:egypt_path0",
+        "processors": "minecraft:empty",
+        "projection": "terrain_matching",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
         "location": "civilizations:egypt_path1",
         "processors": "minecraft:empty",
         "projection": "rigid",
