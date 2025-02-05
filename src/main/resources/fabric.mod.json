@@ -23,6 +23,9 @@
 		],
 		"fabric-datagen": [
 			"net._void.civilizations.CivilizationsDataGenerator"
+		],
+		"rei_client": [
+			"net._void.civilizations.compat.CivilizationsREIClientPlugin"
 		]
 	},
 	"mixins": [
