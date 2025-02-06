@@ -2,7 +2,8 @@ package net._void.civilizations.item;
 
 import net._void.civilizations.Civilizations;
 import net._void.civilizations.block.ModBlocks;
-import net._void.civilizations.item.custom.Key_egypt;
+import net._void.civilizations.item.custom.EgyptCrook;
+import net._void.civilizations.item.custom.EgyptKey;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
@@ -11,13 +12,15 @@ import net.minecraft.item.ItemGroups;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Rarity;
 
 public class ModItems {
 
-    public static final Item EGYPT_KEY = registerItem("egypt_key",new Key_egypt(new FabricItemSettings()));
-    public static final Item EGYPT_COIN = registerItem("egypt_coin", new Item(new FabricItemSettings()));
+    public static final Item EGYPT_KEY = registerItem("egypt_key",new EgyptKey(new FabricItemSettings().maxCount(1).rarity(Rarity.RARE)));
+    public static final Item EGYPT_COIN = registerItem("egypt_coin", new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON)));
     public static final Item BLANK_PAPYRUS = registerItem("blank_papyrus", new Item(new FabricItemSettings()));
     public static final Item PAPYRUS = registerItem("papyrus", new Item(new FabricItemSettings()));
+    public static final Item EGYPT_CROOK = registerItem("egypt_crook", new EgyptCrook(3, -2.0F, new FabricItemSettings().maxCount(1).rarity(Rarity.EPIC)));
 
     private static void addItemsToIngredientTabItemGroup(FabricItemGroupEntries entries){
         entries.add(EGYPT_COIN);
@@ -48,6 +51,10 @@ public class ModItems {
         entries.add(ModBlocks.COFFIN_BOTTOM);
     }
 
+    private static void addItemsToCombatTabItemGroup(FabricItemGroupEntries entries){
+        entries.add(ModItems.EGYPT_CROOK);
+    }
+
     private static Item registerItem(String name, Item item){
         return Registry.register(Registries.ITEM, new Identifier(Civilizations.MOD_ID,name),item);
     }
@@ -60,5 +67,6 @@ public class ModItems {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(ModItems::addItemsToBuildTabItemGroup);
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.REDSTONE).register(ModItems::addItemsToRedstoneTabItemGroup);
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(ModItems::addItemsToFunctionalTabItemGroup);
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(ModItems::addItemsToCombatTabItemGroup);
     }
 }

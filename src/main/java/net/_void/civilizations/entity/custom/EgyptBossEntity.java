@@ -3,6 +3,7 @@ package net._void.civilizations.entity.custom;
 import net._void.civilizations.entity.ModEntities;
 import net._void.civilizations.entity.ai.EgyptBossAttackGoal;
 import net._void.civilizations.entity.ai.EgyptBossShootGoal;
+import net._void.civilizations.item.ModItems;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.ai.pathing.PathNodeType;
@@ -205,9 +206,9 @@ public class EgyptBossEntity extends AnimalEntity {
         if (itemEntity2 != null) {
             itemEntity2.setCovetedItem();
         }
-        //ItemEntity itemEntity3 = this.dropItem(ModItems.EGYPT_CROOK);
-        //if (itemEntity3 != null) {
-        //    itemEntity3.setCovetedItem();
-        //}
+        ItemEntity itemEntity3 = this.dropItem(ModItems.EGYPT_CROOK);
+        if (itemEntity3 != null) {
+            itemEntity3.setCovetedItem();
+        }
     }
 }

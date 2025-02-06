@@ -3,7 +3,16 @@
 	"package": "net._void.civilizations.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
-		"ExampleMixin"
+		"ExampleMixin",
+		"TombstoneMixin"
+	],
+	"client": [
+		"ItemRendererAccessor",
+		"ItemRendererMixin",
+		"ModelLoaderMixin"
+	],
+	"server": [
+
 	],
 	"injectors": {
 		"defaultRequire": 1

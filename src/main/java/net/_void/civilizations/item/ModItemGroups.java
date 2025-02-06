@@ -30,7 +30,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.TOMBSTONE);
                         entries.add(ModBlocks.COFFIN_TOP);
                         entries.add(ModBlocks.COFFIN_BOTTOM);
-
+                        entries.add(ModItems.EGYPT_CROOK);
 
 
                     }).build());

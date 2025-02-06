@@ -1,6 +1,5 @@
 package net._void.civilizations.item.custom;
 
-import net._void.civilizations.Civilizations;
 import net._void.civilizations.block.ModBlocks;
 import net._void.civilizations.entity.custom.EgyptBossEntity;
 import net._void.civilizations.util.ModTags;
@@ -8,24 +7,15 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.DoorBlock;
-import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
-import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
-import org.jetbrains.annotations.Nullable;
 
-import java.util.List;
-
-public class Key_egypt extends Item {
-    public Key_egypt(Settings settings) {
+public class EgyptKey extends Item {
+    public EgyptKey(Settings settings) {
         super(settings);
     }
 
