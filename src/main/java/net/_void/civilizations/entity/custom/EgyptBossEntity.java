@@ -3,11 +3,7 @@ package net._void.civilizations.entity.custom;
 import net._void.civilizations.entity.ModEntities;
 import net._void.civilizations.entity.ai.EgyptBossAttackGoal;
 import net._void.civilizations.entity.ai.EgyptBossShootGoal;
-import net._void.civilizations.entity.ai.EgyptCivilianAttackGoal;
-import net.minecraft.entity.AnimationState;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityPose;
-import net.minecraft.entity.EntityType;
+import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.ai.pathing.PathNodeType;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
@@ -27,6 +23,7 @@ import net.minecraft.entity.mob.Monster;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Items;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
@@ -37,6 +34,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class EgyptBossEntity extends AnimalEntity {
     private static final TrackedData<Boolean> SHOOTING = DataTracker.registerData(EgyptBossEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+    private static final TrackedData<Boolean> ATTACKING = DataTracker.registerData(EgyptBossEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
     public final AnimationState idleAnimationState = new AnimationState();
     private int idleAnimationTimeout = 0;
     public final AnimationState shootingAnimationState = new AnimationState();
@@ -61,7 +59,7 @@ public class EgyptBossEntity extends AnimalEntity {
             --this.idleAnimationTimeout;
         }
         if(this.isAttacking() && attackAnimationTimeout <= 0) {
-            attackAnimationTimeout = 10;
+            attackAnimationTimeout = 20;
             attackAnimationState.start(this.age);
         } else {
             --this.attackAnimationTimeout;
@@ -109,7 +107,7 @@ public class EgyptBossEntity extends AnimalEntity {
         return MobEntity.createMobAttributes().
                 add(EntityAttributes.GENERIC_MAX_HEALTH,1000).
                 add(EntityAttributes.GENERIC_ARMOR,5).
-                add(EntityAttributes.GENERIC_ATTACK_DAMAGE,4).
+                add(EntityAttributes.GENERIC_ATTACK_DAMAGE,5).
                 add(EntityAttributes.GENERIC_MOVEMENT_SPEED,0.3f).
                 add(EntityAttributes.GENERIC_FOLLOW_RANGE,100).
                 add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, 2).
@@ -122,6 +120,14 @@ public class EgyptBossEntity extends AnimalEntity {
 
     public boolean isShooting() {
         return this.dataTracker.get(SHOOTING);
+    }
+
+    public void setAttacking(boolean shooting){
+        this.dataTracker.set(ATTACKING, shooting);
+    }
+
+    public boolean isAttacking() {
+        return this.dataTracker.get(ATTACKING);
     }
 
     @Override
@@ -160,7 +166,7 @@ public class EgyptBossEntity extends AnimalEntity {
     protected void mobTick() {
         super.mobTick();
         this.bossBar.setPercent(this.getHealth() / this.getMaxHealth());
-        if(!this.hasStatusEffect(StatusEffects.FIRE_RESISTANCE)) this.addStatusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE));
+        if(!this.hasStatusEffect(StatusEffects.FIRE_RESISTANCE)) this.addStatusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE,300));
         if(this.isOnFire()) this.setOnFire(false);
     }
 
@@ -168,6 +174,7 @@ public class EgyptBossEntity extends AnimalEntity {
     protected void initDataTracker() {
         super.initDataTracker();
         this.dataTracker.startTracking(SHOOTING,false);
+        this.dataTracker.startTracking(ATTACKING,false);
     }
 
     @Override
@@ -185,5 +192,22 @@ public class EgyptBossEntity extends AnimalEntity {
     @Override
     public void onDeath(DamageSource damageSource) {
         super.onDeath(damageSource);
+    }
+
+    @Override
+    protected void dropEquipment(DamageSource source, int lootingMultiplier, boolean allowDrops) {
+        super.dropEquipment(source, lootingMultiplier, allowDrops);
+        ItemEntity itemEntity = this.dropItem(Items.TOTEM_OF_UNDYING);
+        if (itemEntity != null) {
+            itemEntity.setCovetedItem();
+        }
+        ItemEntity itemEntity2 = this.dropItem(Items.ENCHANTED_GOLDEN_APPLE);
+        if (itemEntity2 != null) {
+            itemEntity2.setCovetedItem();
+        }
+        //ItemEntity itemEntity3 = this.dropItem(ModItems.EGYPT_CROOK);
+        //if (itemEntity3 != null) {
+        //    itemEntity3.setCovetedItem();
+        //}
     }
 }

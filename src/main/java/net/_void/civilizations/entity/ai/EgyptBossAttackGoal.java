@@ -11,8 +11,8 @@ import net.minecraft.util.Hand;
 
 public class EgyptBossAttackGoal extends MeleeAttackGoal {
     private final EgyptBossEntity entity;
-    private int attackDelay = 60;
-    private int ticksUntilNextAttack = 60;
+    private int attackDelay = 20;
+    private int ticksUntilNextAttack = 20;
     private boolean shouldCountTillNextAttack = false;
 
     public EgyptBossAttackGoal(PathAwareEntity mob, double speed, boolean pauseWhenMobIdle) {
@@ -23,8 +23,8 @@ public class EgyptBossAttackGoal extends MeleeAttackGoal {
     @Override
     public void start() {
         super.start();
-        attackDelay = 10;
-        ticksUntilNextAttack = 10;
+        attackDelay = 20;
+        ticksUntilNextAttack = 20;
     }
 
     @Override
@@ -68,6 +68,7 @@ public class EgyptBossAttackGoal extends MeleeAttackGoal {
         this.resetAttackCooldown();
         this.mob.swingHand(Hand.MAIN_HAND);
         this.mob.tryAttack(pEnemy);
+        pEnemy.addStatusEffect(new StatusEffectInstance(StatusEffects.WITHER, 100));
     }
 
     @Override

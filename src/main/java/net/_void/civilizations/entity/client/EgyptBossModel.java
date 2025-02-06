@@ -70,8 +70,8 @@ public class EgyptBossModel <T extends EgyptBossEntity> extends SinglePartEntity
 
         this.animateMovement(ModAnimations.EGYPT_BOSS_MOVE, limbSwing, limbSwingAmount, 1f, 1f);
         this.updateAnimation(entity.idleAnimationState, ModAnimations.EGYPT_BOSS_IDLE, ageInTicks, 1f);
-        this.updateAnimation(entity.attackAnimationState, ModAnimations.EGYPT_BOSS_MOVE, ageInTicks, 1f);
-        this.updateAnimation(entity.shootingAnimationState, ModAnimations.EGYPT_BOSS_MOVE, ageInTicks, 1f);
+        this.updateAnimation(entity.attackAnimationState, ModAnimations.EGYPT_BOSS_ATTACK, ageInTicks, 1f);
+        this.updateAnimation(entity.shootingAnimationState, ModAnimations.EGYPT_BOSS_SHOOT, ageInTicks, 1f);
     }
 
     private void setHeadAngles(float headYaw, float headPitch) {
