@@ -44,8 +44,8 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.BOOK,1).
                 input(Items.LEATHER).
-                input(ModItems.BLANK_PAPYRUS,3).
-                criterion(hasItem(ModItems.BLANK_PAPYRUS),conditionsFromItem(ModItems.BLANK_PAPYRUS)).
+                input(ModItems.PAPYRUS,3).
+                criterion(hasItem(ModItems.PAPYRUS),conditionsFromItem(ModItems.PAPYRUS)).
                 criterion(hasItem(Items.LEATHER),conditionsFromItem(Items.LEATHER)).
                 offerTo(exporter, new Identifier(getRecipeName(Items.BOOK) + "papyrus_book"));
     }

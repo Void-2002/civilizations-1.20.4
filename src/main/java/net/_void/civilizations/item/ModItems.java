@@ -18,13 +18,11 @@ public class ModItems {
 
     public static final Item EGYPT_KEY = registerItem("egypt_key",new EgyptKey(new FabricItemSettings().maxCount(1).rarity(Rarity.RARE)));
     public static final Item EGYPT_COIN = registerItem("egypt_coin", new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON)));
-    public static final Item BLANK_PAPYRUS = registerItem("blank_papyrus", new Item(new FabricItemSettings()));
     public static final Item PAPYRUS = registerItem("papyrus", new Item(new FabricItemSettings()));
     public static final Item EGYPT_CROOK = registerItem("egypt_crook", new EgyptCrook(3, -2.0F, new FabricItemSettings().maxCount(1).rarity(Rarity.EPIC)));
 
     private static void addItemsToIngredientTabItemGroup(FabricItemGroupEntries entries){
         entries.add(EGYPT_COIN);
-        entries.add(BLANK_PAPYRUS);
         entries.add(PAPYRUS);
     }
 

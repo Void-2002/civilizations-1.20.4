@@ -141,7 +141,7 @@ public class TradingStationBlockEntity extends BlockEntity implements ExtendedSc
         switch(trade){
             case 1 -> this.setStack(TRADE_OUTPUT, new ItemStack(ModItems.EGYPT_COIN,1));
             case 2 -> this.setStack(TRADE_OUTPUT, new ItemStack(ModItems.EGYPT_COIN,1));
-            case 3 -> this.setStack(TRADE_OUTPUT, new ItemStack(ModItems.BLANK_PAPYRUS,1));
+            case 3 -> this.setStack(TRADE_OUTPUT, new ItemStack(ModItems.PAPYRUS,1));
             case 4 -> this.setStack(TRADE_OUTPUT, new ItemStack(Items.GOLD_NUGGET,3));
             case -1 -> this.setStack(TRADE_OUTPUT, ItemStack.EMPTY);
         }
@@ -152,14 +152,14 @@ public class TradingStationBlockEntity extends BlockEntity implements ExtendedSc
         boolean bl = false;
         switch(reputation){
             case 0 -> bl = getStack(QUEST_INPUT).getItem() == Items.HAY_BLOCK && getStack(QUEST_INPUT).getCount() >= 10;
-            case 10 -> bl = getStack(QUEST_INPUT).getItem() == Items.HAY_BLOCK;
-            case 20 -> bl = getStack(QUEST_INPUT).getItem() == ModItems.EGYPT_COIN;
-            case 30 -> bl = getStack(QUEST_INPUT).getItem() == ModItems.EGYPT_COIN;
-            case 40 -> bl = getStack(QUEST_INPUT).getItem() == ModItems.EGYPT_COIN;
-            case 50 -> bl = getStack(QUEST_INPUT).getItem() == ModItems.EGYPT_COIN;
-            case 60 -> bl = getStack(QUEST_INPUT).getItem() == ModItems.EGYPT_COIN;
-            case 70 -> bl = getStack(QUEST_INPUT).getItem() == ModItems.EGYPT_COIN;
-            case 80 -> bl = getStack(QUEST_INPUT).getItem() == ModItems.EGYPT_COIN && getStack(QUEST_INPUT).getCount() >= 64;
+            case 10 -> bl = getStack(QUEST_INPUT).getItem() == Items.SANDSTONE && getStack(QUEST_INPUT).getCount() >= 64;
+            case 20 -> bl = getStack(QUEST_INPUT).getItem() == Items.CLAY_BALL && getStack(QUEST_INPUT).getCount() >= 32;
+            case 30 -> bl = getStack(QUEST_INPUT).getItem() == Items.BRUSH && getStack(QUEST_INPUT).getCount() >= 1;
+            case 40 -> bl = getStack(QUEST_INPUT).getItem() == Items.BREAD && getStack(QUEST_INPUT).getCount() >= 32;
+            case 50 -> bl = getStack(QUEST_INPUT).getItem() == Items.COPPER_INGOT && getStack(QUEST_INPUT).getCount() >= 32;
+            case 60 -> bl = getStack(QUEST_INPUT).getItem() == Items.LEATHER && getStack(QUEST_INPUT).getCount() >= 40;
+            case 70 -> bl = getStack(QUEST_INPUT).getItem() == Items.HONEY_BOTTLE && getStack(QUEST_INPUT).getCount() >= 16;
+            case 80 -> bl = getStack(QUEST_INPUT).getItem() == Items.DIAMOND && getStack(QUEST_INPUT).getCount() >= 4;
             case 90 -> bl = getStack(QUEST_INPUT).getItem() == ModItems.EGYPT_COIN && getStack(QUEST_INPUT).getCount() >= 40;
         }
         return bl;
@@ -167,14 +167,14 @@ public class TradingStationBlockEntity extends BlockEntity implements ExtendedSc
 
     private void questResult(int reputation, World world, BlockPos pos, BlockState state){
         switch(reputation){
-            case 0 -> this.setStack(QUEST_OUTPUT, new ItemStack(ModItems.EGYPT_COIN,10));
-            case 10 -> this.setStack(QUEST_OUTPUT, new ItemStack(ModItems.EGYPT_COIN,15));
-            case 20 -> this.setStack(QUEST_OUTPUT, new ItemStack(ModItems.EGYPT_COIN,20));
-            case 30 -> this.setStack(QUEST_OUTPUT, new ItemStack(ModItems.EGYPT_COIN,25));
-            case 40 -> this.setStack(QUEST_OUTPUT, new ItemStack(ModItems.EGYPT_COIN,30));
-            case 50 -> this.setStack(QUEST_OUTPUT, new ItemStack(ModItems.EGYPT_COIN,35));
-            case 60 -> this.setStack(QUEST_OUTPUT, new ItemStack(ModItems.EGYPT_COIN,40));
-            case 70 -> this.setStack(QUEST_OUTPUT, new ItemStack(ModItems.EGYPT_COIN,45));
+            case 0 -> this.setStack(QUEST_OUTPUT, new ItemStack(ModItems.EGYPT_COIN,16));
+            case 10 -> this.setStack(QUEST_OUTPUT, new ItemStack(Items.EXPERIENCE_BOTTLE,32));
+            case 20 -> this.setStack(QUEST_OUTPUT, new ItemStack(Items.SUSPICIOUS_SAND,64));
+            case 30 -> this.setStack(QUEST_OUTPUT, new ItemStack(ModItems.EGYPT_COIN,32));
+            case 40 -> this.setStack(QUEST_OUTPUT, new ItemStack(Items.SADDLE,1));
+            case 50 -> this.setStack(QUEST_OUTPUT, new ItemStack(Items.GOLDEN_APPLE,4));
+            case 60 -> this.setStack(QUEST_OUTPUT, new ItemStack(ModItems.EGYPT_COIN,64));
+            case 70 -> this.setStack(QUEST_OUTPUT, new ItemStack(Items.DUNE_ARMOR_TRIM_SMITHING_TEMPLATE,4));
             case 80 -> this.setStack(QUEST_OUTPUT, new ItemStack(Items.TOTEM_OF_UNDYING,1));
             case 90 -> this.setStack(QUEST_OUTPUT, new ItemStack(ModItems.EGYPT_KEY,1));
             case -1 -> this.setStack(QUEST_OUTPUT, ItemStack.EMPTY);

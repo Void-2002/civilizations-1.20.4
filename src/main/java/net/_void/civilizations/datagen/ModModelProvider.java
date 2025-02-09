@@ -32,7 +32,6 @@ public class ModModelProvider extends FabricModelProvider {
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
         itemModelGenerator.register(ModItems.EGYPT_KEY, Models.GENERATED);
         itemModelGenerator.register(ModItems.EGYPT_COIN, Models.GENERATED);
-        itemModelGenerator.register(ModItems.BLANK_PAPYRUS, Models.GENERATED);
         itemModelGenerator.register(ModItems.PAPYRUS, Models.GENERATED);
     }
 }

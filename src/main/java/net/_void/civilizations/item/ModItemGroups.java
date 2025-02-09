@@ -24,7 +24,6 @@ public class ModItemGroups {
                         entries.add(ModBlocks.LIMESTONE_BRICKS);
                         entries.add(ModBlocks.LIMESTONE_PILLAR);
                         entries.add(ModBlocks.EGYPT_DOOR);
-                        entries.add(ModItems.BLANK_PAPYRUS);
                         entries.add(ModItems.PAPYRUS);
                         entries.add(ModBlocks.TRADING_STATION);
                         entries.add(ModBlocks.TOMBSTONE);
