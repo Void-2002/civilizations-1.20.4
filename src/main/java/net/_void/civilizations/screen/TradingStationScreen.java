@@ -5,14 +5,12 @@ import net._void.civilizations.Civilizations;
 import net._void.civilizations.util.CustomWidget;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
-import net.minecraft.client.gui.tooltip.Tooltip;
-import net.minecraft.client.gui.widget.ButtonWidget;
-import net.minecraft.client.gui.widget.ClickableWidget;
-import net.minecraft.client.gui.widget.PressableWidget;
 import net.minecraft.client.render.GameRenderer;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+
+import java.util.List;
 
 public class TradingStationScreen extends HandledScreen<TradingStationScreenHandler>{
     private static final Identifier TEXTURE = new Identifier(Civilizations.MOD_ID, "textures/gui/trade_menu.png");
@@ -68,13 +66,16 @@ public class TradingStationScreen extends HandledScreen<TradingStationScreenHand
 
         renderReputationBar(context, x, y);
         renderTrades(context);
-        //renderQuests(context, x, y);
+        renderQuests(context, x, y);
     }
 
     private void renderReputationBar(DrawContext context, int x, int y) {
         int reputation = handler.getReputation();
-        context.drawTexture(TEXTURE, x + 91, y + 14, 176 + reputation * 8, 0, 80 - reputation * 8, 5);
-        context.drawTexture(TEXTURE, x + 91 + reputation * 8, y + 14, 176 + reputation * 8, 5, 1 - reputation * 8, 5);
+        if(reputation >= 90) context.drawTexture(TEXTURE, x + 91, y + 14, 176, 0, 80, 5);
+        else{
+            context.drawTexture(TEXTURE, x + 91, y + 14, 176, 0, 1 + (int) Math.floor(reputation * 0.85), 5);
+            context.drawTexture(TEXTURE, x + 91 + (int) Math.floor(reputation * 0.85), y + 14, 176 + (int) Math.floor(reputation * 0.85), 5, 80 - (int) Math.floor(reputation * 0.85), 5);
+        }
     }
 
     private void renderTrades(DrawContext context){
@@ -90,7 +91,70 @@ public class TradingStationScreen extends HandledScreen<TradingStationScreenHand
 
     private void renderQuests(DrawContext context, int x, int y){
         int reputation = handler.getReputation();
-
+        String line1 = "I found a very";
+        String line2 = "precious item.";
+        String line3 = "Bring some coins";
+        String line4 = "and it's yours";
+        switch (reputation){
+            case 0 -> {
+                line1 = "Hello traveller";
+                line2 = "could you bring";
+                line3 = "me some food";
+                line4 = "for the camels?";
+            }
+            case 10 -> {
+                line1 = "We need some";
+                line2 = "sandstone to";
+                line3 = "repair the";
+                line4 = "pyramids";
+            }
+            case 20 -> {
+                line1 = "We need clay";
+                line2 = "for pottery,";
+                line3 = "could you bring";
+                line4 = "me some?";
+            }
+            case 30 -> {
+                line1 = "My brush is";
+                line2 = "worn out could";
+                line3 = "you bring me";
+                line4 = "a new one?";
+            }
+            case 40 -> {
+                line1 = "I'm running out";
+                line2 = "of food, could";
+                line3 = "you bring me";
+                line4 = "some bread?";
+            }
+            case 50 -> {
+                line1 = "I need copper";
+                line2 = "for my tools,";
+                line3 = "could you help";
+                line4 = "me with that?";
+            }
+            case 60 -> {
+                line1 = "I need leather";
+                line2 = "to make clothes";
+                line3 = "Think you can";
+                line4 = "help me?";
+            }
+            case 70 -> {
+                line1 = "Bring me some";
+                line2 = "honey and I'll";
+                line3 = "give you some";
+                line4 = "precious stuff";
+            }
+            case 80 -> {
+                line1 = "I need diamonds";
+                line2 = "for a gift to the";
+                line3 = "king, can you";
+                line4 = "help with that?";
+            }
+        }
+        context.drawText(this.textRenderer, line1, x + 131 - size(line1) / 2, y + 40 - this.textRenderer.fontHeight - 10, 0x373737, false);
+        context.drawText(this.textRenderer, line2, x + 131 - size(line2) / 2, y + 50 - this.textRenderer.fontHeight - 10, 0x373737, false);
+        context.drawText(this.textRenderer, line3, x + 131 - size(line3) / 2, y + 60 - this.textRenderer.fontHeight - 10, 0x373737, false);
+        context.drawText(this.textRenderer, line4, x + 131 - size(line4) / 2, y + 70 - this.textRenderer.fontHeight - 10, 0x373737, false);
     }
 
     @Override
@@ -98,5 +162,19 @@ public class TradingStationScreen extends HandledScreen<TradingStationScreenHand
         renderBackground(context, mouseX, mouseY, delta);
         super.render(context, mouseX, mouseY, delta);
         drawMouseoverTooltip(context, mouseX, mouseY);
+    }
+
+    public int size(String text){
+        if(text.isEmpty()) return 0;
+        int size = text.length() - 1;
+        List<Character> ch = text.chars().mapToObj(c -> (char) c).toList();
+        for(char c : ch){
+            if(c == ' ' || c == 't' || c == 'I') size += 3;
+            else if(c == 'i' || c == '!' || c == '.' || c == ',' || c == '\'') size += 1;
+            else if(c == 'l') size += 2;
+            else if(c == 'f' || c == 'k') size += 4;
+            else size += 5;
+        }
+        return size;
     }
 }
