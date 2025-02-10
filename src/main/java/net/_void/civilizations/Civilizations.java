@@ -2,6 +2,7 @@ package net._void.civilizations;
 
 import net._void.civilizations.block.ModBlocks;
 import net._void.civilizations.block.entity.ModBlockEntities;
+import net._void.civilizations.effect.ModEffects;
 import net._void.civilizations.entity.ModEntities;
 import net._void.civilizations.entity.custom.EgyptBossEntity;
 import net._void.civilizations.entity.custom.EgyptCivilianEntity;
@@ -26,6 +27,8 @@ public class Civilizations implements ModInitializer {
 		ModBlocks.registerModBlocks();
 		ModBlockEntities.registerBlockEntities();
 		ModScreenHandlers.registerScreenHandlers();
+		ModEffects.registerEffects();
+
 		FabricDefaultAttributeRegistry.register(ModEntities.EGYPT_CIVILIAN, EgyptCivilianEntity.createCivilianAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.EGYPT_NPC, EgyptNpcEntity.createNpcAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.EGYPT_BOSS, EgyptBossEntity.createBossAttributes());
