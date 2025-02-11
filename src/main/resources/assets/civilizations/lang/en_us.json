@@ -26,10 +26,10 @@
   "advancements.civilizations.description": "Welcome to Civilizations",
   "advancements.civilizations_egypt_find.title": "Ancient Egypt",
   "advancements.civilizations_egypt_find.description": "Discover the Ancient Egyptian Civilization",
-  "advancements.civilizations_egypt_trade.title": "",
-  "advancements.civilizations_egypt_trade.description": "",
-  "advancements.civilizations_egypt_quest.title": "",
-  "advancements.civilizations_egypt_quest.description": "",
-  "advancements.civilizations_egypt_boss.title": "",
-  "advancements.civilizations_egypt_boss.description": ""
+  "advancements.civilizations_egypt_trade.title": "Good business",
+  "advancements.civilizations_egypt_trade.description": "Complete a trade in Ancient Egypt",
+  "advancements.civilizations_egypt_quest.title": "The key to the tomb",
+  "advancements.civilizations_egypt_quest.description": "Complete all Ancient Egypt quests",
+  "advancements.civilizations_egypt_boss.title": "Not so immortal after all",
+  "advancements.civilizations_egypt_boss.description": "Take down Pharaoh Khufu"
 }
