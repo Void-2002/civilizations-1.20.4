@@ -1,0 +1,17 @@
+{
+  "structures": [
+    {
+      "structure": "civilizations:china",
+      "weight": 10
+    }
+  ],
+  "placement": {
+    "salt": 1584162337,
+
+    "spacing": 120,
+
+    "separation": 80,
+
+    "type": "minecraft:random_spread"
+  }
+}
