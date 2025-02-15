@@ -1,6 +1,8 @@
-// 1.20.4	2025-02-10T23:45:23.4338415	Civilizations/Block Loot Tables
+// 1.20.4	2025-02-15T17:16:31.7824554	Civilizations/Block Loot Tables
+795500a8bcd63dabd8b80ccb3bcfbae679327d68 data\civilizations\loot_tables\blocks\china_string.json
 6f0dfc092145c232d938b9cc7f5dea3b36d6443c data\civilizations\loot_tables\blocks\limestone_pillar.json
 b116289086b7ceccd019d2d2927e5f903df2b1b8 data\civilizations\loot_tables\blocks\tombstone.json
 67e3bf3e3f3c3f20f043990752abeb23e18b976a data\civilizations\loot_tables\blocks\smooth_limestone.json
+092b51d5848474dad656f8237ddcdf12cf53b0d3 data\civilizations\loot_tables\blocks\china_lantern.json
 729645aa9af473854e61fcdf7a40db0465f1bea2 data\civilizations\loot_tables\blocks\limestone.json
 124a5ddaf277f5121cc5a4d85164d799a9f6cccb data\civilizations\loot_tables\blocks\limestone_bricks.json

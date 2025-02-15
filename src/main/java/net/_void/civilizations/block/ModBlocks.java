@@ -1,10 +1,7 @@
 package net._void.civilizations.block;
 
 import net._void.civilizations.Civilizations;
-import net._void.civilizations.block.custom.CoffinBottom;
-import net._void.civilizations.block.custom.CoffinTop;
-import net._void.civilizations.block.custom.TombstoneBlock;
-import net._void.civilizations.block.custom.TradingStationBlock;
+import net._void.civilizations.block.custom.*;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
@@ -31,6 +28,9 @@ public class ModBlocks {
 
     public static final Block COFFIN_TOP = registerBlock("coffin_top", new CoffinTop(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK).nonOpaque().strength(-1.0F, 3600000.0F)));
     public static final Block COFFIN_BOTTOM = registerBlock("coffin_bottom", new CoffinBottom(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK).nonOpaque().strength(-1.0F, 3600000.0F)));
+
+    public static final Block CHINA_LANTERN = registerBlock("china_lantern", new ChinaLanternBlock(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS).nonOpaque().luminance(9)));
+    public static final Block CHINA_STRING = registerBlock("china_string", new ChinaStringBlock(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS).nonOpaque()));
 
 
     private static Block registerBlock(String name, Block block){
