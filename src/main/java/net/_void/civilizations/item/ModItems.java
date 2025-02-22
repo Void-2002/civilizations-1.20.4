@@ -36,8 +36,6 @@ public class ModItems {
         entries.add(ModBlocks.ROUGH_LIMESTONE);
         entries.add(ModBlocks.LIMESTONE_BRICKS);
         entries.add(ModBlocks.LIMESTONE_PILLAR);
-        entries.add(ModBlocks.CHINA_LANTERN);
-        entries.add(ModBlocks.CHINA_STRING);
     }
 
     private static void addItemsToRedstoneTabItemGroup(FabricItemGroupEntries entries){

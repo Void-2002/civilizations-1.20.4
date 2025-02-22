@@ -27,8 +27,6 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleState(ModBlocks.COFFIN_TOP);
         blockStateModelGenerator.registerSimpleState(ModBlocks.COFFIN_BOTTOM);
 
-        blockStateModelGenerator.registerSimpleState(ModBlocks.CHINA_LANTERN);
-        blockStateModelGenerator.registerSimpleState(ModBlocks.CHINA_STRING);
     }
 
     @Override

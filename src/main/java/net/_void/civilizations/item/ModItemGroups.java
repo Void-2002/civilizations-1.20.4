@@ -30,8 +30,6 @@ public class ModItemGroups {
                         entries.add(ModBlocks.COFFIN_TOP);
                         entries.add(ModBlocks.COFFIN_BOTTOM);
                         entries.add(ModItems.EGYPT_CROOK);
-                        entries.add(ModBlocks.CHINA_LANTERN);
-                        entries.add(ModBlocks.CHINA_STRING);
 
 
                     }).build());
