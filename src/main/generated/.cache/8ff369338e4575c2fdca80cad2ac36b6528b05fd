@@ -1,10 +1,11 @@
-// 1.20.4	2025-02-21T23:26:49.9678885	Civilizations/Model Definitions
+// 1.20.4	2025-02-22T21:08:08.6723611	Civilizations/Model Definitions
 d015c4ec59541605067fa7fd446e9b7b65d76fc3 assets\civilizations\models\item\limestone_pillar.json
 4d0265298db6dc9bae11f47de7edb078bdbd828a assets\civilizations\blockstates\tombstone.json
 7b380db4aef5ec71ba24b61cc533921fb9a32e9f assets\civilizations\blockstates\rough_limestone.json
 a5f2e47c6cbfa367f8f4ea2b55c5c1187762584d assets\civilizations\models\block\egypt_door_top_left_open.json
 c7c21f02804da82bb5244b101e70590fe284e033 assets\civilizations\models\block\smooth_limestone.json
 fd8b11fac951a6a6c19e8e326ce7f41ce378263c assets\civilizations\blockstates\coffin_top.json
+ed3cf57c8fc6cf3ad30d6d95a067d1d56670d7d4 assets\civilizations\models\item\china_key.json
 d6032576b796bef84ce6a969bb4c9accc6451c90 assets\civilizations\models\block\limestone_bricks.json
 5ab9f5060bdd4e16d7b2607d42d636b75c3c49d7 assets\civilizations\models\block\limestone.json
 ba69d4decb0cefacc11ff4523934eec8b189c1c7 assets\civilizations\models\block\egypt_door_bottom_left_open.json
@@ -32,6 +33,7 @@ e97ffcb7f449fe967264c802ba6a3b14ffe3b685 assets\civilizations\models\item\egypt_
 32f6acd5424d3726ff621e4552a11127fb681468 assets\civilizations\models\item\egypt_key.json
 23a4aa44d858a91f33cd711489c4482d09a24364 assets\civilizations\models\item\egypt_coin.json
 64febda7a633a13ac29c65c0d092fbd27df484ba assets\civilizations\blockstates\trading_station.json
+eff798627f4ca9d3ae089982898f0163783ce6df assets\civilizations\models\item\china_key_fragment.json
 f13f03cb67fffec5249803c8ae6ab77279a3a8ff assets\civilizations\models\block\egypt_door_top_right.json
 604e49063ecf5f47a6ad3068c6be0563c8910573 assets\civilizations\models\block\egypt_door_top_right_open.json
 45d21ab69b99eabaca1e1155b8bae2d953cb84b1 assets\civilizations\models\item\limestone.json

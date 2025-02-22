@@ -54,5 +54,13 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 criterion(hasItem(ModItems.PAPYRUS), conditionsFromItem(ModItems.PAPYRUS)).
                 criterion(hasItem(Items.LEATHER), conditionsFromItem(Items.LEATHER)).
                 offerTo(exporter, new Identifier(getRecipeName(Items.BOOK) + "papyrus_book"));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.CHINA_KEY, 1).
+                pattern("###").
+                pattern("###").
+                pattern("###").
+                input('#', ModItems.CHINA_KEY_FRAGMENT).
+                criterion(hasItem(ModItems.CHINA_KEY_FRAGMENT), conditionsFromItem(ModItems.CHINA_KEY_FRAGMENT)).
+                offerTo(exporter);
     }
 }

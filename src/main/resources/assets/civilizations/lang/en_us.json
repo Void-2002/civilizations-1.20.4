@@ -20,8 +20,8 @@
   "item.civilizations.egypt_crook": "Pharaoh's Crook",
   "effect.civilizations.curse_of_ra": "Curse of Ra",
 
-  "block.civilizations.china_lantern": "Chinese Paper Lantern",
-  "block.civilizations.china_string": "Chinese Lantern String",
+  "item.civilizations.china_key": "Chinese Key",
+  "item.civilizations.china_key_fragment": "Chinese Key Fragment",
 
 
   "advancements.civilizations.title": "Civilizations",
@@ -33,5 +33,8 @@
   "advancements.civilizations_egypt_quest.title": "The key to the tomb",
   "advancements.civilizations_egypt_quest.description": "Complete all Ancient Egypt quests",
   "advancements.civilizations_egypt_boss.title": "Not so immortal after all",
-  "advancements.civilizations_egypt_boss.description": "Take down Pharaoh Khufu"
+  "advancements.civilizations_egypt_boss.description": "Take down Pharaoh Khufu",
+
+  "advancements.civilizations_china_find.title": "Ancient China",
+  "advancements.civilizations_china_find.description": "Discover the Ancient Chinese Civilization"
 }

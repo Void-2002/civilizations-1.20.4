@@ -1,0 +1,40 @@
+{
+  "parent": "civilizations:civilizations",
+  "display": {
+    "icon": {
+      "item": "minecraft:stripped_mangrove_log"
+    },
+    "title": {
+      "translate": "advancements.civilizations_china_find.title"
+    },
+    "description": {
+      "translate": "advancements.civilizations_china_find.description"
+    },
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "in_china": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "civilizations:china"
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "in_china"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
