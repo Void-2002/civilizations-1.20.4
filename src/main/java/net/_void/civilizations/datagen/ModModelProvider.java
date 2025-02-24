@@ -36,5 +36,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.PAPYRUS, Models.GENERATED);
         itemModelGenerator.register(ModItems.CHINA_KEY_FRAGMENT, Models.GENERATED);
         itemModelGenerator.register(ModItems.CHINA_KEY, Models.GENERATED);
+        itemModelGenerator.register(ModItems.CHINA_BATTLE_AXE, Models.HANDHELD);
+
     }
 }

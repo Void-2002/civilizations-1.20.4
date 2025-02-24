@@ -1,0 +1,57 @@
+{
+	"type": "minecraft:chest",
+	"pools": [
+		{
+			"rolls": 2,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:stick"
+				}
+			]
+		},
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:diamond"
+				}
+			]
+		},
+		{
+			"rolls": 6,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:iron_ingot"
+				}
+			]
+		},
+		{
+			"rolls": 2,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:iron_axe"
+				},
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:iron_hoe"
+				},
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:iron_sword"
+				},
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:iron_shovel"
+				},
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:iron_pickaxe"
+				}
+			]
+		}
+	]
+}

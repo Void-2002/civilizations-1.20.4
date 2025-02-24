@@ -1,0 +1,41 @@
+{
+	"type": "minecraft:chest",
+	"pools": [
+		{
+			"rolls": 10,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:stripped_mangrove_log"
+				}
+			]
+		},
+		{
+			"rolls": 10,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:smooth_quartz"
+				}
+			]
+		},
+		{
+			"rolls": 10,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:polished_blackstone_bricks"
+				}
+			]
+		},
+		{
+			"rolls": 3,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:lantern"
+				}
+			]
+		}
+	]
+}

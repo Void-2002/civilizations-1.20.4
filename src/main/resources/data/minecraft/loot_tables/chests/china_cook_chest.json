@@ -1,0 +1,31 @@
+{
+	"type": "minecraft:chest",
+	"pools": [
+		{
+			"rolls": 10,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:bread"
+				},
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:rabbit_stew"
+				},
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:cooked_beef"
+				}
+			]
+		},
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:cake"
+				}
+			]
+		}
+	]
+}
