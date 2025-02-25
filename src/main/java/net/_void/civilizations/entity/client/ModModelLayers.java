@@ -11,4 +11,7 @@ public class ModModelLayers {
             new EntityModelLayer(new Identifier(Civilizations.MOD_ID,"egypt_npc"),"main");
     public static final EntityModelLayer EGYPT_BOSS =
             new EntityModelLayer(new Identifier(Civilizations.MOD_ID,"egypt_boss"),"main");
+
+    public static final EntityModelLayer CHINA_CIVILIAN =
+            new EntityModelLayer(new Identifier(Civilizations.MOD_ID,"china_civilian"),"main");
 }

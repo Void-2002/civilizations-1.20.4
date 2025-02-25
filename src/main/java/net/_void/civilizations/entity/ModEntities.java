@@ -1,6 +1,7 @@
 package net._void.civilizations.entity;
 
 import net._void.civilizations.Civilizations;
+import net._void.civilizations.entity.custom.ChinaCivilianEntity;
 import net._void.civilizations.entity.custom.EgyptCivilianEntity;
 import net._void.civilizations.entity.custom.EgyptNpcEntity;
 import net._void.civilizations.entity.custom.EgyptBossEntity;
@@ -24,5 +25,10 @@ public class ModEntities {
     public static final EntityType<EgyptBossEntity> EGYPT_BOSS = Registry.register(Registries.ENTITY_TYPE,
             new Identifier(Civilizations.MOD_ID, "egypt_boss"),
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, EgyptBossEntity::new)
+                    .dimensions(EntityDimensions.fixed(1f, 2f)).build());
+
+    public static final EntityType<ChinaCivilianEntity> CHINA_CIVILIAN = Registry.register(Registries.ENTITY_TYPE,
+            new Identifier(Civilizations.MOD_ID, "china_civilian"),
+            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, ChinaCivilianEntity::new)
                     .dimensions(EntityDimensions.fixed(1f, 2f)).build());
 }
