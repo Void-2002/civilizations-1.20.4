@@ -256,4 +256,51 @@ public class ModAnimations {
                                     Transformation.Interpolations.LINEAR),
                             new Keyframe(2f, AnimationHelper.createRotationalVector(0f, 0f, 0f),
                                     Transformation.Interpolations.LINEAR))).build();
+
+    public static final Animation CHINA_GUARD_WALK = Animation.Builder.create(1f).looping()
+            .addBoneAnimation("leftleg",
+                    new Transformation(Transformation.Targets.ROTATE,
+                            new Keyframe(0f, AnimationHelper.createRotationalVector(0f, 0f, 0f),
+                                    Transformation.Interpolations.LINEAR),
+                            new Keyframe(0.25f, AnimationHelper.createRotationalVector(-50f, 0f, 0f),
+                                    Transformation.Interpolations.LINEAR),
+                            new Keyframe(0.5f, AnimationHelper.createRotationalVector(0f, 0f, 0f),
+                                    Transformation.Interpolations.LINEAR),
+                            new Keyframe(0.75f, AnimationHelper.createRotationalVector(50f, 0f, 0f),
+                                    Transformation.Interpolations.LINEAR),
+                            new Keyframe(1f, AnimationHelper.createRotationalVector(0f, 0f, 0f),
+                                    Transformation.Interpolations.LINEAR)))
+            .addBoneAnimation("rightleg",
+                    new Transformation(Transformation.Targets.ROTATE,
+                            new Keyframe(0f, AnimationHelper.createRotationalVector(0f, 0f, 0f),
+                                    Transformation.Interpolations.LINEAR),
+                            new Keyframe(0.25f, AnimationHelper.createRotationalVector(50f, 0f, 0f),
+                                    Transformation.Interpolations.LINEAR),
+                            new Keyframe(0.5f, AnimationHelper.createRotationalVector(0f, 0f, 0f),
+                                    Transformation.Interpolations.LINEAR),
+                            new Keyframe(0.75f, AnimationHelper.createRotationalVector(-50f, 0f, 0f),
+                                    Transformation.Interpolations.LINEAR),
+                            new Keyframe(1f, AnimationHelper.createRotationalVector(0f, 0f, 0f),
+                                    Transformation.Interpolations.LINEAR))).build();
+    public static final Animation CHINA_GUARD_SHOOT = Animation.Builder.create(1f)
+            .addBoneAnimation("rightarm",
+                    new Transformation(Transformation.Targets.ROTATE,
+                            new Keyframe(0f, AnimationHelper.createRotationalVector(0f, 0f, 0f),
+                                    Transformation.Interpolations.LINEAR),
+                            new Keyframe(0.25f, AnimationHelper.createRotationalVector(-24.43f, -12.07f, -10.52f),
+                                    Transformation.Interpolations.LINEAR),
+                            new Keyframe(0.5834334f, AnimationHelper.createRotationalVector(-13.46f, -19.47f, -19.52f),
+                                    Transformation.Interpolations.LINEAR),
+                            new Keyframe(1f, AnimationHelper.createRotationalVector(0f, 0f, 0f),
+                                    Transformation.Interpolations.LINEAR)))
+            .addBoneAnimation("leftarm",
+                    new Transformation(Transformation.Targets.ROTATE,
+                            new Keyframe(0f, AnimationHelper.createRotationalVector(0f, 0f, 0f),
+                                    Transformation.Interpolations.LINEAR),
+                            new Keyframe(0.25f, AnimationHelper.createRotationalVector(-55f, 0f, 0f),
+                                    Transformation.Interpolations.LINEAR),
+                            new Keyframe(0.75f, AnimationHelper.createRotationalVector(-55f, 0f, 0f),
+                                    Transformation.Interpolations.LINEAR),
+                            new Keyframe(1f, AnimationHelper.createRotationalVector(0f, 0f, 0f),
+                                    Transformation.Interpolations.LINEAR))).build();
 }

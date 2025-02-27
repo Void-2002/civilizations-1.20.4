@@ -65,7 +65,7 @@ public class EgyptBossEntity extends AnimalEntity {
         } else {
             --this.attackAnimationTimeout;
         }
-        if(!this.isShooting()) {
+        if(!this.isAttacking()) {
             attackAnimationState.stop();
         }
         if(this.isShooting() && shootingAnimationTimeout <= 0) {

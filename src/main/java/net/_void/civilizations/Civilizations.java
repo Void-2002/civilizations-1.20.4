@@ -4,10 +4,7 @@ import net._void.civilizations.block.ModBlocks;
 import net._void.civilizations.block.entity.ModBlockEntities;
 import net._void.civilizations.effect.ModEffects;
 import net._void.civilizations.entity.ModEntities;
-import net._void.civilizations.entity.custom.ChinaCivilianEntity;
-import net._void.civilizations.entity.custom.EgyptBossEntity;
-import net._void.civilizations.entity.custom.EgyptCivilianEntity;
-import net._void.civilizations.entity.custom.EgyptNpcEntity;
+import net._void.civilizations.entity.custom.*;
 import net._void.civilizations.item.ModItemGroups;
 import net._void.civilizations.item.ModItems;
 import net._void.civilizations.screen.ModScreenHandlers;
@@ -35,5 +32,6 @@ public class Civilizations implements ModInitializer {
 		FabricDefaultAttributeRegistry.register(ModEntities.EGYPT_BOSS, EgyptBossEntity.createBossAttributes());
 
 		FabricDefaultAttributeRegistry.register(ModEntities.CHINA_CIVILIAN, ChinaCivilianEntity.createCivilianAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.CHINA_GUARD, ChinaGuardEntity.createGuardAttributes());
 	}
 }

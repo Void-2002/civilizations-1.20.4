@@ -1,10 +1,7 @@
 package net._void.civilizations.entity;
 
 import net._void.civilizations.Civilizations;
-import net._void.civilizations.entity.custom.ChinaCivilianEntity;
-import net._void.civilizations.entity.custom.EgyptCivilianEntity;
-import net._void.civilizations.entity.custom.EgyptNpcEntity;
-import net._void.civilizations.entity.custom.EgyptBossEntity;
+import net._void.civilizations.entity.custom.*;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
@@ -30,5 +27,9 @@ public class ModEntities {
     public static final EntityType<ChinaCivilianEntity> CHINA_CIVILIAN = Registry.register(Registries.ENTITY_TYPE,
             new Identifier(Civilizations.MOD_ID, "china_civilian"),
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, ChinaCivilianEntity::new)
+                    .dimensions(EntityDimensions.fixed(1f, 2f)).build());
+    public static final EntityType<ChinaGuardEntity> CHINA_GUARD = Registry.register(Registries.ENTITY_TYPE,
+            new Identifier(Civilizations.MOD_ID, "china_guard"),
+            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, ChinaGuardEntity::new)
                     .dimensions(EntityDimensions.fixed(1f, 2f)).build());
 }
