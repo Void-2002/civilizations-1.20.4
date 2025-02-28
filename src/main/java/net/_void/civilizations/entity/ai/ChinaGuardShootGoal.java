@@ -10,6 +10,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ArrowEntity;
 import net.minecraft.entity.projectile.FireballEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
+import net.minecraft.entity.projectile.ProjectileUtil;
 import net.minecraft.item.ArrowItem;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemStack;
@@ -54,31 +55,27 @@ public class ChinaGuardShootGoal extends Goal {
     public void tick() {
         LivingEntity livingEntity = this.entity.getTarget();
         if (livingEntity != null) {
-            double d = (double)64.0F;
             if (livingEntity.squaredDistanceTo(this.entity) < (double)4096.0F && this.entity.canSee(livingEntity)) {
                 World world = this.entity.getWorld();
                 ++this.cooldown;
+                this.entity.getLookControl().lookAt(livingEntity.getX(), livingEntity.getEyeY(), livingEntity.getZ());
                 if (this.cooldown == 20) {
-                    double e = (double)4.0F;
-                    Vec3d vec3d = this.entity.getRotationVec(1.0F);
-                    double f = livingEntity.getX() - (this.entity.getX() + vec3d.x * (double)4.0F);
-                    double g = livingEntity.getBodyY((double)0.5F) - ((double)0.5F + this.entity.getBodyY((double)0.5F));
-                    double h = livingEntity.getZ() - (this.entity.getZ() + vec3d.z * (double)4.0F);
-
-                    this.entity.getWorld().playSoundAtBlockCenter(entity.getBlockPos(), SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.HOSTILE, 1.0F,1.2F, false);
-
-                    ArrowEntity arrowEntity = new ArrowEntity(EntityType.ARROW,entity.getWorld());
-                    arrowEntity.setVelocity(f,g,h);
-                    arrowEntity.setPosition(this.entity.getX() + vec3d.x * (double)2.0F, this.entity.getBodyY((double)0.5F) + (double)0.5F, arrowEntity.getZ() + vec3d.z * (double)2.0F);
-                    world.spawnEntity(arrowEntity);
-
+                    world.syncWorldEvent((PlayerEntity)null, 1004, this.entity.getBlockPos(), 0);
+                    ItemStack itemStack = new ItemStack(Items.BOW);
+                    PersistentProjectileEntity persistentProjectileEntity = ProjectileUtil.createArrowProjectile(entity, itemStack, 1);
+                    double j = livingEntity.getX() - entity.getX();
+                    double e = livingEntity.getBodyY(0.3333333333333333) - persistentProjectileEntity.getY();
+                    double f = livingEntity.getZ() - entity.getZ();
+                    double g = Math.sqrt(j * j + f * f);
+                    persistentProjectileEntity.setVelocity(j, e + g * (double)0.2F, f, 1.6F, (float)(14 - world.getDifficulty().getId() * 4));
+                    world.spawnEntity(persistentProjectileEntity);
                     if(shotsTaken < 2) {
                         shotsTaken++;
                         this.cooldown = 10;
                     }
                     else {
                         shotsTaken = 0;
-                        this.cooldown = -80;
+                        this.cooldown = -60;
                     }
                 }
             } else if (this.cooldown > 0) {

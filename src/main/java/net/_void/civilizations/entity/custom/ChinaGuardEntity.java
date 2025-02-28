@@ -10,6 +10,7 @@ import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.damage.DamageTypes;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
@@ -81,11 +82,11 @@ public class ChinaGuardEntity extends AnimalEntity{
 
     public static DefaultAttributeContainer.Builder createGuardAttributes(){
         return MobEntity.createMobAttributes().
-                add(EntityAttributes.GENERIC_MAX_HEALTH,40).
+                add(EntityAttributes.GENERIC_MAX_HEALTH,20).
                 add(EntityAttributes.GENERIC_ARMOR,2).
                 add(EntityAttributes.GENERIC_ATTACK_DAMAGE,3).
                 add(EntityAttributes.GENERIC_MOVEMENT_SPEED,0.25f).
-                add(EntityAttributes.GENERIC_FOLLOW_RANGE,20);
+                add(EntityAttributes.GENERIC_FOLLOW_RANGE,30);
     }
 
     public void setShooting(boolean shooting){
@@ -120,5 +121,13 @@ public class ChinaGuardEntity extends AnimalEntity{
     protected void initDataTracker() {
         super.initDataTracker();
         this.dataTracker.startTracking(SHOOTING,false);
+    }
+
+    @Override
+    public boolean damage(DamageSource source, float amount) {
+        if(source.isOf(DamageTypes.ARROW)){
+            return false;
+        }
+        return super.damage(source, amount);
     }
 }

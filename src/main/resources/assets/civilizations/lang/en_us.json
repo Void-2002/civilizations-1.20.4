@@ -23,6 +23,8 @@
   "item.civilizations.china_key": "Chinese Key",
   "item.civilizations.china_key_fragment": "Chinese Key Fragment",
   "item.civilizations.china_battle_axe": "Chinese Battle Axe",
+  "entity.civilizations.china_civilian": "Chinese",
+  "entity.civilizations.china_guard": "Chinese Guard",
 
   "advancements.civilizations.title": "Civilizations",
   "advancements.civilizations.description": "Welcome to Civilizations",
