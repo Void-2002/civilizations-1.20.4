@@ -3,9 +3,11 @@ package net._void.civilizations.entity.custom;
 import net._void.civilizations.entity.ModEntities;
 import net._void.civilizations.entity.ai.ChinaGuardShootGoal;
 import net._void.civilizations.entity.ai.EgyptCivilianAttackGoal;
+import net._void.civilizations.item.ModItems;
 import net.minecraft.entity.AnimationState;
 import net.minecraft.entity.EntityPose;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -18,6 +20,7 @@ import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Items;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Util;
@@ -129,5 +132,14 @@ public class ChinaGuardEntity extends AnimalEntity{
             return false;
         }
         return super.damage(source, amount);
+    }
+
+    @Override
+    protected void dropEquipment(DamageSource source, int lootingMultiplier, boolean allowDrops) {
+        super.dropEquipment(source, lootingMultiplier, allowDrops);
+        ItemEntity itemEntity = this.dropItem(ModItems.CHINA_KEY_FRAGMENT);
+        if (itemEntity != null) {
+            itemEntity.setCovetedItem();
+        }
     }
 }

@@ -24,11 +24,13 @@ public class ModItems {
     public static final Item CHINA_KEY_FRAGMENT = registerItem("china_key_fragment", new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON)));
     public static final Item CHINA_KEY = registerItem("china_key", new Item(new FabricItemSettings().maxCount(1).rarity(Rarity.RARE)));
     public static final Item CHINA_BATTLE_AXE = registerItem("china_battle_axe", new ChinaBattleAxe(9, -3.0F, new FabricItemSettings().maxCount(1).rarity(Rarity.EPIC)));
+    public static final Item CHINA_COIN = registerItem("china_coin", new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON)));
 
     private static void addItemsToIngredientTabItemGroup(FabricItemGroupEntries entries){
         entries.add(EGYPT_COIN);
         entries.add(PAPYRUS);
         entries.add(CHINA_KEY_FRAGMENT);
+        entries.add(CHINA_COIN);
     }
 
     private static void addItemsToToolTabItemGroup(FabricItemGroupEntries entries){

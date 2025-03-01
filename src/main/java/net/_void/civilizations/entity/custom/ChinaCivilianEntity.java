@@ -2,6 +2,7 @@ package net._void.civilizations.entity.custom;
 
 import net._void.civilizations.entity.ModEntities;
 import net._void.civilizations.entity.ai.ChinaCivilianAttackGoal;
+import net._void.civilizations.item.ModItems;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
@@ -14,15 +15,22 @@ import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
 import net.minecraft.util.Util;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.*;
 
 public class ChinaCivilianEntity extends AnimalEntity {
 
@@ -33,7 +41,45 @@ public class ChinaCivilianEntity extends AnimalEntity {
     public final AnimationState attackAnimationState = new AnimationState();
     public int attackAnimationTimeout = 0;
 
-    private int pickup = 0;
+    Entity trader;
+    int trading = 0;
+    int tradingDuration = 0;
+    Map<Item, Integer> outputItems = new HashMap<Item, Integer>()
+    {
+        {
+            put(Items.CHAINMAIL_HELMET,1);
+            put(Items.CHAINMAIL_CHESTPLATE,1);
+            put(Items.CHAINMAIL_LEGGINGS,1);
+            put(Items.CHAINMAIL_BOOTS,1);
+            put(Items.IRON_HORSE_ARMOR,1);
+            put(Items.SADDLE,1);
+            put(Items.NAME_TAG,1);
+            put(Items.MAP,1);
+            put(Items.COPPER_INGOT,3);
+            put(Items.BRICK,8);
+            put(Items.PAPER,6);
+            put(Items.INK_SAC,5);
+            put(Items.STRING,4);
+            put(Items.LEATHER,2);
+            put(Items.ARROW,5);
+            put(Items.POPPY,4);
+            put(Items.RED_TULIP,4);
+            put(Items.WHITE_TULIP,4);
+            put(Items.LILY_OF_THE_VALLEY,4);
+            put(Items.BAMBOO,6);
+            put(Items.STRIPPED_MANGROVE_LOG,4);
+            put(Items.SMOOTH_QUARTZ,5);
+            put(Items.POLISHED_BLACKSTONE_BRICKS,4);
+            put(Items.RIB_ARMOR_TRIM_SMITHING_TEMPLATE,1);
+            put(Items.LOOM,1);
+            put(Items.CARTOGRAPHY_TABLE,1);
+            put(Items.SMITHING_TABLE,1);
+            put(Items.NOTE_BLOCK,2);
+            put(Items.JUKEBOX,1);
+            // PAINTINGS
+            // DISCS
+        }
+    };
 
     public ChinaCivilianEntity(EntityType<? extends AnimalEntity> entityType, World world) {
         super(entityType, world);
@@ -168,16 +214,48 @@ public class ChinaCivilianEntity extends AnimalEntity {
     }
 
     @Override
-    public boolean canPickupItem(ItemStack stack) {
-        return pickup == 0;
+    protected void mobTick() {
+        if(trading >= 1){
+            tradingDuration += 1;
+            this.getMoveControl().moveTo(this.getX(),this.getY(),this.getZ(),1);
+            this.lookAtEntity(trader, 5, 5);
+            if(tradingDuration == 50){
+                ((ServerWorld) this.getWorld()).spawnParticles(ParticleTypes.HAPPY_VILLAGER,this.getX(),
+                        this.getEyeY(), this.getZ(), 10, 0.2, 0.2, 0.2, 1);
+            }
+            if(tradingDuration == 100){
+                ((ServerWorld) this.getWorld()).spawnParticles(ParticleTypes.HAPPY_VILLAGER,this.getX(),
+                        this.getEyeY(), this.getZ(), 10, 0.2, 0.2, 0.2, 1);
+                if(trading == 2){
+                    dropStack(new ItemStack(ModItems.CHINA_COIN,2));
+                }else{
+                    Random generator = new Random();
+                    Object[] values = outputItems.keySet().toArray();
+                    Item randomItem = (Item) values[generator.nextInt(values.length)];
+                    dropStack(new ItemStack(randomItem,outputItems.get(randomItem)));
+                }
+                tradingDuration = 0;
+                trading = 0;
+            }
+        }
+        super.mobTick();
     }
 
     @Override
-    protected void mobTick() {
-        super.mobTick();
-        setCanPickUpLoot(pickup == 0);
-        if(pickup > 0) pickup++;
-        if(pickup > 60) pickup = 0;
-        //TODO Bartering
+    public ActionResult interactMob(PlayerEntity player, Hand hand) {
+        if(!this.getWorld().isClient()){
+            ItemStack itemStack = player.getMainHandStack();
+            Item item = itemStack.getItem();
+            if ((item.equals(Items.IRON_INGOT) || item.equals(ModItems.CHINA_COIN)) && trading == 0){
+                trader = player;
+                trading = 1;
+                if(item.equals(Items.IRON_INGOT)) trading = 2;
+                itemStack.setCount(itemStack.getCount()-1);
+                ((ServerWorld) this.getWorld()).spawnParticles(ParticleTypes.HAPPY_VILLAGER,this.getX(),
+                        this.getEyeY(), this.getZ(), 10, 0.2, 0.2, 0.2, 1);
+                return ActionResult.SUCCESS;
+            }
+        }
+        return super.interactMob(player, hand);
     }
 }

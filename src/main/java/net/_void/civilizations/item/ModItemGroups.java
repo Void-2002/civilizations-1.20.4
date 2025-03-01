@@ -34,6 +34,7 @@ public class ModItemGroups {
                         entries.add(ModItems.CHINA_KEY_FRAGMENT);
                         entries.add(ModItems.CHINA_KEY);
                         entries.add(ModItems.CHINA_BATTLE_AXE);
+                        entries.add(ModItems.CHINA_COIN);
 
                     }).build());
 
