@@ -10,6 +10,8 @@ import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
+import net.minecraft.item.SwordItem;
+import net.minecraft.item.ToolMaterials;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
@@ -25,6 +27,7 @@ public class ModItems {
     public static final Item CHINA_KEY = registerItem("china_key", new Item(new FabricItemSettings().maxCount(1).rarity(Rarity.RARE)));
     public static final Item CHINA_BATTLE_AXE = registerItem("china_battle_axe", new ChinaBattleAxe(9, -3.0F, new FabricItemSettings().maxCount(1).rarity(Rarity.EPIC)));
     public static final Item CHINA_COIN = registerItem("china_coin", new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON)));
+    public static final Item CHINA_SWORD = registerItem("china_sword", new SwordItem(ToolMaterials.NETHERITE, 2, -1.5F, new FabricItemSettings().maxCount(1).rarity(Rarity.EPIC)));
 
     private static void addItemsToIngredientTabItemGroup(FabricItemGroupEntries entries){
         entries.add(EGYPT_COIN);
@@ -60,6 +63,7 @@ public class ModItems {
     private static void addItemsToCombatTabItemGroup(FabricItemGroupEntries entries){
         entries.add(ModItems.EGYPT_CROOK);
         entries.add(ModItems.CHINA_BATTLE_AXE);
+        entries.add(ModItems.CHINA_SWORD);
     }
 
     private static Item registerItem(String name, Item item){

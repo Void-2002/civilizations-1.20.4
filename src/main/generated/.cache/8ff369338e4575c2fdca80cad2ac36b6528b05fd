@@ -1,4 +1,4 @@
-// 1.20.4	2025-03-01T19:00:10.3415298	Civilizations/Model Definitions
+// 1.20.4	2025-03-02T18:34:12.1109861	Civilizations/Model Definitions
 d015c4ec59541605067fa7fd446e9b7b65d76fc3 assets\civilizations\models\item\limestone_pillar.json
 4d0265298db6dc9bae11f47de7edb078bdbd828a assets\civilizations\blockstates\tombstone.json
 7b380db4aef5ec71ba24b61cc533921fb9a32e9f assets\civilizations\blockstates\rough_limestone.json
@@ -22,9 +22,10 @@ ba1c9d7ace753104550ff1492bef3908aceb16d3 assets\civilizations\models\block\egypt
 20fe8cd6bfe4517bf964b97cb8fc05cadefe703f assets\civilizations\blockstates\limestone_bricks.json
 8af6e670d3a53d5d687b9b81ce5f649318a8ebd0 assets\civilizations\models\item\smooth_limestone.json
 36514ee7f89ee2e69571535bd974e02a841d1c04 assets\civilizations\models\item\limestone_bricks.json
-eb8d3fbe5b9210ba74a38e8e08ed65a048ce92a0 assets\civilizations\blockstates\coffin_bottom.json
 2ac7c619a4868b342503dff962a37c3b0f2bcd4d assets\civilizations\blockstates\limestone.json
+eb8d3fbe5b9210ba74a38e8e08ed65a048ce92a0 assets\civilizations\blockstates\coffin_bottom.json
 079ea9949c2394edf7de6ad83c7383f86da45520 assets\civilizations\blockstates\smooth_limestone.json
+c5f4fd59508eb9eda391ba3f5b116357981a9242 assets\civilizations\models\item\china_sword.json
 77b34bf1732d75638a5f6bb1268ce13a2705c7c8 assets\civilizations\models\block\egypt_door_top_left.json
 94ef06c0894ee7c1c8e4804cffeb5b574cd49962 assets\civilizations\models\item\trading_station.json
 a4f74a520135d4159274d105af73860676dac0c4 assets\civilizations\models\block\egypt_door_bottom_right_open.json
