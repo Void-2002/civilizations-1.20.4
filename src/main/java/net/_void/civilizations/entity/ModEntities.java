@@ -32,4 +32,8 @@ public class ModEntities {
             new Identifier(Civilizations.MOD_ID, "china_guard"),
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, ChinaGuardEntity::new)
                     .dimensions(EntityDimensions.fixed(1f, 2f)).build());
+    public static final EntityType<ChinaBossEntity> CHINA_BOSS = Registry.register(Registries.ENTITY_TYPE,
+            new Identifier(Civilizations.MOD_ID, "china_boss"),
+            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, ChinaBossEntity::new)
+                    .dimensions(EntityDimensions.fixed(1f, 2f)).build());
 }
