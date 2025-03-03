@@ -39,6 +39,8 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.CHINA_BATTLE_AXE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.CHINA_COIN, Models.GENERATED);
         itemModelGenerator.register(ModItems.CHINA_SWORD, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.HIGH_MOUNTAINS_AND_FLOWING_WATER_MUSIC_DISC, Models.GENERATED);
+        itemModelGenerator.register(ModItems.AUTUMN_MOON_OVER_HAN_PALACE_MUSIC_DISC, Models.GENERATED);
 
     }
 }

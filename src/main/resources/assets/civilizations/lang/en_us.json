@@ -28,6 +28,10 @@
   "item.civilizations.china_coin": "Banliang",
   "item.civilizations.china_sword": "Sword of Goujian",
   "entity.civilizations.china_boss": "Emperor Qin Shi Huang",
+  "item.civilizations.high_mountains_music_disc": "Music Disc",
+  "item.civilizations.high_mountains_music_disc.desc": "Bo Ya - High Mountains and Flowing Water",
+  "item.civilizations.autumn_moon_music_disc": "Music Disc",
+  "item.civilizations.autumn_moon_music_disc.desc": "Autumn Moon Over Han Palace",
 
   "advancements.civilizations.title": "Civilizations",
   "advancements.civilizations.description": "Welcome to Civilizations",

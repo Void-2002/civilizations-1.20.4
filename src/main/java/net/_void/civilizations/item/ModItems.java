@@ -5,13 +5,11 @@ import net._void.civilizations.block.ModBlocks;
 import net._void.civilizations.item.custom.ChinaBattleAxe;
 import net._void.civilizations.item.custom.EgyptCrook;
 import net._void.civilizations.item.custom.EgyptKey;
+import net._void.civilizations.sound.ModSounds;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroups;
-import net.minecraft.item.SwordItem;
-import net.minecraft.item.ToolMaterials;
+import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
@@ -28,6 +26,10 @@ public class ModItems {
     public static final Item CHINA_BATTLE_AXE = registerItem("china_battle_axe", new ChinaBattleAxe(9, -3.0F, new FabricItemSettings().maxCount(1).rarity(Rarity.EPIC)));
     public static final Item CHINA_COIN = registerItem("china_coin", new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON)));
     public static final Item CHINA_SWORD = registerItem("china_sword", new SwordItem(ToolMaterials.NETHERITE, 2, -1.5F, new FabricItemSettings().maxCount(1).rarity(Rarity.EPIC)));
+    public static final Item HIGH_MOUNTAINS_AND_FLOWING_WATER_MUSIC_DISC = registerItem("high_mountains_music_disc",
+            new MusicDiscItem(7, ModSounds.HIGH_MOUNTAINS_AND_FLOWING_WATER, new FabricItemSettings().maxCount(1).rarity(Rarity.RARE), 382));
+    public static final Item AUTUMN_MOON_OVER_HAN_PALACE_MUSIC_DISC = registerItem("autumn_moon_music_disc",
+            new MusicDiscItem(7, ModSounds.AUTUMN_MOON_OVER_HAN_PALACE, new FabricItemSettings().maxCount(1).rarity(Rarity.RARE), 312));
 
     private static void addItemsToIngredientTabItemGroup(FabricItemGroupEntries entries){
         entries.add(EGYPT_COIN);
@@ -39,6 +41,8 @@ public class ModItems {
     private static void addItemsToToolTabItemGroup(FabricItemGroupEntries entries){
         entries.add(EGYPT_KEY);
         entries.add(CHINA_KEY);
+        entries.add(HIGH_MOUNTAINS_AND_FLOWING_WATER_MUSIC_DISC);
+        entries.add(AUTUMN_MOON_OVER_HAN_PALACE_MUSIC_DISC);
     }
 
     private static void addItemsToBuildTabItemGroup(FabricItemGroupEntries entries){

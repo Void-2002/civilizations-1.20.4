@@ -1,0 +1,18 @@
+{
+  "high_mountains_and_flowing_water": {
+    "sounds": [
+      {
+        "name": "civilizations:high_mountains_and_flowing_water",
+        "stream": true
+      }
+    ]
+  },
+  "autumn_moon_over_han_palace": {
+    "sounds": [
+      {
+        "name": "civilizations:autumn_moon_over_han_palace",
+        "stream": true
+      }
+    ]
+  }
+}

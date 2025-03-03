@@ -1,5 +1,6 @@
 package net._void.civilizations.entity.custom;
 
+import dev.architectury.platform.Mod;
 import net._void.civilizations.entity.ModEntities;
 import net._void.civilizations.entity.ai.ChinaCivilianAttackGoal;
 import net._void.civilizations.item.ModItems;
@@ -76,8 +77,8 @@ public class ChinaCivilianEntity extends AnimalEntity {
             put(Items.SMITHING_TABLE,1);
             put(Items.NOTE_BLOCK,2);
             put(Items.JUKEBOX,1);
-            // PAINTINGS
-            // DISCS
+            put(ModItems.HIGH_MOUNTAINS_AND_FLOWING_WATER_MUSIC_DISC,1);
+            put(ModItems.AUTUMN_MOON_OVER_HAN_PALACE_MUSIC_DISC,1);
         }
     };
 
@@ -228,7 +229,9 @@ public class ChinaCivilianEntity extends AnimalEntity {
                         this.getEyeY(), this.getZ(), 10, 0.2, 0.2, 0.2, 1);
                 if(trading == 2){
                     dropStack(new ItemStack(ModItems.CHINA_COIN,2));
-                }else{
+                }else if(trading == 3){
+                    dropStack(new ItemStack(ModItems.CHINA_COIN,10));
+                } else{
                     Random generator = new Random();
                     Object[] values = outputItems.keySet().toArray();
                     Item randomItem = (Item) values[generator.nextInt(values.length)];
@@ -246,10 +249,11 @@ public class ChinaCivilianEntity extends AnimalEntity {
         if(!this.getWorld().isClient()){
             ItemStack itemStack = player.getMainHandStack();
             Item item = itemStack.getItem();
-            if ((item.equals(Items.IRON_INGOT) || item.equals(ModItems.CHINA_COIN)) && trading == 0){
+            if ((item.equals(Items.IRON_INGOT) || item.equals(ModItems.CHINA_COIN) || item.equals(ModItems.CHINA_KEY)) && trading == 0){
                 trader = player;
                 trading = 1;
                 if(item.equals(Items.IRON_INGOT)) trading = 2;
+                if(item.equals(ModItems.CHINA_KEY)) trading = 3;
                 itemStack.setCount(itemStack.getCount()-1);
                 ((ServerWorld) this.getWorld()).spawnParticles(ParticleTypes.HAPPY_VILLAGER,this.getX(),
                         this.getEyeY(), this.getZ(), 10, 0.2, 0.2, 0.2, 1);
