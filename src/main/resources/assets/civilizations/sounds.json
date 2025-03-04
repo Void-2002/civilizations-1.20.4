@@ -1,5 +1,6 @@
 {
   "high_mountains_and_flowing_water": {
+    "subtitle": "subtitles.civilizations.high_mountains_and_flowing_water",
     "sounds": [
       {
         "name": "civilizations:high_mountains_and_flowing_water",
@@ -8,6 +9,7 @@
     ]
   },
   "autumn_moon_over_han_palace": {
+    "subtitle": "subtitles.civilizations.autumn_moon_over_han_palace",
     "sounds": [
       {
         "name": "civilizations:autumn_moon_over_han_palace",

@@ -30,8 +30,10 @@
   "entity.civilizations.china_boss": "Emperor Qin Shi Huang",
   "item.civilizations.high_mountains_music_disc": "Music Disc",
   "item.civilizations.high_mountains_music_disc.desc": "Bo Ya - High Mountains and Flowing Water",
+  "subtitles.civilizations.high_mountains_and_flowing_water": "High Mountains and Flowing Water",
   "item.civilizations.autumn_moon_music_disc": "Music Disc",
   "item.civilizations.autumn_moon_music_disc.desc": "Autumn Moon Over Han Palace",
+  "subtitles.civilizations.autumn_moon_over_han_palace": "Autumn Moon Over Han Palace",
 
   "advancements.civilizations.title": "Civilizations",
   "advancements.civilizations.description": "Welcome to Civilizations",
