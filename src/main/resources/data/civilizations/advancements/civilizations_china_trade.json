@@ -1,0 +1,36 @@
+{
+  "parent": "civilizations:civilizations_china_find",
+  "display": {
+    "icon": {
+      "item": "civilizations:china_coin"
+    },
+    "title": {
+      "translate": "advancements.civilizations_china_trade.title"
+    },
+    "description": {
+      "translate": "advancements.civilizations_china_trade.description"
+    },
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "china_coin": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "civilizations:china_coin"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "china_coin"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

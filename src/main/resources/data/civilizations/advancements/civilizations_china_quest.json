@@ -1,0 +1,36 @@
+{
+  "parent": "civilizations:civilizations_china_trade",
+  "display": {
+    "icon": {
+      "item": "civilizations:china_key"
+    },
+    "title": {
+      "translate": "advancements.civilizations_china_quest.title"
+    },
+    "description": {
+      "translate": "advancements.civilizations_china_quest.description"
+    },
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "china_key": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "civilizations:china_key"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "china_key"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

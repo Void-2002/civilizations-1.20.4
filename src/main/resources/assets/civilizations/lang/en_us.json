@@ -49,5 +49,11 @@
   "advancements.civilizations_egypt_boss.description": "Take down Pharaoh Khufu",
 
   "advancements.civilizations_china_find.title": "Ancient China",
-  "advancements.civilizations_china_find.description": "Discover the Ancient Chinese Civilization"
+  "advancements.civilizations_china_find.description": "Discover the Ancient Chinese Civilization",
+  "advancements.civilizations_china_trade.title": "Fair trade",
+  "advancements.civilizations_china_trade.description": "Trade with the Chinese Civilization",
+  "advancements.civilizations_china_quest.title": "The key to the Empire",
+  "advancements.civilizations_china_quest.description": "Craft a key out of key fragments",
+  "advancements.civilizations_china_boss.title": "The new Emperor",
+  "advancements.civilizations_china_boss.description": "Take down Emperor Qin Shi Huang"
 }

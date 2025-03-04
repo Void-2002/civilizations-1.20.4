@@ -1,20 +1,20 @@
 {
-  "parent": "civilizations:civilizations_egypt_quest",
+  "parent": "civilizations:civilizations_china_quest",
   "display": {
     "icon": {
-      "item": "civilizations:coffin_top"
+      "item": "civilizations:china_sword"
     },
     "title": {
-      "translate": "advancements.civilizations_egypt_boss.title"
+      "translate": "advancements.civilizations_china_boss.title"
     },
     "description": {
-      "translate": "advancements.civilizations_egypt_boss.description"
+      "translate": "advancements.civilizations_china_boss.description"
     },
     "show_toast": true,
     "announce_to_chat": true
   },
   "criteria": {
-    "kill_egypt_boss": {
+    "kill_china_boss": {
       "trigger": "minecraft:player_killed_entity",
       "conditions": {
         "entity": [
@@ -22,7 +22,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "civilizations:egypt_boss"
+              "type": "civilizations:china_boss"
             }
           }
         ]
@@ -31,7 +31,7 @@
   },
   "requirements": [
     [
-      "kill_egypt_boss"
+      "kill_china_boss"
     ]
   ],
   "rewards": {
