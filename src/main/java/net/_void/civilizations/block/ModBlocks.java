@@ -29,6 +29,8 @@ public class ModBlocks {
     public static final Block COFFIN_TOP = registerBlock("coffin_top", new CoffinTop(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK).nonOpaque().strength(-1.0F, 3600000.0F)));
     public static final Block COFFIN_BOTTOM = registerBlock("coffin_bottom", new CoffinBottom(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK).nonOpaque().strength(-1.0F, 3600000.0F)));
 
+    public static final Block CHINA_CHEST = registerBlock("china_chest", new ChinaChest(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK).nonOpaque().strength(-1.0F, 3600000.0F)));
+
 
     private static Block registerBlock(String name, Block block){
         registerBlockItem(name,block);

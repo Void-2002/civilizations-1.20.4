@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "civilizations:block/china_chest",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "civilizations:block/china_chest"
+    },
+    "facing=south": {
+      "model": "civilizations:block/china_chest",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "civilizations:block/china_chest",
+      "y": 270
+    }
+  }
+}

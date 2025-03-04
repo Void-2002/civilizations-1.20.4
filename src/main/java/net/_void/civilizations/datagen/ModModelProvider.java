@@ -26,6 +26,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleState(ModBlocks.TOMBSTONE);
         blockStateModelGenerator.registerSimpleState(ModBlocks.COFFIN_TOP);
         blockStateModelGenerator.registerSimpleState(ModBlocks.COFFIN_BOTTOM);
+        blockStateModelGenerator.registerNorthDefaultHorizontalRotation(ModBlocks.CHINA_CHEST);
 
     }
 

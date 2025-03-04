@@ -38,6 +38,7 @@ public class ModItemGroups {
                         entries.add(ModItems.CHINA_SWORD);
                         entries.add(ModItems.HIGH_MOUNTAINS_AND_FLOWING_WATER_MUSIC_DISC);
                         entries.add(ModItems.AUTUMN_MOON_OVER_HAN_PALACE_MUSIC_DISC);
+                        entries.add(ModBlocks.CHINA_CHEST);
 
                     }).build());
 
