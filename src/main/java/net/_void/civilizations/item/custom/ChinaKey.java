@@ -5,6 +5,7 @@ import net._void.civilizations.entity.custom.ChinaBossEntity;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.TntEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.particle.ParticleTypes;
@@ -27,10 +28,8 @@ public class ChinaKey extends Item{
             if(state.getBlock().equals(ModBlocks.CHINA_CHEST)){
                 context.getWorld().setBlockState(positionClicked, Blocks.AIR.getDefaultState());
                 ChinaBossEntity customEntity = ((EntityType<ChinaBossEntity>) EntityType.get("civilizations:china_boss").get()).create(context.getWorld());
-                customEntity.updatePosition(positionClicked.getX() + 0.5, positionClicked.getY() + 0.5, positionClicked.getZ() + 0.5);
+                customEntity.updatePosition(positionClicked.getX() + 0.5, positionClicked.getY() + 12, positionClicked.getZ() + 0.5);
                 context.getWorld().spawnEntity(customEntity);
-                ((ServerWorld) context.getWorld()).spawnParticles(ParticleTypes.FLAME ,positionClicked.getX() + 0.5 , positionClicked.getY() + 0.5 ,positionClicked.getZ() + 0.5 ,
-                        20, 0.1, 0.1, 0.1, 1);
                 r = ActionResult.SUCCESS;
             }
         }else{

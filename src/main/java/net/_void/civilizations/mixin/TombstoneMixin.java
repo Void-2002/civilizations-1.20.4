@@ -9,6 +9,7 @@ import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -23,15 +24,17 @@ public abstract class TombstoneMixin{
         Inventory inv = player.getInventory();
         BlockPos pos = player.getBlockPos();
         World world = player.getWorld();
-        BlockState stateInBlock = world.getBlockState(pos);
-        BlockState state = stateInBlock.isOf(ModBlocks.TOMBSTONE) ? stateInBlock : ModBlocks.TOMBSTONE.getDefaultState();
-        world.setBlockState(pos, state);
-        BlockEntity blockEntity = world.getBlockEntity(pos);
-        if (blockEntity instanceof TombstoneBlockEntity tombstoneBlockEntity) {
-            for(int i=0;i<inv.size();i++){
-                tombstoneBlockEntity.setStack(i,inv.getStack(i));
+        if(!world.getGameRules().getBoolean(GameRules.KEEP_INVENTORY)){
+            BlockState stateInBlock = world.getBlockState(pos);
+            BlockState state = stateInBlock.isOf(ModBlocks.TOMBSTONE) ? stateInBlock : ModBlocks.TOMBSTONE.getDefaultState();
+            world.setBlockState(pos, state);
+            BlockEntity blockEntity = world.getBlockEntity(pos);
+            if (blockEntity instanceof TombstoneBlockEntity tombstoneBlockEntity) {
+                for(int i=0;i<inv.size();i++){
+                    tombstoneBlockEntity.setStack(i,inv.getStack(i));
+                }
+                player.getInventory().clear();
             }
-            player.getInventory().clear();
         }
         // TODO fix tombstone when player dies to explosion
     }
