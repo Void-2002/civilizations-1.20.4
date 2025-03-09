@@ -1,0 +1,17 @@
+{
+  "structures": [
+    {
+      "structure": "civilizations:nordic",
+      "weight": 10
+    }
+  ],
+  "placement": {
+    "salt": 1267344195,
+
+    "spacing": 80,
+
+    "separation": 50,
+
+    "type": "minecraft:random_spread"
+  }
+}
