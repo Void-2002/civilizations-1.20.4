@@ -1,0 +1,74 @@
+{
+	"type": "minecraft:chest",
+	"pools": [
+		{
+			"rolls": 15,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:bread"
+				},
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:beef"
+				},
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:chicken"
+				},
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:porkchop"
+				},
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:feather"
+				},
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:leather"
+				},
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:player_head"
+				},
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:iron_ingot"
+				},
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:bone"
+				},
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:flint"
+				},
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:rabbit"
+				},
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:mutton"
+				},
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:cod"
+				},
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:salmon"
+				},
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:arrow"
+				},
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:white_wool"
+				}
+			]
+		}
+	]
+}

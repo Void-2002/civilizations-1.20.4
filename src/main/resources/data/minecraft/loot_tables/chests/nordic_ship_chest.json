@@ -1,0 +1,62 @@
+{
+	"type": "minecraft:chest",
+	"pools": [
+		{
+			"rolls": 5,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:map"
+				},
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:copper_ingot"
+				},
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:emerald"
+				},
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:nautilus_shell"
+				},
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:experience_bottle"
+				}
+			]
+		},
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:iron_axe"
+				},
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:flint_and_steel"
+				},
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:bow"
+				}
+			]
+		},
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:goat_horn",
+					"functions": [
+						{
+							"function": "minecraft:set_instrument",
+							"options": "#minecraft:regular_goat_horns"
+						}
+					]
+				}
+			]
+		}
+	]
+}
