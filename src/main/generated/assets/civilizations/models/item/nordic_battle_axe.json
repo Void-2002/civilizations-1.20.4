@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "civilizations:item/china_battle_axe"
+    "layer0": "civilizations:item/nordic_battle_axe"
   }
 }

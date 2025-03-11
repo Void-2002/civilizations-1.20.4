@@ -22,7 +22,6 @@
 
   "item.civilizations.china_key": "Chinese Key",
   "item.civilizations.china_key_fragment": "Chinese Key Fragment",
-  "item.civilizations.china_battle_axe": "Chinese Battle Axe",
   "entity.civilizations.china_civilian": "Chinese",
   "entity.civilizations.china_guard": "Chinese Guard",
   "item.civilizations.china_coin": "Banliang",
@@ -35,6 +34,9 @@
   "item.civilizations.autumn_moon_music_disc.desc": "Autumn Moon Over Han Palace",
   "subtitles.civilizations.autumn_moon_over_han_palace": "Autumn Moon Over Han Palace",
   "block.civilizations.china_chest": "Chinese Chest",
+
+  "item.civilizations.nordic_battle_axe": "Norse Battle Axe",
+  "entity.civilizations.nordic_civilian": "Viking",
 
   "advancements.civilizations.title": "Civilizations",
   "advancements.civilizations.description": "Welcome to Civilizations",

@@ -70,6 +70,7 @@ public class ChinaBossModel<T extends ChinaBossEntity> extends SinglePartEntityM
         this.setHeadAngles(netHeadYaw, headPitch);
 
         this.animateMovement(ModAnimations.CHINA_BOSS_MOVE, limbSwing, limbSwingAmount, 1f, 1f);
+        this.updateAnimation(entity.idleAnimationState, ModAnimations.EGYPT_CIVILIAN_IDLE, ageInTicks, 1f);
         this.updateAnimation(entity.attackAnimationState, ModAnimations.CHINA_BOSS_ATTACK, ageInTicks, 1f);
     }
 

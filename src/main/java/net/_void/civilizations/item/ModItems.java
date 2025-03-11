@@ -2,7 +2,7 @@ package net._void.civilizations.item;
 
 import net._void.civilizations.Civilizations;
 import net._void.civilizations.block.ModBlocks;
-import net._void.civilizations.item.custom.ChinaBattleAxe;
+import net._void.civilizations.item.custom.NordicBattleAxe;
 import net._void.civilizations.item.custom.ChinaKey;
 import net._void.civilizations.item.custom.EgyptCrook;
 import net._void.civilizations.item.custom.EgyptKey;
@@ -24,7 +24,7 @@ public class ModItems {
     public static final Item EGYPT_CROOK = registerItem("egypt_crook", new EgyptCrook(3, -2.0F, new FabricItemSettings().maxCount(1).rarity(Rarity.EPIC)));
     public static final Item CHINA_KEY_FRAGMENT = registerItem("china_key_fragment", new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON)));
     public static final Item CHINA_KEY = registerItem("china_key", new ChinaKey(new FabricItemSettings().maxCount(1).rarity(Rarity.RARE)));
-    public static final Item CHINA_BATTLE_AXE = registerItem("china_battle_axe", new ChinaBattleAxe(6, -2.8F, new FabricItemSettings().maxCount(1).rarity(Rarity.EPIC)));
+    public static final Item NORDIC_BATTLE_AXE = registerItem("nordic_battle_axe", new NordicBattleAxe(6, -2.8F, new FabricItemSettings().maxCount(1).rarity(Rarity.EPIC)));
     public static final Item CHINA_COIN = registerItem("china_coin", new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON)));
     public static final Item CHINA_SWORD = registerItem("china_sword", new SwordItem(ToolMaterials.NETHERITE, 2, -1.5F, new FabricItemSettings().maxCount(1).rarity(Rarity.EPIC)));
     public static final Item HIGH_MOUNTAINS_AND_FLOWING_WATER_MUSIC_DISC = registerItem("high_mountains_music_disc",
@@ -68,7 +68,7 @@ public class ModItems {
 
     private static void addItemsToCombatTabItemGroup(FabricItemGroupEntries entries){
         entries.add(ModItems.EGYPT_CROOK);
-        entries.add(ModItems.CHINA_BATTLE_AXE);
+        entries.add(ModItems.NORDIC_BATTLE_AXE);
         entries.add(ModItems.CHINA_SWORD);
     }
 

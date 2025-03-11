@@ -5,8 +5,8 @@ import net.minecraft.item.AxeItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ToolMaterials;
 
-public class ChinaBattleAxe extends AxeItem {
-    public ChinaBattleAxe(int attackDamage, float attackSpeed, Settings settings) {
+public class NordicBattleAxe extends AxeItem {
+    public NordicBattleAxe(int attackDamage, float attackSpeed, Settings settings) {
         super(ToolMaterials.NETHERITE, attackDamage, attackSpeed, settings);
     }
 }

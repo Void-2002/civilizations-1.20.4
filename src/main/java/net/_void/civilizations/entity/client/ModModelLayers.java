@@ -18,4 +18,7 @@ public class ModModelLayers {
             new EntityModelLayer(new Identifier(Civilizations.MOD_ID,"china_guard"),"main");
     public static final EntityModelLayer CHINA_BOSS =
             new EntityModelLayer(new Identifier(Civilizations.MOD_ID,"china_boss"),"main");
+
+    public static final EntityModelLayer NORDIC_CIVILIAN =
+            new EntityModelLayer(new Identifier(Civilizations.MOD_ID,"nordic_boss"),"main");
 }
