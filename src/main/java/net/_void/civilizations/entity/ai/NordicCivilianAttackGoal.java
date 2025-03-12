@@ -8,7 +8,7 @@ import net.minecraft.util.Hand;
 
 public class NordicCivilianAttackGoal extends MeleeAttackGoal{
     private final NordicCivilianEntity entity;
-    private int attackDelay = 10;
+    private int attackDelay = 15;
     private int ticksUntilNextAttack = 15;
     private boolean shouldCountTillNextAttack = false;
 
@@ -20,7 +20,7 @@ public class NordicCivilianAttackGoal extends MeleeAttackGoal{
     @Override
     public void start() {
         super.start();
-        attackDelay = 10;
+        attackDelay = 15;
         ticksUntilNextAttack = 15;
     }
 

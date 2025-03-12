@@ -58,5 +58,10 @@
   "advancements.civilizations_china_quest.title": "The key to the Empire",
   "advancements.civilizations_china_quest.description": "Craft a key out of key fragments",
   "advancements.civilizations_china_boss.title": "The new Emperor",
-  "advancements.civilizations_china_boss.description": "Take down Emperor Qin Shi Huang"
+  "advancements.civilizations_china_boss.description": "Take down Emperor Qin Shi Huang",
+
+  "advancements.civilizations_nordic_find.title": "Norse Vikings",
+  "advancements.civilizations_nordic_find.description": "Discover the Norse Civilization",
+  "advancements.civilizations_nordic_boss.title": "The Viking King",
+  "advancements.civilizations_nordic_boss.description": "Take down King Björn Ironside"
 }

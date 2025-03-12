@@ -1,0 +1,40 @@
+{
+  "parent": "civilizations:civilizations",
+  "display": {
+    "icon": {
+      "item": "minecraft:iron_axe"
+    },
+    "title": {
+      "translate": "advancements.civilizations_nordic_find.title"
+    },
+    "description": {
+      "translate": "advancements.civilizations_nordic_find.description"
+    },
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "in_nordic": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "civilizations:nordic"
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "in_nordic"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -40,7 +40,7 @@ public class NordicBossEntity extends AnimalEntity {
     public int attackAnimationTimeout = 0;
 
     private final ServerBossBar bossBar = new ServerBossBar(Text.literal("King Björn Ironside"),
-            BossBar.Color.BLUE, BossBar.Style.NOTCHED_10);
+            BossBar.Color.BLUE, BossBar.Style.NOTCHED_20);
 
     public NordicBossEntity(EntityType<? extends AnimalEntity> entityType, World world) {
         super(entityType, world);
