@@ -1,6 +1,7 @@
 package net._void.civilizations.entity.custom;
 
 import net._void.civilizations.entity.ModEntities;
+import net._void.civilizations.entity.ai.NordicCivilianAttackGoal;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
@@ -71,10 +72,8 @@ public class NordicCivilianEntity extends AnimalEntity{
     @Override
     protected void initGoals() {
         this.goalSelector.add(0, new SwimGoal(this));
-        this.goalSelector.add(1, new MeleeAttackGoal(this,1,true));
+        this.goalSelector.add(1, new NordicCivilianAttackGoal(this,1,true));
         this.goalSelector.add(2, new WanderAroundGoal(this,1));
-        this.goalSelector.add(3, new LookAtEntityGoal(this, PlayerEntity.class, 5));
-        this.goalSelector.add(4, new LookAroundGoal(this));
 
         this.targetSelector.add(1, new RevengeGoal(this));
         this.targetSelector.add(2, new ActiveTargetGoal(this, PlayerEntity.class, false));

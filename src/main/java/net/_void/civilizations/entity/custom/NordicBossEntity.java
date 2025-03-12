@@ -1,5 +1,6 @@
 package net._void.civilizations.entity.custom;
 
+import net._void.civilizations.entity.ai.NordicBossAttackGoal;
 import net._void.civilizations.item.ModItems;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.AnimationState;
@@ -39,7 +40,7 @@ public class NordicBossEntity extends AnimalEntity {
     public int attackAnimationTimeout = 0;
 
     private final ServerBossBar bossBar = new ServerBossBar(Text.literal("King Björn Ironside"),
-            BossBar.Color.BLUE, BossBar.Style.NOTCHED_20);
+            BossBar.Color.BLUE, BossBar.Style.NOTCHED_10);
 
     public NordicBossEntity(EntityType<? extends AnimalEntity> entityType, World world) {
         super(entityType, world);
@@ -82,7 +83,7 @@ public class NordicBossEntity extends AnimalEntity {
     @Override
     protected void initGoals() {
         this.goalSelector.add(0, new SwimGoal(this));
-        this.goalSelector.add(1, new MeleeAttackGoal(this, 1, true));
+        this.goalSelector.add(1, new NordicBossAttackGoal(this, 1, true));
         this.goalSelector.add(2, new WanderAroundGoal(this,1));
         this.targetSelector.add(1, new RevengeGoal(this));
         this.targetSelector.add(2, new ActiveTargetGoal(this, PlayerEntity.class, false));
@@ -141,6 +142,8 @@ public class NordicBossEntity extends AnimalEntity {
     @Override
     protected void mobTick() {
         super.mobTick();
+        this.bossBar.setPercent(this.getHealth() / this.getMaxHealth());
+        if(this.isOnFire()) this.setOnFire(false);
     }
 
     @Override
