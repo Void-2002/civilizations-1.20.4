@@ -38,5 +38,6 @@ public class Civilizations implements ModInitializer {
 		FabricDefaultAttributeRegistry.register(ModEntities.CHINA_BOSS, ChinaBossEntity.createBossAttributes());
 
 		FabricDefaultAttributeRegistry.register(ModEntities.NORDIC_CIVILIAN, NordicCivilianEntity.createCivilianAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.NORDIC_BOSS, NordicBossEntity.createBossAttributes());
 	}
 }
