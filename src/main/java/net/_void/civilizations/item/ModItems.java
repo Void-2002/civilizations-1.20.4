@@ -2,10 +2,7 @@ package net._void.civilizations.item;
 
 import net._void.civilizations.Civilizations;
 import net._void.civilizations.block.ModBlocks;
-import net._void.civilizations.item.custom.NordicBattleAxe;
-import net._void.civilizations.item.custom.ChinaKey;
-import net._void.civilizations.item.custom.EgyptCrook;
-import net._void.civilizations.item.custom.EgyptKey;
+import net._void.civilizations.item.custom.*;
 import net._void.civilizations.sound.ModSounds;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
@@ -31,6 +28,7 @@ public class ModItems {
             new MusicDiscItem(7, ModSounds.HIGH_MOUNTAINS_AND_FLOWING_WATER, new FabricItemSettings().maxCount(1).rarity(Rarity.RARE), 382));
     public static final Item AUTUMN_MOON_OVER_HAN_PALACE_MUSIC_DISC = registerItem("autumn_moon_music_disc",
             new MusicDiscItem(7, ModSounds.AUTUMN_MOON_OVER_HAN_PALACE, new FabricItemSettings().maxCount(1).rarity(Rarity.RARE), 312));
+    public static final Item GREECE_KEY = registerItem("greece_key", new GreeceKey(new FabricItemSettings().maxCount(1).rarity(Rarity.RARE)));
 
     private static void addItemsToIngredientTabItemGroup(FabricItemGroupEntries entries){
         entries.add(EGYPT_COIN);
@@ -42,6 +40,7 @@ public class ModItems {
     private static void addItemsToToolTabItemGroup(FabricItemGroupEntries entries){
         entries.add(EGYPT_KEY);
         entries.add(CHINA_KEY);
+        entries.add(GREECE_KEY);
         entries.add(HIGH_MOUNTAINS_AND_FLOWING_WATER_MUSIC_DISC);
         entries.add(AUTUMN_MOON_OVER_HAN_PALACE_MUSIC_DISC);
     }
@@ -64,6 +63,7 @@ public class ModItems {
         entries.add(ModBlocks.COFFIN_TOP);
         entries.add(ModBlocks.COFFIN_BOTTOM);
         entries.add(ModBlocks.CHINA_CHEST);
+        entries.add(ModBlocks.GREECE_CHEST);
     }
 
     private static void addItemsToCombatTabItemGroup(FabricItemGroupEntries entries){

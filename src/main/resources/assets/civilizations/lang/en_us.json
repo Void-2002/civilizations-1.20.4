@@ -39,6 +39,9 @@
   "entity.civilizations.nordic_civilian": "Viking",
   "entity.civilizations.nordic_boss": "King Björn Ironside",
 
+  "item.civilizations.greece_key": "Greek Key",
+  "block.civilizations.greece_chest": "Greek Chest",
+
   "advancements.civilizations.title": "Civilizations",
   "advancements.civilizations.description": "Welcome to Civilizations",
 

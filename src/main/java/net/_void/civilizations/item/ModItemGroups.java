@@ -40,6 +40,9 @@ public class ModItemGroups {
                         entries.add(ModItems.AUTUMN_MOON_OVER_HAN_PALACE_MUSIC_DISC);
                         entries.add(ModBlocks.CHINA_CHEST);
 
+                        entries.add(ModItems.GREECE_KEY);
+                        entries.add(ModBlocks.GREECE_CHEST);
+
                     }).build());
 
     public static void registerItemGroups(){

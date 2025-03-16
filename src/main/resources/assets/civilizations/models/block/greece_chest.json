@@ -2,8 +2,8 @@
 	"credit": "Made with Blockbench",
 	"texture_size": [64, 64],
 	"textures": {
-		"0": "civilizations:block/china_chest",
-		"particle": "civilizations:block/china_chest"
+		"0": "civilizations:block/greece_chest",
+		"particle": "civilizations:block/greece_chest"
 	},
 	"elements": [
 		{
