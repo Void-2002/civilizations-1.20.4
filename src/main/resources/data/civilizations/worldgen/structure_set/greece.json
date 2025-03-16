@@ -1,0 +1,17 @@
+{
+  "structures": [
+    {
+      "structure": "civilizations:greece",
+      "weight": 10
+    }
+  ],
+  "placement": {
+    "salt": 1218953710,
+
+    "spacing": 90,
+
+    "separation": 60,
+
+    "type": "minecraft:random_spread"
+  }
+}

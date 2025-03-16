@@ -1,0 +1,22 @@
+{
+  "name": "civilizations:greece/start_pool",
+
+  "fallback": "minecraft:empty",
+
+  "elements": [
+    {
+
+      "weight": 10,
+      "element": {
+
+        "location": "civilizations:greece",
+
+        "processors": "minecraft:empty",
+
+        "projection": "rigid",
+
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

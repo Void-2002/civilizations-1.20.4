@@ -1,0 +1,51 @@
+{
+	"type": "minecraft:chest",
+	"pools": [
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:map"
+				}
+			]
+		},
+		{
+			"rolls": 10,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:paper"
+				},
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:book"
+				},
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:ink_sac"
+				},
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:feather"
+				}
+			]
+		},
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:book",
+					"functions": [
+						{
+							"function": "minecraft:enchant_with_levels",
+							"levels": 20,
+							"treasure": false
+						}
+					]
+				}
+			]
+		}
+	]
+}

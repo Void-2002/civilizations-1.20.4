@@ -24,9 +24,10 @@ public class GreeceKey extends Item{
             BlockState state = context.getWorld().getBlockState(positionClicked);
             if(state.getBlock().equals(ModBlocks.GREECE_CHEST)){
                 context.getWorld().setBlockState(positionClicked, Blocks.AIR.getDefaultState());
-                ChinaBossEntity customEntity = ((EntityType<ChinaBossEntity>) EntityType.get("civilizations:china_boss").get()).create(context.getWorld());
-                customEntity.updatePosition(positionClicked.getX() + 0.5, positionClicked.getY() + 12, positionClicked.getZ() + 0.5);
-                context.getWorld().spawnEntity(customEntity);
+                //TODO Add greek boss
+                //ChinaBossEntity customEntity = ((EntityType<ChinaBossEntity>) EntityType.get("civilizations:china_boss").get()).create(context.getWorld());
+                //customEntity.updatePosition(positionClicked.getX() + 0.5, positionClicked.getY() + 12, positionClicked.getZ() + 0.5);
+                //context.getWorld().spawnEntity(customEntity);
                 r = ActionResult.SUCCESS;
             }
         }else{
