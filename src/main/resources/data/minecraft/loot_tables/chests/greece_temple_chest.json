@@ -6,7 +6,84 @@
 			"entries": [
 				{
 					"type": "minecraft:item",
-					"name": "minecraft:map"
+					"name": "minecraft:map",
+					"weight": 1,
+					"functions": [
+						{
+							"function": "minecraft:exploration_map",
+							"destination": "civilizations:on_greece_maps",
+							"decoration": "red_x",
+							"zoom": 1,
+							"search_radius": 100,
+							"skip_existing_chunks": false
+						},
+						{
+							"function": "minecraft:set_name",
+							"name": {
+								"translate": "filled_map.greece"
+							}
+						}
+					]
+				},{
+					"type": "minecraft:item",
+					"name": "minecraft:map",
+					"weight": 3,
+					"functions": [
+						{
+							"function": "minecraft:exploration_map",
+							"destination": "civilizations:on_china_maps",
+							"decoration": "red_x",
+							"zoom": 1,
+							"search_radius": 200,
+							"skip_existing_chunks": false
+						},
+						{
+							"function": "minecraft:set_name",
+							"name": {
+								"translate": "filled_map.china"
+							}
+						}
+					]
+				},{
+					"type": "minecraft:item",
+					"name": "minecraft:map",
+					"weight": 3,
+					"functions": [
+						{
+							"function": "minecraft:exploration_map",
+							"destination": "civilizations:on_egypt_maps",
+							"decoration": "red_x",
+							"zoom": 1,
+							"search_radius": 200,
+							"skip_existing_chunks": false
+						},
+						{
+							"function": "minecraft:set_name",
+							"name": {
+								"translate": "filled_map.egypt"
+							}
+						}
+					]
+				},{
+					"type": "minecraft:item",
+					"name": "minecraft:map",
+					"weight": 3,
+					"functions": [
+						{
+							"function": "minecraft:exploration_map",
+							"destination": "civilizations:on_nordic_maps",
+							"decoration": "red_x",
+							"zoom": 1,
+							"search_radius": 200,
+							"skip_existing_chunks": false
+						},
+						{
+							"function": "minecraft:set_name",
+							"name": {
+								"translate": "filled_map.nordic"
+							}
+						}
+					]
 				}
 			]
 		},

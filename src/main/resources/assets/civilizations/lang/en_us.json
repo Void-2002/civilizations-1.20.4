@@ -42,6 +42,13 @@
   "item.civilizations.greece_key": "Greek Key",
   "block.civilizations.greece_chest": "Greek Chest",
 
+
+
+  "filled_map.nordic": "Norse Map",
+  "filled_map.greece": "Ancient Greek Map",
+  "filled_map.china": "Ancient Chinese Map",
+  "filled_map.egypt": "Ancient Egyptian Map",
+
   "advancements.civilizations.title": "Civilizations",
   "advancements.civilizations.description": "Welcome to Civilizations",
 
