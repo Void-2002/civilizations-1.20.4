@@ -42,6 +42,7 @@ public class ModItemGroups {
 
                         entries.add(ModItems.GREECE_KEY);
                         entries.add(ModBlocks.GREECE_CHEST);
+                        entries.add(ModItems.GREECE_SWORD);
 
                     }).build());
 

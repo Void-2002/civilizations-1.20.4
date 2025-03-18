@@ -44,6 +44,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.HIGH_MOUNTAINS_AND_FLOWING_WATER_MUSIC_DISC, Models.GENERATED);
         itemModelGenerator.register(ModItems.AUTUMN_MOON_OVER_HAN_PALACE_MUSIC_DISC, Models.GENERATED);
         itemModelGenerator.register(ModItems.GREECE_KEY, Models.GENERATED);
+        itemModelGenerator.register(ModItems.GREECE_SWORD, Models.HANDHELD);
 
     }
 }

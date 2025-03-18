@@ -1,13 +1,17 @@
 package net._void.civilizations.entity.custom;
 
-import net._void.civilizations.entity.ai.NordicBossAttackGoal;
+import net._void.civilizations.entity.ai.GreeceBossAttackGoal;
+import net._void.civilizations.entity.ai.GreeceBossDeffendGoal;
 import net._void.civilizations.item.ModItems;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.AnimationState;
 import net.minecraft.entity.EntityPose;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ItemEntity;
-import net.minecraft.entity.ai.goal.*;
+import net.minecraft.entity.ai.goal.ActiveTargetGoal;
+import net.minecraft.entity.ai.goal.RevengeGoal;
+import net.minecraft.entity.ai.goal.SwimGoal;
+import net.minecraft.entity.ai.goal.WanderAroundGoal;
 import net.minecraft.entity.ai.pathing.PathNodeType;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -32,17 +36,20 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class NordicBossEntity extends AnimalEntity {
-    private static final TrackedData<Boolean> ATTACKING = DataTracker.registerData(NordicBossEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+public class GreeceBossEntity extends AnimalEntity {
+    private static final TrackedData<Boolean> ATTACKING = DataTracker.registerData(GreeceBossEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+    private static final TrackedData<Boolean> DEFFENDING = DataTracker.registerData(GreeceBossEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
     public final AnimationState idleAnimationState = new AnimationState();
     private int idleAnimationTimeout = 0;
     public final AnimationState attackAnimationState = new AnimationState();
     public int attackAnimationTimeout = 0;
+    public final AnimationState deffendAnimationState = new AnimationState();
+    public int deffendAnimationTimeout = 0;
 
-    private final ServerBossBar bossBar = new ServerBossBar(Text.literal("King Björn Ironside"),
-            BossBar.Color.BLUE, BossBar.Style.NOTCHED_20);
+    private final ServerBossBar bossBar = new ServerBossBar(Text.literal("Alexander The Great"),
+            BossBar.Color.WHITE, BossBar.Style.NOTCHED_20);
 
-    public NordicBossEntity(EntityType<? extends AnimalEntity> entityType, World world) {
+    public GreeceBossEntity(EntityType<? extends AnimalEntity> entityType, World world) {
         super(entityType, world);
         this.setPathfindingPenalty(PathNodeType.DAMAGE_FIRE, 0.0F);
         this.setPathfindingPenalty(PathNodeType.DANGER_FIRE, 0.0F);
@@ -64,6 +71,15 @@ public class NordicBossEntity extends AnimalEntity {
         if(!this.isAttacking()) {
             attackAnimationState.stop();
         }
+        if(this.isDeffending() && deffendAnimationTimeout <= 0) {
+            deffendAnimationTimeout = 20;
+            deffendAnimationState.start(this.age);
+        } else {
+            --this.deffendAnimationTimeout;
+        }
+        if(!this.isDeffending()) {
+            deffendAnimationState.stop();
+        }
     }
 
     @Override
@@ -83,7 +99,8 @@ public class NordicBossEntity extends AnimalEntity {
     @Override
     protected void initGoals() {
         this.goalSelector.add(0, new SwimGoal(this));
-        this.goalSelector.add(1, new NordicBossAttackGoal(this, 1, true));
+        this.goalSelector.add(1, new GreeceBossAttackGoal(this, 1, true));
+        this.goalSelector.add(1, new GreeceBossDeffendGoal(this));
         this.goalSelector.add(2, new WanderAroundGoal(this,1));
         this.targetSelector.add(1, new RevengeGoal(this));
         this.targetSelector.add(2, new ActiveTargetGoal(this, PlayerEntity.class, false));
@@ -91,9 +108,9 @@ public class NordicBossEntity extends AnimalEntity {
 
     public static DefaultAttributeContainer.Builder createBossAttributes(){
         return MobEntity.createMobAttributes().
-                add(EntityAttributes.GENERIC_MAX_HEALTH,600).
+                add(EntityAttributes.GENERIC_MAX_HEALTH,800).
                 add(EntityAttributes.GENERIC_ARMOR,5).
-                add(EntityAttributes.GENERIC_ATTACK_DAMAGE,15).
+                add(EntityAttributes.GENERIC_ATTACK_DAMAGE,9).
                 add(EntityAttributes.GENERIC_MOVEMENT_SPEED,0.3f).
                 add(EntityAttributes.GENERIC_FOLLOW_RANGE,75).
                 add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE,0.5);
@@ -105,6 +122,14 @@ public class NordicBossEntity extends AnimalEntity {
 
     public boolean isAttacking() {
         return this.dataTracker.get(ATTACKING);
+    }
+
+    public void setDeffending(boolean shooting){
+        this.dataTracker.set(DEFFENDING, shooting);
+    }
+
+    public boolean isDeffending() {
+        return this.dataTracker.get(DEFFENDING);
     }
 
     @Override
@@ -150,6 +175,7 @@ public class NordicBossEntity extends AnimalEntity {
     protected void initDataTracker() {
         super.initDataTracker();
         this.dataTracker.startTracking(ATTACKING,false);
+        this.dataTracker.startTracking(DEFFENDING,false);
     }
 
     @Override
@@ -171,7 +197,7 @@ public class NordicBossEntity extends AnimalEntity {
     @Override
     protected void dropEquipment(DamageSource source, int lootingMultiplier, boolean allowDrops) {
         super.dropEquipment(source, lootingMultiplier, allowDrops);
-        ItemEntity itemEntity = this.dropItem(ModItems.NORDIC_BATTLE_AXE);
+        ItemEntity itemEntity = this.dropItem(ModItems.GREECE_SWORD);
         if (itemEntity != null) {
             itemEntity.setCovetedItem();
             itemEntity.setInvulnerable(true);

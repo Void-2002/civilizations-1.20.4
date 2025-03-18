@@ -29,6 +29,7 @@ public class ModItems {
     public static final Item AUTUMN_MOON_OVER_HAN_PALACE_MUSIC_DISC = registerItem("autumn_moon_music_disc",
             new MusicDiscItem(7, ModSounds.AUTUMN_MOON_OVER_HAN_PALACE, new FabricItemSettings().maxCount(1).rarity(Rarity.RARE), 312));
     public static final Item GREECE_KEY = registerItem("greece_key", new GreeceKey(new FabricItemSettings().maxCount(1).rarity(Rarity.RARE)));
+    public static final Item GREECE_SWORD = registerItem("greece_sword", new SwordItem(ToolMaterials.NETHERITE, 4, -2.0F, new FabricItemSettings().maxCount(1).rarity(Rarity.EPIC)));
 
     private static void addItemsToIngredientTabItemGroup(FabricItemGroupEntries entries){
         entries.add(EGYPT_COIN);
@@ -70,6 +71,7 @@ public class ModItems {
         entries.add(ModItems.EGYPT_CROOK);
         entries.add(ModItems.NORDIC_BATTLE_AXE);
         entries.add(ModItems.CHINA_SWORD);
+        entries.add(ModItems.GREECE_SWORD);
     }
 
     private static Item registerItem(String name, Item item){
