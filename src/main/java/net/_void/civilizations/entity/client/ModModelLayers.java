@@ -23,4 +23,7 @@ public class ModModelLayers {
             new EntityModelLayer(new Identifier(Civilizations.MOD_ID,"nordic_civilian"),"main");
     public static final EntityModelLayer NORDIC_BOSS =
             new EntityModelLayer(new Identifier(Civilizations.MOD_ID,"nordic_boss"),"main");
+
+    public static final EntityModelLayer GREECE_CIVILIAN =
+            new EntityModelLayer(new Identifier(Civilizations.MOD_ID,"greece_civilian"),"main");
 }
