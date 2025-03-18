@@ -1,6 +1,7 @@
 package net._void.civilizations.item.custom;
 
 import net.minecraft.block.BlockState;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -13,20 +14,29 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
 public class EgyptCrook extends SwordItem {
+    public int shots = 0;
+
     public EgyptCrook(int attackDamage, float attackSpeed, Settings settings) {
         super(ToolMaterials.NETHERITE, attackDamage, attackSpeed, settings);
     }
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-        Vec3d vec3d = user.getRotationVec(1.0F);
-        double f = vec3d.x * (double)4.0F;
-        double g = vec3d.y * (double)4.0F;
-        double h = vec3d.z * (double)4.0F;
-        world.syncWorldEvent((PlayerEntity)null, 1017, user.getBlockPos(), 0);
-        FireballEntity fireballEntity = new FireballEntity(world, user, f * 4, g * 4, h * 4, 3);
-        fireballEntity.setPosition(user.getX() + vec3d.x * (double)2.0F, user.getBodyY((double)0.5F), user.getZ() + vec3d.z * (double)2.0F);
-        world.spawnEntity(fireballEntity);
+        if(!world.isClient()){
+            shots += 1;
+            Vec3d vec3d = user.getRotationVec(1.0F);
+            double f = vec3d.x * (double)4.0F;
+            double g = vec3d.y * (double)4.0F;
+            double h = vec3d.z * (double)4.0F;
+            world.syncWorldEvent((PlayerEntity)null, 1017, user.getBlockPos(), 0);
+            FireballEntity fireballEntity = new FireballEntity(world, user, f * 4, g * 4, h * 4, 3);
+            fireballEntity.setPosition(user.getX() + vec3d.x * (double)3.0F, user.getBodyY((double)0.5F), user.getZ() + vec3d.z * (double)3.0F);
+            world.spawnEntity(fireballEntity);
+            if(shots == 6) {
+                shots = 0;
+                user.getItemCooldownManager().set(this, 100);
+            }else user.getItemCooldownManager().set(this, 10);
+        }
         return super.use(world, user, hand);
     }
 
