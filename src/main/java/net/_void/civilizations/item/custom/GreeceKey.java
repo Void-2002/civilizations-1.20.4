@@ -1,7 +1,7 @@
 package net._void.civilizations.item.custom;
 
 import net._void.civilizations.block.ModBlocks;
-import net._void.civilizations.entity.custom.ChinaBossEntity;
+import net._void.civilizations.entity.custom.GreeceBossEntity;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
@@ -24,10 +24,9 @@ public class GreeceKey extends Item{
             BlockState state = context.getWorld().getBlockState(positionClicked);
             if(state.getBlock().equals(ModBlocks.GREECE_CHEST)){
                 context.getWorld().setBlockState(positionClicked, Blocks.AIR.getDefaultState());
-                //TODO Add greek boss
-                //ChinaBossEntity customEntity = ((EntityType<ChinaBossEntity>) EntityType.get("civilizations:china_boss").get()).create(context.getWorld());
-                //customEntity.updatePosition(positionClicked.getX() + 0.5, positionClicked.getY() + 12, positionClicked.getZ() + 0.5);
-                //context.getWorld().spawnEntity(customEntity);
+                GreeceBossEntity customEntity = ((EntityType<GreeceBossEntity>) EntityType.get("civilizations:greece_boss").get()).create(context.getWorld());
+                customEntity.updatePosition(positionClicked.getX() + 0.5, positionClicked.getY() + 12, positionClicked.getZ() + 0.5);
+                context.getWorld().spawnEntity(customEntity);
                 r = ActionResult.SUCCESS;
             }
         }else{
