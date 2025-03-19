@@ -30,12 +30,14 @@ public class ModItems {
             new MusicDiscItem(7, ModSounds.AUTUMN_MOON_OVER_HAN_PALACE, new FabricItemSettings().maxCount(1).rarity(Rarity.RARE), 312));
     public static final Item GREECE_KEY = registerItem("greece_key", new GreeceKey(new FabricItemSettings().maxCount(1).rarity(Rarity.RARE)));
     public static final Item GREECE_SWORD = registerItem("greece_sword", new SwordItem(ToolMaterials.NETHERITE, 4, -2.0F, new FabricItemSettings().maxCount(1).rarity(Rarity.EPIC)));
+    public static final Item GREECE_COIN = registerItem("greece_coin", new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON)));
 
     private static void addItemsToIngredientTabItemGroup(FabricItemGroupEntries entries){
         entries.add(EGYPT_COIN);
         entries.add(PAPYRUS);
         entries.add(CHINA_KEY_FRAGMENT);
         entries.add(CHINA_COIN);
+        entries.add(GREECE_COIN);
     }
 
     private static void addItemsToToolTabItemGroup(FabricItemGroupEntries entries){

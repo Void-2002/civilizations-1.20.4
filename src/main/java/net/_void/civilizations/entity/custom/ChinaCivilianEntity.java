@@ -45,9 +45,7 @@ public class ChinaCivilianEntity extends AnimalEntity {
     Entity trader;
     int trading = 0;
     int tradingDuration = 0;
-    Map<Item, Integer> outputItems = new HashMap<Item, Integer>()
-    {
-        {
+    Map<Item, Integer> outputItems = new HashMap<Item, Integer>() {{
             put(Items.CHAINMAIL_HELMET,1);
             put(Items.CHAINMAIL_CHESTPLATE,1);
             put(Items.CHAINMAIL_LEGGINGS,1);
@@ -79,8 +77,7 @@ public class ChinaCivilianEntity extends AnimalEntity {
             put(Items.JUKEBOX,1);
             put(ModItems.HIGH_MOUNTAINS_AND_FLOWING_WATER_MUSIC_DISC,1);
             put(ModItems.AUTUMN_MOON_OVER_HAN_PALACE_MUSIC_DISC,1);
-        }
-    };
+        }};
 
     public ChinaCivilianEntity(EntityType<? extends AnimalEntity> entityType, World world) {
         super(entityType, world);

@@ -45,6 +45,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.AUTUMN_MOON_OVER_HAN_PALACE_MUSIC_DISC, Models.GENERATED);
         itemModelGenerator.register(ModItems.GREECE_KEY, Models.GENERATED);
         itemModelGenerator.register(ModItems.GREECE_SWORD, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.GREECE_COIN, Models.GENERATED);
 
     }
 }
