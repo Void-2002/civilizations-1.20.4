@@ -1,0 +1,40 @@
+{
+  "parent": "civilizations:civilizations",
+  "display": {
+    "icon": {
+      "item": "minecraft:quartz_block"
+    },
+    "title": {
+      "translate": "advancements.civilizations_greece_find.title"
+    },
+    "description": {
+      "translate": "advancements.civilizations_greece_find.description"
+    },
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "in_greece": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "civilizations:greece"
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "in_greece"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

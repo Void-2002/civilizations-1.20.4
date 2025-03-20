@@ -1,0 +1,36 @@
+{
+  "parent": "civilizations:civilizations_greece_trade",
+  "display": {
+    "icon": {
+      "item": "civilizations:greece_key"
+    },
+    "title": {
+      "translate": "advancements.civilizations_greece_quest.title"
+    },
+    "description": {
+      "translate": "advancements.civilizations_greece_quest.description"
+    },
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "greece_key": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "civilizations:greece_key"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "greece_key"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

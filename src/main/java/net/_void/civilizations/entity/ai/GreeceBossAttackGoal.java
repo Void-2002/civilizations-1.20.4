@@ -19,13 +19,16 @@ public class GreeceBossAttackGoal extends MeleeAttackGoal {
 
     @Override
     public void start() {
-        super.start();
-        attackDelay = 10;
-        ticksUntilNextAttack = 15;
+        if(!this.entity.isDeffending()){
+            super.start();
+            attackDelay = 10;
+            ticksUntilNextAttack = 15;
+        }
     }
 
     @Override
     protected void attack(LivingEntity pEnemy) {
+        if(!this.entity.isDeffending()){
         if (isEnemyWithinAttackDistance(pEnemy)) {
             shouldCountTillNextAttack = true;
 
@@ -42,7 +45,7 @@ public class GreeceBossAttackGoal extends MeleeAttackGoal {
             shouldCountTillNextAttack = false;
             entity.setAttacking(false);
             entity.attackAnimationTimeout = 0;
-        }
+        }}
     }
 
     private boolean isEnemyWithinAttackDistance(LivingEntity pEnemy) {

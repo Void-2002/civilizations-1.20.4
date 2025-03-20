@@ -4,10 +4,7 @@ import net._void.civilizations.entity.ai.GreeceBossAttackGoal;
 import net._void.civilizations.entity.ai.GreeceBossDeffendGoal;
 import net._void.civilizations.item.ModItems;
 import net.minecraft.block.Blocks;
-import net.minecraft.entity.AnimationState;
-import net.minecraft.entity.EntityPose;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.ItemEntity;
+import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.ActiveTargetGoal;
 import net.minecraft.entity.ai.goal.RevengeGoal;
 import net.minecraft.entity.ai.goal.SwimGoal;
@@ -22,6 +19,8 @@ import net.minecraft.entity.damage.DamageTypes;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.PassiveEntity;
@@ -31,6 +30,7 @@ import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -62,17 +62,19 @@ public class GreeceBossEntity extends AnimalEntity {
         } else {
             --this.idleAnimationTimeout;
         }
-        if(this.isAttacking() && attackAnimationTimeout <= 0) {
-            attackAnimationTimeout = 20;
-            attackAnimationState.start(this.age);
-        } else {
-            --this.attackAnimationTimeout;
-        }
-        if(!this.isAttacking()) {
-            attackAnimationState.stop();
+        if(!this.isDeffending()){
+            if(this.isAttacking() && attackAnimationTimeout <= 0) {
+                attackAnimationTimeout = 20;
+                attackAnimationState.start(this.age);
+            } else {
+                --this.attackAnimationTimeout;
+            }
+            if(!this.isAttacking()) {
+                attackAnimationState.stop();
+            }
         }
         if(this.isDeffending() && deffendAnimationTimeout <= 0) {
-            deffendAnimationTimeout = 20;
+            deffendAnimationTimeout = 140;
             deffendAnimationState.start(this.age);
         } else {
             --this.deffendAnimationTimeout;
@@ -99,8 +101,8 @@ public class GreeceBossEntity extends AnimalEntity {
     @Override
     protected void initGoals() {
         this.goalSelector.add(0, new SwimGoal(this));
-        this.goalSelector.add(1, new GreeceBossAttackGoal(this, 1, true));
         this.goalSelector.add(1, new GreeceBossDeffendGoal(this));
+        this.goalSelector.add(1, new GreeceBossAttackGoal(this, 1, true));
         this.goalSelector.add(2, new WanderAroundGoal(this,1));
         this.targetSelector.add(1, new RevengeGoal(this));
         this.targetSelector.add(2, new ActiveTargetGoal(this, PlayerEntity.class, false));
@@ -180,10 +182,22 @@ public class GreeceBossEntity extends AnimalEntity {
 
     @Override
     public boolean damage(DamageSource source, float amount) {
+        if(isDeffending()){
+            LivingEntity attacker = (LivingEntity) source.getAttacker();
+            if(attacker != null){
+                attacker.damage(this.getDamageSources().mobAttack(this), amount);
+                if(this.getWorld().isClient()){
+                    attacker.playSound(SoundEvents.ITEM_SHIELD_BLOCK,1.0F,1.0F);
+                }
+            }
+            return false;
+        }
         if(source.isOf(DamageTypes.IN_FIRE) ||
                 source.isOf(DamageTypes.ON_FIRE) ||
                 source.isOf(DamageTypes.LAVA) ||
-                source.isOf(DamageTypes.FALL)){
+                source.isOf(DamageTypes.FALL) ||
+                source.isOf(DamageTypes.DROWN) ||
+                source.isOf(DamageTypes.IN_WALL)){
             return false;
         }
         return super.damage(source, amount);

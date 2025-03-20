@@ -186,7 +186,9 @@ public class EgyptBossEntity extends AnimalEntity {
            source.isOf(DamageTypes.IN_FIRE) ||
            source.isOf(DamageTypes.ON_FIRE) ||
            source.isOf(DamageTypes.LAVA) ||
-           source.isOf(DamageTypes.FALL)){
+           source.isOf(DamageTypes.FALL) ||
+           source.isOf(DamageTypes.DROWN) ||
+           source.isOf(DamageTypes.IN_WALL)){
             return false;
         }
         return super.damage(source, amount);

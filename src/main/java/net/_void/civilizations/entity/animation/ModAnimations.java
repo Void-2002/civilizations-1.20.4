@@ -547,17 +547,23 @@ public class ModAnimations {
                             new Keyframe(0.75f, AnimationHelper.createRotationalVector(0f, 0f, 0f),
                                     Transformation.Interpolations.LINEAR))).build();
 
-    public static final Animation GREECE_BOSS_DEFFEND = Animation.Builder.create(1f).looping()
+    public static final Animation GREECE_BOSS_DEFFEND = Animation.Builder.create(1f)
             .addBoneAnimation("rightarm",
                     new Transformation(Transformation.Targets.ROTATE,
                             new Keyframe(0f, AnimationHelper.createRotationalVector(-87.5f, 0f, 0f),
+                                    Transformation.Interpolations.LINEAR),
+                            new Keyframe(7f, AnimationHelper.createRotationalVector(-87.5f, 0f, 0f),
                                     Transformation.Interpolations.LINEAR)))
             .addBoneAnimation("shield",
                     new Transformation(Transformation.Targets.TRANSLATE,
                             new Keyframe(0f, AnimationHelper.createTranslationalVector(0f, 1f, 0f),
+                                    Transformation.Interpolations.LINEAR),
+                            new Keyframe(7f, AnimationHelper.createTranslationalVector(0f, 1f, 0f),
                                     Transformation.Interpolations.LINEAR)))
             .addBoneAnimation("shield",
                     new Transformation(Transformation.Targets.ROTATE,
                             new Keyframe(0f, AnimationHelper.createRotationalVector(90f, -2.5f, -90f),
+                                    Transformation.Interpolations.LINEAR),
+                            new Keyframe(7f, AnimationHelper.createRotationalVector(90f, -2.5f, -90f),
                                     Transformation.Interpolations.LINEAR))).build();
 }

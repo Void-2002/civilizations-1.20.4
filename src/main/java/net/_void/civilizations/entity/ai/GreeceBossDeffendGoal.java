@@ -39,13 +39,11 @@ public class GreeceBossDeffendGoal extends Goal {
     public void tick() {
         LivingEntity livingEntity = this.entity.getTarget();
         if (livingEntity != null) {
-            if (livingEntity.squaredDistanceTo(this.entity) < (double)4096.0F && this.entity.canSee(livingEntity)) {
-                ++this.cooldown;
-                this.cooldown = -160;
-            }else if (this.cooldown > 0) {
-                --this.cooldown;
+            ++this.cooldown;
+            if (this.cooldown == 20) {
+                this.cooldown = -200;
             }
-            this.entity.setDeffending(this.cooldown > 10);
+            this.entity.setDeffending(this.cooldown > -80);
         }
     }
 }

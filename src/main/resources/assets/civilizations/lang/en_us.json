@@ -76,5 +76,14 @@
   "advancements.civilizations_nordic_find.title": "Norse Vikings",
   "advancements.civilizations_nordic_find.description": "Discover the Norse Civilization",
   "advancements.civilizations_nordic_boss.title": "The Viking King",
-  "advancements.civilizations_nordic_boss.description": "Take down King Björn Ironside"
+  "advancements.civilizations_nordic_boss.description": "Take down King Björn Ironside",
+
+  "advancements.civilizations_greece_find.title": "Ancient Greece",
+  "advancements.civilizations_greece_find.description": "Discover the Ancient Greek Civilization",
+  "advancements.civilizations_greece_trade.title": "Making a profit",
+  "advancements.civilizations_greece_trade.description": "Trade with the Greek Civilization",
+  "advancements.civilizations_greece_quest.title": "The hidden key",
+  "advancements.civilizations_greece_quest.description": "Find the key hidden in The Temple of Artemis",
+  "advancements.civilizations_greece_boss.title": "The Greatest",
+  "advancements.civilizations_greece_boss.description": "Take down Alexander The Great"
 }
