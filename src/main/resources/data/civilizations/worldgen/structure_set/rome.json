@@ -1,0 +1,17 @@
+{
+  "structures": [
+    {
+      "structure": "civilizations:rome",
+      "weight": 10
+    }
+  ],
+  "placement": {
+    "salt": 1372418953,
+
+    "spacing": 90,
+
+    "separation": 60,
+
+    "type": "minecraft:random_spread"
+  }
+}
