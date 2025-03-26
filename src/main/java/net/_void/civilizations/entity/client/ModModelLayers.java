@@ -28,4 +28,7 @@ public class ModModelLayers {
             new EntityModelLayer(new Identifier(Civilizations.MOD_ID,"greece_civilian"),"main");
     public static final EntityModelLayer GREECE_BOSS =
             new EntityModelLayer(new Identifier(Civilizations.MOD_ID,"greece_boss"),"main");
+
+    public static final EntityModelLayer ROME_CIVILIAN =
+            new EntityModelLayer(new Identifier(Civilizations.MOD_ID,"rome_civilian"),"main");
 }

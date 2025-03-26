@@ -46,6 +46,7 @@
   "item.civilizations.greece_sword": "Kopis",
   "item.civilizations.greece_coin": "Drachma",
 
+  "entity.civilizations.rome_civilian": "Roman",
 
   "filled_map.nordic": "Norse Map",
   "filled_map.greece": "Ancient Greek Map",
