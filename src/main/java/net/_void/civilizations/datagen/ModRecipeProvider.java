@@ -62,5 +62,13 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 input('#', ModItems.CHINA_KEY_FRAGMENT).
                 criterion(hasItem(ModItems.CHINA_KEY_FRAGMENT), conditionsFromItem(ModItems.CHINA_KEY_FRAGMENT)).
                 offerTo(exporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.ROME_KEY, 1).
+                pattern("###").
+                pattern("###").
+                pattern("###").
+                input('#', ModItems.ROME_KEY_FRAGMENT).
+                criterion(hasItem(ModItems.ROME_KEY_FRAGMENT), conditionsFromItem(ModItems.ROME_KEY_FRAGMENT)).
+                offerTo(exporter);
     }
 }

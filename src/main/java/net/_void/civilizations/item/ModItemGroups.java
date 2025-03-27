@@ -47,6 +47,9 @@ public class ModItemGroups {
                         entries.add(ModItems.GREECE_COIN);
 
                         entries.add(ModItems.ROME_COIN);
+                        entries.add(ModItems.ROME_KEY);
+                        entries.add(ModItems.ROME_KEY_FRAGMENT);
+                        entries.add(ModBlocks.ROME_CHEST);
 
                     }).build());
 

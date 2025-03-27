@@ -48,6 +48,9 @@
 
   "entity.civilizations.rome_civilian": "Roman",
   "item.civilizations.rome_coin": "Denarius Aureus",
+  "item.civilizations.rome_key": "Roman Key",
+  "item.civilizations.rome_key_fragment": "Roman Key Fragment",
+  "block.civilizations.rome_chest": "Roman Chest",
 
   "filled_map.nordic": "Norse Map",
   "filled_map.greece": "Ancient Greek Map",

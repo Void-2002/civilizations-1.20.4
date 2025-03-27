@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "civilizations:block/rome_chest",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "civilizations:block/rome_chest"
+    },
+    "facing=south": {
+      "model": "civilizations:block/rome_chest",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "civilizations:block/rome_chest",
+      "y": 270
+    }
+  }
+}

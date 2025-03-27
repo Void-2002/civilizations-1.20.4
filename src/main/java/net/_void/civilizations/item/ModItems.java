@@ -32,6 +32,8 @@ public class ModItems {
     public static final Item GREECE_SWORD = registerItem("greece_sword", new SwordItem(ToolMaterials.NETHERITE, 4, -2.0F, new FabricItemSettings().maxCount(1).rarity(Rarity.EPIC)));
     public static final Item GREECE_COIN = registerItem("greece_coin", new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON)));
     public static final Item ROME_COIN = registerItem("rome_coin", new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON)));
+    public static final Item ROME_KEY = registerItem("rome_key", new RomeKey(new FabricItemSettings().maxCount(1).rarity(Rarity.RARE)));
+    public static final Item ROME_KEY_FRAGMENT = registerItem("rome_key_fragment", new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON)));
 
     private static void addItemsToIngredientTabItemGroup(FabricItemGroupEntries entries){
         entries.add(EGYPT_COIN);
@@ -40,12 +42,14 @@ public class ModItems {
         entries.add(CHINA_COIN);
         entries.add(GREECE_COIN);
         entries.add(ROME_COIN);
+        entries.add(ROME_KEY_FRAGMENT);
     }
 
     private static void addItemsToToolTabItemGroup(FabricItemGroupEntries entries){
         entries.add(EGYPT_KEY);
         entries.add(CHINA_KEY);
         entries.add(GREECE_KEY);
+        entries.add(ROME_KEY);
         entries.add(HIGH_MOUNTAINS_AND_FLOWING_WATER_MUSIC_DISC);
         entries.add(AUTUMN_MOON_OVER_HAN_PALACE_MUSIC_DISC);
     }
@@ -69,6 +73,7 @@ public class ModItems {
         entries.add(ModBlocks.COFFIN_BOTTOM);
         entries.add(ModBlocks.CHINA_CHEST);
         entries.add(ModBlocks.GREECE_CHEST);
+        entries.add(ModBlocks.ROME_CHEST);
     }
 
     private static void addItemsToCombatTabItemGroup(FabricItemGroupEntries entries){

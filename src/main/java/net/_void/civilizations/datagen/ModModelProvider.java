@@ -28,6 +28,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleState(ModBlocks.COFFIN_BOTTOM);
         blockStateModelGenerator.registerNorthDefaultHorizontalRotation(ModBlocks.CHINA_CHEST);
         blockStateModelGenerator.registerNorthDefaultHorizontalRotation(ModBlocks.GREECE_CHEST);
+        blockStateModelGenerator.registerNorthDefaultHorizontalRotation(ModBlocks.ROME_CHEST);
 
     }
 
@@ -47,6 +48,8 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.GREECE_SWORD, Models.HANDHELD);
         itemModelGenerator.register(ModItems.GREECE_COIN, Models.GENERATED);
         itemModelGenerator.register(ModItems.ROME_COIN, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ROME_KEY, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ROME_KEY_FRAGMENT, Models.GENERATED);
 
     }
 }
