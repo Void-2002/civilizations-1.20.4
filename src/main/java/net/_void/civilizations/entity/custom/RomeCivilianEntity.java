@@ -1,5 +1,6 @@
 package net._void.civilizations.entity.custom;
 
+import net._void.civilizations.block.ModBlocks;
 import net._void.civilizations.entity.ModEntities;
 import net._void.civilizations.entity.ai.RomeCivilianAttackGoal;
 import net._void.civilizations.item.ModItems;
@@ -46,34 +47,37 @@ public class RomeCivilianEntity extends AnimalEntity {
     Entity trader;
     int trading = 0;
     int tradingDuration = 0;
-    Map<Item, Integer> farmItems = new HashMap<Item, Integer>() {{
-        put(Items.SUGAR_CANE,7);
-        put(Items.WHEAT,9);
-        put(Items.MELON_SEEDS,5);
-        put(Items.PUMPKIN_SEEDS,4);
-    }};
-    Map<Item, Integer> flowerItems = new HashMap<Item, Integer>() {{
-        put(Items.LILY_OF_THE_VALLEY,6);
-        put(Items.WHITE_TULIP,5);
-        put(Items.OXEYE_DAISY,7);
-        put(Items.AZURE_BLUET,4);
-    }};
-    Map<Item, Integer> combatItems = new HashMap<Item, Integer>() {{
-        put(Items.IRON_SWORD,1);
-        put(Items.IRON_AXE,1);
-        put(Items.SHIELD,1);
-    }};
-    Map<Item, Integer> foodItems = new HashMap<Item, Integer>() {{
-        put(Items.APPLE,4);
-        put(Items.MUSHROOM_STEW,1);
-        put(Items.HONEY_BOTTLE,6);
-        put(Items.CARROT,5);
-    }};
-    Map<Item, Integer> bookItems = new HashMap<Item, Integer>() {{
-        put(Items.BOOK,5);
-        put(Items.BOOKSHELF,2);
-        put(Items.CARTOGRAPHY_TABLE,1);
+    Map<Item, Integer> outputItems = new HashMap<Item, Integer>() {{
+        put(Items.GOLDEN_HELMET,1);
+        put(Items.GOLDEN_CHESTPLATE,1);
+        put(Items.GOLDEN_LEGGINGS,1);
+        put(Items.GOLDEN_BOOTS,1);
+        put(Items.GOLDEN_HORSE_ARMOR,1);
+        put(Items.SADDLE,1);
+        put(Items.NAME_TAG,1);
+        put(Items.MAP,1);
+        put(Items.GOLDEN_APPLE,1);
+        put(Items.BONE,7);
+        put(Items.STRING,6);
+        put(Items.FEATHER,5);
+        put(Items.AMETHYST_SHARD,4);
+        put(Items.EXPERIENCE_BOTTLE,7);
+        put(Items.ARROW,4);
+        put(Items.POPPY,4);
+        put(Items.RED_TULIP,4);
+        put(Items.DANDELION,4);
+        put(Items.WHITE_TULIP,4);
+        put(Items.WHEAT,6);
+        put(Items.SMOOTH_STONE,4);
+        put(Items.SANDSTONE,5);
+        put(Items.SMOOTH_SANDSTONE,4);
+        put(Items.VEX_ARMOR_TRIM_SMITHING_TEMPLATE,1);
+        put(Items.LOOM,1);
+        put(Items.FLOWER_BANNER_PATTERN,1);
         put(Items.LECTERN,1);
+        put(Items.BOOKSHELF,2);
+        put(Items.NOTE_BLOCK,2);
+        put(Items.JUKEBOX,1);
     }};
 
     public RomeCivilianEntity(EntityType<? extends AnimalEntity> entityType, World world) {
@@ -222,20 +226,12 @@ public class RomeCivilianEntity extends AnimalEntity {
                 ((ServerWorld) this.getWorld()).spawnParticles(ParticleTypes.HAPPY_VILLAGER,this.getX(),
                         this.getEyeY(), this.getZ(), 10, 0.2, 0.2, 0.2, 1);
                 if(trading == 2){
-                    dropStack(new ItemStack(ModItems.GREECE_COIN,5));
+                    dropStack(new ItemStack(ModItems.ROME_COIN,5));
                 }else{
                     Random generator = new Random();
-                    Map<Item, Integer> map = new HashMap<Item, Integer>();
-                    switch(getTypeVariant()){
-                        case 1, 7 -> map = foodItems;
-                        case 2, 5 -> map = farmItems;
-                        case 3 -> map = bookItems;
-                        case 4 -> map = flowerItems;
-                        case 6, 8 -> map = combatItems;
-                    }
-                    Object[] values = map.keySet().toArray();
+                    Object[] values = outputItems.keySet().toArray();
                     Item randomItem = (Item) values[generator.nextInt(values.length)];
-                    dropStack(new ItemStack(randomItem,map.get(randomItem)));
+                    dropStack(new ItemStack(randomItem,outputItems.get(randomItem)));
                 }
                 tradingDuration = 0;
                 trading = 0;
@@ -249,7 +245,7 @@ public class RomeCivilianEntity extends AnimalEntity {
         if(!this.getWorld().isClient()){
             ItemStack itemStack = player.getMainHandStack();
             Item item = itemStack.getItem();
-            if ((item.equals(Items.GOLD_INGOT) || item.equals(ModItems.GREECE_COIN)) && trading == 0){
+            if ((item.equals(Items.GOLD_INGOT) || item.equals(ModItems.ROME_COIN)) && trading == 0){
                 trader = player;
                 trading = 1;
                 if(item.equals(Items.GOLD_INGOT)) trading = 2;

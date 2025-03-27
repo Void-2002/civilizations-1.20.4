@@ -33,17 +33,20 @@ public class ModItemGroups {
 
                         entries.add(ModItems.CHINA_KEY_FRAGMENT);
                         entries.add(ModItems.CHINA_KEY);
-                        entries.add(ModItems.NORDIC_BATTLE_AXE);
                         entries.add(ModItems.CHINA_COIN);
                         entries.add(ModItems.CHINA_SWORD);
                         entries.add(ModItems.HIGH_MOUNTAINS_AND_FLOWING_WATER_MUSIC_DISC);
                         entries.add(ModItems.AUTUMN_MOON_OVER_HAN_PALACE_MUSIC_DISC);
                         entries.add(ModBlocks.CHINA_CHEST);
 
+                        entries.add(ModItems.NORDIC_BATTLE_AXE);
+
                         entries.add(ModItems.GREECE_KEY);
                         entries.add(ModBlocks.GREECE_CHEST);
                         entries.add(ModItems.GREECE_SWORD);
                         entries.add(ModItems.GREECE_COIN);
+
+                        entries.add(ModItems.ROME_COIN);
 
                     }).build());
 

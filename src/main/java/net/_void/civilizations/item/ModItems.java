@@ -31,6 +31,7 @@ public class ModItems {
     public static final Item GREECE_KEY = registerItem("greece_key", new GreeceKey(new FabricItemSettings().maxCount(1).rarity(Rarity.RARE)));
     public static final Item GREECE_SWORD = registerItem("greece_sword", new SwordItem(ToolMaterials.NETHERITE, 4, -2.0F, new FabricItemSettings().maxCount(1).rarity(Rarity.EPIC)));
     public static final Item GREECE_COIN = registerItem("greece_coin", new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON)));
+    public static final Item ROME_COIN = registerItem("rome_coin", new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON)));
 
     private static void addItemsToIngredientTabItemGroup(FabricItemGroupEntries entries){
         entries.add(EGYPT_COIN);
@@ -38,6 +39,7 @@ public class ModItems {
         entries.add(CHINA_KEY_FRAGMENT);
         entries.add(CHINA_COIN);
         entries.add(GREECE_COIN);
+        entries.add(ROME_COIN);
     }
 
     private static void addItemsToToolTabItemGroup(FabricItemGroupEntries entries){
