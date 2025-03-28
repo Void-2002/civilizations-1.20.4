@@ -51,6 +51,8 @@
   "item.civilizations.rome_key": "Roman Key",
   "item.civilizations.rome_key_fragment": "Roman Key Fragment",
   "block.civilizations.rome_chest": "Roman Chest",
+  "entity.civilizations.rome_boss": "Julius Caesar",
+  "item.civilizations.rome_sword": "Crocea Mors",
 
   "filled_map.nordic": "Norse Map",
   "filled_map.greece": "Ancient Greek Map",

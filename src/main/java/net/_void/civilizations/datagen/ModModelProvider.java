@@ -50,6 +50,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.ROME_COIN, Models.GENERATED);
         itemModelGenerator.register(ModItems.ROME_KEY, Models.GENERATED);
         itemModelGenerator.register(ModItems.ROME_KEY_FRAGMENT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ROME_SWORD, Models.HANDHELD);
 
     }
 }

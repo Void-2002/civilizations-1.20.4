@@ -59,4 +59,9 @@ public class ModEntities {
             new Identifier(Civilizations.MOD_ID, "rome_civilian"),
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, RomeCivilianEntity::new)
                     .dimensions(EntityDimensions.fixed(1f, 2f)).build());
+
+    public static final EntityType<RomeBossEntity> ROME_BOSS = Registry.register(Registries.ENTITY_TYPE,
+            new Identifier(Civilizations.MOD_ID, "rome_boss"),
+            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, RomeBossEntity::new)
+                    .dimensions(EntityDimensions.fixed(1f, 2f)).build());
 }

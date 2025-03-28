@@ -34,6 +34,7 @@ public class ModItems {
     public static final Item ROME_COIN = registerItem("rome_coin", new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON)));
     public static final Item ROME_KEY = registerItem("rome_key", new RomeKey(new FabricItemSettings().maxCount(1).rarity(Rarity.RARE)));
     public static final Item ROME_KEY_FRAGMENT = registerItem("rome_key_fragment", new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON)));
+    public static final Item ROME_SWORD = registerItem("rome_sword", new SwordItem(ToolMaterials.NETHERITE, 1, -1.0F, new FabricItemSettings().maxCount(1).rarity(Rarity.EPIC)));
 
     private static void addItemsToIngredientTabItemGroup(FabricItemGroupEntries entries){
         entries.add(EGYPT_COIN);
@@ -81,6 +82,7 @@ public class ModItems {
         entries.add(ModItems.NORDIC_BATTLE_AXE);
         entries.add(ModItems.CHINA_SWORD);
         entries.add(ModItems.GREECE_SWORD);
+        entries.add(ModItems.ROME_SWORD);
     }
 
     private static Item registerItem(String name, Item item){

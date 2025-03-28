@@ -1,6 +1,7 @@
 package net._void.civilizations.item.custom;
 
 import net._void.civilizations.block.ModBlocks;
+import net._void.civilizations.entity.custom.RomeBossEntity;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
@@ -23,9 +24,9 @@ public class RomeKey extends Item{
             BlockState state = context.getWorld().getBlockState(positionClicked);
             if(state.getBlock().equals(ModBlocks.ROME_CHEST)){
                 context.getWorld().setBlockState(positionClicked, Blocks.SAND.getDefaultState());
-                //RomeBossEntity customEntity = ((EntityType<RomeBossEntity>) EntityType.get("civilizations:rome_boss").get()).create(context.getWorld());
-                //customEntity.updatePosition(positionClicked.getX() + 0.5, positionClicked.getY() + 12, positionClicked.getZ() + 0.5);
-                //context.getWorld().spawnEntity(customEntity);
+                RomeBossEntity customEntity = ((EntityType<RomeBossEntity>) EntityType.get("civilizations:rome_boss").get()).create(context.getWorld());
+                customEntity.updatePosition(positionClicked.getX() + 0.5, positionClicked.getY() + 20, positionClicked.getZ() + 0.5);
+                context.getWorld().spawnEntity(customEntity);
                 r = ActionResult.SUCCESS;
             }
         }else{

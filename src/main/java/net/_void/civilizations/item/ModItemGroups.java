@@ -50,6 +50,7 @@ public class ModItemGroups {
                         entries.add(ModItems.ROME_KEY);
                         entries.add(ModItems.ROME_KEY_FRAGMENT);
                         entries.add(ModBlocks.ROME_CHEST);
+                        entries.add(ModItems.ROME_SWORD);
 
                     }).build());
 
