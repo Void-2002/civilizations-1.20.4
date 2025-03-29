@@ -153,7 +153,7 @@ public class RomeBossEntity extends AnimalEntity {
             for(double i = this.getX() - 3;i <= this.getX() + 3; i += 3){
                 for(double j = this.getZ() - 3;j <= this.getZ() + 3; j += 3){
                     RomeGuardEntity customEntity = ((EntityType<RomeGuardEntity>) EntityType.get("civilizations:rome_guard").get()).create(this.getWorld());
-                    customEntity.updatePosition(i, this.getY(), j);
+                    customEntity.updatePosition(i, this.getY() - 18, j);
                     this.getWorld().spawnEntity(customEntity);
                 }
             }

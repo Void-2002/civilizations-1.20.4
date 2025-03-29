@@ -1,0 +1,41 @@
+{
+  "parent": "civilizations:civilizations_rome_quest",
+  "display": {
+    "icon": {
+      "item": "civilizations:rome_sword"
+    },
+    "title": {
+      "translate": "advancements.civilizations_rome_boss.title"
+    },
+    "description": {
+      "translate": "advancements.civilizations_rome_boss.description"
+    },
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "kill_rome_boss": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "civilizations:rome_boss"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "kill_rome_boss"
+    ]
+  ],
+  "rewards": {
+    "experience": 500
+  },
+  "sends_telemetry_event": true
+}

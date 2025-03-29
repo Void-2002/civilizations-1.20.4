@@ -1,0 +1,36 @@
+{
+  "parent": "civilizations:civilizations_rome_find",
+  "display": {
+    "icon": {
+      "item": "civilizations:rome_coin"
+    },
+    "title": {
+      "translate": "advancements.civilizations_rome_trade.title"
+    },
+    "description": {
+      "translate": "advancements.civilizations_rome_trade.description"
+    },
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "rome_coin": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "civilizations:rome_coin"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "rome_coin"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

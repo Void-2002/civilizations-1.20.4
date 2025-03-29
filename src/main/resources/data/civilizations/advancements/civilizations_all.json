@@ -1,0 +1,119 @@
+{
+  "parent": "civilizations:civilizations",
+  "display": {
+    "icon": {
+      "item": "minecraft:grass_block"
+    },
+    "title": {
+      "translate": "advancements.civilizations_all.title"
+    },
+    "description": {
+      "translate": "advancements.civilizations_all.description"
+    },
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "in_china": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "civilizations:china"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "in_egypt": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "civilizations:egypt"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "in_nordic": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "civilizations:nordic"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "in_greece": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "civilizations:greece"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "in_rome": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "civilizations:rome"
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "in_china"
+    ],
+    [
+      "in_egypt"
+    ],
+    [
+      "in_nordic"
+    ],
+    [
+      "in_greece"
+    ],
+    [
+      "in_rome"
+    ]
+  ],
+  "rewards": {
+    "experience": 500
+  },
+  "sends_telemetry_event": true
+}

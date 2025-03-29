@@ -1,0 +1,36 @@
+{
+  "parent": "civilizations:civilizations_rome_trade",
+  "display": {
+    "icon": {
+      "item": "civilizations:rome_key"
+    },
+    "title": {
+      "translate": "advancements.civilizations_rome_quest.title"
+    },
+    "description": {
+      "translate": "advancements.civilizations_rome_quest.description"
+    },
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "rome_key": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "civilizations:rome_key"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "rome_key"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

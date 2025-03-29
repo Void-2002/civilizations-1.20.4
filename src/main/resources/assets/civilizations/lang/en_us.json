@@ -59,9 +59,13 @@
   "filled_map.greece": "Ancient Greek Map",
   "filled_map.china": "Ancient Chinese Map",
   "filled_map.egypt": "Ancient Egyptian Map",
+  "filled_map.rome": "Ancient Roman Map",
 
   "advancements.civilizations.title": "Civilizations",
   "advancements.civilizations.description": "Welcome to Civilizations",
+
+  "advancements.civilizations_all.title": "Mr Worldwide",
+  "advancements.civilizations_all.description": "Discover all civilizations",
 
   "advancements.civilizations_egypt_find.title": "Ancient Egypt",
   "advancements.civilizations_egypt_find.description": "Discover the Ancient Egyptian Civilization",
@@ -93,5 +97,14 @@
   "advancements.civilizations_greece_quest.title": "The hidden key",
   "advancements.civilizations_greece_quest.description": "Find the key hidden in The Temple of Artemis",
   "advancements.civilizations_greece_boss.title": "The Greatest",
-  "advancements.civilizations_greece_boss.description": "Take down Alexander The Great"
+  "advancements.civilizations_greece_boss.description": "Take down Alexander The Great",
+
+  "advancements.civilizations_rome_find.title": "Ancient Rome",
+  "advancements.civilizations_rome_find.description": "Discover the Ancient Roman Civilization",
+  "advancements.civilizations_rome_trade.title": "Quid pro quo",
+  "advancements.civilizations_rome_trade.description": "Trade with the Roman Civilization",
+  "advancements.civilizations_rome_quest.title": "Hidden secret",
+  "advancements.civilizations_rome_quest.description": "Find the key fragments hidden in the Colosseum and craft the key",
+  "advancements.civilizations_rome_boss.title": "Veni, vidi, vici",
+  "advancements.civilizations_rome_boss.description": "Take down General Julius Caesar"
 }
