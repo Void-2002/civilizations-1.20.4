@@ -3,7 +3,7 @@
   "fallback": "minecraft:empty",
   "elements": [
     {
-      "weight": 100,
+      "weight": 10,
       "element": {
         "location": "civilizations:rome2",
         "processors": "minecraft:empty",
@@ -12,7 +12,7 @@
       }
     },
     {
-      "weight": 100,
+      "weight": 10,
       "element": {
         "location": "civilizations:rome3",
         "processors": "minecraft:empty",
@@ -21,7 +21,7 @@
       }
     },
     {
-      "weight": 100,
+      "weight": 10,
       "element": {
         "location": "civilizations:rome4",
         "processors": "minecraft:empty",
@@ -30,7 +30,7 @@
       }
     },
     {
-      "weight": 100,
+      "weight": 10,
       "element": {
         "location": "civilizations:rome_top",
         "processors": "minecraft:empty",
@@ -39,7 +39,7 @@
       }
     },
     {
-      "weight": 100,
+      "weight": 10,
       "element": {
         "location": "civilizations:rome2_top",
         "processors": "minecraft:empty",
@@ -48,7 +48,7 @@
       }
     },
     {
-      "weight": 100,
+      "weight": 10,
       "element": {
         "location": "civilizations:rome3_top",
         "processors": "minecraft:empty",
@@ -57,7 +57,7 @@
       }
     },
     {
-      "weight": 100,
+      "weight": 10,
       "element": {
         "location": "civilizations:rome4_top",
         "processors": "minecraft:empty",
@@ -204,6 +204,15 @@
       "weight": 10,
       "element": {
         "location": "civilizations:rome_path8",
+        "processors": "minecraft:empty",
+        "projection": "terrain_matching",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "location": "civilizations:rome_path0",
         "processors": "minecraft:empty",
         "projection": "terrain_matching",
         "element_type": "minecraft:single_pool_element"
