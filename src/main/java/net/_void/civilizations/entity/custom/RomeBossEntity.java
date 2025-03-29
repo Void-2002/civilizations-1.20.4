@@ -2,6 +2,7 @@ package net._void.civilizations.entity.custom;
 
 import net._void.civilizations.entity.ai.RomeBossAttackGoal;
 import net._void.civilizations.item.ModItems;
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.ActiveTargetGoal;
 import net.minecraft.entity.ai.goal.RevengeGoal;
@@ -21,11 +22,13 @@ import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
@@ -36,7 +39,11 @@ public class RomeBossEntity extends AnimalEntity {
     public final AnimationState attackAnimationState = new AnimationState();
     public int attackAnimationTimeout = 0;
 
-    private final ServerBossBar bossBar = new ServerBossBar(Text.literal("Julius Caesar"),
+    int guardsKilled = 0;
+    int guardsSpawned = 0;
+    int spawnTick = 0;
+
+    private final ServerBossBar bossBar = new ServerBossBar(Text.literal("General Julius Caesar"),
             BossBar.Color.RED, BossBar.Style.NOTCHED_20);
 
     public RomeBossEntity(EntityType<? extends AnimalEntity> entityType, World world) {
@@ -82,8 +89,8 @@ public class RomeBossEntity extends AnimalEntity {
         this.goalSelector.add(0, new SwimGoal(this));
         this.goalSelector.add(1, new RomeBossAttackGoal(this, 1, true));
         this.goalSelector.add(2, new WanderAroundGoal(this,1));
-        this.targetSelector.add(1, new RevengeGoal(this));
-        this.targetSelector.add(2, new ActiveTargetGoal(this, PlayerEntity.class, false));
+        this.targetSelector.add(1, new ActiveTargetGoal(this, RomeGuardEntity.class, false));
+        this.targetSelector.add(1, new ActiveTargetGoal(this, PlayerEntity.class, false));
     }
 
     public static DefaultAttributeContainer.Builder createBossAttributes(){
@@ -92,7 +99,7 @@ public class RomeBossEntity extends AnimalEntity {
                 add(EntityAttributes.GENERIC_ARMOR,5).
                 add(EntityAttributes.GENERIC_ATTACK_DAMAGE,9).
                 add(EntityAttributes.GENERIC_MOVEMENT_SPEED,0.3f).
-                add(EntityAttributes.GENERIC_FOLLOW_RANGE,75).
+                add(EntityAttributes.GENERIC_FOLLOW_RANGE,7).
                 add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE,0.5);
     }
 
@@ -141,6 +148,26 @@ public class RomeBossEntity extends AnimalEntity {
         super.mobTick();
         this.bossBar.setPercent(this.getHealth() / this.getMaxHealth());
         if(this.isOnFire()) this.setOnFire(false);
+        spawnTick++;
+        if(guardsSpawned == 0){
+            for(double i = this.getX() - 3;i <= this.getX() + 3; i += 3){
+                for(double j = this.getZ() - 3;j <= this.getZ() + 3; j += 3){
+                    RomeGuardEntity customEntity = ((EntityType<RomeGuardEntity>) EntityType.get("civilizations:rome_guard").get()).create(this.getWorld());
+                    customEntity.updatePosition(i, this.getY(), j);
+                    this.getWorld().spawnEntity(customEntity);
+                }
+            }
+            guardsSpawned += 9;
+        }else if(spawnTick % 240 == 0 && guardsSpawned - guardsKilled <= 4){
+            for(int i=0;i<=1;i++){
+                for(int j=0;j<=1;j++){
+                    RomeGuardEntity customEntity = ((EntityType<RomeGuardEntity>) EntityType.get("civilizations:rome_guard").get()).create(this.getWorld());
+                    customEntity.updatePosition(this.getX() - 2 + 4 * i, this.getY(), this.getZ() - 2 + 4 * j);
+                    this.getWorld().spawnEntity(customEntity);
+                }
+            }
+            guardsSpawned += 4;
+        }
     }
 
     @Override

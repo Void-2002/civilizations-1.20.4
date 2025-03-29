@@ -1,20 +1,20 @@
 package net._void.civilizations.entity.ai;
 
-import net._void.civilizations.entity.custom.RomeBossEntity;
+import net._void.civilizations.entity.custom.RomeGuardEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.entity.mob.PathAwareEntity;
 import net.minecraft.util.Hand;
 
-public class RomeBossAttackGoal extends MeleeAttackGoal {
-    private final RomeBossEntity entity;
+public class RomeGuardAttackGoal extends MeleeAttackGoal {
+    private final RomeGuardEntity entity;
     private int attackDelay = 10;
     private int ticksUntilNextAttack = 10;
     private boolean shouldCountTillNextAttack = false;
 
-    public RomeBossAttackGoal(PathAwareEntity mob, double speed, boolean pauseWhenMobIdle) {
+    public RomeGuardAttackGoal(PathAwareEntity mob, double speed, boolean pauseWhenMobIdle) {
         super(mob, speed, pauseWhenMobIdle);
-        entity = ((RomeBossEntity) mob);
+        entity = ((RomeGuardEntity) mob);
     }
 
     @Override
