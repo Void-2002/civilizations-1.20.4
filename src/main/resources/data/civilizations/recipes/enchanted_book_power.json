@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "result": {
+    "item": "civilizations:power_book"
+  },
+  "pattern": [
+    "C#C",
+    "#M#",
+    "C#C"
+  ],
+  "key": {
+    "#": {
+      "item": "civilizations:papyrus"
+    },
+    "C": {
+      "item": "minecraft:arrow"
+    },
+    "M": {
+      "item": "minecraft:bow"
+    }
+  }
+}

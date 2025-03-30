@@ -7,20 +7,11 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
-import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.enchantment.EnchantmentLevelEntry;
-import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.*;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.nbt.NbtList;
-import net.minecraft.recipe.ShapelessRecipe;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.util.Identifier;
 
 import java.util.List;
-import java.util.function.Consumer;
-
-import static net.minecraft.item.EnchantedBookItem.getEnchantmentNbt;
 
 public class ModRecipeProvider extends FabricRecipeProvider {
     private static final List<ItemConvertible> SMOOTH_LIMESTONE_SMELTABLES = List.of(ModBlocks.LIMESTONE);

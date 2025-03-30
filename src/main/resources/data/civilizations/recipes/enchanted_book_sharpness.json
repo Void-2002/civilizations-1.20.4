@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "result": {
+    "item": "civilizations:sharpness_book"
+  },
+  "pattern": [
+    "C#C",
+    "#M#",
+    "C#C"
+  ],
+  "key": {
+    "#": {
+      "item": "civilizations:papyrus"
+    },
+    "C": {
+      "item": "minecraft:iron_sword"
+    },
+    "M": {
+      "item": "minecraft:diamond_sword"
+    }
+  }
+}

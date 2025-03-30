@@ -52,6 +52,18 @@ public class ModItemGroups {
                         entries.add(ModBlocks.ROME_CHEST);
                         entries.add(ModItems.ROME_SWORD);
 
+                        entries.add(ModItems.BOOK_SHARPNESS);
+                        entries.add(ModItems.BOOK_POWER);
+                        entries.add(ModItems.BOOK_FIRE_ASPECT);
+                        entries.add(ModItems.BOOK_UNBREAKING);
+                        entries.add(ModItems.BOOK_PROTECTION);
+                        entries.add(ModItems.BOOK_FEATHER_FALLING);
+                        entries.add(ModItems.BOOK_THORNS);
+                        entries.add(ModItems.BOOK_FROST_WALKER);
+                        entries.add(ModItems.BOOK_DEPTH_STRIDER);
+                        entries.add(ModItems.BOOK_EFFICIENCY);
+                        entries.add(ModItems.BOOK_FORTUNE);
+
                     }).build());
 
     public static void registerItemGroups(){

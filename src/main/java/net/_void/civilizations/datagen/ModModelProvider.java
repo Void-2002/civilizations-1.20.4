@@ -51,6 +51,17 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.ROME_KEY, Models.GENERATED);
         itemModelGenerator.register(ModItems.ROME_KEY_FRAGMENT, Models.GENERATED);
         itemModelGenerator.register(ModItems.ROME_SWORD, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.BOOK_SHARPNESS, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.BOOK_POWER, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.BOOK_FIRE_ASPECT, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.BOOK_UNBREAKING, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.BOOK_PROTECTION, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.BOOK_FEATHER_FALLING, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.BOOK_THORNS, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.BOOK_FROST_WALKER, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.BOOK_DEPTH_STRIDER, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.BOOK_EFFICIENCY, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.BOOK_FORTUNE, Models.HANDHELD);
 
     }
 }

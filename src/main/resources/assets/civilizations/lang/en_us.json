@@ -55,6 +55,18 @@
   "item.civilizations.rome_sword": "Crocea Mors",
   "entity.civilizations.rome_guard": "Roman",
 
+  "item.civilizations.sharpness_book": "Sharpness IV",
+  "item.civilizations.power_book": "Power III",
+  "item.civilizations.fire_aspect_book": "Fire Aspect II",
+  "item.civilizations.unbreaking_book": "Unbreaking III",
+  "item.civilizations.protection_book": "Protection III",
+  "item.civilizations.feather_falling_book": "Feather Falling III",
+  "item.civilizations.thorns_book": "Thorns II",
+  "item.civilizations.frost_walker_book": "Frost Walker II",
+  "item.civilizations.depth_strider_book": "Depth Strider III",
+  "item.civilizations.efficiency_book": "Efficiency IV",
+  "item.civilizations.fortune_book": "Fortune III",
+
   "filled_map.nordic": "Norse Map",
   "filled_map.greece": "Ancient Greek Map",
   "filled_map.china": "Ancient Chinese Map",

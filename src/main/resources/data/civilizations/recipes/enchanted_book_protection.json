@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "result": {
+    "item": "civilizations:protection_book"
+  },
+  "pattern": [
+    "C#C",
+    "#M#",
+    "C#C"
+  ],
+  "key": {
+    "#": {
+      "item": "civilizations:papyrus"
+    },
+    "C": {
+      "item": "minecraft:shield"
+    },
+    "M": {
+      "item": "minecraft:iron_chestplate"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "result": {
+    "item": "civilizations:frost_walker_book"
+  },
+  "pattern": [
+    "C#C",
+    "#M#",
+    "C#C"
+  ],
+  "key": {
+    "#": {
+      "item": "civilizations:papyrus"
+    },
+    "C": {
+      "item": "minecraft:ice"
+    },
+    "M": {
+      "item": "minecraft:iron_boots"
+    }
+  }
+}

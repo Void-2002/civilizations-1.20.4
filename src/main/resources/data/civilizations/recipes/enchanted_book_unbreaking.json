@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "result": {
+    "item": "civilizations:unbreaking_book"
+  },
+  "pattern": [
+    "A#B",
+    "#M#",
+    "C#D"
+  ],
+  "key": {
+    "#": {
+      "item": "civilizations:papyrus"
+    },
+    "A": {
+      "item": "minecraft:iron_sword"
+    },
+    "B": {
+      "item": "minecraft:iron_axe"
+    },
+    "C": {
+      "item": "minecraft:iron_shovel"
+    },
+    "D": {
+      "item": "minecraft:iron_hoe"
+    },
+    "M": {
+      "item": "minecraft:iron_pickaxe"
+    }
+  }
+}

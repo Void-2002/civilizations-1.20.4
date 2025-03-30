@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "result": {
+    "item": "civilizations:efficiency_book"
+  },
+  "pattern": [
+    "A#B",
+    "#M#",
+    "C#D"
+  ],
+  "key": {
+    "#": {
+      "item": "civilizations:papyrus"
+    },
+    "A": {
+      "item": "minecraft:golden_sword"
+    },
+    "B": {
+      "item": "minecraft:golden_axe"
+    },
+    "C": {
+      "item": "minecraft:golden_shovel"
+    },
+    "D": {
+      "item": "minecraft:golden_hoe"
+    },
+    "M": {
+      "item": "minecraft:golden_pickaxe"
+    }
+  }
+}

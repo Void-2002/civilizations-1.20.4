@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "result": {
+    "item": "civilizations:fire_aspect_book"
+  },
+  "pattern": [
+    "C#C",
+    "#M#",
+    "C#C"
+  ],
+  "key": {
+    "#": {
+      "item": "civilizations:papyrus"
+    },
+    "C": {
+      "item": "minecraft:lava_bucket"
+    },
+    "M": {
+      "item": "minecraft:iron_sword"
+    }
+  }
+}

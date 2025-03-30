@@ -36,6 +36,18 @@ public class ModItems {
     public static final Item ROME_KEY_FRAGMENT = registerItem("rome_key_fragment", new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON)));
     public static final Item ROME_SWORD = registerItem("rome_sword", new SwordItem(ToolMaterials.NETHERITE, 1, -1.0F, new FabricItemSettings().maxCount(1).rarity(Rarity.EPIC)));
 
+    public static final Item BOOK_SHARPNESS = registerItem("sharpness_book", new CustomEnchantedBookItem("sharpness", new FabricItemSettings().rarity(Rarity.UNCOMMON).maxCount(1)));
+    public static final Item BOOK_POWER = registerItem("power_book", new CustomEnchantedBookItem("power", new FabricItemSettings().rarity(Rarity.UNCOMMON).maxCount(1)));
+    public static final Item BOOK_FIRE_ASPECT = registerItem("fire_aspect_book", new CustomEnchantedBookItem("fire_aspect", new FabricItemSettings().rarity(Rarity.UNCOMMON).maxCount(1)));
+    public static final Item BOOK_UNBREAKING = registerItem("unbreaking_book", new CustomEnchantedBookItem("unbreaking", new FabricItemSettings().rarity(Rarity.UNCOMMON).maxCount(1)));
+    public static final Item BOOK_PROTECTION = registerItem("protection_book", new CustomEnchantedBookItem("protection", new FabricItemSettings().rarity(Rarity.UNCOMMON).maxCount(1)));
+    public static final Item BOOK_FEATHER_FALLING = registerItem("feather_falling_book", new CustomEnchantedBookItem("feather_falling", new FabricItemSettings().rarity(Rarity.UNCOMMON).maxCount(1)));
+    public static final Item BOOK_THORNS = registerItem("thorns_book", new CustomEnchantedBookItem("thorns", new FabricItemSettings().rarity(Rarity.UNCOMMON).maxCount(1)));
+    public static final Item BOOK_FROST_WALKER = registerItem("frost_walker_book", new CustomEnchantedBookItem("frost_walker", new FabricItemSettings().rarity(Rarity.UNCOMMON).maxCount(1)));
+    public static final Item BOOK_DEPTH_STRIDER = registerItem("depth_strider_book", new CustomEnchantedBookItem("depth_strider", new FabricItemSettings().rarity(Rarity.UNCOMMON).maxCount(1)));
+    public static final Item BOOK_EFFICIENCY = registerItem("efficiency_book", new CustomEnchantedBookItem("efficiency", new FabricItemSettings().rarity(Rarity.UNCOMMON).maxCount(1)));
+    public static final Item BOOK_FORTUNE = registerItem("fortune_book", new CustomEnchantedBookItem("fortune", new FabricItemSettings().rarity(Rarity.UNCOMMON).maxCount(1)));
+
     private static void addItemsToIngredientTabItemGroup(FabricItemGroupEntries entries){
         entries.add(EGYPT_COIN);
         entries.add(PAPYRUS);
@@ -44,6 +56,17 @@ public class ModItems {
         entries.add(GREECE_COIN);
         entries.add(ROME_COIN);
         entries.add(ROME_KEY_FRAGMENT);
+        entries.add(BOOK_SHARPNESS);
+        entries.add(BOOK_POWER);
+        entries.add(BOOK_FIRE_ASPECT);
+        entries.add(BOOK_UNBREAKING);
+        entries.add(BOOK_PROTECTION);
+        entries.add(BOOK_FEATHER_FALLING);
+        entries.add(BOOK_THORNS);
+        entries.add(BOOK_FROST_WALKER);
+        entries.add(BOOK_DEPTH_STRIDER);
+        entries.add(BOOK_EFFICIENCY);
+        entries.add(BOOK_FORTUNE);
     }
 
     private static void addItemsToToolTabItemGroup(FabricItemGroupEntries entries){
