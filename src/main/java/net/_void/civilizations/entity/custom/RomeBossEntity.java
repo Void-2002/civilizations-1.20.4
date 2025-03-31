@@ -22,6 +22,7 @@ import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.vehicle.BoatEntity;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
@@ -99,7 +100,7 @@ public class RomeBossEntity extends AnimalEntity {
                 add(EntityAttributes.GENERIC_ARMOR,5).
                 add(EntityAttributes.GENERIC_ATTACK_DAMAGE,9).
                 add(EntityAttributes.GENERIC_MOVEMENT_SPEED,0.3f).
-                add(EntityAttributes.GENERIC_FOLLOW_RANGE,7).
+                add(EntityAttributes.GENERIC_FOLLOW_RANGE,15).
                 add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE,0.5);
     }
 
@@ -167,6 +168,9 @@ public class RomeBossEntity extends AnimalEntity {
                 }
             }
             guardsSpawned += 4;
+        }
+        if (this.getVehicle() instanceof BoatEntity boatEntity) {
+            boatEntity.kill();
         }
     }
 

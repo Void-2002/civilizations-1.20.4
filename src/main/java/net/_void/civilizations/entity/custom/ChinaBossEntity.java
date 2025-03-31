@@ -24,6 +24,7 @@ import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.vehicle.BoatEntity;
 import net.minecraft.item.Items;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -179,6 +180,9 @@ public class ChinaBossEntity extends AnimalEntity{
                 }
             }
             spawnTimer = -1;
+        }
+        if (this.getVehicle() instanceof BoatEntity boatEntity) {
+            boatEntity.kill();
         }
     }
 
