@@ -36,7 +36,6 @@ public abstract class TombstoneMixin{
                 player.getInventory().clear();
             }
         }
-        // TODO fix tombstone when player dies to explosion
     }
 }
 

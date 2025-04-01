@@ -56,7 +56,6 @@ public class TombstoneBlock extends BlockWithEntity implements BlockEntityProvid
         if (state.getBlock() != newState.getBlock()) {
             BlockEntity blockEntity = world.getBlockEntity(pos);
             if (blockEntity instanceof TombstoneBlockEntity) {
-                //ItemScatterer.spawn(world, pos, (TombstoneBlockEntity)blockEntity);
                 TombstoneBlockEntity tombstoneEntity = (TombstoneBlockEntity)blockEntity;
                 for(int i = 0; i < tombstoneEntity.getItems().size(); ++i) {
                     double d = (double) EntityType.ITEM.getWidth();
