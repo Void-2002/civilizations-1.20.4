@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:spectral_arrow"
+    },
+    "C": {
+      "item": "civilizations:greece_core"
+    },
+    "R": {
+      "item": "civilizations:artemis_rune"
+    }
+  },
+  "pattern": [
+    "#R#",
+    "RCR",
+    "#R#"
+  ],
+  "result": {
+    "item": "civilizations:artemis_core"
+  }
+}

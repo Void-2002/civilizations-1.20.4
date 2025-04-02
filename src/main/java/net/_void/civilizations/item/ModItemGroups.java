@@ -64,6 +64,22 @@ public class ModItemGroups {
                         entries.add(ModItems.BOOK_EFFICIENCY);
                         entries.add(ModItems.BOOK_FORTUNE);
 
+                        entries.add(ModItems.GREECE_CORE);
+                        entries.add(ModItems.ARTEMIS_CORE);
+                        entries.add(ModItems.ARTEMIS_RUNE);
+                        entries.add(ModItems.EGYPT_CORE);
+                        entries.add(ModItems.ANUBIS_CORE);
+                        entries.add(ModItems.ANUBIS_RUNE);
+                        entries.add(ModItems.ROME_CORE);
+
+
+                        entries.add(ModItems.CHINA_CORE);
+
+
+                        entries.add(ModItems.NORDIC_CORE);
+
+
+
                     }).build());
 
     public static void registerItemGroups(){

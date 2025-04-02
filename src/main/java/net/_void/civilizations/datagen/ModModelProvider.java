@@ -51,17 +51,29 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.ROME_KEY, Models.GENERATED);
         itemModelGenerator.register(ModItems.ROME_KEY_FRAGMENT, Models.GENERATED);
         itemModelGenerator.register(ModItems.ROME_SWORD, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.BOOK_SHARPNESS, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.BOOK_POWER, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.BOOK_FIRE_ASPECT, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.BOOK_UNBREAKING, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.BOOK_PROTECTION, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.BOOK_FEATHER_FALLING, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.BOOK_THORNS, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.BOOK_FROST_WALKER, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.BOOK_DEPTH_STRIDER, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.BOOK_EFFICIENCY, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.BOOK_FORTUNE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.BOOK_SHARPNESS, Models.GENERATED);
+        itemModelGenerator.register(ModItems.BOOK_POWER, Models.GENERATED);
+        itemModelGenerator.register(ModItems.BOOK_FIRE_ASPECT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.BOOK_UNBREAKING, Models.GENERATED);
+        itemModelGenerator.register(ModItems.BOOK_PROTECTION, Models.GENERATED);
+        itemModelGenerator.register(ModItems.BOOK_FEATHER_FALLING, Models.GENERATED);
+        itemModelGenerator.register(ModItems.BOOK_THORNS, Models.GENERATED);
+        itemModelGenerator.register(ModItems.BOOK_FROST_WALKER, Models.GENERATED);
+        itemModelGenerator.register(ModItems.BOOK_DEPTH_STRIDER, Models.GENERATED);
+        itemModelGenerator.register(ModItems.BOOK_EFFICIENCY, Models.GENERATED);
+        itemModelGenerator.register(ModItems.BOOK_FORTUNE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.GREECE_CORE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ARTEMIS_CORE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ARTEMIS_RUNE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.EGYPT_CORE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ANUBIS_CORE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ANUBIS_RUNE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ROME_CORE, Models.GENERATED);
 
+
+        itemModelGenerator.register(ModItems.CHINA_CORE, Models.GENERATED);
+
+
+        itemModelGenerator.register(ModItems.NORDIC_CORE, Models.GENERATED);
     }
 }

@@ -48,6 +48,26 @@ public class ModItems {
     public static final Item BOOK_EFFICIENCY = registerItem("efficiency_book", new CustomEnchantedBookItem("efficiency", new FabricItemSettings().rarity(Rarity.UNCOMMON).maxCount(1)));
     public static final Item BOOK_FORTUNE = registerItem("fortune_book", new CustomEnchantedBookItem("fortune", new FabricItemSettings().rarity(Rarity.UNCOMMON).maxCount(1)));
 
+    public static final Item GREECE_CORE = registerItem("greece_core", new Item(new FabricItemSettings().rarity(Rarity.EPIC).maxCount(1)));
+    public static final Item ARTEMIS_CORE = registerItem("artemis_core", new ArtemisCore(new FabricItemSettings().rarity(Rarity.EPIC).maxCount(1)));
+    public static final Item ARTEMIS_RUNE = registerItem("artemis_rune", new Item(new FabricItemSettings().rarity(Rarity.RARE)));
+
+    public static final Item EGYPT_CORE = registerItem("egypt_core", new Item(new FabricItemSettings().rarity(Rarity.EPIC).maxCount(1)));
+    public static final Item ANUBIS_CORE = registerItem("anubis_core", new AnubisCore(new FabricItemSettings().rarity(Rarity.EPIC).maxCount(1)));
+    public static final Item ANUBIS_RUNE = registerItem("anubis_rune", new Item(new FabricItemSettings().rarity(Rarity.RARE)));
+
+    public static final Item ROME_CORE = registerItem("rome_core", new Item(new FabricItemSettings().rarity(Rarity.EPIC).maxCount(1)));
+    //public static final Item ARTEMIS_CORE = registerItem("artemis_core", new ArtemisCore(new FabricItemSettings().rarity(Rarity.EPIC).maxCount(1)));
+    //public static final Item ARTEMIS_RUNE = registerItem("artemis_rune", new Item(new FabricItemSettings().rarity(Rarity.RARE)));
+
+    public static final Item CHINA_CORE = registerItem("china_core", new Item(new FabricItemSettings().rarity(Rarity.EPIC).maxCount(1)));
+    //public static final Item ARTEMIS_CORE = registerItem("artemis_core", new ArtemisCore(new FabricItemSettings().rarity(Rarity.EPIC).maxCount(1)));
+    //public static final Item ARTEMIS_RUNE = registerItem("artemis_rune", new Item(new FabricItemSettings().rarity(Rarity.RARE)));
+
+    public static final Item NORDIC_CORE = registerItem("nordic_core", new Item(new FabricItemSettings().rarity(Rarity.EPIC).maxCount(1)));
+    //public static final Item ARTEMIS_CORE = registerItem("artemis_core", new ArtemisCore(new FabricItemSettings().rarity(Rarity.EPIC).maxCount(1)));
+    //public static final Item ARTEMIS_RUNE = registerItem("artemis_rune", new Item(new FabricItemSettings().rarity(Rarity.RARE)));
+
     private static void addItemsToIngredientTabItemGroup(FabricItemGroupEntries entries){
         entries.add(EGYPT_COIN);
         entries.add(PAPYRUS);
@@ -67,6 +87,9 @@ public class ModItems {
         entries.add(BOOK_DEPTH_STRIDER);
         entries.add(BOOK_EFFICIENCY);
         entries.add(BOOK_FORTUNE);
+
+
+
     }
 
     private static void addItemsToToolTabItemGroup(FabricItemGroupEntries entries){

@@ -61,5 +61,27 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 input('#', ModItems.ROME_KEY_FRAGMENT).
                 criterion(hasItem(ModItems.ROME_KEY_FRAGMENT), conditionsFromItem(ModItems.ROME_KEY_FRAGMENT)).
                 offerTo(exporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.ARTEMIS_CORE, 1).
+                pattern("#R#").
+                pattern("RCR").
+                pattern("#R#").
+                input('C', ModItems.GREECE_CORE).
+                input('R', ModItems.ARTEMIS_RUNE).
+                input('#', Items.SPECTRAL_ARROW).
+                criterion(hasItem(ModItems.GREECE_CORE), conditionsFromItem(ModItems.GREECE_CORE)).
+                criterion(hasItem(ModItems.ARTEMIS_RUNE), conditionsFromItem(ModItems.ARTEMIS_RUNE)).
+                offerTo(exporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.ANUBIS_CORE, 1).
+                pattern("#R#").
+                pattern("RCR").
+                pattern("#R#").
+                input('C', ModItems.EGYPT_CORE).
+                input('R', ModItems.ANUBIS_RUNE).
+                input('#', Items.SKELETON_SKULL).
+                criterion(hasItem(ModItems.EGYPT_CORE), conditionsFromItem(ModItems.EGYPT_CORE)).
+                criterion(hasItem(ModItems.ANUBIS_RUNE), conditionsFromItem(ModItems.ANUBIS_RUNE)).
+                offerTo(exporter);
     }
 }

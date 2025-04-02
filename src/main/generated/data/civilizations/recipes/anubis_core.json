@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:skeleton_skull"
+    },
+    "C": {
+      "item": "civilizations:egypt_core"
+    },
+    "R": {
+      "item": "civilizations:anubis_core"
+    }
+  },
+  "pattern": [
+    "#R#",
+    "RCR",
+    "#R#"
+  ],
+  "result": {
+    "item": "civilizations:anubis_core"
+  }
+}

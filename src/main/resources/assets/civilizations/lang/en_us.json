@@ -78,6 +78,22 @@
   "tooltip.civilizations.efficiency_book": "Efficiency IV",
   "tooltip.civilizations.fortune_book": "Fortune III",
 
+  "item.civilizations.greece_core": "Greek Core",
+  "item.civilizations.artemis_core": "Greek Core",
+  "tooltip.civilizations.artemis_core": "Summon Artemis",
+  "item.civilizations.artemis_rune": "Rune of Artemis",
+
+  "item.civilizations.egypt_core": "Egyptian Core",
+  "item.civilizations.anubis_core": "Egyptian Core",
+  "tooltip.civilizations.anubis_core": "Summon Anubis",
+  "item.civilizations.anubis_rune": "Rune of Anubis",
+
+  "item.civilizations.rome_core": "Roman Core",
+
+  "item.civilizations.china_core": "Chinese Core",
+
+  "item.civilizations.nordic_core": "Norse Core",
+
   "filled_map.nordic": "Norse Map",
   "filled_map.greece": "Ancient Greek Map",
   "filled_map.china": "Ancient Chinese Map",
