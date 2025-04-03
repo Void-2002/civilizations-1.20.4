@@ -67,4 +67,9 @@ public class ModEntities {
             new Identifier(Civilizations.MOD_ID, "rome_guard"),
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, RomeGuardEntity::new)
                     .dimensions(EntityDimensions.fixed(1f, 2f)).build());
+
+    public static final EntityType<BossArtemisEntity> BOSS_ARTEMIS = Registry.register(Registries.ENTITY_TYPE,
+            new Identifier(Civilizations.MOD_ID, "boss_artemis"),
+            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, BossArtemisEntity::new)
+                    .dimensions(EntityDimensions.fixed(1f, 2f)).build());
 }

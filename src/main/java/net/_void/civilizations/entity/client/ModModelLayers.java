@@ -35,4 +35,7 @@ public class ModModelLayers {
             new EntityModelLayer(new Identifier(Civilizations.MOD_ID,"rome_boss"),"main");
     public static final EntityModelLayer ROME_GUARD =
             new EntityModelLayer(new Identifier(Civilizations.MOD_ID,"rome_guard"),"main");
+
+    public static final EntityModelLayer BOSS_ARTEMIS =
+            new EntityModelLayer(new Identifier(Civilizations.MOD_ID,"boss_artemis"),"main");
 }

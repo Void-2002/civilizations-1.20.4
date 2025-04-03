@@ -58,6 +58,9 @@ public class CivilizationsClient implements ClientModInitializer {
         EntityRendererRegistry.register(ModEntities.ROME_GUARD, RomeGuardRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.ROME_GUARD, RomeGuardModel::getTexturedModelData);
 
+        EntityRendererRegistry.register(ModEntities.BOSS_ARTEMIS, BossArtemisRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.BOSS_ARTEMIS, BossArtemisModel::getTexturedModelData);
+
         HandledScreens.register(ModScreenHandlers.TRADING_STATION_SCREEN_HANDLER, TradingStationScreen::new);
         HandledScreens.register(ModScreenHandlers.TOMBSTONE_SCREEN_HANDLER, TombstoneScreen::new);
 

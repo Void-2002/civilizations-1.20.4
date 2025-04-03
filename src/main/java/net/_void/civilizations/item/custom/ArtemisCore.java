@@ -1,8 +1,11 @@
 package net._void.civilizations.item.custom;
 
+import net._void.civilizations.entity.custom.BossArtemisEntity;
+import net._void.civilizations.entity.custom.ChinaBossEntity;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
@@ -25,6 +28,7 @@ import static java.lang.Math.pow;
 public class ArtemisCore extends Item {
 
     private int tick = -1;
+    private int spawnTick = -1;
     private int x;
     private int y;
     private int z;
@@ -66,6 +70,7 @@ public class ArtemisCore extends Item {
                 }
             }
             if(tick >= 0) tick++;
+            if(spawnTick >= 0) spawnTick++;
             if(tick == 10){
                 ((ServerWorld) world).spawnParticles(ParticleTypes.END_ROD ,x , y+1 ,z ,
                         10, 0, 0, 0, 1);
@@ -125,6 +130,7 @@ public class ArtemisCore extends Item {
             }
             if(entity instanceof PlayerEntity player && player.getY() >= 205 && player.hasStatusEffect(StatusEffects.LEVITATION)){
                 player.clearStatusEffects();
+                spawnTick = 0;
                 for(double i = -50;i<=100;i++){
                     for(double j = -50;j<=100;j++) {
                         if(pow(i,2) + pow(j,2) >= pow(4,2) && pow(i,2) + pow(j,2) <= pow(5,2)){
@@ -137,6 +143,12 @@ public class ArtemisCore extends Item {
                         }
                     }
                 }
+            }
+            if(spawnTick == 60){
+                BossArtemisEntity customEntity = ((EntityType<BossArtemisEntity>) EntityType.get("civilizations:boss_artemis").get()).create(world);
+                customEntity.updatePosition(x + 0.5, 201, z + 0.5);
+                customEntity.setCoords(x, y, z);
+                world.spawnEntity(customEntity);
             }
             if(tick == 100){
                 for(double i = -50;i<=100;i++){
