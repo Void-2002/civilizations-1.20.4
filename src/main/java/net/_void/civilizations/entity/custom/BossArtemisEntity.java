@@ -3,10 +3,7 @@ package net._void.civilizations.entity.custom;
 import net._void.civilizations.entity.ai.BossArtemisGoal;
 import net._void.civilizations.item.ModItems;
 import net.minecraft.block.Blocks;
-import net.minecraft.entity.AnimationState;
-import net.minecraft.entity.EntityPose;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.ItemEntity;
+import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.ActiveTargetGoal;
 import net.minecraft.entity.ai.goal.RevengeGoal;
 import net.minecraft.entity.ai.goal.SwimGoal;
@@ -24,15 +21,18 @@ import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.MobEntity;
+import net.minecraft.entity.mob.RavagerEntity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.vehicle.BoatEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -52,18 +52,13 @@ public class BossArtemisEntity extends AnimalEntity {
     private int x;
     private int y;
     private int z;
+    private int damageTaken = 0;
 
     public void setCoords(int x, int y, int z){
         this.x = x;
         this.y = y;
         this.z = z;
     }
-
-    int guardsSpawned = 0;
-    int spawnTimer = -1;
-    double spawnX = 0;
-    double spawnY = 0;
-    double spawnZ = 0;
 
     private final ServerBossBar bossBar = new ServerBossBar(Text.literal("Artemis"),
             BossBar.Color.GREEN, BossBar.Style.NOTCHED_20);
@@ -110,14 +105,14 @@ public class BossArtemisEntity extends AnimalEntity {
     @Override
     protected void initGoals() {
         this.goalSelector.add(0, new SwimGoal(this));
-        this.goalSelector.add(1, new BossArtemisGoal(this, 1, true));
+        this.goalSelector.add(1, new BossArtemisGoal(this));
 
         this.targetSelector.add(1, new ActiveTargetGoal(this, PlayerEntity.class, false));
     }
 
     public static DefaultAttributeContainer.Builder createBossAttributes(){
         return MobEntity.createMobAttributes().
-                add(EntityAttributes.GENERIC_MAX_HEALTH,1000).
+                add(EntityAttributes.GENERIC_MAX_HEALTH,1200).
                 add(EntityAttributes.GENERIC_ARMOR,5).
                 add(EntityAttributes.GENERIC_ATTACK_DAMAGE,9).
                 add(EntityAttributes.GENERIC_MOVEMENT_SPEED,0.3f).
@@ -173,6 +168,15 @@ public class BossArtemisEntity extends AnimalEntity {
         if (this.getVehicle() instanceof BoatEntity boatEntity) {
             boatEntity.kill();
         }
+        if(damageTaken >= 200){
+            damageTaken = 0;
+            RavagerEntity customEntity = ((EntityType<RavagerEntity>) EntityType.get("minecraft:ravager").get()).create(this.getWorld());
+            customEntity.updatePosition(this.getX(), this.getY(), this.getZ());
+            this.getWorld().spawnEntity(customEntity);
+            RavagerEntity customEntity2 = ((EntityType<RavagerEntity>) EntityType.get("minecraft:ravager").get()).create(this.getWorld());
+            customEntity2.updatePosition(this.getX(), this.getY(), this.getZ());
+            this.getWorld().spawnEntity(customEntity2);
+        }
     }
 
     @Override
@@ -191,6 +195,17 @@ public class BossArtemisEntity extends AnimalEntity {
                 source.isOf(DamageTypes.IN_WALL)){
             return false;
         }
+        LivingEntity attacker = (LivingEntity) source.getAttacker();
+        if(attacker instanceof PlayerEntity){
+            damageTaken += amount;
+        }
+        if(attacker instanceof RavagerEntity ravager){
+            ravager.kill();
+            RavagerEntity customEntity = ((EntityType<RavagerEntity>) EntityType.get("minecraft:ravager").get()).create(this.getWorld());
+            customEntity.updatePosition(this.getX(), this.getY(), this.getZ());
+            this.getWorld().spawnEntity(customEntity);
+            return false;
+        }
         return super.damage(source, amount);
     }
 
@@ -198,24 +213,17 @@ public class BossArtemisEntity extends AnimalEntity {
     public void onDeath(DamageSource damageSource) {
         for(double i = -50;i<=100;i++){
             for(double j = -50;j<=100;j++) {
-                if (pow(i, 2) + pow(j, 2) <= pow(50, 2)) {
+                if (pow(i, 2) + pow(j, 2) <= pow(35, 2)) {
                     this.getWorld().setBlockState(new BlockPos(x + (int) i, 200, z + (int) j), Blocks.AIR.getDefaultState());
                 }
             }
         }
         if(damageSource.getAttacker() instanceof PlayerEntity player){
-            player.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOW_FALLING, 600, 0, false, false));
+            player.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOW_FALLING, 500, 0, false, false));
         }
+        ItemEntity itemEntity = new ItemEntity(this.getWorld(),x + 0.5, y, z + 0.5, new ItemStack(Items.BOW));
+        itemEntity.updatePosition(x + 0.5, y, z + 0.5);
+        this.getWorld().spawnEntity(itemEntity);
         super.onDeath(damageSource);
-    }
-
-    @Override
-    protected void dropEquipment(DamageSource source, int lootingMultiplier, boolean allowDrops) {
-        super.dropEquipment(source, lootingMultiplier, allowDrops);
-        ItemEntity itemEntity = this.dropItem(Items.BOW);
-        if (itemEntity != null) {
-            itemEntity.setCovetedItem();
-            itemEntity.setInvulnerable(true);
-        }
     }
 }

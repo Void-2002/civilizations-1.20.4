@@ -12,7 +12,7 @@ public class BossArtemisRenderer  extends MobEntityRenderer<BossArtemisEntity,Bo
     private static final Identifier TEXTURE = new Identifier(Civilizations.MOD_ID,"textures/entity/boss_artemis.png");
 
     public BossArtemisRenderer(EntityRendererFactory.Context context) {
-        super(context, new BossArtemisModel<>(context.getPart(ModModelLayers.CHINA_GUARD)),0.6f);
+        super(context, new BossArtemisModel<>(context.getPart(ModModelLayers.BOSS_ARTEMIS)),0.6f);
     }
 
     @Override

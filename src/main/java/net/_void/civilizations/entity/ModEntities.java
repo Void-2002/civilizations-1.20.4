@@ -71,5 +71,5 @@ public class ModEntities {
     public static final EntityType<BossArtemisEntity> BOSS_ARTEMIS = Registry.register(Registries.ENTITY_TYPE,
             new Identifier(Civilizations.MOD_ID, "boss_artemis"),
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, BossArtemisEntity::new)
-                    .dimensions(EntityDimensions.fixed(1f, 2f)).build());
+                    .dimensions(EntityDimensions.fixed(2f, 4f)).build());
 }

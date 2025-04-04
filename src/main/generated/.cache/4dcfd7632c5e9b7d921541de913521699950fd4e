@@ -1,9 +1,9 @@
-// 1.20.4	2025-04-02T22:37:00.9548481	Civilizations/Recipes
+// 1.20.4	2025-04-04T18:49:15.3651798	Civilizations/Recipes
 3212183077dc40431234d8d3931227e95b3c9155 data\civilizations\recipes\limestone_pillar.json
 26bb8ed555678c9e99d32d139cb3c17b301d7d8f data\civilizations\advancements\recipes\tools\china_key.json
 fc5721c09dafd004268a0883592faf8833ed8649 data\civilizations\advancements\recipes\misc\anubis_core.json
 e5404de4897e67db34e641b1f8150e21df209360 data\civilizations\advancements\recipes\building_blocks\limestone_bricks.json
-0be0b33a9f612cc88d04128afa521ee91ddd4553 data\civilizations\recipes\anubis_core.json
+6bf6b7bafad80ccf084e48645d2e46e3b5b7bba4 data\civilizations\recipes\anubis_core.json
 9a2c014815725cc770c4904b671509ffbedf6c35 data\civilizations\recipes\smooth_limestone_from_smelting_limestone.json
 2e9e2373d6588a05ccafa128470d4d433dd93fca data\civilizations\recipes\limestone_bricks.json
 1c6ebb527a9e08a2f3636116808cf7064aa5c0ae data\civilizations\advancements\recipes\tools\rome_key.json

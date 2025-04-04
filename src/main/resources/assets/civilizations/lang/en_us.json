@@ -82,6 +82,7 @@
   "item.civilizations.artemis_core": "Greek Core",
   "tooltip.civilizations.artemis_core": "Summon Artemis",
   "item.civilizations.artemis_rune": "Rune of Artemis",
+  "entity.civilizations.boss_artemis": "Artemis",
 
   "item.civilizations.egypt_core": "Egyptian Core",
   "item.civilizations.anubis_core": "Egyptian Core",
@@ -89,10 +90,16 @@
   "item.civilizations.anubis_rune": "Rune of Anubis",
 
   "item.civilizations.rome_core": "Roman Core",
+  "item.civilizations.mercury_core": "Roman Core",
+  "tooltip.civilizations.mercury_core": "Summon Mercury",
+  "item.civilizations.mercury_rune": "Rune of Mercury",
 
   "item.civilizations.china_core": "Chinese Core",
 
   "item.civilizations.nordic_core": "Norse Core",
+  "item.civilizations.loki_core": "Norse Core",
+  "tooltip.civilizations.loki_core": "Summon Loki",
+  "item.civilizations.loki_rune": "Rune of Loki",
 
   "filled_map.nordic": "Norse Map",
   "filled_map.greece": "Ancient Greek Map",

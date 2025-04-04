@@ -2,6 +2,7 @@ package net._void.civilizations.item.custom;
 
 import net._void.civilizations.entity.custom.BossArtemisEntity;
 import net._void.civilizations.entity.custom.ChinaBossEntity;
+import net._void.civilizations.item.ModItems;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
@@ -72,33 +73,57 @@ public class ArtemisCore extends Item {
             if(tick >= 0) tick++;
             if(spawnTick >= 0) spawnTick++;
             if(tick == 10){
-                ((ServerWorld) world).spawnParticles(ParticleTypes.END_ROD ,x , y+1 ,z ,
-                        10, 0, 0, 0, 1);
+                ((ServerWorld) world).spawnParticles(ParticleTypes.END_ROD ,x+0.5 , y+1 ,z+0.5 ,
+                        5, 0, 0, 0, 1);
             }
             if(tick == 20){
+                ((ServerWorld) world).spawnParticles(ParticleTypes.END_ROD ,x+0.5 , y+1 ,z+0.5 ,
+                        10, 0, 0, 0, 1);
                 for(int i=-1;i<=1;i+=2){
-                        ((ServerWorld) world).spawnParticles(ParticleTypes.END_ROD ,x+i , y+1 ,z ,
-                                10, 0, 0, 0, 1);
-                        ((ServerWorld) world).spawnParticles(ParticleTypes.END_ROD ,x , y+1 ,z+i ,
-                                10, 0, 0, 0, 1);
+                        ((ServerWorld) world).spawnParticles(ParticleTypes.END_ROD ,x+i+0.5 , y+1 ,z+0.5 ,
+                                5, 0, 0, 0, 1);
+                        ((ServerWorld) world).spawnParticles(ParticleTypes.END_ROD ,x+0.5 , y+1 ,z+i+0.5 ,
+                                5, 0, 0, 0, 1);
                 }
             }
             if(tick == 30){
+                ((ServerWorld) world).spawnParticles(ParticleTypes.END_ROD ,x+0.5 , y+1 ,z+0.5 ,
+                        5, 0, 0, 0, 1);
+                for(int i=-1;i<=1;i+=2){
+                    ((ServerWorld) world).spawnParticles(ParticleTypes.END_ROD ,x+i+0.5 , y+1 ,z+0.5 ,
+                            5, 0, 0, 0, 1);
+                    ((ServerWorld) world).spawnParticles(ParticleTypes.END_ROD ,x+0.5 , y+1 ,z+i+0.5 ,
+                            5, 0, 0, 0, 1);
+                }
                 for(int i=-1;i<=1;i+=2){
                     for(int j=-1;j<=1;j+=2){
-                        ((ServerWorld) world).spawnParticles(ParticleTypes.END_ROD ,x+i , y+1 ,z+j ,
-                                10, 0, 0, 0, 1);
+                        ((ServerWorld) world).spawnParticles(ParticleTypes.END_ROD ,x+i+0.5 , y+1 ,z+j+0.5 ,
+                                5, 0, 0, 0, 1);
                     }
                 }
                 world.setBlockState(new BlockPos(x , y+1 ,z), Blocks.DIAMOND_BLOCK.getDefaultState());
             }
             if(tick == 40){
+                ((ServerWorld) world).spawnParticles(ParticleTypes.END_ROD ,x+0.5 , y+1 ,z+0.5 ,
+                        5, 0, 0, 0, 1);
+                for(int i=-1;i<=1;i+=2){
+                    ((ServerWorld) world).spawnParticles(ParticleTypes.END_ROD ,x+i+0.5 , y+1 ,z+0.5 ,
+                            5, 0, 0, 0, 1);
+                    ((ServerWorld) world).spawnParticles(ParticleTypes.END_ROD ,x+0.5 , y+1 ,z+i+0.5 ,
+                            5, 0, 0, 0, 1);
+                }
+                for(int i=-1;i<=1;i+=2){
+                    for(int j=-1;j<=1;j+=2){
+                        ((ServerWorld) world).spawnParticles(ParticleTypes.END_ROD ,x+i+0.5 , y+1 ,z+j+0.5 ,
+                                5, 0, 0, 0, 1);
+                    }
+                }
                 for(int i=-2;i<=2;i+=4){
                     for(int j=-1;j<=1;j+=1){
-                        ((ServerWorld) world).spawnParticles(ParticleTypes.END_ROD ,x+i , y+1 ,z+j ,
-                                10, 0, 0, 0, 1);
-                        ((ServerWorld) world).spawnParticles(ParticleTypes.END_ROD ,x+j , y+1 ,z+i ,
-                                10, 0, 0, 0, 1);
+                        ((ServerWorld) world).spawnParticles(ParticleTypes.END_ROD ,x+i+0.5 , y+1 ,z+j+0.5 ,
+                                5, 0, 0, 0, 1);
+                        ((ServerWorld) world).spawnParticles(ParticleTypes.END_ROD ,x+j+0.5 , y+1 ,z+i+0.5 ,
+                                5, 0, 0, 0, 1);
                     }
                 }
                 for(int i=-1;i<=1;i+=2){
@@ -107,6 +132,12 @@ public class ArtemisCore extends Item {
                 }
             }
             if(tick == 50){
+                for(int i=-2;i<=2;i++){
+                    for(int j=-2;j<=2;j++){
+                        ((ServerWorld) world).spawnParticles(ParticleTypes.END_ROD ,x+j+0.5 , y+1 ,z+i+0.5 ,
+                                5, 0, 0, 0, 1);
+                    }
+                }
                 for(int i=-1;i<=1;i+=2){
                     for(int j=-1;j<=1;j+=2){
                         world.setBlockState(new BlockPos(x+i , y+1 ,z+j), Blocks.AZALEA_LEAVES.getDefaultState());
@@ -115,10 +146,18 @@ public class ArtemisCore extends Item {
                 }
             }
             if(tick == 60){
+                for(int i=-2;i<=2;i++){
+                    for(int j=-2;j<=2;j++){
+                        ((ServerWorld) world).spawnParticles(ParticleTypes.END_ROD ,x+j+0.5 , y+1 ,z+i+0.5 ,
+                                5, 0, 0, 0, 1);
+                    }
+                }
                 for(int i=-2;i<=2;i+=4){
                     for(int j=-1;j<=1;j+=1){
                         world.setBlockState(new BlockPos(x+i , y+1 ,z+j), Blocks.QUARTZ_SLAB.getDefaultState());
                         world.setBlockState(new BlockPos(x+j , y+1 ,z+i), Blocks.QUARTZ_SLAB.getDefaultState());
+                        world.setBlockState(new BlockPos(x+i , y ,z+j), Blocks.QUARTZ_BLOCK.getDefaultState());
+                        world.setBlockState(new BlockPos(x+j , y ,z+i), Blocks.QUARTZ_BLOCK.getDefaultState());
                     }
                 }
             }
@@ -136,7 +175,7 @@ public class ArtemisCore extends Item {
                         if(pow(i,2) + pow(j,2) >= pow(4,2) && pow(i,2) + pow(j,2) <= pow(5,2)){
                             world.setBlockState(new BlockPos(x+(int)i , 200 ,z+(int)j), Blocks.OAK_WOOD.getDefaultState());
                         }
-                        if (pow(i, 2) + pow(j, 2) <= pow(50, 2)) {
+                        if (pow(i, 2) + pow(j, 2) <= pow(35, 2)) {
                             if(world.getBlockState(new BlockPos(x + (int) i, 200, z + (int) j)).getBlock().equals(Blocks.AIR)){
                                 world.setBlockState(new BlockPos(x + (int) i, 200, z + (int) j), Blocks.AZALEA_LEAVES.getDefaultState());
                             }
@@ -149,52 +188,13 @@ public class ArtemisCore extends Item {
                 customEntity.updatePosition(x + 0.5, 201, z + 0.5);
                 customEntity.setCoords(x, y, z);
                 world.spawnEntity(customEntity);
-            }
-            if(tick == 100){
-                for(double i = -50;i<=100;i++){
-                    for(double j = -50;j<=100;j++){
-                        if(pow(i,2) + pow(j,2) >= pow(46,2) && pow(i,2) + pow(j,2) <= pow(47,2)){
-                            world.setBlockState(new BlockPos(x+(int)i , 200 ,z+(int)j), Blocks.OAK_WOOD.getDefaultState());
-                        }
-                        if(pow(i,2) + pow(j,2) >= pow(45,2) && pow(i,2) + pow(j,2) <= pow(50,2)){
-                            if(world.getBlockState(new BlockPos(x + (int) i, 200, z + (int) j)).getBlock().equals(Blocks.AIR)){
-                                world.setBlockState(new BlockPos(x + (int) i, 200, z + (int) j), Blocks.AZALEA_LEAVES.getDefaultState());
-                            }
-                        }
-                    }
-                }
-            }
-            if(tick == 130){
-                for(double i = -50;i<=100;i++){
-                    for(double j = -50;j<=100;j++) {
-                        if(pow(i,2) + pow(j,2) >= pow(42,2) && pow(i,2) + pow(j,2) <= pow(43,2)){
-                            world.setBlockState(new BlockPos(x+(int)i , 200 ,z+(int)j), Blocks.OAK_WOOD.getDefaultState());
-                        }
-                        if (pow(i, 2) + pow(j, 2) >= pow(40, 2) && pow(i, 2) + pow(j, 2) <= pow(45, 2)) {
-                            if(world.getBlockState(new BlockPos(x + (int) i, 200, z + (int) j)).getBlock().equals(Blocks.AIR)){
-                                world.setBlockState(new BlockPos(x + (int) i, 200, z + (int) j), Blocks.AZALEA_LEAVES.getDefaultState());
-                            }
-                        }
-                    }
-                }
-            }
-            if(tick == 160){
-                for(double i = -50;i<=100;i++){
-                    for(double j = -50;j<=100;j++) {
-                        if(pow(i,2) + pow(j,2) >= pow(38,2) && pow(i,2) + pow(j,2) <= pow(39,2)){
-                            world.setBlockState(new BlockPos(x+(int)i , 200 ,z+(int)j), Blocks.OAK_WOOD.getDefaultState());
-                        }
-                        if (pow(i, 2) + pow(j, 2) >= pow(35, 2) && pow(i, 2) + pow(j, 2) <= pow(40, 2)) {
-                            if(world.getBlockState(new BlockPos(x + (int) i, 200, z + (int) j)).getBlock().equals(Blocks.AIR)){
-                                world.setBlockState(new BlockPos(x + (int) i, 200, z + (int) j), Blocks.AZALEA_LEAVES.getDefaultState());
-                            }
-                        }
-                    }
+                if(entity instanceof PlayerEntity player){
+                    player.getInventory().setStack(slot, new ItemStack(ModItems.GREECE_CORE));
                 }
             }
             if(tick == 190){
                 for(double i = -50;i<=100;i++){
-                    for(double j = -50;j<=100;j++) {
+                    for(double j = -50;j<=100;j++){
                         if(pow(i,2) + pow(j,2) >= pow(34,2) && pow(i,2) + pow(j,2) <= pow(35,2)){
                             world.setBlockState(new BlockPos(x+(int)i , 200 ,z+(int)j), Blocks.OAK_WOOD.getDefaultState());
                         }
