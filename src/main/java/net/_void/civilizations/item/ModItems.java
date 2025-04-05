@@ -57,16 +57,18 @@ public class ModItems {
     public static final Item ANUBIS_RUNE = registerItem("anubis_rune", new Item(new FabricItemSettings().rarity(Rarity.RARE)));
 
     public static final Item ROME_CORE = registerItem("rome_core", new Item(new FabricItemSettings().rarity(Rarity.EPIC).maxCount(1)));
-    //public static final Item ARTEMIS_CORE = registerItem("artemis_core", new ArtemisCore(new FabricItemSettings().rarity(Rarity.EPIC).maxCount(1)));
-    //public static final Item ARTEMIS_RUNE = registerItem("artemis_rune", new Item(new FabricItemSettings().rarity(Rarity.RARE)));
+    public static final Item MERCURY_CORE = registerItem("mercury_core", new MercuryCore(new FabricItemSettings().rarity(Rarity.EPIC).maxCount(1)));
+    public static final Item MERCURY_RUNE = registerItem("mercury_rune", new Item(new FabricItemSettings().rarity(Rarity.RARE)));
 
     public static final Item CHINA_CORE = registerItem("china_core", new Item(new FabricItemSettings().rarity(Rarity.EPIC).maxCount(1)));
     //public static final Item ARTEMIS_CORE = registerItem("artemis_core", new ArtemisCore(new FabricItemSettings().rarity(Rarity.EPIC).maxCount(1)));
     //public static final Item ARTEMIS_RUNE = registerItem("artemis_rune", new Item(new FabricItemSettings().rarity(Rarity.RARE)));
 
     public static final Item NORDIC_CORE = registerItem("nordic_core", new Item(new FabricItemSettings().rarity(Rarity.EPIC).maxCount(1)));
-    //public static final Item ARTEMIS_CORE = registerItem("artemis_core", new ArtemisCore(new FabricItemSettings().rarity(Rarity.EPIC).maxCount(1)));
-    //public static final Item ARTEMIS_RUNE = registerItem("artemis_rune", new Item(new FabricItemSettings().rarity(Rarity.RARE)));
+    public static final Item LOKI_CORE = registerItem("loki_core", new LokiCore(new FabricItemSettings().rarity(Rarity.EPIC).maxCount(1)));
+    public static final Item LOKI_RUNE = registerItem("loki_rune", new Item(new FabricItemSettings().rarity(Rarity.RARE)));
+
+    public static final Item ARTEMIS_BOW = registerItem("artemis_bow", new ArtemisBowItem(new Item.Settings().maxDamage(2031).rarity(Rarity.EPIC)));
 
     private static void addItemsToIngredientTabItemGroup(FabricItemGroupEntries entries){
         entries.add(EGYPT_COIN);
@@ -87,8 +89,6 @@ public class ModItems {
         entries.add(BOOK_DEPTH_STRIDER);
         entries.add(BOOK_EFFICIENCY);
         entries.add(BOOK_FORTUNE);
-
-
 
     }
 
@@ -129,6 +129,7 @@ public class ModItems {
         entries.add(ModItems.CHINA_SWORD);
         entries.add(ModItems.GREECE_SWORD);
         entries.add(ModItems.ROME_SWORD);
+        entries.add(ModItems.ARTEMIS_BOW);
     }
 
     private static Item registerItem(String name, Item item){

@@ -101,6 +101,8 @@
   "tooltip.civilizations.loki_core": "Summon Loki",
   "item.civilizations.loki_rune": "Rune of Loki",
 
+  "item.civilizations.artemis_bow": "Artemis' Bow",
+
   "filled_map.nordic": "Norse Map",
   "filled_map.greece": "Ancient Greek Map",
   "filled_map.china": "Ancient Chinese Map",
@@ -152,5 +154,8 @@
   "advancements.civilizations_rome_quest.title": "Hidden secret",
   "advancements.civilizations_rome_quest.description": "Find the key fragments hidden in the Colosseum and craft the key",
   "advancements.civilizations_rome_boss.title": "Veni, vidi, vici",
-  "advancements.civilizations_rome_boss.description": "Take down General Julius Caesar"
+  "advancements.civilizations_rome_boss.description": "Take down General Julius Caesar",
+
+  "advancements.civilizations_boss_artemis.title": "Goddess of the hunt",
+  "advancements.civilizations_boss_artemis.description": "Take down Artemis"
 }

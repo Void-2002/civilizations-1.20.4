@@ -9,7 +9,10 @@ import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.entity.projectile.ProjectileUtil;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import org.joml.Quaternionf;
+import org.joml.Vector3f;
 
 public class BossArtemisGoal extends Goal {
     private final BossArtemisEntity entity;
@@ -59,12 +62,32 @@ public class BossArtemisGoal extends Goal {
                     double f = livingEntity.getZ() - entity.getZ();
                     double g = Math.sqrt(j * j + f * f);
                     persistentProjectileEntity.setVelocity(j, e + g * (double)0.2F, f, 1.6F, (float)(14 - world.getDifficulty().getId() * 4));
-                    persistentProjectileEntity.setOnFireFor(10);
+                    persistentProjectileEntity.setOnFireFor(100);
                     persistentProjectileEntity.setCritical(true);
+                    persistentProjectileEntity.setDamage(persistentProjectileEntity.getDamage() + (double)2.0F);
+                    PersistentProjectileEntity persistentProjectileEntity2 = ProjectileUtil.createArrowProjectile(entity, itemStack, 1);
+                    Vec3d vec3d = entity.getOppositeRotationVector(1.0F);
+                    Quaternionf quaternionf = (new Quaternionf()).setAngleAxis((double)(10 * ((float)Math.PI / 180F)), vec3d.x, vec3d.y, vec3d.z);
+                    Vec3d vec3d2 = entity.getRotationVec(1.0F);
+                    Vector3f vector3f = vec3d2.toVector3f().rotate(quaternionf);
+                    persistentProjectileEntity2.setVelocity((double)vector3f.x(), (double)vector3f.y(), (double)vector3f.z(), 1.6F, 1.0F);
+                    persistentProjectileEntity2.setOnFireFor(100);
+                    persistentProjectileEntity2.setCritical(true);
+                    persistentProjectileEntity2.setDamage(persistentProjectileEntity2.getDamage() + (double)2.0F);
+                    PersistentProjectileEntity persistentProjectileEntity3 = ProjectileUtil.createArrowProjectile(entity, itemStack, 1);
+                    Quaternionf quaternionf2 = (new Quaternionf()).setAngleAxis((double)(-10 * ((float)Math.PI / 180F)), vec3d.x, vec3d.y, vec3d.z);
+                    Vector3f vector3f2 = vec3d2.toVector3f().rotate(quaternionf2);
+                    persistentProjectileEntity3.setVelocity((double)vector3f2.x(), (double)vector3f2.y(), (double)vector3f2.z(), 1.6F, 1.0F);
+                    persistentProjectileEntity3.setOnFireFor(100);
+                    persistentProjectileEntity3.setCritical(true);
+                    persistentProjectileEntity3.setDamage(persistentProjectileEntity3.getDamage() + (double)2.0F);
+
                     world.spawnEntity(persistentProjectileEntity);
-                    if(shotsTaken < 4) {
+                    world.spawnEntity(persistentProjectileEntity2);
+                    world.spawnEntity(persistentProjectileEntity3);
+                    if(shotsTaken < 2) {
                         shotsTaken++;
-                        this.cooldown = 20;
+                        this.cooldown = 15;
                     }
                     else {
                         shotsTaken = 0;

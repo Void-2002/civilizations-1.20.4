@@ -42,22 +42,22 @@ import static java.lang.Math.pow;
 
 public class BossArtemisEntity extends AnimalEntity {
 
-    private static final TrackedData<Boolean> SHOOTING = DataTracker.registerData(ChinaGuardEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+    private static final TrackedData<Boolean> SHOOTING = DataTracker.registerData(BossArtemisEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 
     public final AnimationState idleAnimationState = new AnimationState();
     private int idleAnimationTimeout = 0;
     public final AnimationState shootingAnimationState = new AnimationState();
     public int shootingAnimationTimeout = 0;
 
-    private int x;
-    private int y;
-    private int z;
+    private static TrackedData<Integer> X = DataTracker.registerData(BossArtemisEntity.class, TrackedDataHandlerRegistry.INTEGER);
+    private static TrackedData<Integer> Y = DataTracker.registerData(BossArtemisEntity.class, TrackedDataHandlerRegistry.INTEGER);
+    private static TrackedData<Integer> Z = DataTracker.registerData(BossArtemisEntity.class, TrackedDataHandlerRegistry.INTEGER);
     private int damageTaken = 0;
 
     public void setCoords(int x, int y, int z){
-        this.x = x;
-        this.y = y;
-        this.z = z;
+        this.dataTracker.set(X, x);
+        this.dataTracker.set(Y, y);
+        this.dataTracker.set(Z, z);
     }
 
     private final ServerBossBar bossBar = new ServerBossBar(Text.literal("Artemis"),
@@ -65,8 +65,6 @@ public class BossArtemisEntity extends AnimalEntity {
 
     public BossArtemisEntity(EntityType<? extends AnimalEntity> entityType, World world) {
         super(entityType, world);
-        this.setPathfindingPenalty(PathNodeType.DAMAGE_FIRE, 0.0F);
-        this.setPathfindingPenalty(PathNodeType.DANGER_FIRE, 0.0F);
     }
 
     private void setupAnimationStates() {
@@ -117,7 +115,7 @@ public class BossArtemisEntity extends AnimalEntity {
                 add(EntityAttributes.GENERIC_ATTACK_DAMAGE,9).
                 add(EntityAttributes.GENERIC_MOVEMENT_SPEED,0.3f).
                 add(EntityAttributes.GENERIC_FOLLOW_RANGE,75).
-                add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE,1);
+                add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE,2);
     }
 
     public void setShooting(boolean shooting){
@@ -168,14 +166,16 @@ public class BossArtemisEntity extends AnimalEntity {
         if (this.getVehicle() instanceof BoatEntity boatEntity) {
             boatEntity.kill();
         }
-        if(damageTaken >= 200){
+        if(damageTaken >= 220){
             damageTaken = 0;
             RavagerEntity customEntity = ((EntityType<RavagerEntity>) EntityType.get("minecraft:ravager").get()).create(this.getWorld());
             customEntity.updatePosition(this.getX(), this.getY(), this.getZ());
             this.getWorld().spawnEntity(customEntity);
+            customEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 600, 0, false, false));
             RavagerEntity customEntity2 = ((EntityType<RavagerEntity>) EntityType.get("minecraft:ravager").get()).create(this.getWorld());
             customEntity2.updatePosition(this.getX(), this.getY(), this.getZ());
             this.getWorld().spawnEntity(customEntity2);
+            customEntity2.addStatusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 600, 0, false, false));
         }
     }
 
@@ -183,6 +183,9 @@ public class BossArtemisEntity extends AnimalEntity {
     protected void initDataTracker() {
         super.initDataTracker();
         this.dataTracker.startTracking(SHOOTING,false);
+        this.dataTracker.startTracking(X,0);
+        this.dataTracker.startTracking(Y,0);
+        this.dataTracker.startTracking(Z,0);
     }
 
     @Override
@@ -200,10 +203,12 @@ public class BossArtemisEntity extends AnimalEntity {
             damageTaken += amount;
         }
         if(attacker instanceof RavagerEntity ravager){
+            BlockPos pos = ravager.getBlockPos();
             ravager.kill();
             RavagerEntity customEntity = ((EntityType<RavagerEntity>) EntityType.get("minecraft:ravager").get()).create(this.getWorld());
-            customEntity.updatePosition(this.getX(), this.getY(), this.getZ());
+            customEntity.updatePosition(pos.getX(), pos.getY(), pos.getZ());
             this.getWorld().spawnEntity(customEntity);
+            customEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 600, 0, false, false));
             return false;
         }
         return super.damage(source, amount);
@@ -214,15 +219,15 @@ public class BossArtemisEntity extends AnimalEntity {
         for(double i = -50;i<=100;i++){
             for(double j = -50;j<=100;j++) {
                 if (pow(i, 2) + pow(j, 2) <= pow(35, 2)) {
-                    this.getWorld().setBlockState(new BlockPos(x + (int) i, 200, z + (int) j), Blocks.AIR.getDefaultState());
+                    this.getWorld().setBlockState(new BlockPos(this.dataTracker.get(X) + (int) i, 200, this.dataTracker.get(Z) + (int) j), Blocks.AIR.getDefaultState());
                 }
             }
         }
         if(damageSource.getAttacker() instanceof PlayerEntity player){
             player.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOW_FALLING, 500, 0, false, false));
         }
-        ItemEntity itemEntity = new ItemEntity(this.getWorld(),x + 0.5, y, z + 0.5, new ItemStack(Items.BOW));
-        itemEntity.updatePosition(x + 0.5, y, z + 0.5);
+        ItemEntity itemEntity = new ItemEntity(this.getWorld(),this.dataTracker.get(X) + 0.5, this.dataTracker.get(Y), this.dataTracker.get(Z) + 0.5, new ItemStack(ModItems.ARTEMIS_BOW));
+        itemEntity.updatePosition(this.dataTracker.get(X) + 0.5, this.dataTracker.get(Y), this.dataTracker.get(Z) + 0.5);
         this.getWorld().spawnEntity(itemEntity);
         super.onDeath(damageSource);
     }

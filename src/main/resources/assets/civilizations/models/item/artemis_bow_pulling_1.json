@@ -1,0 +1,6 @@
+{
+  "parent": "civilizations:item/artemis_bow",
+  "textures": {
+    "layer0": "civilizations:item/artemis_bow_pulling_1"
+  }
+}
