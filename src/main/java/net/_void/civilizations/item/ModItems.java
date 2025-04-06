@@ -61,14 +61,15 @@ public class ModItems {
     public static final Item MERCURY_RUNE = registerItem("mercury_rune", new Item(new FabricItemSettings().rarity(Rarity.RARE)));
 
     public static final Item CHINA_CORE = registerItem("china_core", new Item(new FabricItemSettings().rarity(Rarity.EPIC).maxCount(1)));
-    //public static final Item ARTEMIS_CORE = registerItem("artemis_core", new ArtemisCore(new FabricItemSettings().rarity(Rarity.EPIC).maxCount(1)));
-    //public static final Item ARTEMIS_RUNE = registerItem("artemis_rune", new Item(new FabricItemSettings().rarity(Rarity.RARE)));
+    public static final Item WUKONG_CORE = registerItem("wukong_core", new WukongCore(new FabricItemSettings().rarity(Rarity.EPIC).maxCount(1)));
+    public static final Item WUKONG_RUNE = registerItem("wukong_rune", new Item(new FabricItemSettings().rarity(Rarity.RARE)));
 
     public static final Item NORDIC_CORE = registerItem("nordic_core", new Item(new FabricItemSettings().rarity(Rarity.EPIC).maxCount(1)));
     public static final Item LOKI_CORE = registerItem("loki_core", new LokiCore(new FabricItemSettings().rarity(Rarity.EPIC).maxCount(1)));
     public static final Item LOKI_RUNE = registerItem("loki_rune", new Item(new FabricItemSettings().rarity(Rarity.RARE)));
 
     public static final Item ARTEMIS_BOW = registerItem("artemis_bow", new ArtemisBowItem(new Item.Settings().maxDamage(2031).rarity(Rarity.EPIC)));
+    public static final Item ANUBIS_ANKH = registerItem("anubis_ankh", new AnubisAnkhItem(new Item.Settings().maxCount(1).rarity(Rarity.EPIC)));
 
     private static void addItemsToIngredientTabItemGroup(FabricItemGroupEntries entries){
         entries.add(EGYPT_COIN);

@@ -72,10 +72,11 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.MERCURY_CORE, Models.GENERATED);
         itemModelGenerator.register(ModItems.MERCURY_RUNE, Models.GENERATED);
         itemModelGenerator.register(ModItems.CHINA_CORE, Models.GENERATED);
-
-
+        itemModelGenerator.register(ModItems.WUKONG_CORE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.WUKONG_RUNE, Models.GENERATED);
         itemModelGenerator.register(ModItems.NORDIC_CORE, Models.GENERATED);
         itemModelGenerator.register(ModItems.LOKI_CORE, Models.GENERATED);
         itemModelGenerator.register(ModItems.LOKI_RUNE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ANUBIS_ANKH, Models.GENERATED);
     }
 }

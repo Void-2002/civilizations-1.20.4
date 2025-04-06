@@ -88,6 +88,7 @@
   "item.civilizations.anubis_core": "Egyptian Core",
   "tooltip.civilizations.anubis_core": "Summon Anubis",
   "item.civilizations.anubis_rune": "Rune of Anubis",
+  "entity.civilizations.boss_anubis": "Anubis",
 
   "item.civilizations.rome_core": "Roman Core",
   "item.civilizations.mercury_core": "Roman Core",
@@ -95,6 +96,9 @@
   "item.civilizations.mercury_rune": "Rune of Mercury",
 
   "item.civilizations.china_core": "Chinese Core",
+  "item.civilizations.wukong_core": "Chinese Core",
+  "tooltip.civilizations.wukong_core": "Summon Wukong",
+  "item.civilizations.wukong_rune": "Rune of Wukong",
 
   "item.civilizations.nordic_core": "Norse Core",
   "item.civilizations.loki_core": "Norse Core",
@@ -102,6 +106,7 @@
   "item.civilizations.loki_rune": "Rune of Loki",
 
   "item.civilizations.artemis_bow": "Artemis' Bow",
+  "item.civilizations.anubis_ankh": "Anubis' Ankh",
 
   "filled_map.nordic": "Norse Map",
   "filled_map.greece": "Ancient Greek Map",

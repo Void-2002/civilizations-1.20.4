@@ -167,8 +167,9 @@ public class ArtemisCore extends Item {
                     player.addStatusEffect(new StatusEffectInstance(StatusEffects.GLOWING, 600, 0, false, false));
                 }
             }
-            if(entity instanceof PlayerEntity player && player.getY() >= 205 && player.hasStatusEffect(StatusEffects.LEVITATION)){
-                player.clearStatusEffects();
+            if(entity instanceof PlayerEntity player && player.getY() >= 202 && player.hasStatusEffect(StatusEffects.LEVITATION)){
+                player.setStatusEffect(new StatusEffectInstance(StatusEffects.LEVITATION, 0, 0), player);
+                player.setStatusEffect(new StatusEffectInstance(StatusEffects.GLOWING, 0, 0), player);
                 spawnTick = 0;
                 for(double i = -50;i<=100;i++){
                     for(double j = -50;j<=100;j++) {
@@ -192,16 +193,55 @@ public class ArtemisCore extends Item {
                     player.getInventory().setStack(slot, new ItemStack(ModItems.GREECE_CORE));
                 }
             }
-            if(tick == 190){
+            if(tick == 100){
                 for(double i = -50;i<=100;i++){
                     for(double j = -50;j<=100;j++){
                         if(pow(i,2) + pow(j,2) >= pow(34,2) && pow(i,2) + pow(j,2) <= pow(35,2)){
                             world.setBlockState(new BlockPos(x+(int)i , 200 ,z+(int)j), Blocks.OAK_WOOD.getDefaultState());
                         }
+                        if (pow(i, 2) + pow(j, 2) >= pow(31, 2) && pow(i, 2) + pow(j, 2) <= pow(35, 2)) {
+                            if(world.getBlockState(new BlockPos(x + (int) i, 200, z + (int) j)).getBlock().equals(Blocks.AIR)){
+                                world.setBlockState(new BlockPos(x + (int) i, 200, z + (int) j), Blocks.AZALEA_LEAVES.getDefaultState());
+                            }
+                        }
+                    }
+                }
+            }
+            if(tick == 130){
+                for(double i = -50;i<=100;i++){
+                    for(double j = -50;j<=100;j++){
                         if(pow(i,2) + pow(j,2) >= pow(30,2) && pow(i,2) + pow(j,2) <= pow(31,2)){
                             world.setBlockState(new BlockPos(x+(int)i , 200 ,z+(int)j), Blocks.OAK_WOOD.getDefaultState());
                         }
-                        if (pow(i, 2) + pow(j, 2) >= pow(30, 2) && pow(i, 2) + pow(j, 2) <= pow(35, 2)) {
+                        if (pow(i, 2) + pow(j, 2) >= pow(27, 2) && pow(i, 2) + pow(j, 2) <= pow(31, 2)) {
+                            if(world.getBlockState(new BlockPos(x + (int) i, 200, z + (int) j)).getBlock().equals(Blocks.AIR)){
+                                world.setBlockState(new BlockPos(x + (int) i, 200, z + (int) j), Blocks.AZALEA_LEAVES.getDefaultState());
+                            }
+                        }
+                    }
+                }
+            }
+            if(tick == 160){
+                for(double i = -50;i<=100;i++){
+                    for(double j = -50;j<=100;j++){
+                        if(pow(i,2) + pow(j,2) >= pow(26,2) && pow(i,2) + pow(j,2) <= pow(27,2)){
+                            world.setBlockState(new BlockPos(x+(int)i , 200 ,z+(int)j), Blocks.OAK_WOOD.getDefaultState());
+                        }
+                        if (pow(i, 2) + pow(j, 2) >= pow(23, 2) && pow(i, 2) + pow(j, 2) <= pow(27, 2)) {
+                            if(world.getBlockState(new BlockPos(x + (int) i, 200, z + (int) j)).getBlock().equals(Blocks.AIR)){
+                                world.setBlockState(new BlockPos(x + (int) i, 200, z + (int) j), Blocks.AZALEA_LEAVES.getDefaultState());
+                            }
+                        }
+                    }
+                }
+            }
+            if(tick == 190){
+                for(double i = -50;i<=100;i++){
+                    for(double j = -50;j<=100;j++){
+                        if(pow(i,2) + pow(j,2) >= pow(22,2) && pow(i,2) + pow(j,2) <= pow(23,2)){
+                            world.setBlockState(new BlockPos(x+(int)i , 200 ,z+(int)j), Blocks.OAK_WOOD.getDefaultState());
+                        }
+                        if (pow(i, 2) + pow(j, 2) >= pow(19, 2) && pow(i, 2) + pow(j, 2) <= pow(23, 2)) {
                             if(world.getBlockState(new BlockPos(x + (int) i, 200, z + (int) j)).getBlock().equals(Blocks.AIR)){
                                 world.setBlockState(new BlockPos(x + (int) i, 200, z + (int) j), Blocks.AZALEA_LEAVES.getDefaultState());
                             }
@@ -211,11 +251,11 @@ public class ArtemisCore extends Item {
             }
             if(tick == 210){
                 for(double i = -50;i<=100;i++){
-                    for(double j = -50;j<=100;j++) {
-                        if(pow(i,2) + pow(j,2) >= pow(26,2) && pow(i,2) + pow(j,2) <= pow(27,2)){
+                    for(double j = -50;j<=100;j++){
+                        if(pow(i,2) + pow(j,2) >= pow(18,2) && pow(i,2) + pow(j,2) <= pow(19,2)){
                             world.setBlockState(new BlockPos(x+(int)i , 200 ,z+(int)j), Blocks.OAK_WOOD.getDefaultState());
                         }
-                        if (pow(i, 2) + pow(j, 2) >= pow(25, 2) && pow(i, 2) + pow(j, 2) <= pow(30, 2)) {
+                        if (pow(i, 2) + pow(j, 2) >= pow(15, 2) && pow(i, 2) + pow(j, 2) <= pow(19, 2)) {
                             if(world.getBlockState(new BlockPos(x + (int) i, 200, z + (int) j)).getBlock().equals(Blocks.AIR)){
                                 world.setBlockState(new BlockPos(x + (int) i, 200, z + (int) j), Blocks.AZALEA_LEAVES.getDefaultState());
                             }
@@ -225,11 +265,11 @@ public class ArtemisCore extends Item {
             }
             if(tick == 240){
                 for(double i = -50;i<=100;i++){
-                    for(double j = -50;j<=100;j++) {
-                        if(pow(i,2) + pow(j,2) >= pow(22,2) && pow(i,2) + pow(j,2) <= pow(23,2)){
+                    for(double j = -50;j<=100;j++){
+                        if(pow(i,2) + pow(j,2) >= pow(14,2) && pow(i,2) + pow(j,2) <= pow(15,2)){
                             world.setBlockState(new BlockPos(x+(int)i , 200 ,z+(int)j), Blocks.OAK_WOOD.getDefaultState());
                         }
-                        if (pow(i, 2) + pow(j, 2) >= pow(20, 2) && pow(i, 2) + pow(j, 2) <= pow(25, 2)) {
+                        if (pow(i, 2) + pow(j, 2) >= pow(11, 2) && pow(i, 2) + pow(j, 2) <= pow(15, 2)) {
                             if(world.getBlockState(new BlockPos(x + (int) i, 200, z + (int) j)).getBlock().equals(Blocks.AIR)){
                                 world.setBlockState(new BlockPos(x + (int) i, 200, z + (int) j), Blocks.AZALEA_LEAVES.getDefaultState());
                             }
@@ -239,11 +279,11 @@ public class ArtemisCore extends Item {
             }
             if(tick == 270){
                 for(double i = -50;i<=100;i++){
-                    for(double j = -50;j<=100;j++) {
-                        if(pow(i,2) + pow(j,2) >= pow(18,2) && pow(i,2) + pow(j,2) <= pow(19,2)){
+                    for(double j = -50;j<=100;j++){
+                        if(pow(i,2) + pow(j,2) >= pow(10,2) && pow(i,2) + pow(j,2) <= pow(11,2)){
                             world.setBlockState(new BlockPos(x+(int)i , 200 ,z+(int)j), Blocks.OAK_WOOD.getDefaultState());
                         }
-                        if (pow(i, 2) + pow(j, 2) >= pow(15, 2) && pow(i, 2) + pow(j, 2) <= pow(20, 2)) {
+                        if (pow(i, 2) + pow(j, 2) >= pow(7, 2) && pow(i, 2) + pow(j, 2) <= pow(11, 2)) {
                             if(world.getBlockState(new BlockPos(x + (int) i, 200, z + (int) j)).getBlock().equals(Blocks.AIR)){
                                 world.setBlockState(new BlockPos(x + (int) i, 200, z + (int) j), Blocks.AZALEA_LEAVES.getDefaultState());
                             }
@@ -253,14 +293,8 @@ public class ArtemisCore extends Item {
             }
             if(tick == 300){
                 for(double i = -50;i<=100;i++){
-                    for(double j = -50;j<=100;j++) {
-                        if(pow(i,2) + pow(j,2) >= pow(14,2) && pow(i,2) + pow(j,2) <= pow(15,2)){
-                            world.setBlockState(new BlockPos(x+(int)i , 200 ,z+(int)j), Blocks.OAK_WOOD.getDefaultState());
-                        }
-                        if(pow(i,2) + pow(j,2) >= pow(10,2) && pow(i,2) + pow(j,2) <= pow(11,2)){
-                            world.setBlockState(new BlockPos(x+(int)i , 200 ,z+(int)j), Blocks.OAK_WOOD.getDefaultState());
-                        }
-                        if (pow(i, 2) + pow(j, 2) >= pow(10, 2) && pow(i, 2) + pow(j, 2) <= pow(15, 2)) {
+                    for(double j = -50;j<=100;j++){
+                        if (pow(i, 2) + pow(j, 2) >= pow(5, 2) && pow(i, 2) + pow(j, 2) <= pow(7, 2)) {
                             if(world.getBlockState(new BlockPos(x + (int) i, 200, z + (int) j)).getBlock().equals(Blocks.AIR)){
                                 world.setBlockState(new BlockPos(x + (int) i, 200, z + (int) j), Blocks.AZALEA_LEAVES.getDefaultState());
                             }

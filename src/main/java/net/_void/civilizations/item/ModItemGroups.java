@@ -74,13 +74,14 @@ public class ModItemGroups {
                         entries.add(ModItems.MERCURY_CORE);
                         entries.add(ModItems.MERCURY_RUNE);
                         entries.add(ModItems.CHINA_CORE);
-
-
+                        entries.add(ModItems.WUKONG_CORE);
+                        entries.add(ModItems.WUKONG_RUNE);
                         entries.add(ModItems.NORDIC_CORE);
                         entries.add(ModItems.LOKI_CORE);
                         entries.add(ModItems.LOKI_RUNE);
 
                         entries.add(ModItems.ARTEMIS_BOW);
+                        entries.add(ModItems.ANUBIS_ANKH);
 
                     }).build());
 

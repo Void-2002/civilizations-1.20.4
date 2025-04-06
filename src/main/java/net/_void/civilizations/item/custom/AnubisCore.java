@@ -1,8 +1,11 @@
 package net._void.civilizations.item.custom;
 
+import net._void.civilizations.entity.custom.BossAnubisEntity;
+import net._void.civilizations.item.ModItems;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
@@ -25,6 +28,7 @@ import static java.lang.Math.pow;
 public class AnubisCore extends Item {
 
     private int tick = -1;
+    private int spawnTick = -1;
     private int x;
     private int y;
     private int z;
@@ -66,34 +70,59 @@ public class AnubisCore extends Item {
                 }
             }
             if(tick >= 0) tick++;
+            if(spawnTick >= 0) spawnTick++;
             if(tick == 10){
-                ((ServerWorld) world).spawnParticles(ParticleTypes.END_ROD ,x , y+1 ,z ,
-                        10, 0, 0, 0, 1);
+                ((ServerWorld) world).spawnParticles(ParticleTypes.END_ROD ,x+0.5 , y+1 ,z+0.5 ,
+                        5, 0, 0, 0, 1);
             }
             if(tick == 20){
+                ((ServerWorld) world).spawnParticles(ParticleTypes.END_ROD ,x+0.5 , y+1 ,z+0.5 ,
+                        10, 0, 0, 0, 1);
                 for(int i=-1;i<=1;i+=2){
-                    ((ServerWorld) world).spawnParticles(ParticleTypes.END_ROD ,x+i , y+1 ,z ,
-                            10, 0, 0, 0, 1);
-                    ((ServerWorld) world).spawnParticles(ParticleTypes.END_ROD ,x , y+1 ,z+i ,
-                            10, 0, 0, 0, 1);
+                    ((ServerWorld) world).spawnParticles(ParticleTypes.END_ROD ,x+i+0.5 , y+1 ,z+0.5 ,
+                            5, 0, 0, 0, 1);
+                    ((ServerWorld) world).spawnParticles(ParticleTypes.END_ROD ,x+0.5 , y+1 ,z+i+0.5 ,
+                            5, 0, 0, 0, 1);
                 }
             }
             if(tick == 30){
+                ((ServerWorld) world).spawnParticles(ParticleTypes.END_ROD ,x+0.5 , y+1 ,z+0.5 ,
+                        5, 0, 0, 0, 1);
+                for(int i=-1;i<=1;i+=2){
+                    ((ServerWorld) world).spawnParticles(ParticleTypes.END_ROD ,x+i+0.5 , y+1 ,z+0.5 ,
+                            5, 0, 0, 0, 1);
+                    ((ServerWorld) world).spawnParticles(ParticleTypes.END_ROD ,x+0.5 , y+1 ,z+i+0.5 ,
+                            5, 0, 0, 0, 1);
+                }
                 for(int i=-1;i<=1;i+=2){
                     for(int j=-1;j<=1;j+=2){
-                        ((ServerWorld) world).spawnParticles(ParticleTypes.END_ROD ,x+i , y+1 ,z+j ,
-                                10, 0, 0, 0, 1);
+                        ((ServerWorld) world).spawnParticles(ParticleTypes.END_ROD ,x+i+0.5 , y+1 ,z+j+0.5 ,
+                                5, 0, 0, 0, 1);
                     }
                 }
                 world.setBlockState(new BlockPos(x , y+1 ,z), Blocks.OBSIDIAN.getDefaultState());
             }
             if(tick == 40){
+                ((ServerWorld) world).spawnParticles(ParticleTypes.END_ROD ,x+0.5 , y+1 ,z+0.5 ,
+                        5, 0, 0, 0, 1);
+                for(int i=-1;i<=1;i+=2){
+                    ((ServerWorld) world).spawnParticles(ParticleTypes.END_ROD ,x+i+0.5 , y+1 ,z+0.5 ,
+                            5, 0, 0, 0, 1);
+                    ((ServerWorld) world).spawnParticles(ParticleTypes.END_ROD ,x+0.5 , y+1 ,z+i+0.5 ,
+                            5, 0, 0, 0, 1);
+                }
+                for(int i=-1;i<=1;i+=2){
+                    for(int j=-1;j<=1;j+=2){
+                        ((ServerWorld) world).spawnParticles(ParticleTypes.END_ROD ,x+i+0.5 , y+1 ,z+j+0.5 ,
+                                5, 0, 0, 0, 1);
+                    }
+                }
                 for(int i=-2;i<=2;i+=4){
                     for(int j=-1;j<=1;j+=1){
-                        ((ServerWorld) world).spawnParticles(ParticleTypes.END_ROD ,x+i , y+1 ,z+j ,
-                                10, 0, 0, 0, 1);
-                        ((ServerWorld) world).spawnParticles(ParticleTypes.END_ROD ,x+j , y+1 ,z+i ,
-                                10, 0, 0, 0, 1);
+                        ((ServerWorld) world).spawnParticles(ParticleTypes.END_ROD ,x+i+0.5 , y+1 ,z+j+0.5 ,
+                                5, 0, 0, 0, 1);
+                        ((ServerWorld) world).spawnParticles(ParticleTypes.END_ROD ,x+j+0.5 , y+1 ,z+i+0.5 ,
+                                5, 0, 0, 0, 1);
                     }
                 }
                 for(int i=-1;i<=1;i+=2){
@@ -102,6 +131,12 @@ public class AnubisCore extends Item {
                 }
             }
             if(tick == 50){
+                for(int i=-2;i<=2;i++){
+                    for(int j=-2;j<=2;j++){
+                        ((ServerWorld) world).spawnParticles(ParticleTypes.END_ROD ,x+j+0.5 , y+1 ,z+i+0.5 ,
+                                5, 0, 0, 0, 1);
+                    }
+                }
                 for(int i=-1;i<=1;i+=2){
                     for(int j=-1;j<=1;j+=2){
                         world.setBlockState(new BlockPos(x+i , y+1 ,z+j), Blocks.GOLD_BLOCK.getDefaultState());
@@ -109,10 +144,18 @@ public class AnubisCore extends Item {
                 }
             }
             if(tick == 60){
+                for(int i=-2;i<=2;i++){
+                    for(int j=-2;j<=2;j++){
+                        ((ServerWorld) world).spawnParticles(ParticleTypes.END_ROD ,x+j+0.5 , y+1 ,z+i+0.5 ,
+                                5, 0, 0, 0, 1);
+                    }
+                }
                 for(int i=-2;i<=2;i+=4){
                     for(int j=-1;j<=1;j+=1){
-                        world.setBlockState(new BlockPos(x+i , y+1 ,z+j), Blocks.DEEPSLATE_BRICK_SLAB.getDefaultState());
-                        world.setBlockState(new BlockPos(x+j , y+1 ,z+i), Blocks.DEEPSLATE_BRICK_SLAB.getDefaultState());
+                        world.setBlockState(new BlockPos(x+i , y+1 ,z+j), Blocks.POLISHED_BLACKSTONE_BRICK_SLAB.getDefaultState());
+                        world.setBlockState(new BlockPos(x+j , y+1 ,z+i), Blocks.POLISHED_BLACKSTONE_BRICK_SLAB.getDefaultState());
+                        world.setBlockState(new BlockPos(x+i , y ,z+j), Blocks.POLISHED_BLACKSTONE_BRICKS.getDefaultState());
+                        world.setBlockState(new BlockPos(x+j , y ,z+i), Blocks.POLISHED_BLACKSTONE_BRICKS.getDefaultState());
                     }
                 }
             }
@@ -122,84 +165,115 @@ public class AnubisCore extends Item {
                     player.addStatusEffect(new StatusEffectInstance(StatusEffects.GLOWING, 600, 0, false, false));
                 }
             }
-            if(entity instanceof PlayerEntity player && player.getY() >= 205 && player.hasStatusEffect(StatusEffects.LEVITATION)){
-                player.clearStatusEffects();
+            if(entity instanceof PlayerEntity player && player.getY() >= 202 && player.hasStatusEffect(StatusEffects.LEVITATION)){
+                player.setStatusEffect(new StatusEffectInstance(StatusEffects.LEVITATION, 0, 0), player);
+                player.setStatusEffect(new StatusEffectInstance(StatusEffects.GLOWING, 0, 0), player);
+                spawnTick = 0;
                 for(double i = -50;i<=100;i++){
                     for(double j = -50;j<=100;j++) {
-                        if (pow(i, 2) + pow(j, 2) <= pow(50, 2)) {
-                            world.setBlockState(new BlockPos(x + (int) i, 200, z + (int) j), Blocks.SANDSTONE.getDefaultState());
+                        if (pow(i, 2) + pow(j, 2) <= pow(35, 2)) {
+                            world.setBlockState(new BlockPos(x + (int) i, 199, z + (int) j), Blocks.SANDSTONE.getDefaultState());
+                            world.setBlockState(new BlockPos(x + (int) i, 200, z + (int) j), Blocks.SAND.getDefaultState());
+                        }
+                        if (pow(i, 2) + pow(j, 2) <= pow(5, 2)) {
+                            if((int)(Math.random() * 31) == 0) world.setBlockState(new BlockPos(x + (int) i, 201, z + (int) j), Blocks.DEAD_BUSH.getDefaultState());
                         }
                     }
+                }
+            }
+            if(spawnTick == 60){
+                BossAnubisEntity customEntity = ((EntityType<BossAnubisEntity>) EntityType.get("civilizations:boss_anubis").get()).create(world);
+                customEntity.updatePosition(x + 0.5, 201, z + 0.5);
+                customEntity.setCoords(x, y, z);
+                world.spawnEntity(customEntity);
+                if(entity instanceof PlayerEntity player){
+                    player.getInventory().setStack(slot, new ItemStack(ModItems.EGYPT_CORE));
                 }
             }
             if(tick == 100){
                 for(double i = -50;i<=100;i++){
                     for(double j = -50;j<=100;j++){
-                        if(pow(i,2) + pow(j,2) >= pow(45,2) && pow(i,2) + pow(j,2) <= pow(50,2)){
-                            world.setBlockState(new BlockPos(x + (int) i, 200, z + (int) j), Blocks.SANDSTONE.getDefaultState());
+                        if (pow(i, 2) + pow(j, 2) >= pow(31, 2) && pow(i, 2) + pow(j, 2) <= pow(35, 2)) {
+                            world.setBlockState(new BlockPos(x + (int) i, 199, z + (int) j), Blocks.SANDSTONE.getDefaultState());
+                            world.setBlockState(new BlockPos(x + (int) i, 200, z + (int) j), Blocks.SAND.getDefaultState());
+                            if((int)(Math.random() * 31) == 0) world.setBlockState(new BlockPos(x + (int) i, 201, z + (int) j), Blocks.DEAD_BUSH.getDefaultState());
                         }
                     }
                 }
             }
             if(tick == 130){
                 for(double i = -50;i<=100;i++){
-                    for(double j = -50;j<=100;j++) {
-                        if (pow(i, 2) + pow(j, 2) >= pow(40, 2) && pow(i, 2) + pow(j, 2) <= pow(45, 2)) {
-                            world.setBlockState(new BlockPos(x + (int) i, 200, z + (int) j), Blocks.SANDSTONE.getDefaultState());
+                    for(double j = -50;j<=100;j++){
+                        if (pow(i, 2) + pow(j, 2) >= pow(27, 2) && pow(i, 2) + pow(j, 2) <= pow(31, 2)) {
+                            world.setBlockState(new BlockPos(x + (int) i, 199, z + (int) j), Blocks.SANDSTONE.getDefaultState());
+                            world.setBlockState(new BlockPos(x + (int) i, 200, z + (int) j), Blocks.SAND.getDefaultState());
+                            if((int)(Math.random() * 31) == 0) world.setBlockState(new BlockPos(x + (int) i, 201, z + (int) j), Blocks.DEAD_BUSH.getDefaultState());
                         }
                     }
                 }
             }
             if(tick == 160){
                 for(double i = -50;i<=100;i++){
-                    for(double j = -50;j<=100;j++) {
-                        if (pow(i, 2) + pow(j, 2) >= pow(35, 2) && pow(i, 2) + pow(j, 2) <= pow(40, 2)) {
-                            world.setBlockState(new BlockPos(x + (int) i, 200, z + (int) j), Blocks.SANDSTONE.getDefaultState());
+                    for(double j = -50;j<=100;j++){
+                        if (pow(i, 2) + pow(j, 2) >= pow(23, 2) && pow(i, 2) + pow(j, 2) <= pow(27, 2)) {
+                            world.setBlockState(new BlockPos(x + (int) i, 199, z + (int) j), Blocks.SANDSTONE.getDefaultState());
+                            world.setBlockState(new BlockPos(x + (int) i, 200, z + (int) j), Blocks.SAND.getDefaultState());
+                            if((int)(Math.random() * 31) == 0) world.setBlockState(new BlockPos(x + (int) i, 201, z + (int) j), Blocks.DEAD_BUSH.getDefaultState());
                         }
                     }
                 }
             }
             if(tick == 190){
                 for(double i = -50;i<=100;i++){
-                    for(double j = -50;j<=100;j++) {
-                        if (pow(i, 2) + pow(j, 2) >= pow(30, 2) && pow(i, 2) + pow(j, 2) <= pow(35, 2)) {
-                            world.setBlockState(new BlockPos(x + (int) i, 200, z + (int) j), Blocks.SANDSTONE.getDefaultState());
+                    for(double j = -50;j<=100;j++){
+                        if (pow(i, 2) + pow(j, 2) >= pow(19, 2) && pow(i, 2) + pow(j, 2) <= pow(23, 2)) {
+                            world.setBlockState(new BlockPos(x + (int) i, 199, z + (int) j), Blocks.SANDSTONE.getDefaultState());
+                            world.setBlockState(new BlockPos(x + (int) i, 200, z + (int) j), Blocks.SAND.getDefaultState());
+                            if((int)(Math.random() * 31) == 0) world.setBlockState(new BlockPos(x + (int) i, 201, z + (int) j), Blocks.DEAD_BUSH.getDefaultState());
                         }
                     }
                 }
             }
             if(tick == 210){
                 for(double i = -50;i<=100;i++){
-                    for(double j = -50;j<=100;j++) {
-                        if (pow(i, 2) + pow(j, 2) >= pow(25, 2) && pow(i, 2) + pow(j, 2) <= pow(30, 2)) {
-                            world.setBlockState(new BlockPos(x + (int) i, 200, z + (int) j), Blocks.SANDSTONE.getDefaultState());
+                    for(double j = -50;j<=100;j++){
+                        if (pow(i, 2) + pow(j, 2) >= pow(15, 2) && pow(i, 2) + pow(j, 2) <= pow(19, 2)) {
+                            world.setBlockState(new BlockPos(x + (int) i, 199, z + (int) j), Blocks.SANDSTONE.getDefaultState());
+                            world.setBlockState(new BlockPos(x + (int) i, 200, z + (int) j), Blocks.SAND.getDefaultState());
+                            if((int)(Math.random() * 31) == 0) world.setBlockState(new BlockPos(x + (int) i, 201, z + (int) j), Blocks.DEAD_BUSH.getDefaultState());
                         }
                     }
                 }
             }
             if(tick == 240){
                 for(double i = -50;i<=100;i++){
-                    for(double j = -50;j<=100;j++) {
-                        if (pow(i, 2) + pow(j, 2) >= pow(20, 2) && pow(i, 2) + pow(j, 2) <= pow(25, 2)) {
-                            world.setBlockState(new BlockPos(x + (int) i, 200, z + (int) j), Blocks.SANDSTONE.getDefaultState());
+                    for(double j = -50;j<=100;j++){
+                        if (pow(i, 2) + pow(j, 2) >= pow(11, 2) && pow(i, 2) + pow(j, 2) <= pow(15, 2)) {
+                            world.setBlockState(new BlockPos(x + (int) i, 199, z + (int) j), Blocks.SANDSTONE.getDefaultState());
+                            world.setBlockState(new BlockPos(x + (int) i, 200, z + (int) j), Blocks.SAND.getDefaultState());
+                            if((int)(Math.random() * 31) == 0) world.setBlockState(new BlockPos(x + (int) i, 201, z + (int) j), Blocks.DEAD_BUSH.getDefaultState());
                         }
                     }
                 }
             }
             if(tick == 270){
                 for(double i = -50;i<=100;i++){
-                    for(double j = -50;j<=100;j++) {
-                        if (pow(i, 2) + pow(j, 2) >= pow(15, 2) && pow(i, 2) + pow(j, 2) <= pow(20, 2)) {
-                            world.setBlockState(new BlockPos(x + (int) i, 200, z + (int) j), Blocks.SANDSTONE.getDefaultState());
+                    for(double j = -50;j<=100;j++){
+                        if (pow(i, 2) + pow(j, 2) >= pow(7, 2) && pow(i, 2) + pow(j, 2) <= pow(11, 2)) {
+                            world.setBlockState(new BlockPos(x + (int) i, 199, z + (int) j), Blocks.SANDSTONE.getDefaultState());
+                            world.setBlockState(new BlockPos(x + (int) i, 200, z + (int) j), Blocks.SAND.getDefaultState());
+                            if((int)(Math.random() * 31) == 0) world.setBlockState(new BlockPos(x + (int) i, 201, z + (int) j), Blocks.DEAD_BUSH.getDefaultState());
                         }
                     }
                 }
             }
             if(tick == 300){
                 for(double i = -50;i<=100;i++){
-                    for(double j = -50;j<=100;j++) {
-                        if (pow(i, 2) + pow(j, 2) >= pow(10, 2) && pow(i, 2) + pow(j, 2) <= pow(15, 2)) {
-                            world.setBlockState(new BlockPos(x + (int) i, 200, z + (int) j), Blocks.SANDSTONE.getDefaultState());
+                    for(double j = -50;j<=100;j++){
+                        if (pow(i, 2) + pow(j, 2) >= pow(5, 2) && pow(i, 2) + pow(j, 2) <= pow(7, 2)) {
+                            world.setBlockState(new BlockPos(x + (int) i, 199, z + (int) j), Blocks.SANDSTONE.getDefaultState());
+                            world.setBlockState(new BlockPos(x + (int) i, 200, z + (int) j), Blocks.SAND.getDefaultState());
+                            if((int)(Math.random() * 31) == 0) world.setBlockState(new BlockPos(x + (int) i, 201, z + (int) j), Blocks.DEAD_BUSH.getDefaultState());
                         }
                     }
                 }
