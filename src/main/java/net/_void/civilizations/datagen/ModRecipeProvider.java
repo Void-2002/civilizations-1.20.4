@@ -83,5 +83,16 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 criterion(hasItem(ModItems.EGYPT_CORE), conditionsFromItem(ModItems.EGYPT_CORE)).
                 criterion(hasItem(ModItems.ANUBIS_RUNE), conditionsFromItem(ModItems.ANUBIS_RUNE)).
                 offerTo(exporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.MERCURY_CORE, 1).
+                pattern("#R#").
+                pattern("RCR").
+                pattern("#R#").
+                input('C', ModItems.ROME_CORE).
+                input('R', ModItems.MERCURY_RUNE).
+                input('#', Items.FEATHER).
+                criterion(hasItem(ModItems.ROME_CORE), conditionsFromItem(ModItems.ROME_CORE)).
+                criterion(hasItem(ModItems.MERCURY_RUNE), conditionsFromItem(ModItems.MERCURY_RUNE)).
+                offerTo(exporter);
     }
 }

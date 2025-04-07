@@ -76,4 +76,8 @@ public class ModEntities {
             new Identifier(Civilizations.MOD_ID, "boss_anubis"),
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, BossAnubisEntity::new)
                     .dimensions(EntityDimensions.fixed(2f, 4f)).build());
+    public static final EntityType<BossMercuryEntity> BOSS_MERCURY = Registry.register(Registries.ENTITY_TYPE,
+            new Identifier(Civilizations.MOD_ID, "boss_mercury"),
+            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, BossMercuryEntity::new)
+                    .dimensions(EntityDimensions.fixed(2f, 4f)).build());
 }

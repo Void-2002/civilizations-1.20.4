@@ -82,6 +82,7 @@ public class ModItemGroups {
 
                         entries.add(ModItems.ARTEMIS_BOW);
                         entries.add(ModItems.ANUBIS_ANKH);
+                        entries.add(ModItems.MERCURY_BOOTS);
 
                     }).build());
 

@@ -65,6 +65,9 @@ public class CivilizationsClient implements ClientModInitializer {
         EntityRendererRegistry.register(ModEntities.BOSS_ANUBIS, BossAnubisRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.BOSS_ANUBIS, BossAnubisModel::getTexturedModelData);
 
+        EntityRendererRegistry.register(ModEntities.BOSS_MERCURY, BossMercuryRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.BOSS_MERCURY, BossMercuryModel::getTexturedModelData);
+
         HandledScreens.register(ModScreenHandlers.TRADING_STATION_SCREEN_HANDLER, TradingStationScreen::new);
         HandledScreens.register(ModScreenHandlers.TOMBSTONE_SCREEN_HANDLER, TombstoneScreen::new);
 

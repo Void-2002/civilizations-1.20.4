@@ -94,6 +94,7 @@
   "item.civilizations.mercury_core": "Roman Core",
   "tooltip.civilizations.mercury_core": "Summon Mercury",
   "item.civilizations.mercury_rune": "Rune of Mercury",
+  "entity.civilizations.boss_mercury": "Mercury",
 
   "item.civilizations.china_core": "Chinese Core",
   "item.civilizations.wukong_core": "Chinese Core",
@@ -107,6 +108,7 @@
 
   "item.civilizations.artemis_bow": "Artemis' Bow",
   "item.civilizations.anubis_ankh": "Anubis' Ankh",
+  "item.civilizations.mercury_boots": "The Talaria of Mercury",
 
   "filled_map.nordic": "Norse Map",
   "filled_map.greece": "Ancient Greek Map",
@@ -162,5 +164,9 @@
   "advancements.civilizations_rome_boss.description": "Take down General Julius Caesar",
 
   "advancements.civilizations_boss_artemis.title": "Goddess of the hunt",
-  "advancements.civilizations_boss_artemis.description": "Take down Artemis"
+  "advancements.civilizations_boss_artemis.description": "Take down Artemis",
+  "advancements.civilizations_boss_anubis.title": "God of the dead",
+  "advancements.civilizations_boss_anubis.description": "Take down Anubis",
+  "advancements.civilizations_boss_mercury.title": "Messenger of the Gods",
+  "advancements.civilizations_boss_mercury.description": "Take down Mercury"
 }

@@ -49,5 +49,6 @@ public class Civilizations implements ModInitializer {
 
 		FabricDefaultAttributeRegistry.register(ModEntities.BOSS_ARTEMIS, BossArtemisEntity.createBossAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.BOSS_ANUBIS, BossAnubisEntity.createBossAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.BOSS_MERCURY, BossMercuryEntity.createBossAttributes());
 	}
 }

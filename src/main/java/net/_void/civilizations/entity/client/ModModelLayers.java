@@ -40,4 +40,6 @@ public class ModModelLayers {
             new EntityModelLayer(new Identifier(Civilizations.MOD_ID,"boss_artemis"),"main");
     public static final EntityModelLayer BOSS_ANUBIS =
             new EntityModelLayer(new Identifier(Civilizations.MOD_ID,"boss_anubis"),"main");
+    public static final EntityModelLayer BOSS_MERCURY =
+            new EntityModelLayer(new Identifier(Civilizations.MOD_ID,"boss_mercury"),"main");
 }

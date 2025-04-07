@@ -7,6 +7,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.client.BlockStateModelGenerator;
 import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.data.client.Models;
+import net.minecraft.item.ArmorItem;
 
 public class ModModelProvider extends FabricModelProvider {
     public ModModelProvider(FabricDataOutput output) {
@@ -78,5 +79,6 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.LOKI_CORE, Models.GENERATED);
         itemModelGenerator.register(ModItems.LOKI_RUNE, Models.GENERATED);
         itemModelGenerator.register(ModItems.ANUBIS_ANKH, Models.GENERATED);
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.MERCURY_BOOTS));
     }
 }
