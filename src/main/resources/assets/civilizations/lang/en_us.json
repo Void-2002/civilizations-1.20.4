@@ -100,11 +100,13 @@
   "item.civilizations.wukong_core": "Chinese Core",
   "tooltip.civilizations.wukong_core": "Summon Wukong",
   "item.civilizations.wukong_rune": "Rune of Wukong",
+  "entity.civilizations.boss_wukong": "Sun Wukong",
 
   "item.civilizations.nordic_core": "Norse Core",
   "item.civilizations.loki_core": "Norse Core",
   "tooltip.civilizations.loki_core": "Summon Loki",
   "item.civilizations.loki_rune": "Rune of Loki",
+  "entity.civilizations.boss_loki": "Loki",
 
   "item.civilizations.artemis_bow": "Artemis' Bow",
   "item.civilizations.anubis_ankh": "Anubis' Ankh",
@@ -168,5 +170,9 @@
   "advancements.civilizations_boss_anubis.title": "God of the dead",
   "advancements.civilizations_boss_anubis.description": "Take down Anubis",
   "advancements.civilizations_boss_mercury.title": "Messenger of the Gods",
-  "advancements.civilizations_boss_mercury.description": "Take down Mercury"
+  "advancements.civilizations_boss_mercury.description": "Take down Mercury",
+  "advancements.civilizations_boss_wukong.title": "Handsome Monkey King",
+  "advancements.civilizations_boss_wukong.description": "Take down Sun Wukong",
+  "advancements.civilizations_boss_loki.title": "God of mischief and trickery",
+  "advancements.civilizations_boss_loki.description": "Take down Loki"
 }

@@ -11,7 +11,8 @@
       "translate": "advancements.civilizations_china_boss.description"
     },
     "show_toast": true,
-    "announce_to_chat": true
+    "announce_to_chat": true,
+    "frame": "challenge"
   },
   "criteria": {
     "kill_china_boss": {

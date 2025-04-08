@@ -1,21 +1,21 @@
 {
-  "parent": "civilizations:civilizations_nordic_find",
+  "parent": "civilizations:civilizations_china_boss",
   "display": {
     "icon": {
-      "item": "civilizations:nordic_battle_axe"
+      "item": "civilizations:"
     },
     "title": {
-      "translate": "advancements.civilizations_nordic_boss.title"
+      "translate": "advancements.civilizations_boss_wukong.title"
     },
     "description": {
-      "translate": "advancements.civilizations_nordic_boss.description"
+      "translate": "advancements.civilizations_boss_wukong.description"
     },
     "show_toast": true,
     "announce_to_chat": true,
     "frame": "challenge"
   },
   "criteria": {
-    "kill_nordic_boss": {
+    "kill_boss_wukong": {
       "trigger": "minecraft:player_killed_entity",
       "conditions": {
         "entity": [
@@ -23,7 +23,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "civilizations:nordic_boss"
+              "type": "civilizations:boss_wukong"
             }
           }
         ]
@@ -32,11 +32,11 @@
   },
   "requirements": [
     [
-      "kill_nordic_boss"
+      "kill_boss_wukong"
     ]
   ],
   "rewards": {
-    "experience": 500
+    "experience": 750
   },
   "sends_telemetry_event": true
 }
