@@ -12,7 +12,7 @@ public class BossMercuryRenderer extends MobEntityRenderer<BossMercuryEntity,Bos
     private static final Identifier TEXTURE = new Identifier(Civilizations.MOD_ID,"textures/entity/boss_mercury.png");
 
     public BossMercuryRenderer(EntityRendererFactory.Context context) {
-        super(context, new BossMercuryModel<>(context.getPart(ModModelLayers.BOSS_MERCURY)),0.8f);
+        super(context, new BossMercuryModel<>(context.getPart(ModModelLayers.BOSS_MERCURY)),0.6f);
     }
 
     @Override

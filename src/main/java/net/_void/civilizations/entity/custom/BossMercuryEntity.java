@@ -1,7 +1,6 @@
 package net._void.civilizations.entity.custom;
 
 import net._void.civilizations.entity.ai.BossMercuryAttackGoal;
-import net._void.civilizations.entity.ai.BossMercuryMoveGoal;
 import net._void.civilizations.item.ModItems;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.AnimationState;
@@ -9,7 +8,6 @@ import net.minecraft.entity.EntityPose;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.ai.goal.ActiveTargetGoal;
-import net.minecraft.entity.ai.goal.LookAtEntityGoal;
 import net.minecraft.entity.ai.goal.SwimGoal;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -23,7 +21,6 @@ import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.MobEntity;
-import net.minecraft.entity.mob.RavagerEntity;
 import net.minecraft.entity.mob.VexEntity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.PassiveEntity;
@@ -104,8 +101,7 @@ public class BossMercuryEntity extends AnimalEntity {
     @Override
     protected void initGoals() {
         this.goalSelector.add(0, new SwimGoal(this));
-        this.goalSelector.add(1, new BossMercuryMoveGoal(this));
-        this.goalSelector.add(2, new BossMercuryAttackGoal(this));
+        this.goalSelector.add(1, new BossMercuryAttackGoal(this));
 
         this.targetSelector.add(1, new ActiveTargetGoal(this, PlayerEntity.class, false));
     }
@@ -168,9 +164,12 @@ public class BossMercuryEntity extends AnimalEntity {
         if (this.getVehicle() instanceof BoatEntity boatEntity) {
             boatEntity.kill();
         }
-        this.setNoGravity(true);
         timer++;
-        if(timer == 400){
+        this.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOW_FALLING, 300, 100, false, false));
+        if(timer % 50 == 1){
+            this.addStatusEffect(new StatusEffectInstance(StatusEffects.LEVITATION, 37, 0, false, false));
+        }
+        if(timer == 300){
             timer = 0;
             VexEntity customEntity = ((EntityType<VexEntity>) EntityType.get("minecraft:vex").get()).create(this.getWorld());
             customEntity.updatePosition(this.getX() + 1, this.getY(), this.getZ());

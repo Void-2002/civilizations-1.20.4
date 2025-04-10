@@ -56,11 +56,14 @@ public class BossMercuryAttackGoal extends Goal {
                     double f = livingEntity.getX() - (this.entity.getX() + vec3d.x * (double)4.0F);
                     double g = livingEntity.getBodyY((double)0.5F) - ((double)0.5F + this.entity.getBodyY((double)0.5F));
                     double h = livingEntity.getZ() - (this.entity.getZ() + vec3d.z * (double)4.0F);
-                    //world.syncWorldEvent((PlayerEntity)null, 1017, this.entity.getBlockPos(), 0);
+                    world.syncWorldEvent((PlayerEntity)null, 1033, this.entity.getBlockPos(), 0);
                     ShulkerBulletEntity bulletEntity = new ShulkerBulletEntity(world, this.entity, livingEntity, entity.getMovementDirection().getAxis());
                     bulletEntity.setPosition(this.entity.getX() + vec3d.x * (double)2.0F, this.entity.getBodyY((double)0.5F) + (double)0.5F, bulletEntity.getZ() + vec3d.z * (double)2.0F);
                     world.spawnEntity(bulletEntity);
-                    this.cooldown = -80;
+                    ShulkerBulletEntity bulletEntity2 = new ShulkerBulletEntity(world, this.entity, livingEntity, entity.getMovementDirection().getAxis());
+                    bulletEntity2.setPosition(this.entity.getX() + vec3d.x * (double)2.0F, this.entity.getBodyY((double)0.5F) + (double)0.5F, bulletEntity.getZ() + vec3d.z * (double)2.0F);
+                    world.spawnEntity(bulletEntity2);
+                    this.cooldown = -20;
                 }
             } else if (this.cooldown > 0) {
                 --this.cooldown;

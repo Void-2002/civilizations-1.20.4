@@ -179,7 +179,7 @@ public class MercuryCore extends Item {
             }
             if(spawnTick == 60){
                 BossMercuryEntity customEntity = ((EntityType<BossMercuryEntity>) EntityType.get("civilizations:boss_mercury").get()).create(world);
-                customEntity.updatePosition(x + 0.5, 201, z + 0.5);
+                customEntity.updatePosition(x + 0.5, 203, z + 0.5);
                 customEntity.setCoords(x, y, z);
                 world.spawnEntity(customEntity);
                 if(entity instanceof PlayerEntity player){
