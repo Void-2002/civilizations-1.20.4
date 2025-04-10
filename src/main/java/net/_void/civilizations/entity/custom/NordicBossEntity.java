@@ -182,5 +182,10 @@ public class NordicBossEntity extends AnimalEntity {
             itemEntity.setCovetedItem();
             itemEntity.setInvulnerable(true);
         }
+        ItemEntity itemEntity2 = this.dropItem(ModItems.NORDIC_CORE);
+        if (itemEntity2 != null) {
+            itemEntity2.setCovetedItem();
+            itemEntity2.setInvulnerable(true);
+        }
     }
 }

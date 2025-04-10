@@ -224,5 +224,10 @@ public class ChinaBossEntity extends AnimalEntity{
             itemEntity2.setCovetedItem();
             itemEntity2.setInvulnerable(true);
         }
+        ItemEntity itemEntity3 = this.dropItem(ModItems.CHINA_CORE);
+        if (itemEntity3 != null) {
+            itemEntity3.setCovetedItem();
+            itemEntity3.setInvulnerable(true);
+        }
     }
 }

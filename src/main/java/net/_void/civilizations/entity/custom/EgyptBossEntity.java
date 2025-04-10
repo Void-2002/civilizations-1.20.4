@@ -221,5 +221,10 @@ public class EgyptBossEntity extends AnimalEntity {
             itemEntity3.setCovetedItem();
             itemEntity3.setInvulnerable(true);
         }
+        ItemEntity itemEntity4 = this.dropItem(ModItems.EGYPT_CORE);
+        if (itemEntity4 != null) {
+            itemEntity4.setCovetedItem();
+            itemEntity4.setInvulnerable(true);
+        }
     }
 }

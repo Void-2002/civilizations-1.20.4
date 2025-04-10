@@ -207,5 +207,10 @@ public class RomeBossEntity extends AnimalEntity {
             itemEntity.setCovetedItem();
             itemEntity.setInvulnerable(true);
         }
+        ItemEntity itemEntity2 = this.dropItem(ModItems.ROME_CORE);
+        if (itemEntity2 != null) {
+            itemEntity2.setCovetedItem();
+            itemEntity2.setInvulnerable(true);
+        }
     }
 }
