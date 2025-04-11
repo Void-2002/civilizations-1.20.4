@@ -107,6 +107,7 @@
   "tooltip.civilizations.loki_core": "Summon Loki",
   "item.civilizations.loki_rune": "Rune of Loki",
   "entity.civilizations.boss_loki": "Loki",
+  "entity.civilizations.boss_loki_clone": "Loki",
 
   "item.civilizations.artemis_bow": "Artemis' Bow",
   "item.civilizations.anubis_ankh": "Anubis' Ankh",

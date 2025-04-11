@@ -80,4 +80,12 @@ public class ModEntities {
             new Identifier(Civilizations.MOD_ID, "boss_mercury"),
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, BossMercuryEntity::new)
                     .dimensions(EntityDimensions.fixed(2f, 4f)).build());
+    public static final EntityType<BossLokiEntity> BOSS_LOKI = Registry.register(Registries.ENTITY_TYPE,
+            new Identifier(Civilizations.MOD_ID, "boss_loki"),
+            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, BossLokiEntity::new)
+                    .dimensions(EntityDimensions.fixed(2f, 4f)).build());
+    public static final EntityType<BossLokiCloneEntity> BOSS_LOKI_CLONE = Registry.register(Registries.ENTITY_TYPE,
+            new Identifier(Civilizations.MOD_ID, "boss_loki_clone"),
+            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, BossLokiCloneEntity::new)
+                    .dimensions(EntityDimensions.fixed(2f, 4f)).build());
 }
