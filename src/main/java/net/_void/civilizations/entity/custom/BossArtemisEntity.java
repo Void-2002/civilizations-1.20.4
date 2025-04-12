@@ -231,4 +231,9 @@ public class BossArtemisEntity extends AnimalEntity {
         this.getWorld().spawnEntity(itemEntity);
         super.onDeath(damageSource);
     }
+
+    @Override
+    public boolean isPushable() {
+        return false;
+    }
 }

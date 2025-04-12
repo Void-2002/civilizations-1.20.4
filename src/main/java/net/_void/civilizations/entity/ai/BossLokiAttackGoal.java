@@ -11,6 +11,7 @@ import net.minecraft.entity.mob.CreeperEntity;
 import net.minecraft.entity.mob.PathAwareEntity;
 import net.minecraft.entity.mob.SilverfishEntity;
 import net.minecraft.entity.mob.SpiderEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 
@@ -84,14 +85,16 @@ public class BossLokiAttackGoal extends Goal {
                         }
                         case 2 -> {
                             entity.addStatusEffect(new StatusEffectInstance(StatusEffects.INVISIBILITY, 100));
+                            world.syncWorldEvent((PlayerEntity)null, 1033, this.entity.getBlockPos(), 0);
                             this.cooldown = -60;
                         }
                         case 3 -> {
                             for(int i=-1;i<=1;i++){
                                 BossLokiCloneEntity customEntity = ((EntityType<BossLokiCloneEntity>) EntityType.get("civilizations:boss_loki_clone").get()).create(world);
-                                customEntity.updatePosition(entity.getX() + i,entity.getY(),entity.getZ());
+                                customEntity.updatePosition(entity.getX() + i,entity.getY(),entity.getZ() + 1);
                                 world.spawnEntity(customEntity);
                             }
+                            world.syncWorldEvent((PlayerEntity)null, 1503, this.entity.getBlockPos(), 0);
                             this.cooldown = -120;
                         }
                         case 4 -> {
@@ -103,28 +106,28 @@ public class BossLokiAttackGoal extends Goal {
                                             SilverfishEntity customEntity = ((EntityType<SilverfishEntity>) EntityType.get("minecraft:silverfish").get()).create(world);
                                             customEntity.updatePosition(entity.getX() + i, entity.getY(),entity.getZ() + j);
                                             world.spawnEntity(customEntity);
-                                            customEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 600, 1, false, false));
-                                            customEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, 600, 9, false, false));
+                                            customEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 1800, 1, false, false));
+                                            customEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, 600, 4, false, false));
                                         }
                                         case 2 ->{
                                             SpiderEntity customEntity = ((EntityType<SpiderEntity>) EntityType.get("minecraft:spider").get()).create(world);
                                             customEntity.updatePosition(entity.getX() + i, entity.getY(),entity.getZ() + j);
                                             world.spawnEntity(customEntity);
-                                            customEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.INVISIBILITY, 600, 0, false, false));
+                                            customEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.INVISIBILITY, 1800, 0, false, false));
                                         }
                                         case 3 ->{
                                             CreeperEntity customEntity = ((EntityType<CreeperEntity>) EntityType.get("minecraft:creeper").get()).create(world);
                                             customEntity.updatePosition(entity.getX() + i, entity.getY(),entity.getZ() + j);
                                             world.spawnEntity(customEntity);
-                                            customEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 600, 1, false, false));
+                                            customEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 1800, 1, false, false));
                                         }
                                     }
                                 }
                             }
+                            world.syncWorldEvent((PlayerEntity)null, 1502, this.entity.getBlockPos(), 0);
                             this.cooldown = -80;
                         }
                     }
-                    //world.syncWorldEvent((PlayerEntity)null, 1033, this.entity.getBlockPos(), 0);
                 }
             } else if (this.cooldown > 0) {
                 --this.cooldown;
