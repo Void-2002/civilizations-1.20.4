@@ -1,5 +1,5 @@
 {
-  "parent": "civilizations:civilizations_china_trade",
+  "parent": "civilizations:civilizations_china_find",
   "display": {
     "icon": {
       "item": "civilizations:china_key"

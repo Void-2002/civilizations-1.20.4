@@ -1,5 +1,5 @@
 {
-  "parent": "civilizations:civilizations_greece_trade",
+  "parent": "civilizations:civilizations_greece_find",
   "display": {
     "icon": {
       "item": "civilizations:greece_key"

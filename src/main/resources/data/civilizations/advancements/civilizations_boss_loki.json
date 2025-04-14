@@ -2,7 +2,7 @@
   "parent": "civilizations:civilizations_nordic_boss",
   "display": {
     "icon": {
-      "item": "civilizations:"
+      "item": "civilizations:loki_necklace"
     },
     "title": {
       "translate": "advancements.civilizations_boss_loki.title"

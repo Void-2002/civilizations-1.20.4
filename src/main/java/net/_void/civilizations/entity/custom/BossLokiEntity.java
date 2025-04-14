@@ -266,7 +266,7 @@ public class BossLokiEntity extends AnimalEntity {
         if(damageSource.getAttacker() instanceof PlayerEntity player){
             player.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOW_FALLING, 500, 0, false, false));
         }
-        ItemEntity itemEntity = new ItemEntity(this.getWorld(),this.dataTracker.get(X) + 0.5, this.dataTracker.get(Y), this.dataTracker.get(Z) + 0.5, new ItemStack(Items.FLINT_AND_STEEL));
+        ItemEntity itemEntity = new ItemEntity(this.getWorld(),this.dataTracker.get(X) + 0.5, this.dataTracker.get(Y), this.dataTracker.get(Z) + 0.5, new ItemStack(ModItems.LOKI_NECKLACE));
         itemEntity.updatePosition(this.dataTracker.get(X) + 0.5, this.dataTracker.get(Y), this.dataTracker.get(Z) + 0.5);
         this.getWorld().spawnEntity(itemEntity);
         super.onDeath(damageSource);

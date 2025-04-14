@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_loki_rune": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "civilizations:loki_rune"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_nordic_core": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "civilizations:nordic_core"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "civilizations:loki_core"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_nordic_core",
+      "has_loki_rune"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "civilizations:loki_core"
+    ]
+  }
+}

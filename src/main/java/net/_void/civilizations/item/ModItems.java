@@ -71,6 +71,7 @@ public class ModItems {
     public static final Item ARTEMIS_BOW = registerItem("artemis_bow", new ArtemisBowItem(new Item.Settings().maxDamage(2031).rarity(Rarity.EPIC)));
     public static final Item ANUBIS_ANKH = registerItem("anubis_ankh", new AnubisAnkhItem(new Item.Settings().maxCount(1).rarity(Rarity.EPIC)));
     public static final Item MERCURY_BOOTS = registerItem("mercury_boots", new MercuryBoots(ModArmorMaterials.MERCURY, ArmorItem.Type.BOOTS, new FabricItemSettings().maxDamage(481).rarity(Rarity.EPIC)));
+    public static final Item LOKI_NECKLACE = registerItem("loki_necklace", new LokiNecklaceItem(new Item.Settings().maxCount(1).rarity(Rarity.EPIC)));
 
     private static void addItemsToIngredientTabItemGroup(FabricItemGroupEntries entries){
         entries.add(EGYPT_COIN);

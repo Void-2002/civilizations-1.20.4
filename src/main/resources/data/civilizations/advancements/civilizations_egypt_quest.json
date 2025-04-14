@@ -1,5 +1,5 @@
 {
-  "parent": "civilizations:civilizations_egypt_trade",
+  "parent": "civilizations:civilizations_egypt_find",
   "display": {
     "icon": {
       "item": "civilizations:egypt_key"

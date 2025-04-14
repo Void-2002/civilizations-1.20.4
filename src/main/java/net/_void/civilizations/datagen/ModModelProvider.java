@@ -80,5 +80,6 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.LOKI_RUNE, Models.GENERATED);
         itemModelGenerator.register(ModItems.ANUBIS_ANKH, Models.GENERATED);
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.MERCURY_BOOTS));
+        itemModelGenerator.register(ModItems.LOKI_NECKLACE, Models.GENERATED);
     }
 }

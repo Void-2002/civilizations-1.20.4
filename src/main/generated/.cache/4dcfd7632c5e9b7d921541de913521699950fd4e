@@ -1,7 +1,8 @@
-// 1.20.4	2025-04-07T20:56:47.0036424	Civilizations/Recipes
+// 1.20.4	2025-04-14T19:12:32.3418397	Civilizations/Recipes
 3212183077dc40431234d8d3931227e95b3c9155 data\civilizations\recipes\limestone_pillar.json
 26bb8ed555678c9e99d32d139cb3c17b301d7d8f data\civilizations\advancements\recipes\tools\china_key.json
 fc5721c09dafd004268a0883592faf8833ed8649 data\civilizations\advancements\recipes\misc\anubis_core.json
+16a3bf2c0e43fa5d8d902fd04f5716a854b9e315 data\civilizations\advancements\recipes\misc\loki_core.json
 e5404de4897e67db34e641b1f8150e21df209360 data\civilizations\advancements\recipes\building_blocks\limestone_bricks.json
 b11526242ec244cf521f2e32b3cccdd0ca8aa479 data\civilizations\recipes\mercury_core.json
 6bf6b7bafad80ccf084e48645d2e46e3b5b7bba4 data\civilizations\recipes\anubis_core.json
@@ -17,3 +18,4 @@ c62a7151799e430c80ccaf8265673e1a59111426 data\civilizations\recipes\china_key.js
 7a25e07ce2196cbaf73d48b4d4234b38ecaed96a data\civilizations\recipes\bookpapyrus_book.json
 50e3cd12d7cfc6afeb2a20c60b33583babf0e136 data\civilizations\advancements\recipes\misc\artemis_core.json
 d74577d18aa044374e574a84104ea6536e7ac463 data\civilizations\recipes\artemis_core.json
+ac11f2b59d1b6c288e60ff70f1763be1552e038d data\civilizations\recipes\loki_core.json

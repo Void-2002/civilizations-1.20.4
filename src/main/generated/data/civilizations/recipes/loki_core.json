@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "1": {
+      "item": "minecraft:cobweb"
+    },
+    "2": {
+      "item": "minecraft:tnt"
+    },
+    "C": {
+      "item": "civilizations:nordic_core"
+    },
+    "R": {
+      "item": "civilizations:loki_rune"
+    }
+  },
+  "pattern": [
+    "1R2",
+    "RCR",
+    "2R1"
+  ],
+  "result": {
+    "item": "civilizations:loki_core"
+  }
+}
