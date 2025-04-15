@@ -2,7 +2,7 @@
   "parent": "civilizations:civilizations_china_boss",
   "display": {
     "icon": {
-      "item": "civilizations:"
+      "item": "civilizations:wukong_sword"
     },
     "title": {
       "translate": "advancements.civilizations_boss_wukong.title"

@@ -46,4 +46,6 @@ public class ModModelLayers {
             new EntityModelLayer(new Identifier(Civilizations.MOD_ID,"boss_loki"),"main");
     public static final EntityModelLayer BOSS_LOKI_CLONE =
             new EntityModelLayer(new Identifier(Civilizations.MOD_ID,"boss_loki_clone"),"main");
+    public static final EntityModelLayer BOSS_WUKONG =
+            new EntityModelLayer(new Identifier(Civilizations.MOD_ID,"boss_wukong"),"main");
 }

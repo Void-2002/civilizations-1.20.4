@@ -106,5 +106,16 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 criterion(hasItem(ModItems.NORDIC_CORE), conditionsFromItem(ModItems.NORDIC_CORE)).
                 criterion(hasItem(ModItems.LOKI_RUNE), conditionsFromItem(ModItems.LOKI_RUNE)).
                 offerTo(exporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.WUKONG_CORE, 1).
+                pattern("#R#").
+                pattern("RCR").
+                pattern("#R#").
+                input('C', ModItems.CHINA_CORE).
+                input('R', ModItems.WUKONG_RUNE).
+                input('#', Items.LAVA_BUCKET).
+                criterion(hasItem(ModItems.CHINA_CORE), conditionsFromItem(ModItems.CHINA_CORE)).
+                criterion(hasItem(ModItems.WUKONG_RUNE), conditionsFromItem(ModItems.WUKONG_RUNE)).
+                offerTo(exporter);
     }
 }
