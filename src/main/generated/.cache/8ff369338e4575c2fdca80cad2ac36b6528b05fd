@@ -1,10 +1,10 @@
-// 1.20.4	2025-04-14T19:12:32.3388421	Civilizations/Model Definitions
+// 1.20.4	2025-04-15T19:30:25.0922096	Civilizations/Model Definitions
 39db2b5e0291c90d5f0e516e7e8c2f309cefd99b assets\civilizations\models\item\mercury_boots_quartz_trim.json
 b6c828a6781565a8c5b0b687bdecf00cf279fdf5 assets\civilizations\models\item\mercury_boots.json
 c9f3330547ab261d4c724ca19691216ffdcbf76b assets\civilizations\models\item\greece_sword.json
 a5f2e47c6cbfa367f8f4ea2b55c5c1187762584d assets\civilizations\models\block\egypt_door_top_left_open.json
-392ee06b0db4ce50fa03169b608003ca6e7fa75b assets\civilizations\models\item\mercury_boots_emerald_trim.json
 f59a1fc9bb4093dbb9c5cab6d1ed1d2650b7142b assets\civilizations\models\item\mercury_boots_redstone_trim.json
+392ee06b0db4ce50fa03169b608003ca6e7fa75b assets\civilizations\models\item\mercury_boots_emerald_trim.json
 4df4eff92b2dfc10569e205c3490dcea1d1ce520 assets\civilizations\models\item\artemis_rune.json
 5ab9f5060bdd4e16d7b2607d42d636b75c3c49d7 assets\civilizations\models\block\limestone.json
 7bd005a936a1279f8d66b4f4be5fe746415fce8b assets\civilizations\models\item\rome_key.json
@@ -79,8 +79,8 @@ c5f4fd59508eb9eda391ba3f5b116357981a9242 assets\civilizations\models\item\china_
 075f7e3c85e0b6ce3a0927c727adc4b1f6c71d76 assets\civilizations\models\item\nordic_core.json
 a4f74a520135d4159274d105af73860676dac0c4 assets\civilizations\models\block\egypt_door_bottom_right_open.json
 f5c1e877dcc76d20ca725bbdfba46947afbdfe36 assets\civilizations\models\item\mercury_boots_lapis_trim.json
-8d3a926a9ff306bf054bc54bc03ee6ee4935a631 assets\civilizations\models\item\artemis_core.json
 5383173011d9faf0c2fca0b482a3d5cda53deaf4 assets\civilizations\models\item\china_coin.json
+8d3a926a9ff306bf054bc54bc03ee6ee4935a631 assets\civilizations\models\item\artemis_core.json
 f5fa5f925fc4eb2c4e3bbd458c2adc1c2fa4b56a assets\civilizations\models\item\papyrus.json
 e97ffcb7f449fe967264c802ba6a3b14ffe3b685 assets\civilizations\models\item\egypt_door.json
 3e3eb0fa83f701e09e79878fed614cd5f2b989ad assets\civilizations\blockstates\limestone_pillar.json

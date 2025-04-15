@@ -5,6 +5,7 @@ import net._void.civilizations.block.ModBlocks;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.text.Text;
@@ -14,7 +15,7 @@ public class ModItemGroups {
     public static final ItemGroup CIVILIZATIONS = Registry.register(Registries.ITEM_GROUP,
             new Identifier(Civilizations.MOD_ID, "civilizations"),
             FabricItemGroup.builder().displayName(Text.translatable("itemgroup.civilizations"))
-                    .icon(() -> new ItemStack(ModItems.EGYPT_COIN)).entries((displayContext, entries) -> {
+                    .icon(() -> new ItemStack(Items.COMPASS)).entries((displayContext, entries) -> {
 
                         entries.add(ModItems.EGYPT_KEY);
                         entries.add(ModItems.EGYPT_COIN);
@@ -84,6 +85,7 @@ public class ModItemGroups {
                         entries.add(ModItems.ANUBIS_ANKH);
                         entries.add(ModItems.MERCURY_BOOTS);
                         entries.add(ModItems.LOKI_NECKLACE);
+                        entries.add(ModItems.WUKONG_SWORD);
 
                     }).build());
 

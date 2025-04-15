@@ -72,6 +72,7 @@ public class ModItems {
     public static final Item ANUBIS_ANKH = registerItem("anubis_ankh", new AnubisAnkhItem(new Item.Settings().maxCount(1).rarity(Rarity.EPIC)));
     public static final Item MERCURY_BOOTS = registerItem("mercury_boots", new MercuryBoots(ModArmorMaterials.MERCURY, ArmorItem.Type.BOOTS, new FabricItemSettings().maxDamage(481).rarity(Rarity.EPIC)));
     public static final Item LOKI_NECKLACE = registerItem("loki_necklace", new LokiNecklaceItem(new Item.Settings().maxCount(1).rarity(Rarity.EPIC)));
+    public static final Item WUKONG_SWORD = registerItem("wukong_sword", new WukongSwordItem(6, -1.5F, new FabricItemSettings().maxCount(1).rarity(Rarity.EPIC)));
 
     private static void addItemsToIngredientTabItemGroup(FabricItemGroupEntries entries){
         entries.add(EGYPT_COIN);
@@ -134,6 +135,7 @@ public class ModItems {
         entries.add(ModItems.ROME_SWORD);
         entries.add(ModItems.ARTEMIS_BOW);
         entries.add(ModItems.MERCURY_BOOTS);
+        entries.add(ModItems.WUKONG_SWORD);
     }
 
     private static Item registerItem(String name, Item item){

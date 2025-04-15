@@ -20,6 +20,9 @@ public abstract class ItemRendererMixin {
         if (stack.isOf(ModItems.EGYPT_CROOK) && renderMode != ModelTransformationMode.GUI) {
             return ((ItemRendererAccessor) this).mccourse$getModels().getModelManager().getModel(new ModelIdentifier(Civilizations.MOD_ID, "egypt_crook_3d", "inventory"));
         }
+        if (stack.isOf(ModItems.WUKONG_SWORD) && renderMode != ModelTransformationMode.GUI) {
+            return ((ItemRendererAccessor) this).mccourse$getModels().getModelManager().getModel(new ModelIdentifier(Civilizations.MOD_ID, "wukong_sword_3d", "inventory"));
+        }
         return value;
     }
 }

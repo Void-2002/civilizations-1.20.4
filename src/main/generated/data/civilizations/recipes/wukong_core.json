@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:lava_bucket"
+    },
+    "C": {
+      "item": "civilizations:china_core"
+    },
+    "R": {
+      "item": "civilizations:wukong_rune"
+    }
+  },
+  "pattern": [
+    "#R#",
+    "RCR",
+    "#R#"
+  ],
+  "result": {
+    "item": "civilizations:wukong_core"
+  }
+}
