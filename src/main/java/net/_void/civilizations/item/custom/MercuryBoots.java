@@ -3,7 +3,6 @@ package net._void.civilizations.item.custom;
 import net._void.civilizations.item.ModArmorMaterials;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.entity.damage.DamageSources;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
@@ -21,7 +20,7 @@ public class MercuryBoots extends ArmorItem {
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
         if(!world.isClient()) {
             if(entity instanceof PlayerEntity player){
-                if(hasCorrectBootsOn(ModArmorMaterials.MERCURY, player)){
+                if(hasCorrectBootsOn(ModArmorMaterials.MERCURY, player) && stack.getDamage() <= 480){
                     player.getAbilities().allowFlying = true;
                     player.getAbilities().setFlySpeed(0.03F);
                     player.sendAbilitiesUpdate();

@@ -205,6 +205,11 @@ public class BossAnubisEntity extends AnimalEntity {
                 source.isOf(DamageTypes.IN_WALL)){
             return false;
         }
+        if(source.getAttacker() instanceof PlayerEntity player){
+            if(player.getY() > this.getY() + 5 || player.getY() < this.getY() - 5){
+                return false;
+            }
+        }
         return super.damage(source, amount);
     }
 

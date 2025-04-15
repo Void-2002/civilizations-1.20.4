@@ -85,7 +85,9 @@ public class BossArtemisGoal extends Goal {
                     world.spawnEntity(persistentProjectileEntity);
                     world.spawnEntity(persistentProjectileEntity2);
                     world.spawnEntity(persistentProjectileEntity3);
-                    if(shotsTaken < 2) {
+                    if(entity.getMode() == 1){
+                        this.cooldown = 10;
+                    }else if(shotsTaken < 2) {
                         shotsTaken++;
                         this.cooldown = 15;
                     }

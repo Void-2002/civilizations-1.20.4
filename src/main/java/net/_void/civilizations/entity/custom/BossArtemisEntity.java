@@ -54,10 +54,20 @@ public class BossArtemisEntity extends AnimalEntity {
     private static TrackedData<Integer> Z = DataTracker.registerData(BossArtemisEntity.class, TrackedDataHandlerRegistry.INTEGER);
     private int damageTaken = 0;
 
+    private static TrackedData<Integer> MODE = DataTracker.registerData(BossArtemisEntity.class, TrackedDataHandlerRegistry.INTEGER);
+
     public void setCoords(int x, int y, int z){
         this.dataTracker.set(X, x);
         this.dataTracker.set(Y, y);
         this.dataTracker.set(Z, z);
+    }
+
+    public void setMode(int mode){
+        this.dataTracker.set(MODE, mode);
+    }
+
+    public int getMode(){
+        return this.dataTracker.get(MODE);
     }
 
     private final ServerBossBar bossBar = new ServerBossBar(Text.literal("Artemis"),
@@ -166,6 +176,11 @@ public class BossArtemisEntity extends AnimalEntity {
         if (this.getVehicle() instanceof BoatEntity boatEntity) {
             boatEntity.kill();
         }
+        if(this.getTarget() instanceof PlayerEntity player){
+            if(player.getY() > this.getY() + 3 || player.getY() < this.getY() - 3){
+                setMode(1);
+            }else setMode(0);
+        }
         if(damageTaken >= 220){
             damageTaken = 0;
             RavagerEntity customEntity = ((EntityType<RavagerEntity>) EntityType.get("minecraft:ravager").get()).create(this.getWorld());
@@ -186,6 +201,7 @@ public class BossArtemisEntity extends AnimalEntity {
         this.dataTracker.startTracking(X,0);
         this.dataTracker.startTracking(Y,0);
         this.dataTracker.startTracking(Z,0);
+        this.dataTracker.startTracking(MODE,0);
     }
 
     @Override
