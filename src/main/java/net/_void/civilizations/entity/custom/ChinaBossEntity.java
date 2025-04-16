@@ -48,7 +48,7 @@ public class ChinaBossEntity extends AnimalEntity{
     double spawnY = 0;
     double spawnZ = 0;
 
-    private final ServerBossBar bossBar = new ServerBossBar(Text.literal("Emperor Qin Shi Huang"),
+    private final ServerBossBar bossBar = new ServerBossBar(Text.translatable("entity.civilizations.china_boss"),
             BossBar.Color.RED, BossBar.Style.NOTCHED_20);
 
     public ChinaBossEntity(EntityType<? extends AnimalEntity> entityType, World world) {

@@ -44,7 +44,7 @@ public class RomeBossEntity extends AnimalEntity {
     int guardsSpawned = 0;
     int spawnTick = 0;
 
-    private final ServerBossBar bossBar = new ServerBossBar(Text.literal("General Julius Caesar"),
+    private final ServerBossBar bossBar = new ServerBossBar(Text.translatable("entity.civilizations.rome_boss"),
             BossBar.Color.RED, BossBar.Style.NOTCHED_20);
 
     public RomeBossEntity(EntityType<? extends AnimalEntity> entityType, World world) {

@@ -58,7 +58,7 @@ public class BossMercuryEntity extends AnimalEntity {
         this.dataTracker.set(Z, z);
     }
 
-    private final ServerBossBar bossBar = new ServerBossBar(Text.literal("Mercury"),
+    private final ServerBossBar bossBar = new ServerBossBar(Text.translatable("entity.civilizations.boss_mercury"),
             BossBar.Color.YELLOW, BossBar.Style.NOTCHED_20);
 
     public BossMercuryEntity(EntityType<? extends AnimalEntity> entityType, World world) {

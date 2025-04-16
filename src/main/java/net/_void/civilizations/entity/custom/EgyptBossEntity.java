@@ -44,7 +44,7 @@ public class EgyptBossEntity extends AnimalEntity {
     public final AnimationState attackAnimationState = new AnimationState();
     public int attackAnimationTimeout = 0;
 
-    private final ServerBossBar bossBar = new ServerBossBar(Text.literal("Pharaoh Khufu"),
+    private final ServerBossBar bossBar = new ServerBossBar(Text.translatable("entity.civilizations.egypt_boss"),
             BossBar.Color.YELLOW, BossBar.Style.NOTCHED_20);
 
     public EgyptBossEntity(EntityType<? extends AnimalEntity> entityType, World world) {

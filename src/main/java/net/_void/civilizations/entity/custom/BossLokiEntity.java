@@ -66,7 +66,7 @@ public class BossLokiEntity extends AnimalEntity {
         this.dataTracker.set(Z, z);
     }
 
-    private final ServerBossBar bossBar = new ServerBossBar(Text.literal("Loki"),
+    private final ServerBossBar bossBar = new ServerBossBar(Text.translatable("entity.civilizations.boss_loki"),
             BossBar.Color.RED, BossBar.Style.NOTCHED_20);
 
     public BossLokiEntity(EntityType<? extends AnimalEntity> entityType, World world) {

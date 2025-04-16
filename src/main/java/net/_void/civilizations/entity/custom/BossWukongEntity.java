@@ -61,7 +61,7 @@ public class BossWukongEntity extends AnimalEntity {
         this.dataTracker.set(Z, z);
     }
 
-    private final ServerBossBar bossBar = new ServerBossBar(Text.literal("Sun Wukong"),
+    private final ServerBossBar bossBar = new ServerBossBar(Text.translatable("entity.civilizations.boss_wukong"),
             BossBar.Color.RED, BossBar.Style.NOTCHED_20);
 
     public BossWukongEntity(EntityType<? extends AnimalEntity> entityType, World world) {

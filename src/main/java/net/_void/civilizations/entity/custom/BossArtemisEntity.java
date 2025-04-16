@@ -70,7 +70,7 @@ public class BossArtemisEntity extends AnimalEntity {
         return this.dataTracker.get(MODE);
     }
 
-    private final ServerBossBar bossBar = new ServerBossBar(Text.literal("Artemis"),
+    private final ServerBossBar bossBar = new ServerBossBar(Text.translatable("entity.civilizations.boss_artemis"),
             BossBar.Color.GREEN, BossBar.Style.NOTCHED_20);
 
     public BossArtemisEntity(EntityType<? extends AnimalEntity> entityType, World world) {

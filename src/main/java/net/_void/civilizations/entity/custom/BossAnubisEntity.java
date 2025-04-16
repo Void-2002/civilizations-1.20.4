@@ -57,7 +57,7 @@ public class BossAnubisEntity extends AnimalEntity {
         this.dataTracker.set(Z, z);
     }
 
-    private final ServerBossBar bossBar = new ServerBossBar(Text.literal("Anubis"),
+    private final ServerBossBar bossBar = new ServerBossBar(Text.translatable("entity.civilizations.boss_anubis"),
             BossBar.Color.YELLOW, BossBar.Style.NOTCHED_20);
 
     public BossAnubisEntity(EntityType<? extends AnimalEntity> entityType, World world) {

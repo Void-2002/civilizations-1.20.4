@@ -47,7 +47,7 @@ public class GreeceBossEntity extends AnimalEntity {
     public final AnimationState deffendAnimationState = new AnimationState();
     public int deffendAnimationTimeout = 0;
 
-    private final ServerBossBar bossBar = new ServerBossBar(Text.literal("Alexander The Great"),
+    private final ServerBossBar bossBar = new ServerBossBar(Text.translatable("entity.civilizations.greece_boss"),
             BossBar.Color.WHITE, BossBar.Style.NOTCHED_20);
 
     public GreeceBossEntity(EntityType<? extends AnimalEntity> entityType, World world) {
