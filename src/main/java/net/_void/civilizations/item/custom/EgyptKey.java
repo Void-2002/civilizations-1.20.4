@@ -27,7 +27,14 @@ public class EgyptKey extends Item {
             BlockState state = context.getWorld().getBlockState(positionClicked);
             if(state.isIn(ModTags.Blocks.EGYPT_KEY_OPENABLE)){
                 if(state.getBlock().equals(ModBlocks.COFFIN_TOP) || state.getBlock().equals(ModBlocks.COFFIN_BOTTOM)){
-                    context.getWorld().setBlockState(positionClicked, Blocks.AIR.getDefaultState());
+                    int x = positionClicked.getX();
+                    int y = positionClicked.getY();
+                    int z = positionClicked.getZ();
+                    for(int i=-2;i<=2;i++){
+                        for(int j=-2;j<=2;j++){
+                            context.getWorld().setBlockState(new BlockPos(x + i, y, z + j), Blocks.AIR.getDefaultState());
+                        }
+                    }
                     EgyptBossEntity customEntity = ((EntityType<EgyptBossEntity>) EntityType.get("civilizations:egypt_boss").get()).create(context.getWorld());
                     customEntity.updatePosition(positionClicked.getX() + 0.5, positionClicked.getY() + 0.5, positionClicked.getZ() + 0.5);
                     context.getWorld().spawnEntity(customEntity);

@@ -1,7 +1,19 @@
 {
   "variants": {
-    "": {
+    "facing=east": {
+      "model": "civilizations:block/coffin_bottom",
+      "y": 90
+    },
+    "facing=north": {
       "model": "civilizations:block/coffin_bottom"
+    },
+    "facing=south": {
+      "model": "civilizations:block/coffin_bottom",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "civilizations:block/coffin_bottom",
+      "y": 270
     }
   }
 }

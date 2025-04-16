@@ -100,7 +100,7 @@ public class AnubisCore extends Item {
                                 5, 0, 0, 0, 1);
                     }
                 }
-                world.setBlockState(new BlockPos(x , y+1 ,z), Blocks.OBSIDIAN.getDefaultState());
+                world.setBlockState(new BlockPos(x , y+1 ,z), Blocks.NETHERITE_BLOCK.getDefaultState());
             }
             if(tick == 40){
                 ((ServerWorld) world).spawnParticles(ParticleTypes.END_ROD ,x+0.5 , y+1 ,z+0.5 ,
@@ -126,8 +126,8 @@ public class AnubisCore extends Item {
                     }
                 }
                 for(int i=-1;i<=1;i+=2){
-                    world.setBlockState(new BlockPos(x+i , y+1 ,z), Blocks.ANCIENT_DEBRIS.getDefaultState());
-                    world.setBlockState(new BlockPos(x , y+1 ,z+i), Blocks.ANCIENT_DEBRIS.getDefaultState());
+                    world.setBlockState(new BlockPos(x+i , y+1 ,z), Blocks.OBSIDIAN.getDefaultState());
+                    world.setBlockState(new BlockPos(x , y+1 ,z+i), Blocks.OBSIDIAN.getDefaultState());
                 }
             }
             if(tick == 50){
