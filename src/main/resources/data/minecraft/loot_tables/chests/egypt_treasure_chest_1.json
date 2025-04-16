@@ -6,6 +6,15 @@
       "entries": [
         {
           "type": "minecraft:item",
+          "name": "civilizations:anubis_rune"
+        }
+      ]
+    },
+    {
+      "rolls": 2,
+      "entries": [
+        {
+          "type": "minecraft:item",
           "name": "civilizations:papyrus"
         }
       ]

@@ -2,6 +2,15 @@
   "type": "minecraft:chest",
   "pools": [
     {
+      "rolls": 2,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "civilizations:anubis_rune"
+        }
+      ]
+    },
+    {
       "rolls": 4,
       "entries": [
         {
