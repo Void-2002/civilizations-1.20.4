@@ -2,7 +2,6 @@ package net._void.civilizations.entity.ai;
 
 import net._void.civilizations.entity.custom.BossAnubisEntity;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.ai.goal.Goal;
 import net.minecraft.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;

@@ -9,8 +9,6 @@ import net.minecraft.entity.projectile.FireballEntity;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
-import static java.lang.Thread.sleep;
-
 public class EgyptBossShootGoal extends Goal {
     private final EgyptBossEntity entity;
     public int cooldown;

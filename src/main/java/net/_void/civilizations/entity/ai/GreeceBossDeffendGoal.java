@@ -4,7 +4,6 @@ import net._void.civilizations.entity.custom.GreeceBossEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.Goal;
 import net.minecraft.entity.mob.PathAwareEntity;
-import net.minecraft.text.Text;
 
 public class GreeceBossDeffendGoal extends Goal {
     private final GreeceBossEntity entity;

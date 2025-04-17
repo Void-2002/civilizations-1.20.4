@@ -3,7 +3,6 @@ package net._void.civilizations.sound;
 import net._void.civilizations.Civilizations;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
-import net.minecraft.registry.RegistryKey;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
 

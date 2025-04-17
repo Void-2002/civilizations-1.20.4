@@ -2,7 +2,6 @@ package net._void.civilizations.entity.client;
 
 import com.google.common.collect.Maps;
 import net._void.civilizations.Civilizations;
-import net._void.civilizations.entity.custom.EgyptCivilianEntity;
 import net._void.civilizations.entity.custom.NordicCivilianEntity;
 import net._void.civilizations.entity.custom.NordicCivilianVariant;
 import net.minecraft.client.render.VertexConsumerProvider;

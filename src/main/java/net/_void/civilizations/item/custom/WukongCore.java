@@ -1,6 +1,5 @@
 package net._void.civilizations.item.custom;
 
-import net._void.civilizations.entity.custom.BossMercuryEntity;
 import net._void.civilizations.entity.custom.BossWukongEntity;
 import net._void.civilizations.item.ModItems;
 import net.minecraft.block.Blocks;

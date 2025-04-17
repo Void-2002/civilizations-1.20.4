@@ -2,15 +2,12 @@ package net._void.civilizations.block.entity;
 
 import net._void.civilizations.item.ModItems;
 import net._void.civilizations.screen.TradingStationScreenHandler;
-import net._void.civilizations.screen.TradingStationScreen;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;

@@ -2,7 +2,6 @@ package net._void.civilizations.entity.client;
 
 import net._void.civilizations.Civilizations;
 import net._void.civilizations.entity.custom.ChinaGuardEntity;
-import net._void.civilizations.entity.custom.EgyptBossEntity;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.MobEntityRenderer;

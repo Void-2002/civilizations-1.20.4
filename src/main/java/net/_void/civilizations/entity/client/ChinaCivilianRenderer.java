@@ -4,8 +4,6 @@ import com.google.common.collect.Maps;
 import net._void.civilizations.Civilizations;
 import net._void.civilizations.entity.custom.ChinaCivilianEntity;
 import net._void.civilizations.entity.custom.ChinaCivilianVariant;
-import net._void.civilizations.entity.custom.EgyptCivilianEntity;
-import net._void.civilizations.entity.custom.EgyptCivilianVariant;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.MobEntityRenderer;

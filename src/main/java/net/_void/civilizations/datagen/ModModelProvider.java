@@ -25,8 +25,8 @@ public class ModModelProvider extends FabricModelProvider {
 
         blockStateModelGenerator.registerSimpleState(ModBlocks.TRADING_STATION);
         blockStateModelGenerator.registerSimpleState(ModBlocks.TOMBSTONE);
-        blockStateModelGenerator.registerSimpleState(ModBlocks.COFFIN_TOP);
-        blockStateModelGenerator.registerSimpleState(ModBlocks.COFFIN_BOTTOM);
+        blockStateModelGenerator.registerNorthDefaultHorizontalRotation(ModBlocks.COFFIN_TOP);
+        blockStateModelGenerator.registerNorthDefaultHorizontalRotation(ModBlocks.COFFIN_BOTTOM);
         blockStateModelGenerator.registerNorthDefaultHorizontalRotation(ModBlocks.CHINA_CHEST);
         blockStateModelGenerator.registerNorthDefaultHorizontalRotation(ModBlocks.GREECE_CHEST);
         blockStateModelGenerator.registerNorthDefaultHorizontalRotation(ModBlocks.ROME_CHEST);

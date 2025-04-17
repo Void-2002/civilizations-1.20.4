@@ -1,7 +1,6 @@
 package net._void.civilizations.entity.client;
 
 import net._void.civilizations.entity.animation.ModAnimations;
-import net._void.civilizations.entity.custom.ChinaBossEntity;
 import net._void.civilizations.entity.custom.NordicBossEntity;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;

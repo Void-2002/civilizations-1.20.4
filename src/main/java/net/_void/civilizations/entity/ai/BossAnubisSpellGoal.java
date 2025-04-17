@@ -7,9 +7,6 @@ import net.minecraft.entity.ai.goal.Goal;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.*;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.FireballEntity;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
 public class BossAnubisSpellGoal  extends Goal {

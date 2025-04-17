@@ -1,6 +1,5 @@
 package net._void.civilizations.entity.custom;
 
-import net._void.civilizations.block.ModBlocks;
 import net._void.civilizations.entity.ModEntities;
 import net._void.civilizations.entity.ai.RomeCivilianAttackGoal;
 import net._void.civilizations.item.ModItems;

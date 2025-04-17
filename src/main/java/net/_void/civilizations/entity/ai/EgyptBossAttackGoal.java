@@ -6,7 +6,6 @@ import net.minecraft.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.PathAwareEntity;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.Hand;
 
 public class EgyptBossAttackGoal extends MeleeAttackGoal {

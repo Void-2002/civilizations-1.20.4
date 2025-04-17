@@ -1,7 +1,6 @@
 package net._void.civilizations.item.custom;
 
 import net._void.civilizations.entity.custom.BossArtemisEntity;
-import net._void.civilizations.entity.custom.ChinaBossEntity;
 import net._void.civilizations.item.ModItems;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.item.TooltipContext;

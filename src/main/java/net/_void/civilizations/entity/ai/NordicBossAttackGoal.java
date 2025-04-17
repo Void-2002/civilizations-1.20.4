@@ -1,6 +1,5 @@
 package net._void.civilizations.entity.ai;
 
-import net._void.civilizations.entity.custom.ChinaBossEntity;
 import net._void.civilizations.entity.custom.NordicBossEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.MeleeAttackGoal;

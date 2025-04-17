@@ -89,13 +89,18 @@ public class BossLokiAttackGoal extends Goal {
                             this.cooldown = -60;
                         }
                         case 3 -> {
-                            for(int i=-1;i<=1;i++){
+                            for(int i=-1;i<=1;i+=2){
                                 BossLokiCloneEntity customEntity = ((EntityType<BossLokiCloneEntity>) EntityType.get("civilizations:boss_loki_clone").get()).create(world);
-                                customEntity.updatePosition(entity.getX() + i,entity.getY(),entity.getZ() + 1);
+                                customEntity.updatePosition(entity.getX() + i,entity.getY(),entity.getZ());
+                                world.spawnEntity(customEntity);
+                            }
+                            for(int i=-1;i<=1;i+=2){
+                                BossLokiCloneEntity customEntity = ((EntityType<BossLokiCloneEntity>) EntityType.get("civilizations:boss_loki_clone").get()).create(world);
+                                customEntity.updatePosition(entity.getX(),entity.getY(),entity.getZ() + i);
                                 world.spawnEntity(customEntity);
                             }
                             world.syncWorldEvent((PlayerEntity)null, 1503, this.entity.getBlockPos(), 0);
-                            this.cooldown = -120;
+                            this.cooldown = -100;
                         }
                         case 4 -> {
                             for(int i=-1;i<=1;i+=2){

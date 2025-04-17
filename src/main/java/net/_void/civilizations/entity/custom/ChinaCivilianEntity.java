@@ -1,6 +1,5 @@
 package net._void.civilizations.entity.custom;
 
-import dev.architectury.platform.Mod;
 import net._void.civilizations.entity.ModEntities;
 import net._void.civilizations.entity.ai.ChinaCivilianAttackGoal;
 import net._void.civilizations.item.ModItems;

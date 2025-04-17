@@ -8,10 +8,8 @@ import net._void.civilizations.entity.animation.ModAnimations;
 import net._void.civilizations.entity.custom.ChinaCivilianEntity;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
-import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.render.entity.model.SinglePartEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 
 public class ChinaCivilianModel<T extends ChinaCivilianEntity> extends SinglePartEntityModel<T> {

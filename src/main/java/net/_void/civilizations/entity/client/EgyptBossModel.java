@@ -2,7 +2,6 @@ package net._void.civilizations.entity.client;
 
 import net._void.civilizations.entity.animation.ModAnimations;
 import net._void.civilizations.entity.custom.EgyptBossEntity;
-import net._void.civilizations.entity.custom.EgyptCivilianEntity;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.SinglePartEntityModel;
