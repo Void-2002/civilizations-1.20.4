@@ -2,7 +2,10 @@ package net._void.civilizations.entity.custom;
 
 import net._void.civilizations.entity.ai.BossLokiAttackGoal;
 import net._void.civilizations.item.ModItems;
+import net._void.civilizations.sound.CustomSoundInstance;
+import net._void.civilizations.sound.ModSounds;
 import net.minecraft.block.Blocks;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.AnimationState;
 import net.minecraft.entity.EntityPose;
 import net.minecraft.entity.EntityType;
@@ -28,8 +31,10 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.vehicle.BoatEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
@@ -56,6 +61,9 @@ public class BossLokiEntity extends AnimalEntity {
     public final AnimationState summonAnimationState = new AnimationState();
     public int summonAnimationTimeout = 0;
 
+    private final MinecraftClient client = MinecraftClient.getInstance();
+    private final CustomSoundInstance instance = new CustomSoundInstance(client.player, ModSounds.NORDIC_GOD_MUSIC, SoundCategory.MASTER);
+
     private static TrackedData<Integer> X = DataTracker.registerData(BossLokiEntity.class, TrackedDataHandlerRegistry.INTEGER);
     private static TrackedData<Integer> Y = DataTracker.registerData(BossLokiEntity.class, TrackedDataHandlerRegistry.INTEGER);
     private static TrackedData<Integer> Z = DataTracker.registerData(BossLokiEntity.class, TrackedDataHandlerRegistry.INTEGER);
@@ -64,6 +72,18 @@ public class BossLokiEntity extends AnimalEntity {
         this.dataTracker.set(X, x);
         this.dataTracker.set(Y, y);
         this.dataTracker.set(Z, z);
+    }
+
+    public int getCoordsX(){
+        return this.dataTracker.get(X);
+    }
+
+    public int getCoordsY(){
+        return this.dataTracker.get(Y);
+    }
+
+    public int getCoordsZ(){
+        return this.dataTracker.get(Z);
     }
 
     private final ServerBossBar bossBar = new ServerBossBar(Text.translatable("entity.civilizations.boss_loki"),
@@ -129,6 +149,21 @@ public class BossLokiEntity extends AnimalEntity {
         super.tick();
         if(this.getWorld().isClient()) {
             setupAnimationStates();
+        }
+        if(this.getWorld().getClosestPlayer(this, 100) != null){
+            if(this.getWorld().getClosestPlayer(this, 100).squaredDistanceTo(this) <= (double)2500.0F){
+                if(this.getWorld().isClient() && this.isAlive()){
+                    if(!client.getSoundManager().isPlaying(instance)){
+                        client.getSoundManager().play(instance);
+                    }
+                }
+            }else{
+                if(this.getWorld().isClient()){
+                    if(client.getSoundManager().isPlaying(instance)){
+                        client.getSoundManager().stop(instance);
+                    }
+                }
+            }
         }
     }
 
@@ -237,6 +272,22 @@ public class BossLokiEntity extends AnimalEntity {
     }
 
     @Override
+    public void writeCustomDataToNbt(NbtCompound nbt) {
+        super.writeCustomDataToNbt(nbt);
+        nbt.putInt("X", this.getCoordsX());
+        nbt.putInt("Y", this.getCoordsY());
+        nbt.putInt("Z", this.getCoordsZ());
+    }
+
+    @Override
+    public void readCustomDataFromNbt(NbtCompound nbt) {
+        super.readCustomDataFromNbt(nbt);
+        this.dataTracker.set(X, nbt.getInt("X"));
+        this.dataTracker.set(Y, nbt.getInt("Y"));
+        this.dataTracker.set(Z, nbt.getInt("Z"));
+    }
+
+    @Override
     public boolean damage(DamageSource source, float amount) {
         if(source.isOf(DamageTypes.IN_FIRE) ||
                 source.isOf(DamageTypes.ON_FIRE) ||
@@ -269,6 +320,13 @@ public class BossLokiEntity extends AnimalEntity {
         ItemEntity itemEntity = new ItemEntity(this.getWorld(),this.dataTracker.get(X) + 0.5, this.dataTracker.get(Y), this.dataTracker.get(Z) + 0.5, new ItemStack(ModItems.LOKI_NECKLACE));
         itemEntity.updatePosition(this.dataTracker.get(X) + 0.5, this.dataTracker.get(Y), this.dataTracker.get(Z) + 0.5);
         this.getWorld().spawnEntity(itemEntity);
+
+        if(this.getWorld().isClient()){
+            if(client.getSoundManager().isPlaying(instance)){
+                client.getSoundManager().stop(instance);
+            }
+        }
+
         super.onDeath(damageSource);
     }
 

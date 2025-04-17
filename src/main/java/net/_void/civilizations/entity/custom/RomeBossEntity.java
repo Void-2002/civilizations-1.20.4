@@ -2,7 +2,10 @@ package net._void.civilizations.entity.custom;
 
 import net._void.civilizations.entity.ai.RomeBossAttackGoal;
 import net._void.civilizations.item.ModItems;
+import net._void.civilizations.sound.CustomSoundInstance;
+import net._void.civilizations.sound.ModSounds;
 import net.minecraft.block.Blocks;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.ActiveTargetGoal;
 import net.minecraft.entity.ai.goal.RevengeGoal;
@@ -26,6 +29,7 @@ import net.minecraft.entity.vehicle.BoatEntity;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
@@ -39,6 +43,9 @@ public class RomeBossEntity extends AnimalEntity {
     private int idleAnimationTimeout = 0;
     public final AnimationState attackAnimationState = new AnimationState();
     public int attackAnimationTimeout = 0;
+
+    private final MinecraftClient client = MinecraftClient.getInstance();
+    private final CustomSoundInstance instance = new CustomSoundInstance(client.player, ModSounds.ROME_BOSS_MUSIC, SoundCategory.MASTER);
 
     int guardsKilled = 0;
     int guardsSpawned = 0;
@@ -82,6 +89,21 @@ public class RomeBossEntity extends AnimalEntity {
         super.tick();
         if(this.getWorld().isClient()) {
             setupAnimationStates();
+        }
+        if(this.getWorld().getClosestPlayer(this, 100) != null){
+            if(this.getWorld().getClosestPlayer(this, 100).squaredDistanceTo(this) <= (double)2500.0F){
+                if(this.getWorld().isClient() && this.isAlive()){
+                    if(!client.getSoundManager().isPlaying(instance)){
+                        client.getSoundManager().play(instance);
+                    }
+                }
+            }else{
+                if(this.getWorld().isClient()){
+                    if(client.getSoundManager().isPlaying(instance)){
+                        client.getSoundManager().stop(instance);
+                    }
+                }
+            }
         }
     }
 
@@ -196,6 +218,11 @@ public class RomeBossEntity extends AnimalEntity {
 
     @Override
     public void onDeath(DamageSource damageSource) {
+        if(this.getWorld().isClient()){
+            if(client.getSoundManager().isPlaying(instance)){
+                client.getSoundManager().stop(instance);
+            }
+        }
         super.onDeath(damageSource);
     }
 

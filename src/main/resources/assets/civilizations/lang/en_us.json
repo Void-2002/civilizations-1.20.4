@@ -121,6 +121,17 @@
   "filled_map.egypt": "Ancient Egyptian Map",
   "filled_map.rome": "Ancient Roman Map",
 
+  "subtitles.civilizations.egypt_boss_music": "Fire And Thunder",
+  "subtitles.civilizations.egypt_god_music": "LIBERATION FORCES",
+  "subtitles.civilizations.china_boss_music": "GODDESS OF FATE",
+  "subtitles.civilizations.china_god_music": "THE MISSING CONNECTION",
+  "subtitles.civilizations.nordic_boss_music": "Good Day To Die",
+  "subtitles.civilizations.nordic_god_music": "COLLAPSING KINGDOM",
+  "subtitles.civilizations.greece_boss_music": "Dragon Castle",
+  "subtitles.civilizations.greece_god_music": "Endless Storm",
+  "subtitles.civilizations.rome_boss_music": "The Army of Minotaur",
+  "subtitles.civilizations.rome_god_music": "Imperium",
+
   "advancements.civilizations.title": "Civilizations",
   "advancements.civilizations.description": "Welcome to Civilizations",
 

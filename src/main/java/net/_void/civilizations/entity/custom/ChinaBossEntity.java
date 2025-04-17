@@ -2,7 +2,10 @@ package net._void.civilizations.entity.custom;
 
 import net._void.civilizations.entity.ai.ChinaBossAttackGoal;
 import net._void.civilizations.item.ModItems;
+import net._void.civilizations.sound.CustomSoundInstance;
+import net._void.civilizations.sound.ModSounds;
 import net.minecraft.block.Blocks;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.AnimationState;
 import net.minecraft.entity.EntityPose;
 import net.minecraft.entity.EntityType;
@@ -29,6 +32,7 @@ import net.minecraft.item.Items;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
@@ -41,6 +45,9 @@ public class ChinaBossEntity extends AnimalEntity{
     private int idleAnimationTimeout = 0;
     public final AnimationState attackAnimationState = new AnimationState();
     public int attackAnimationTimeout = 0;
+
+    private final MinecraftClient client = MinecraftClient.getInstance();
+    private final CustomSoundInstance instance = new CustomSoundInstance(client.player, ModSounds.CHINA_BOSS_MUSIC, SoundCategory.MASTER);
 
     int guardsSpawned = 0;
     int spawnTimer = -1;
@@ -86,6 +93,21 @@ public class ChinaBossEntity extends AnimalEntity{
         super.tick();
         if(this.getWorld().isClient()) {
             setupAnimationStates();
+        }
+        if(this.getWorld().getClosestPlayer(this, 100) != null){
+            if(this.getWorld().getClosestPlayer(this, 100).squaredDistanceTo(this) <= (double)2500.0F){
+                if(this.getWorld().isClient() && this.isAlive()){
+                    if(!client.getSoundManager().isPlaying(instance)){
+                        client.getSoundManager().play(instance);
+                    }
+                }
+            }else{
+                if(this.getWorld().isClient()){
+                    if(client.getSoundManager().isPlaying(instance)){
+                        client.getSoundManager().stop(instance);
+                    }
+                }
+            }
         }
     }
 
@@ -208,6 +230,11 @@ public class ChinaBossEntity extends AnimalEntity{
 
     @Override
     public void onDeath(DamageSource damageSource) {
+        if(this.getWorld().isClient()){
+            if(client.getSoundManager().isPlaying(instance)){
+                client.getSoundManager().stop(instance);
+            }
+        }
         super.onDeath(damageSource);
     }
 

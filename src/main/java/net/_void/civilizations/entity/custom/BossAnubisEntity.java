@@ -3,7 +3,10 @@ package net._void.civilizations.entity.custom;
 import net._void.civilizations.entity.ai.BossAnubisAttackGoal;
 import net._void.civilizations.entity.ai.BossAnubisSpellGoal;
 import net._void.civilizations.item.ModItems;
+import net._void.civilizations.sound.CustomSoundInstance;
+import net._void.civilizations.sound.ModSounds;
 import net.minecraft.block.Blocks;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.ActiveTargetGoal;
 import net.minecraft.entity.ai.goal.SwimGoal;
@@ -19,15 +22,17 @@ import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.MobEntity;
-import net.minecraft.entity.mob.RavagerEntity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.vehicle.BoatEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -47,6 +52,9 @@ public class BossAnubisEntity extends AnimalEntity {
     public final AnimationState spellAnimationState = new AnimationState();
     public int spellAnimationTimeout = 0;
 
+    private final MinecraftClient client = MinecraftClient.getInstance();
+    private final CustomSoundInstance instance = new CustomSoundInstance(client.player, ModSounds.EGYPT_GOD_MUSIC, SoundCategory.MASTER);
+
     private static TrackedData<Integer> X = DataTracker.registerData(BossAnubisEntity.class, TrackedDataHandlerRegistry.INTEGER);
     private static TrackedData<Integer> Y = DataTracker.registerData(BossAnubisEntity.class, TrackedDataHandlerRegistry.INTEGER);
     private static TrackedData<Integer> Z = DataTracker.registerData(BossAnubisEntity.class, TrackedDataHandlerRegistry.INTEGER);
@@ -55,6 +63,18 @@ public class BossAnubisEntity extends AnimalEntity {
         this.dataTracker.set(X, x);
         this.dataTracker.set(Y, y);
         this.dataTracker.set(Z, z);
+    }
+
+    public int getCoordsX(){
+        return this.dataTracker.get(X);
+    }
+
+    public int getCoordsY(){
+        return this.dataTracker.get(Y);
+    }
+
+    public int getCoordsZ(){
+        return this.dataTracker.get(Z);
     }
 
     private final ServerBossBar bossBar = new ServerBossBar(Text.translatable("entity.civilizations.boss_anubis"),
@@ -104,6 +124,21 @@ public class BossAnubisEntity extends AnimalEntity {
         super.tick();
         if(this.getWorld().isClient()) {
             setupAnimationStates();
+        }
+        if(this.getWorld().getClosestPlayer(this, 100) != null){
+            if(this.getWorld().getClosestPlayer(this, 100).squaredDistanceTo(this) <= (double)2500.0F){
+                if(this.getWorld().isClient() && this.isAlive()){
+                    if(!client.getSoundManager().isPlaying(instance)){
+                        client.getSoundManager().play(instance);
+                    }
+                }
+            }else{
+                if(this.getWorld().isClient()){
+                    if(client.getSoundManager().isPlaying(instance)){
+                        client.getSoundManager().stop(instance);
+                    }
+                }
+            }
         }
     }
 
@@ -196,6 +231,22 @@ public class BossAnubisEntity extends AnimalEntity {
     }
 
     @Override
+    public void writeCustomDataToNbt(NbtCompound nbt) {
+        super.writeCustomDataToNbt(nbt);
+        nbt.putInt("X", this.getCoordsX());
+        nbt.putInt("Y", this.getCoordsY());
+        nbt.putInt("Z", this.getCoordsZ());
+    }
+
+    @Override
+    public void readCustomDataFromNbt(NbtCompound nbt) {
+        super.readCustomDataFromNbt(nbt);
+        this.dataTracker.set(X, nbt.getInt("X"));
+        this.dataTracker.set(Y, nbt.getInt("Y"));
+        this.dataTracker.set(Z, nbt.getInt("Z"));
+    }
+
+    @Override
     public boolean damage(DamageSource source, float amount) {
         if(source.isOf(DamageTypes.IN_FIRE) ||
                 source.isOf(DamageTypes.ON_FIRE) ||
@@ -218,9 +269,9 @@ public class BossAnubisEntity extends AnimalEntity {
         for(double i = -50;i<=100;i++){
             for(double j = -50;j<=100;j++) {
                 if (pow(i, 2) + pow(j, 2) <= pow(35, 2)) {
-                    this.getWorld().setBlockState(new BlockPos(this.dataTracker.get(X) + (int) i, 198, this.dataTracker.get(Z) + (int) j), Blocks.AIR.getDefaultState());
-                    this.getWorld().setBlockState(new BlockPos(this.dataTracker.get(X) + (int) i, 199, this.dataTracker.get(Z) + (int) j), Blocks.AIR.getDefaultState());
+                    this.getWorld().setBlockState(new BlockPos(this.dataTracker.get(X) + (int) i, 201, this.dataTracker.get(Z) + (int) j), Blocks.AIR.getDefaultState());
                     this.getWorld().setBlockState(new BlockPos(this.dataTracker.get(X) + (int) i, 200, this.dataTracker.get(Z) + (int) j), Blocks.AIR.getDefaultState());
+                    this.getWorld().setBlockState(new BlockPos(this.dataTracker.get(X) + (int) i, 199, this.dataTracker.get(Z) + (int) j), Blocks.AIR.getDefaultState());
                 }
             }
         }
@@ -230,6 +281,13 @@ public class BossAnubisEntity extends AnimalEntity {
         ItemEntity itemEntity = new ItemEntity(this.getWorld(),this.dataTracker.get(X) + 0.5, this.dataTracker.get(Y), this.dataTracker.get(Z) + 0.5, new ItemStack(ModItems.ANUBIS_ANKH));
         itemEntity.updatePosition(this.dataTracker.get(X) + 0.5, this.dataTracker.get(Y), this.dataTracker.get(Z) + 0.5);
         this.getWorld().spawnEntity(itemEntity);
+
+        if(this.getWorld().isClient()){
+            if(client.getSoundManager().isPlaying(instance)){
+                client.getSoundManager().stop(instance);
+            }
+        }
+
         super.onDeath(damageSource);
     }
 

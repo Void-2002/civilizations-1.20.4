@@ -16,5 +16,65 @@
         "stream": true
       }
     ]
+  },
+  "egypt_boss_music": {
+    "subtitle": "subtitles.civilizations.egypt_boss_music",
+    "sounds": [
+      "civilizations:egypt_boss_music"
+    ]
+  },
+  "egypt_god_music": {
+    "subtitle": "subtitles.civilizations.egypt_god_music",
+    "sounds": [
+      "civilizations:egypt_god_music"
+    ]
+  },
+  "china_boss_music": {
+    "subtitle": "subtitles.civilizations.china_boss_music",
+    "sounds": [
+      "civilizations:china_boss_music"
+    ]
+  },
+  "china_god_music": {
+    "subtitle": "subtitles.civilizations.china_god_music",
+    "sounds": [
+      "civilizations:china_god_music"
+    ]
+  },
+  "nordic_boss_music": {
+    "subtitle": "subtitles.civilizations.nordic_boss_music",
+    "sounds": [
+      "civilizations:nordic_boss_music"
+    ]
+  },
+  "nordic_god_music": {
+    "subtitle": "subtitles.civilizations.nordic_god_music",
+    "sounds": [
+      "civilizations:nordic_god_music"
+    ]
+  },
+  "greece_boss_music": {
+    "subtitle": "subtitles.civilizations.greece_boss_music",
+    "sounds": [
+      "civilizations:greece_boss_music"
+    ]
+  },
+  "greece_god_music": {
+    "subtitle": "subtitles.civilizations.greece_god_music",
+    "sounds": [
+      "civilizations:greece_god_music"
+    ]
+  },
+  "rome_boss_music": {
+    "subtitle": "subtitles.civilizations.rome_boss_music",
+    "sounds": [
+      "civilizations:rome_boss_music"
+    ]
+  },
+  "rome_god_music": {
+    "subtitle": "subtitles.civilizations.rome_god_music",
+    "sounds": [
+      "civilizations:rome_god_music"
+    ]
   }
 }
