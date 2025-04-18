@@ -174,6 +174,12 @@ public class MercuryCore extends Item {
             if(entity instanceof PlayerEntity player && player.getY() >= 202 && player.hasStatusEffect(StatusEffects.LEVITATION)){
                 player.setStatusEffect(new StatusEffectInstance(StatusEffects.LEVITATION, 0, 0), player);
                 player.setStatusEffect(new StatusEffectInstance(StatusEffects.GLOWING, 0, 0), player);
+                for(PlayerEntity player2 : world.getPlayers()){
+                    if(player.squaredDistanceTo(player2) <= (double) 900.0F && !player.equals(player2)){
+                        player2.setStatusEffect(new StatusEffectInstance(StatusEffects.LEVITATION, 0, 0), player);
+                        player2.setStatusEffect(new StatusEffectInstance(StatusEffects.GLOWING, 0, 0), player);
+                    }
+                }
                 spawnTick = 0;
                 for(double i = -50;i<=100;i++){
                     for(double j = -50;j<=100;j++) {

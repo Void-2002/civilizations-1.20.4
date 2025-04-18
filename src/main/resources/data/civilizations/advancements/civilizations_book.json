@@ -1,0 +1,166 @@
+{
+  "parent": "civilizations:civilizations",
+  "display": {
+    "icon": {
+      "item": "minecraft:enchanted_book"
+    },
+    "title": {
+      "translate": "advancements.civilizations_book.title"
+    },
+    "description": {
+      "translate": "advancements.civilizations_book.description"
+    },
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "sharpness_book": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "civilizations:sharpness_book"
+            ]
+          }
+        ]
+      }
+    },
+    "power_book": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "civilizations:power_book"
+            ]
+          }
+        ]
+      }
+    },
+    "fire_aspect_book": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "civilizations:fire_aspect_book"
+            ]
+          }
+        ]
+      }
+    },
+    "unbreaking_book": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "civilizations:unbreaking_book"
+            ]
+          }
+        ]
+      }
+    },
+    "protection_book": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "civilizations:protection_book"
+            ]
+          }
+        ]
+      }
+    },
+    "feather_falling_book": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "civilizations:feather_falling_book"
+            ]
+          }
+        ]
+      }
+    },
+    "thorns_book": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "civilizations:thorns_book"
+            ]
+          }
+        ]
+      }
+    },
+    "frost_walker_book": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "civilizations:frost_walker_book"
+            ]
+          }
+        ]
+      }
+    },
+    "depth_strider_book": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "civilizations:depth_strider_book"
+            ]
+          }
+        ]
+      }
+    },
+    "efficiency_book": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "civilizations:efficiency_book"
+            ]
+          }
+        ]
+      }
+    },
+    "fortune_book": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "civilizations:fortune_book"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "sharpness_book",
+      "power_book",
+      "fire_aspect_book",
+      "unbreaking_book",
+      "protection_book",
+      "feather_falling_book",
+      "thorns_book",
+      "frost_walker_book",
+      "depth_strider_book",
+      "efficiency_book",
+      "fortune_book"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

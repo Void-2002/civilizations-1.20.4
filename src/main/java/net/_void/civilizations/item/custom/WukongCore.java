@@ -100,7 +100,7 @@ public class WukongCore extends Item {
                                 5, 0, 0, 0, 1);
                     }
                 }
-                world.setBlockState(new BlockPos(x , y+1 ,z), Blocks.COAL_BLOCK.getDefaultState());
+                world.setBlockState(new BlockPos(x , y+1 ,z), Blocks.RED_SHULKER_BOX.getDefaultState());
             }
             if(tick == 40){
                 ((ServerWorld) world).spawnParticles(ParticleTypes.END_ROD ,x+0.5 , y+1 ,z+0.5 ,
@@ -175,6 +175,12 @@ public class WukongCore extends Item {
             if(entity instanceof PlayerEntity player && player.getY() >= 202 && player.hasStatusEffect(StatusEffects.LEVITATION)){
                 player.setStatusEffect(new StatusEffectInstance(StatusEffects.LEVITATION, 0, 0), player);
                 player.setStatusEffect(new StatusEffectInstance(StatusEffects.GLOWING, 0, 0), player);
+                for(PlayerEntity player2 : world.getPlayers()){
+                    if(player.squaredDistanceTo(player2) <= (double) 900.0F && !player.equals(player2)){
+                        player2.setStatusEffect(new StatusEffectInstance(StatusEffects.LEVITATION, 0, 0), player);
+                        player2.setStatusEffect(new StatusEffectInstance(StatusEffects.GLOWING, 0, 0), player);
+                    }
+                }
                 spawnTick = 0;
                 for(double i = -50;i<=100;i++){
                     for(double j = -50;j<=100;j++) {
