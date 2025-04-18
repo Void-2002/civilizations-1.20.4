@@ -164,6 +164,12 @@ public class ArtemisCore extends Item {
                 if(entity instanceof PlayerEntity player){
                     player.addStatusEffect(new StatusEffectInstance(StatusEffects.LEVITATION, 600, 11, false, false));
                     player.addStatusEffect(new StatusEffectInstance(StatusEffects.GLOWING, 600, 0, false, false));
+                    for(PlayerEntity player2 : world.getPlayers()){
+                        if(player.squaredDistanceTo(player2) <= (double) 100.0F && !player.equals(player2)){
+                            player2.addStatusEffect(new StatusEffectInstance(StatusEffects.LEVITATION, 600, 12, false, false));
+                            player2.addStatusEffect(new StatusEffectInstance(StatusEffects.GLOWING, 600, 0, false, false));
+                        }
+                    }
                 }
             }
             if(entity instanceof PlayerEntity player && player.getY() >= 202 && player.hasStatusEffect(StatusEffects.LEVITATION)){
