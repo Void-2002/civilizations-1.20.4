@@ -2,6 +2,7 @@ package net._void.civilizations.entity.custom;
 
 import net._void.civilizations.entity.ModEntities;
 import net._void.civilizations.entity.ai.EgyptCivilianAttackGoal;
+import net._void.civilizations.item.ModItems;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
@@ -14,14 +15,24 @@ import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
 import net.minecraft.util.Util;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
 
 public class EgyptCivilianEntity extends AnimalEntity {
 
@@ -32,6 +43,31 @@ public class EgyptCivilianEntity extends AnimalEntity {
     public final AnimationState attackAnimationState = new AnimationState();
     public int attackAnimationTimeout = 0;
 
+    Entity trader;
+    int trading = 0;
+    int tradingDuration = 0;
+    Map<Item, Integer> outputItems = new HashMap<Item, Integer>() {{
+        put(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE,1);
+        put(Items.NETHERRACK,4);
+        put(Items.GOLDEN_APPLE,1);
+        put(Items.BREAD,7);
+        put(Items.SADDLE,1);
+        put(Items.COOKED_CHICKEN,3);
+        put(Items.DUNE_ARMOR_TRIM_SMITHING_TEMPLATE,1);
+        put(Items.GLOWSTONE_DUST,4);
+        put(Items.EMERALD,3);
+        put(Items.FEATHER,5);
+        put(Items.STRING,6);
+        put(Items.LEATHER,4);
+        put(Items.COPPER_INGOT,5);
+        put(ModItems.PAPYRUS,3);
+        put(Items.SANDSTONE,20);
+        put(Items.DECORATED_POT,1);
+        put(Items.BRUSH,1);
+        put(Items.CACTUS,5);
+        put(Items.DEAD_BUSH,3);
+        put(Items.EXPERIENCE_BOTTLE,16);
+    }};
 
     public EgyptCivilianEntity(EntityType<? extends AnimalEntity> entityType, World world) {
         super(entityType, world);
@@ -163,5 +199,46 @@ public class EgyptCivilianEntity extends AnimalEntity {
 
     private void setVariant(EgyptCivilianVariant variant) {
         this.dataTracker.set(DATA_ID_TYPE_VARIANT, variant.getId() & 255);
+    }
+
+    @Override
+    protected void mobTick() {
+        if(trading >= 1){
+            tradingDuration += 1;
+            this.getMoveControl().moveTo(this.getX(),this.getY(),this.getZ(),1);
+            this.lookAtEntity(trader, 5, 5);
+            if(tradingDuration == 50){
+                ((ServerWorld) this.getWorld()).spawnParticles(ParticleTypes.HAPPY_VILLAGER,this.getX(),
+                        this.getEyeY(), this.getZ(), 10, 0.2, 0.2, 0.2, 1);
+            }
+            if(tradingDuration == 100){
+                ((ServerWorld) this.getWorld()).spawnParticles(ParticleTypes.HAPPY_VILLAGER,this.getX(),
+                        this.getEyeY(), this.getZ(), 10, 0.2, 0.2, 0.2, 1);
+                Random generator = new Random();
+                Object[] values = outputItems.keySet().toArray();
+                Item randomItem = (Item) values[generator.nextInt(values.length)];
+                dropStack(new ItemStack(randomItem,outputItems.get(randomItem)));
+                tradingDuration = 0;
+                trading = 0;
+            }
+        }
+        super.mobTick();
+    }
+
+    @Override
+    public ActionResult interactMob(PlayerEntity player, Hand hand) {
+        if(!this.getWorld().isClient()){
+            ItemStack itemStack = player.getMainHandStack();
+            Item item = itemStack.getItem();
+            if ((item.equals(ModItems.EGYPT_COIN)) && trading == 0){
+                trader = player;
+                trading = 1;
+                itemStack.setCount(itemStack.getCount()-1);
+                ((ServerWorld) this.getWorld()).spawnParticles(ParticleTypes.HAPPY_VILLAGER,this.getX(),
+                        this.getEyeY(), this.getZ(), 10, 0.2, 0.2, 0.2, 1);
+                return ActionResult.SUCCESS;
+            }
+        }
+        return super.interactMob(player, hand);
     }
 }
