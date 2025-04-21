@@ -46,10 +46,8 @@ public class MercuryBoots extends ArmorItem {
     }
 
     private boolean hasCorrectBootsOn(ArmorMaterial material, PlayerEntity player) {
-        for (ItemStack armorStack: player.getInventory().armor) {
-            if(!(armorStack.getItem() instanceof ArmorItem)) {
-                return false;
-            }
+        if(!(player.getInventory().getArmorStack(0).getItem() instanceof ArmorItem)) {
+            return false;
         }
         return !player.getInventory().getArmorStack(0).isEmpty() &&
                 ((ArmorItem)player.getInventory().getArmorStack(0).getItem()).getMaterial() == material;
