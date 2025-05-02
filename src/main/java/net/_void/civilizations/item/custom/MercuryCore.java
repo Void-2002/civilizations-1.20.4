@@ -178,6 +178,7 @@ public class MercuryCore extends Item {
                     if(player.squaredDistanceTo(player2) <= (double) 900.0F && !player.equals(player2)){
                         player2.setStatusEffect(new StatusEffectInstance(StatusEffects.LEVITATION, 0, 0), player);
                         player2.setStatusEffect(new StatusEffectInstance(StatusEffects.GLOWING, 0, 0), player);
+                        player2.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOW_FALLING, 100, 0, false, false));
                     }
                 }
                 spawnTick = 0;

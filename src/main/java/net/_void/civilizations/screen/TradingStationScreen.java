@@ -2,11 +2,15 @@ package net._void.civilizations.screen;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import net._void.civilizations.Civilizations;
+import net._void.civilizations.networking.ModMessages;
 import net._void.civilizations.util.CustomWidget;
+import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
+import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.render.GameRenderer;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.network.PacketByteBuf;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
@@ -19,7 +23,6 @@ public class TradingStationScreen extends HandledScreen<TradingStationScreenHand
     private static final Identifier coin = new Identifier(Civilizations.MOD_ID, "textures/item/egypt_coin.png");
     private static final Identifier papyrus = new Identifier(Civilizations.MOD_ID, "textures/item/papyrus.png");
     private static final Identifier gold_nugget = new Identifier("minecraft", "textures/item/gold_nugget.png");
-    public static int TRADE = 1;
 
     public TradingStationScreen(TradingStationScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
@@ -34,10 +37,26 @@ public class TradingStationScreen extends HandledScreen<TradingStationScreenHand
         CustomWidget customWidget1 = new CustomWidget(238, 111, 39, 23){
             @Override
             protected boolean clicked(double mouseX, double mouseY) {
-                if (mouseX >= 238 && mouseX <= 238+39 && mouseY >= 111 && mouseY <= 111 + 23) TRADE = 1;
-                if (mouseX >= 277 && mouseX <= 277+39 && mouseY >= 111 && mouseY <= 111 + 23) TRADE = 2;
-                if (mouseX >= 238 && mouseX <= 238+39 && mouseY >= 134 && mouseY <= 134 + 23) TRADE = 3;
-                if (mouseX >= 277 && mouseX <= 277+39 && mouseY >= 134 && mouseY <= 134 + 23) TRADE = 4;
+                if (mouseX >= 238 && mouseX <= 238+39 && mouseY >= 111 && mouseY <= 111 + 23) {
+                    PacketByteBuf buffer = PacketByteBufs.create();
+                    buffer.writeInt(1);
+                    ClientPlayNetworking.send(ModMessages.TRADE, buffer);
+                }
+                if (mouseX >= 277 && mouseX <= 277+39 && mouseY >= 111 && mouseY <= 111 + 23) {
+                    PacketByteBuf buffer = PacketByteBufs.create();
+                    buffer.writeInt(2);
+                    ClientPlayNetworking.send(ModMessages.TRADE, buffer);
+                }
+                if (mouseX >= 238 && mouseX <= 238+39 && mouseY >= 134 && mouseY <= 134 + 23) {
+                    PacketByteBuf buffer = PacketByteBufs.create();
+                    buffer.writeInt(3);
+                    ClientPlayNetworking.send(ModMessages.TRADE, buffer);
+                }
+                if (mouseX >= 277 && mouseX <= 277+39 && mouseY >= 134 && mouseY <= 134 + 23) {
+                    PacketByteBuf buffer = PacketByteBufs.create();
+                    buffer.writeInt(4);
+                    ClientPlayNetworking.send(ModMessages.TRADE, buffer);
+                }
                 return super.clicked(mouseX, mouseY);
             }
         };

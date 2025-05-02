@@ -7,6 +7,7 @@ import net._void.civilizations.entity.ModEntities;
 import net._void.civilizations.entity.custom.*;
 import net._void.civilizations.item.ModItemGroups;
 import net._void.civilizations.item.ModItems;
+import net._void.civilizations.networking.ModMessages;
 import net._void.civilizations.screen.ModScreenHandlers;
 import net._void.civilizations.sound.ModSounds;
 import net.fabricmc.api.ModInitializer;
@@ -28,6 +29,7 @@ public class Civilizations implements ModInitializer {
 		ModScreenHandlers.registerScreenHandlers();
 		ModEffects.registerEffects();
 		ModSounds.registerSounds();
+		ModMessages.registerC2SPackets();
 
 		FabricDefaultAttributeRegistry.register(ModEntities.EGYPT_CIVILIAN, EgyptCivilianEntity.createCivilianAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.EGYPT_NPC, EgyptNpcEntity.createNpcAttributes());

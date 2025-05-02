@@ -21,10 +21,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-import static net._void.civilizations.screen.TradingStationScreen.TRADE;
-
 public class TradingStationBlockEntity extends BlockEntity implements ExtendedScreenHandlerFactory, ImplementedInventory {
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(4, ItemStack.EMPTY);
+    public static int TRADE = 1;
 
     private static final int TRADE_INPUT = 0;
     private static final int TRADE_OUTPUT = 1;
