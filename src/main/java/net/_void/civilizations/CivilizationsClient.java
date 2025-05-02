@@ -3,16 +3,21 @@ package net._void.civilizations;
 import net._void.civilizations.block.ModBlocks;
 import net._void.civilizations.entity.ModEntities;
 import net._void.civilizations.entity.client.*;
+import net._void.civilizations.networking.ModMessages;
 import net._void.civilizations.screen.ModScreenHandlers;
 import net._void.civilizations.screen.TradingStationScreen;
 import net._void.civilizations.screen.TombstoneScreen;
+import net._void.civilizations.sound.CustomSoundInstance;
+import net._void.civilizations.sound.ModSounds;
 import net._void.civilizations.util.ModModelPredicates;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
+import net.minecraft.sound.SoundCategory;
 
 public class CivilizationsClient implements ClientModInitializer {
 
@@ -81,6 +86,7 @@ public class CivilizationsClient implements ClientModInitializer {
         HandledScreens.register(ModScreenHandlers.TOMBSTONE_SCREEN_HANDLER, TombstoneScreen::new);
 
         ModModelPredicates.registerModModels();
+        ModMessages.registerS2CPackets();
 
     }
 }

@@ -261,4 +261,9 @@ public class GreeceCivilianEntity extends AnimalEntity{
         }
         return super.interactMob(player, hand);
     }
+
+    @Override
+    public boolean canBeLeashedBy(PlayerEntity player) {
+        return false;
+    }
 }

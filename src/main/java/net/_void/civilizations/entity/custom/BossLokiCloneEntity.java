@@ -156,4 +156,14 @@ public class BossLokiCloneEntity extends AnimalEntity {
         }
         return super.damage(source, amount);
     }
+
+    @Override
+    public boolean isPushable() {
+        return false;
+    }
+
+    @Override
+    public boolean canBeLeashedBy(PlayerEntity player) {
+        return false;
+    }
 }

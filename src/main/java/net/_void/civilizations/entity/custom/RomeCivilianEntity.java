@@ -256,4 +256,9 @@ public class RomeCivilianEntity extends AnimalEntity {
         }
         return super.interactMob(player, hand);
     }
+
+    @Override
+    public boolean canBeLeashedBy(PlayerEntity player) {
+        return false;
+    }
 }

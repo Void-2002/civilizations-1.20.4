@@ -2,8 +2,11 @@ package net._void.civilizations.entity.custom;
 
 import net._void.civilizations.entity.ai.BossLokiAttackGoal;
 import net._void.civilizations.item.ModItems;
+import net._void.civilizations.networking.ModMessages;
 import net._void.civilizations.sound.CustomSoundInstance;
 import net._void.civilizations.sound.ModSounds;
+import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.AnimationState;
@@ -30,6 +33,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.vehicle.BoatEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.network.PacketByteBuf;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
@@ -58,9 +62,6 @@ public class BossLokiEntity extends AnimalEntity {
     public int cloneAnimationTimeout = 0;
     public final AnimationState summonAnimationState = new AnimationState();
     public int summonAnimationTimeout = 0;
-
-    private final MinecraftClient client = MinecraftClient.getInstance();
-    private final CustomSoundInstance instance = new CustomSoundInstance(client.player, ModSounds.NORDIC_GOD_MUSIC, SoundCategory.MASTER);
 
     private static TrackedData<Integer> X = DataTracker.registerData(BossLokiEntity.class, TrackedDataHandlerRegistry.INTEGER);
     private static TrackedData<Integer> Y = DataTracker.registerData(BossLokiEntity.class, TrackedDataHandlerRegistry.INTEGER);
@@ -148,18 +149,18 @@ public class BossLokiEntity extends AnimalEntity {
         if(this.getWorld().isClient()) {
             setupAnimationStates();
         }
-        if(this.getWorld().getClosestPlayer(this, 100) != null){
-            if(this.getWorld().getClosestPlayer(this, 100).squaredDistanceTo(this) <= (double)2500.0F){
-                if(this.getWorld().isClient() && this.isAlive()){
-                    if(!client.getSoundManager().isPlaying(instance)){
-                        client.getSoundManager().play(instance);
-                    }
+        for(PlayerEntity player : this.getWorld().getPlayers()){
+            if(player.squaredDistanceTo(this)<=(double)2500.0F){
+                if(!this.getWorld().isClient() && this.isAlive()){
+                    PacketByteBuf buffer = PacketByteBufs.create();
+                    buffer.writeString("NordicGodPlay");
+                    ServerPlayNetworking.send((ServerPlayerEntity) player, ModMessages.BOSS_MUSIC_PLAY, buffer);
                 }
             }else{
-                if(this.getWorld().isClient()){
-                    if(client.getSoundManager().isPlaying(instance)){
-                        client.getSoundManager().stop(instance);
-                    }
+                if(!this.getWorld().isClient()){
+                    PacketByteBuf buffer = PacketByteBufs.create();
+                    buffer.writeString("NordicGodStop");
+                    ServerPlayNetworking.send((ServerPlayerEntity) player, ModMessages.BOSS_MUSIC_PLAY, buffer);
                 }
             }
         }
@@ -319,9 +320,13 @@ public class BossLokiEntity extends AnimalEntity {
         itemEntity.updatePosition(this.dataTracker.get(X) + 0.5, this.dataTracker.get(Y), this.dataTracker.get(Z) + 0.5);
         this.getWorld().spawnEntity(itemEntity);
 
-        if(this.getWorld().isClient()){
-            if(client.getSoundManager().isPlaying(instance)){
-                client.getSoundManager().stop(instance);
+        for(PlayerEntity player : this.getWorld().getPlayers()){
+            if(player.squaredDistanceTo(this)<=(double)2500.0F){
+                if(!this.getWorld().isClient()){
+                    PacketByteBuf buffer = PacketByteBufs.create();
+                    buffer.writeString("NordicGodStop");
+                    ServerPlayNetworking.send((ServerPlayerEntity) player, ModMessages.BOSS_MUSIC_PLAY, buffer);
+                }
             }
         }
 
@@ -330,6 +335,11 @@ public class BossLokiEntity extends AnimalEntity {
 
     @Override
     public boolean isPushable() {
+        return false;
+    }
+
+    @Override
+    public boolean canBeLeashedBy(PlayerEntity player) {
         return false;
     }
 }

@@ -162,4 +162,9 @@ public class NordicCivilianEntity extends AnimalEntity{
     private void setVariant(NordicCivilianVariant variant) {
         this.dataTracker.set(DATA_ID_TYPE_VARIANT, variant.getId() & 255);
     }
+
+    @Override
+    public boolean canBeLeashedBy(PlayerEntity player) {
+        return false;
+    }
 }

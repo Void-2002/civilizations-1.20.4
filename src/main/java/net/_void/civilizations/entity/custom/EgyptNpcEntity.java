@@ -80,4 +80,9 @@ public class EgyptNpcEntity extends AnimalEntity {
     public @Nullable PassiveEntity createChild(ServerWorld world, PassiveEntity entity) {
         return ModEntities.EGYPT_NPC.create(world);
     }
+
+    @Override
+    public boolean canBeLeashedBy(PlayerEntity player) {
+        return false;
+    }
 }

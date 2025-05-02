@@ -174,4 +174,9 @@ public class RomeGuardEntity extends AnimalEntity {
             boss.guardsKilled += 1;
         }
     }
+
+    @Override
+    public boolean canBeLeashedBy(PlayerEntity player) {
+        return false;
+    }
 }

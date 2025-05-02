@@ -2,8 +2,11 @@ package net._void.civilizations.entity.custom;
 
 import net._void.civilizations.entity.ai.ChinaBossAttackGoal;
 import net._void.civilizations.item.ModItems;
+import net._void.civilizations.networking.ModMessages;
 import net._void.civilizations.sound.CustomSoundInstance;
 import net._void.civilizations.sound.ModSounds;
+import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.AnimationState;
@@ -27,6 +30,7 @@ import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.vehicle.BoatEntity;
 import net.minecraft.item.Items;
+import net.minecraft.network.PacketByteBuf;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
@@ -43,9 +47,6 @@ public class ChinaBossEntity extends AnimalEntity{
     private int idleAnimationTimeout = 0;
     public final AnimationState attackAnimationState = new AnimationState();
     public int attackAnimationTimeout = 0;
-
-    private final MinecraftClient client = MinecraftClient.getInstance();
-    private final CustomSoundInstance instance = new CustomSoundInstance(client.player, ModSounds.CHINA_BOSS_MUSIC, SoundCategory.MASTER);
 
     int guardsSpawned = 0;
     int spawnTimer = -1;
@@ -92,18 +93,18 @@ public class ChinaBossEntity extends AnimalEntity{
         if(this.getWorld().isClient()) {
             setupAnimationStates();
         }
-        if(this.getWorld().getClosestPlayer(this, 100) != null){
-            if(this.getWorld().getClosestPlayer(this, 100).squaredDistanceTo(this) <= (double)2500.0F){
-                if(this.getWorld().isClient() && this.isAlive()){
-                    if(!client.getSoundManager().isPlaying(instance)){
-                        client.getSoundManager().play(instance);
-                    }
+        for(PlayerEntity player : this.getWorld().getPlayers()){
+            if(player.squaredDistanceTo(this)<=(double)2500.0F){
+                if(!this.getWorld().isClient() && this.isAlive()){
+                    PacketByteBuf buffer = PacketByteBufs.create();
+                    buffer.writeString("ChinaBossPlay");
+                    ServerPlayNetworking.send((ServerPlayerEntity) player, ModMessages.BOSS_MUSIC_PLAY, buffer);
                 }
             }else{
-                if(this.getWorld().isClient()){
-                    if(client.getSoundManager().isPlaying(instance)){
-                        client.getSoundManager().stop(instance);
-                    }
+                if(!this.getWorld().isClient()){
+                    PacketByteBuf buffer = PacketByteBufs.create();
+                    buffer.writeString("ChinaBossStop");
+                    ServerPlayNetworking.send((ServerPlayerEntity) player, ModMessages.BOSS_MUSIC_PLAY, buffer);
                 }
             }
         }
@@ -228,9 +229,13 @@ public class ChinaBossEntity extends AnimalEntity{
 
     @Override
     public void onDeath(DamageSource damageSource) {
-        if(this.getWorld().isClient()){
-            if(client.getSoundManager().isPlaying(instance)){
-                client.getSoundManager().stop(instance);
+        for(PlayerEntity player : this.getWorld().getPlayers()){
+            if(player.squaredDistanceTo(this)<=(double)2500.0F){
+                if(!this.getWorld().isClient()){
+                    PacketByteBuf buffer = PacketByteBufs.create();
+                    buffer.writeString("ChinaBossStop");
+                    ServerPlayNetworking.send((ServerPlayerEntity) player, ModMessages.BOSS_MUSIC_PLAY, buffer);
+                }
             }
         }
         super.onDeath(damageSource);
@@ -254,5 +259,15 @@ public class ChinaBossEntity extends AnimalEntity{
             itemEntity3.setCovetedItem();
             itemEntity3.setInvulnerable(true);
         }
+    }
+
+    @Override
+    public boolean isPushable() {
+        return false;
+    }
+
+    @Override
+    public boolean canBeLeashedBy(PlayerEntity player) {
+        return false;
     }
 }

@@ -3,8 +3,11 @@ package net._void.civilizations.entity.custom;
 import net._void.civilizations.entity.ai.EgyptBossAttackGoal;
 import net._void.civilizations.entity.ai.EgyptBossShootGoal;
 import net._void.civilizations.item.ModItems;
+import net._void.civilizations.networking.ModMessages;
 import net._void.civilizations.sound.CustomSoundInstance;
 import net._void.civilizations.sound.ModSounds;
+import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.*;
@@ -24,12 +27,14 @@ import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.vehicle.BoatEntity;
 import net.minecraft.item.Items;
+import net.minecraft.network.PacketByteBuf;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.text.Text;
 import net.minecraft.world.World;
+import org.apache.logging.log4j.core.jmx.Server;
 import org.jetbrains.annotations.Nullable;
 
 public class EgyptBossEntity extends AnimalEntity {
@@ -41,9 +46,6 @@ public class EgyptBossEntity extends AnimalEntity {
     public int shootingAnimationTimeout = 0;
     public final AnimationState attackAnimationState = new AnimationState();
     public int attackAnimationTimeout = 0;
-
-    private final MinecraftClient client = MinecraftClient.getInstance();
-    private final CustomSoundInstance instance = new CustomSoundInstance(client.player, ModSounds.EGYPT_BOSS_MUSIC, SoundCategory.MASTER);
 
     private final ServerBossBar bossBar = new ServerBossBar(Text.translatable("entity.civilizations.egypt_boss"),
             BossBar.Color.YELLOW, BossBar.Style.NOTCHED_20);
@@ -94,18 +96,18 @@ public class EgyptBossEntity extends AnimalEntity {
         if(this.getWorld().isClient()) {
             setupAnimationStates();
         }
-        if(this.getWorld().getClosestPlayer(this, 100) != null){
-            if(this.getWorld().getClosestPlayer(this, 100).squaredDistanceTo(this) <= (double)2500.0F){
-                if(this.getWorld().isClient() && this.isAlive()){
-                    if(!client.getSoundManager().isPlaying(instance)){
-                        client.getSoundManager().play(instance);
-                    }
+        for(PlayerEntity player : this.getWorld().getPlayers()){
+            if(player.squaredDistanceTo(this)<=(double)2500.0F){
+                if(!this.getWorld().isClient() && this.isAlive()){
+                    PacketByteBuf buffer = PacketByteBufs.create();
+                    buffer.writeString("EgyptBossPlay");
+                    ServerPlayNetworking.send((ServerPlayerEntity) player, ModMessages.BOSS_MUSIC_PLAY, buffer);
                 }
             }else{
-                if(this.getWorld().isClient()){
-                    if(client.getSoundManager().isPlaying(instance)){
-                        client.getSoundManager().stop(instance);
-                    }
+                if(!this.getWorld().isClient()){
+                    PacketByteBuf buffer = PacketByteBufs.create();
+                    buffer.writeString("EgyptBossStop");
+                    ServerPlayNetworking.send((ServerPlayerEntity) player, ModMessages.BOSS_MUSIC_PLAY, buffer);
                 }
             }
         }
@@ -216,9 +218,13 @@ public class EgyptBossEntity extends AnimalEntity {
 
     @Override
     public void onDeath(DamageSource damageSource) {
-        if(this.getWorld().isClient()){
-            if(client.getSoundManager().isPlaying(instance)){
-                client.getSoundManager().stop(instance);
+        for(PlayerEntity player : this.getWorld().getPlayers()){
+            if(player.squaredDistanceTo(this)<=(double)2500.0F){
+                if(!this.getWorld().isClient()){
+                    PacketByteBuf buffer = PacketByteBufs.create();
+                    buffer.writeString("EgyptBossStop");
+                    ServerPlayNetworking.send((ServerPlayerEntity) player, ModMessages.BOSS_MUSIC_PLAY, buffer);
+                }
             }
         }
         super.onDeath(damageSource);
@@ -247,5 +253,15 @@ public class EgyptBossEntity extends AnimalEntity {
             itemEntity4.setCovetedItem();
             itemEntity4.setInvulnerable(true);
         }
+    }
+
+    @Override
+    public boolean isPushable() {
+        return false;
+    }
+
+    @Override
+    public boolean canBeLeashedBy(PlayerEntity player) {
+        return false;
     }
 }

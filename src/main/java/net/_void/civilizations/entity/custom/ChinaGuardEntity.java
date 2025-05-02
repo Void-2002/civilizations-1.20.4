@@ -138,4 +138,9 @@ public class ChinaGuardEntity extends AnimalEntity{
             itemEntity.setCovetedItem();
         }
     }
+
+    @Override
+    public boolean canBeLeashedBy(PlayerEntity player) {
+        return false;
+    }
 }
