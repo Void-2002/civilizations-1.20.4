@@ -16,10 +16,10 @@ public class CustomWidget extends ClickableWidget {
         context.fill(getX(), getY(), getX() + this.width, getY() + this.height, 0x00FF6F);
 
         if(isSelected()){
-            context.drawHorizontalLine(getX(), getX() + width, getY(), 0xFFFFFFFF);
-            context.drawHorizontalLine(getX(), getX() + width, getY() + height, 0xFFFFFFFF);
-            context.drawVerticalLine(getX(), getY(), getY() + height, 0xFFFFFFFF);
-            context.drawVerticalLine(getX() + width, getY(), getY() + height, 0xFFFFFFFF);
+            context.drawHorizontalLine(getX(), getX() + width - 1, getY(), 0xFFFFFFFF);
+            context.drawHorizontalLine(getX(), getX() + width - 1, getY() + height - 1, 0xFFFFFFFF);
+            context.drawVerticalLine(getX(), getY(), getY() + height - 1, 0xFFFFFFFF);
+            context.drawVerticalLine(getX() + width - 1, getY(), getY() + height - 1, 0xFFFFFFFF);
         }
     }
 

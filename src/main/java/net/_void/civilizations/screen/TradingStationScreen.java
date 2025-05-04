@@ -33,26 +33,28 @@ public class TradingStationScreen extends HandledScreen<TradingStationScreenHand
         super.init();
         titleY = 1000;
         playerInventoryTitleY = 1000;
+        int x = (width - backgroundWidth) / 2;
+        int y = (height - backgroundHeight) / 2;
 
-        CustomWidget customWidget1 = new CustomWidget(238, 111, 39, 23){
+        CustomWidget customWidget1 = new CustomWidget(x + 6, y + 14, 39, 23){
             @Override
             protected boolean clicked(double mouseX, double mouseY) {
-                if (mouseX >= 238 && mouseX <= 238+39 && mouseY >= 111 && mouseY <= 111 + 23) {
+                if (mouseX >= x + 6 && mouseX <= x + 45 && mouseY >= y + 14 && mouseY <= y + 37) {
                     PacketByteBuf buffer = PacketByteBufs.create();
                     buffer.writeInt(1);
                     ClientPlayNetworking.send(ModMessages.TRADE, buffer);
                 }
-                if (mouseX >= 277 && mouseX <= 277+39 && mouseY >= 111 && mouseY <= 111 + 23) {
+                if (mouseX >= x + 45 && mouseX <= x + 84 && mouseY >= y + 14 && mouseY <= y + 37) {
                     PacketByteBuf buffer = PacketByteBufs.create();
                     buffer.writeInt(2);
                     ClientPlayNetworking.send(ModMessages.TRADE, buffer);
                 }
-                if (mouseX >= 238 && mouseX <= 238+39 && mouseY >= 134 && mouseY <= 134 + 23) {
+                if (mouseX >= x + 6 && mouseX <= x + 45 && mouseY >= y + 37 && mouseY <= y + 60) {
                     PacketByteBuf buffer = PacketByteBufs.create();
                     buffer.writeInt(3);
                     ClientPlayNetworking.send(ModMessages.TRADE, buffer);
                 }
-                if (mouseX >= 277 && mouseX <= 277+39 && mouseY >= 134 && mouseY <= 134 + 23) {
+                if (mouseX >= x + 45 && mouseX <= x + 84 && mouseY >= y + 37 && mouseY <= y + 60) {
                     PacketByteBuf buffer = PacketByteBufs.create();
                     buffer.writeInt(4);
                     ClientPlayNetworking.send(ModMessages.TRADE, buffer);
@@ -60,9 +62,9 @@ public class TradingStationScreen extends HandledScreen<TradingStationScreenHand
                 return super.clicked(mouseX, mouseY);
             }
         };
-        CustomWidget customWidget2 = new CustomWidget(277, 111, 39, 23){};
-        CustomWidget customWidget3 = new CustomWidget(238, 134, 39, 23){};
-        CustomWidget customWidget4 = new CustomWidget(277, 134, 39, 23){};
+        CustomWidget customWidget2 = new CustomWidget(x + 45, y + 14, 39, 23){};
+        CustomWidget customWidget3 = new CustomWidget(x + 6, y + 37, 39, 23){};
+        CustomWidget customWidget4 = new CustomWidget(x + 45, y + 37, 39, 23){};
         addDrawableChild(customWidget1);
         addDrawableChild(customWidget2);
         addDrawableChild(customWidget3);
@@ -77,14 +79,13 @@ public class TradingStationScreen extends HandledScreen<TradingStationScreenHand
         int x = (width - backgroundWidth) / 2;
         int y = (height - backgroundHeight) / 2;
 
-
         context.drawTexture(TEXTURE, x, y, 0, 0, backgroundWidth, backgroundHeight);
 
         context.drawText(this.textRenderer, "Trades", x + 29, y + 24 - this.textRenderer.fontHeight - 10, 0x373737, false);
         context.drawText(this.textRenderer, "Quests", x + 115, y + 24 - this.textRenderer.fontHeight - 10, 0x373737, false);
 
         renderReputationBar(context, x, y);
-        renderTrades(context);
+        renderTrades(context, x, y);
         renderQuests(context, x, y);
     }
 
@@ -97,15 +98,15 @@ public class TradingStationScreen extends HandledScreen<TradingStationScreenHand
         }
     }
 
-    private void renderTrades(DrawContext context){
-        context.drawTexture(haybale, 241, 114, 0, 0, 16, 16, 16, 16);
-        context.drawTexture(coin, 258, 114, 0, 0, 16, 16, 16, 16);
-        context.drawTexture(clay, 280, 114, 0, 0, 16, 16, 16, 16);
-        context.drawTexture(coin, 297, 114, 0, 0, 16, 16, 16, 16);
-        context.drawTexture(coin, 241, 137, 0, 0, 16, 16, 16, 16);
-        context.drawTexture(papyrus, 258, 137, 0, 0, 16, 16, 16, 16);
-        context.drawTexture(coin, 280, 137, 0, 0, 16, 16, 16, 16);
-        context.drawTexture(gold_nugget, 297, 137, 0, 0, 16, 16, 16, 16);
+    private void renderTrades(DrawContext context, int x, int y){
+        context.drawTexture(haybale, x + 9, y + 17, 0, 0, 16, 16, 16, 16);
+        context.drawTexture(coin, x + 26, y + 17, 0, 0, 16, 16, 16, 16);
+        context.drawTexture(clay, x + 48, y + 17, 0, 0, 16, 16, 16, 16);
+        context.drawTexture(coin, x + 65, y + 17, 0, 0, 16, 16, 16, 16);
+        context.drawTexture(coin, x + 9, y + 40, 0, 0, 16, 16, 16, 16);
+        context.drawTexture(papyrus, x + 26, y + 40, 0, 0, 16, 16, 16, 16);
+        context.drawTexture(coin, x + 48, y + 40, 0, 0, 16, 16, 16, 16);
+        context.drawTexture(gold_nugget, x + 65, y + 40, 0, 0, 16, 16, 16, 16);
     }
 
     private void renderQuests(DrawContext context, int x, int y){
